@@ -183,7 +183,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       termsP4Body: "AI.VIENNE Studio+ garantit la conformité de résolution 8K et le réalisme physique matériel selon le brief validé.",
       privacyTitle: "Politique de Confidentialité et Protection des Données (RGPD)",
       privacyP1Title: "1. CONFIDENTIALITÉ DES DONNÉES D'ENTREPRISE",
-      privacyP1Body: "Collecte minimale de données B2B strictement nécessaires. Aucune vente ou transmission commerciale.",
+      privacyP1Body: "Collecte minimale de données B2B strictly nécessaires. Aucune vente ou transmission commerciale.",
       privacyP2Title: "2. AUCUN ENTRAÎNEMENT DE MODÈLES PUBLICS",
       privacyP2Body: "Aucun actif client ou scan facial n'est utilisé pour entraîner des modèles IA génératifs publics.",
       privacyP3Title: "3. STOCKAGE SÉCURISÉ ET FILIGRANE DYNAMIQUE",
@@ -267,8 +267,13 @@ export default function Home() {
   const [mousePos, setMousePos] = useState({ x: -100, y: -100 });
   const [activeModal, setActiveModal] = useState<"terms" | "privacy" | null>(null);
 
+  // Sol kart videosunun Mute/Unmute state'i ve ref'i
   const [isVideoMuted, setIsVideoMuted] = useState<boolean>(true);
   const twinVideoRef = useRef<HTMLVideoElement | null>(null);
+
+  // Sağ kart videosunun Mute/Unmute state'i ve ref'i
+  const [isScanVideoMuted, setIsScanVideoMuted] = useState<boolean>(true);
+  const scanVideoRef = useRef<HTMLVideoElement | null>(null);
 
   const [causticsPosLeft, setCausticsPosLeft] = useState({ x: 50, y: 50 });
   const [causticsPosRight, setCausticsPosRight] = useState({ x: 50, y: 50 });
@@ -301,6 +306,14 @@ export default function Home() {
     if (twinVideoRef.current) {
       twinVideoRef.current.muted = !isVideoMuted;
       setIsVideoMuted(!isVideoMuted);
+    }
+  };
+
+  const toggleScanVideoMute = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (scanVideoRef.current) {
+      scanVideoRef.current.muted = !isScanVideoMuted;
+      setIsScanVideoMuted(!isScanVideoMuted);
     }
   };
 
@@ -660,6 +673,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Sol Kart - Vienne / Aurelia Model */}
             <div 
               onMouseMove={handleLeftCardMouseMove}
               className={`p-8 rounded-3xl border border-amber-500/30 bg-gradient-to-br ${selectedTwin.bg} flex flex-col justify-between relative overflow-hidden transition-all duration-700 shadow-2xl group`}
@@ -758,6 +772,7 @@ export default function Home() {
               </div>
             </div>
 
+            {/* Sağ Kart - Biometric Facial Scan Video + Ses Açma Düğmesi */}
             <div 
               onMouseMove={handleRightCardMouseMove}
               className="rounded-3xl border border-neutral-800 bg-neutral-900/40 p-8 flex flex-col justify-between text-center relative overflow-hidden group hover:border-amber-500/30 transition-all duration-500 shadow-2xl"
@@ -771,14 +786,16 @@ export default function Home() {
 
               <div>
                 <div className="relative h-72 w-full rounded-2xl bg-neutral-950 border border-amber-500/30 overflow-hidden mb-8 shadow-2xl group">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img 
-                    src="/vienne-facial-scan.jpg" 
-                    alt="Identity Preservation Protocol - 3D Facial Geometry Mesh" 
-                    loading="lazy" 
-                    decoding="async" 
+                  <video
+                    ref={scanVideoRef}
+                    autoPlay
+                    loop
+                    muted={isScanVideoMuted}
+                    playsInline
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-1000 ease-out opacity-85"
-                  />
+                  >
+                    <source src="/vienne-facial-loop.mp4" type="video/mp4" />
+                  </video>
                   
                   <motion.div 
                     animate={{ top: ["0%", "100%", "0%"] }}
@@ -794,6 +811,16 @@ export default function Home() {
                       <Activity className="w-3 h-3 text-emerald-400" /> BIOMETRIC SCAN • 100% VERIFIED
                     </span>
                   </div>
+
+                  {/* Sağ Video Ses Açma / Kapama Butonu */}
+                  <button
+                    type="button"
+                    onClick={toggleScanVideoMute}
+                    aria-label={isScanVideoMuted ? "Unmute Video" : "Mute Video"}
+                    className="absolute bottom-4 right-4 z-20 p-2.5 rounded-full bg-neutral-950/80 border border-amber-400/50 text-amber-300 hover:bg-amber-400 hover:text-neutral-950 transition-all backdrop-blur-md shadow-lg cursor-pointer"
+                  >
+                    {isScanVideoMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4 animate-pulse" />}
+                  </button>
                 </div>
 
                 <h3 className="text-2xl font-bold text-neutral-100 mb-3">{t.twinsSection.identityTitle}</h3>
