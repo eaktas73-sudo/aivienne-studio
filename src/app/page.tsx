@@ -260,7 +260,10 @@ export default function Home() {
   });
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files) setAttachedFiles((prev) => [...prev, ...Array.from(e.target.files)]);
+    const files = e.target.files;
+    if (files) {
+      setAttachedFiles((prev) => [...prev, ...Array.from(files)]);
+    }
   };
 
   const removeFile = (index: number) => { setAttachedFiles((prev) => prev.filter((_, i) => i !== index)); };
@@ -938,7 +941,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="relative z-10 pt-20 pb-12 px-6 sm:px-12 md:px-16">
-        <div className="w-full bg-amber-400 text-neutral-950 rounded-[40px] p-10 md:p-20 shadow-[0_0_60px_rgba(251,191,36,0.18)] overflow-hidden">
+        <div className="w-full bg-amber-400 text-neutral-950 rounded-[40px] p-10 md:p-20 shadow-[0_0_60px_rgba(251,191,36,0.18)]/20 overflow-hidden">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 pb-20 border-b border-neutral-950/20">
             <div>
               <span className="inline-block bg-neutral-950 text-amber-400 text-xs font-extrabold tracking-widest px-4 py-1.5 rounded-full uppercase mb-8">{t.footerSection.navTitle}</span>
