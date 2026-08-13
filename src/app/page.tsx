@@ -141,7 +141,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       welcome: "Describe your brand, project or strategic objective. Our executive team will review your inquiry." 
     },
     portal: { tag: "Client Portal", title: "VIP Vault & Secure Deliverables", desc: "Enter your assigned executive access credentials to securely review unreleased collection renders and 8K master files.", passPlaceholder: "Enter VIP Access Code (e.g. AIVIENNE-VIP)", loginBtn: "Access Secure Vault", errorMsg: "Invalid access credentials. Contact info@aivienne.com for executive clearance.", successMsg: "Access Granted: Welcome to AI.VIENNE Secure Client Vault.", vaultTitle: "Executive Secure Archive (Encrypted with Live Dynamic Watermark)", downloadAsset: "Download Master Asset", watermarkNotice: "Licensed Exclusively under NDA for AI.VIENNE Executive Partner." },
-    contact: { tag: "Start Your Project", title: "Request a Bespoke Proposal", desc: "Partner with AI.VIENNE Studio+ to push the boundaries of luxury content creation.", namePlaceholder: "Your Name / Brand Name", emailPlaceholder: "Email Address", serviceLabel: "Select Desired Service", sOpt1: "Cinematic Fashion & Runway Video (8K)", sOpt2: "High Jewelry & Gemstone Campaign", sOpt3: "Haute Horlogerie & Timepiece Visuals", sOpt4: "Haute Parfumerie & Beauty Campaign", sOpt5: "Luxury Eyewear & Optics Production", sOpt6: "Bespoke Product & High-End Photography", sOpt7: "AI Brand Identity & Visual Strategy", sOpt8: "Full Digital Runway & Campaign Production", uploadTitle: "Upload Product Media & Attachments", uploadHint: "Drag and drop or tap to select Images, Videos, CAD, or Documents (PNG, JPG, MP4, MOV, PDF, ZIP)", messagePlaceholder: "Tell us about your project or collection...", submitBtn: "Send Project Brief", directEmail: "Direct Inquiry: info@aivienne.com" },
+    contact: { tag: "Start Your Project", title: "Request a Bespoke Proposal", desc: "Partner with AI.VIENNE Studio+ to push the boundaries of luxury content creation.", namePlaceholder: "Your Name / Brand Name", emailPlaceholder: "Email Address", serviceLabel: "Select Desired Service", sOpt1: "Cinematic Fashion & Runway Video (8K)", sOpt2: "High Jewelry & Gemstone Campaign", sOpt3: "Haute Horlogerie & Timepiece Visuals", sOpt4: "Haute Parfumerie & Beauty Campaign", sOpt5: "Luxury Eyewear & Optics Production", sOpt6: "Bespoke Product & High-End Photography", sOpt7: "AI Brand Identity & Visual Strategy", sOpt8: "Full Digital Runway & Campaign Production", uploadTitle: "Upload Product Media & Attachments", uploadHint: "Drag and drop or tap to select Images, Videos, CAD, or Documents (PNG, JPG, MP4, PDF, ZIP)", messagePlaceholder: "Tell us about your project or collection...", submitBtn: "Send Project Brief", directEmail: "Direct Inquiry: info@aivienne.com" },
     footerSection: { navTitle: "01 / NAVIGATE", dirTitle: "02 / DIRECTORY", netTitle: "03 / NETWORK", studio: "The Studio", works: "Selected Works", initiate: "Initiate Contact", cities: "New York | London | Paris | Milan | Dubai | Vienna | Global", terms: "TERMS AND CONDITIONS", privacy: "PRIVACY POLICY" },
     modals: {
       termsTitle: "Terms & Conditions of Engagement",
@@ -277,6 +277,103 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
     },
     footer: "© 2026 AI.VIENNE Studio+. Tüm hakları saklıdır."
   },
+  AR: {
+    nav: { portfolio: "معرض الأعمال", capabilities: "القدرات", avatar: "التوأم الرقمي", studio: "الاستوديو", system: "النظام", theStudio: "الاستوديو", transformation: "التحول", roi: "مصفوفة العائد", journal: "المجلة", portal: "VIP", contact: "التواصل", cta: "تواصل معنا" },
+    hero: { badge: "وكالة المحتوى الفاخر المعتمدة على الذكاء الاصطناعي", titleStart: "الارتقاء بالأزياء الراقية والمجوهرات الفاخرة عبر", titleGradient: "الذكاء الاصطناعي", desc: "تقوم AI.VIENNE Studio+ بابتكار صور سينمائية فائقة الواقعية وإشعاعات بصرية عالية المستوى مخصصة للعلامات التجارية الفاخرة.", btnPrimary: "استكشف معرض الأعمال", btnSecondary: "تواصل: info@aivienne.com" },
+    manifesto: { sub: "فلسفتنا", line1: "نحن لا نتبع الصيحات.", line2: "نحن نبني عوالم خالدة." },
+    capabilitiesSection: {
+      tag: "القدرات الإبداعية",
+      title: "ما نبتكره",
+      c1Num: "01", c1Title: "الحملات الفاخرة", c1Desc: "صور حملات موسمية مدعومة بالذكاء الاصطناعي للأزياء الراقية والمجوهرات الفاخرة والجمال الفاخر. نصمم عوالم بصرية فائقة الواقعية تستبدل قيود التصوير التقليدي بحرية إبداعية مطلقة.",
+      c2Num: "02", c2Title: "تصوير المنتجات الدقيق", c2Desc: "رندر ماكرو بدقة 8K فائقة الدقة للساعات السويسرية وزجاجات العطور الكريستالية والنظارات التيتانيوم. يتم التقاط كل تفصيل وانعكاس بواقعية تتبع الأشعة الفيزيائية.",
+      c3Num: "03", c3Title: "الأفلام السينمائية", c3Desc: "أفلام سينمائية عالية التأثير بـ 120 إطارًا في الثانية وعروض أزياء رقمية وفيديوهات مخصصة للمنصات الرقمية لافتة للأنظار بديناميكيات السوائل وإضاءة الانكسار الطيفي.",
+      c4Num: "04", c4Title: "الشخصيات الرقمية", c4Desc: "نماذج افتراضية وسفراء علامات تجارية مصممة مع الحفاظ الصارم على هندسة الوجه. حافظ على هوية النموذج بنسبة 100% واستمرارية القوام والجلد عبر الحملات العالمية متعددة المواسم.",
+      c5Num: "05", c5Title: "أنظمة المحتوى", c5Desc: "أنظمة بصرية قابلة للتوسع ومصممة لدور الفخامة العالمية التي تتطلب إنتاجًا تحريريًا عالي الحجم. قم بإنشاء صور الكتالوجات وعروض المتاجر الإلكترونية واللوحات الإعلانية من خط إنتاج عصبي موحد."
+    },
+    capabilitiesTech: {
+      tag: "الخبرة التقنية الأساسية",
+      title: "القدرات المؤسسية والإنتاج العصبي",
+      desc: "مصممة لتقديم جودة فائقة وسرعة إنتاج استثنائية لعلامات الفخامة العالمية.",
+      cap1Title: "رندر عصبي 8K", cap1Desc: "نماذج ذكاء اصطناعي مخصصة بدقة 8K للطباعة الضخمة والشاشات الرقمية.", cap1Tag1: "مواصفات الطباعة الضخمة", cap1Tag2: "8K (8192 X 4320)",
+      cap2Title: "فيزياء البشرة المتقدمة", cap2Desc: "مظللات بيوفيزيائية محاكاة للمسام والتشتت الضوئي بدقة فائقة.", cap2Tag1: "دقة المواد", cap2Tag2: "مظلل ما تحت السطح",
+      cap3Title: "إضاءة Caustics الديناميكية", cap3Desc: "انكسار ضوئي طيفي عبر الألماس والزجاج Safir والفلزات الثمينة.", cap3Tag1: "التشتت الضوئي", cap3Tag2: "تتبع الأشعة الطيفي",
+      cap4Title: "شبكة الهوية البيومترية", cap4Desc: "حفظ هندسية الوجه بنسبة 100% لاستمرارية النموذج عبر جميع المشاهد.", cap4Tag1: "استمرارية الهوية", cap4Tag2: "شبكة هندسية 100%"
+    },
+    system: {
+      tag: "سير عمل AI.VIENNE",
+      title: "نظام الإنتاج",
+      sub: "الذكاء الاصطناعي يسرّع التنفيذ. والتوجيه الإبداعي البشري يحدد النتيجة.",
+      s1Num: "01", s1Title: "الاكتشاف (DISCOVER)", s1Detail: "تحليل عميق لهوية العلامة التجارية ومراجع CAD ولوحات الأفكار وأهداف الحملات عبر القنوات.",
+      s2Num: "02", s2Title: "التوجيه (DIRECT)", s2Detail: "تأطير التوجيه الفني، واختيار معالجة الإضاءة، وتحديد فيزياء الأقمشة والتركيب السينمائي.",
+      s3Num: "03", s3Title: "الإنتاج (PRODUCE)", s3Detail: "تتبع الأشعة الطيفي، والتركيب العصبي التوليدي، ومعالجة الدقة الفائقة 8K، والمحاذاة البيومترية.",
+      s4Num: "04", s4Title: "التحسين (REFINE)", s4Detail: "التحسين الدقيق، وتدرج الألوان الاحترافي، وتعديل التشتت تحت السطحي، ومعالجة بريق المجوهرات.",
+      s5Num: "05", s5Title: "التسليم (DELIVER)", s5Detail: "صور رئيسية بدقة 8K جاهزة للحملات، ومقاطع حركة بـ 120 إطارًا، وأصول رقمية محمية بموجب NDA."
+    },
+    studioSection: {
+      tag: "الاستوديو",
+      title: "استوديو الذكاء الاصطناعي الإبداعي المستقل للفخامة",
+      desc: "AI.VIENNE Studio+ هو محرك إبداعي مستقل متخصص في إنتاج الوسائط الاصطناعية للأزياء الفاخرة والمجوهرات الراقية والعطور الفاخرة.",
+      founderName: "E. AKTAŞ",
+      founderTitle: "المؤسس والمدير الإبداعي",
+      opsTitle: "العمليات العالمية",
+      opsVal1: "استوديو عالمي عن بُعد",
+      opsVal2: "إنتاج مخصص B2B"
+    },
+    insights: {
+      tag: "سلطة العلامة التجارية",
+      title: "رؤى الأزياء الراقية والذكاء الاصطناعي",
+      desc: "تحليلات عميقة في تقاطع الذكاء الاصطناعي واقتصاد الفخامة.",
+      readMore: "اقرأ المقال",
+      article1Tag: "أزياء راقية",
+      article1Title: "اقتصاديات الأزياء الرقمية: تقليل وقت السوق بنسبة 80%",
+      article1Desc: "كيف تستفيد دور الأزياء الفاخرة في باريس وميلانو من الرندر العصبي وتسريع الحملات.",
+      article1Body1: "كان تقويم الأزياء الفاخرة مقيدًا بالسرعة الفيزيائية لتوريد المنسوجات وإنتاج العينات وتصوير الحملات الدولية. من خلال اعتماد خطوط الرندر العصبي بدقة 8K، تتجاوز دور الأزياء الكبرى هذه العقبات تمامًا.",
+      article1Body2: "يتيح Neural Couture للمدراء الإبداعيين محاكاة ديناميكيات الحرير والأنسجة الفاخرة في الوقت الفعلي. يقلل هذا التحول وقت الطرح في السوق من 8 أسابيع إلى 3 أيام، مع خفض هدر العينات بنسبة 90% وزيادة مرونة الحملات العالمية.",
+      
+      article2Tag: "التوأم الرقمي",
+      article2Title: "هندسة الوجه وحفظ الهوية في نماذج AI الفاخرة",
+      article2Desc: "فحص تقني لبروتوكولات الحفاظ البيومتري لضمان استمرارية النموذج.",
+      article2Body1: "في سرد قصص العلامات التجارية الفاخرة، تعد هوية النموذج أمرًا غير قابل للتفاوض. غالبًا ما تعاني توليدات الذكاء الاصطناعي القياسية من انحراف الوجه عبر الزوايا المختلفة.",
+      article2Body2: "يقوم بروتوكول AI.VIENNE البيومتري بتثبيت هندسة الوجه الدقيقة وتوزيع المسام والتشتت الضوئي. يضمن ذلك استمرارية الهوية بنسبة 100% سواء تم عرض النموذج في الاستوديو أو تحت إضاءة الشمس.",
+      
+      article3Tag: "مجوهرات فاخرة",
+      article3Title: "محاكاة انكسار الألماس بدقة 8K",
+      article3Desc: "تحقيق الكمال المادي في تصوير المجوهرات بدون تكاليف الاستوديو المرتفعة.",
+      article3Body1: "تصوير المجوهرات الماكرو صعب للغاية بسبب الانعكاسات الشديدة وتشويه الضوء في أوجه الألماس الفيزيائية.",
+      article3Body2: "باستخدام تتبع الأشعة الطيفي، يحسب خطنا العصبي تشتت الضوء عند أطوال موجية دقيقة. النتيجة هي صور مجوهرات ماكرو بدقة 8K فائقة تبرز بريق الأحجار الكريمة ووضوح الزمرد دون مخاطر النقل أو تكاليف الاستوديو."
+    },
+    portfolio: { tag: "معرض تفاعلي", title: "معرض الوسائط والفيديوهات التفاعلي", desc: "معرض 8K مع تأثيرات تفاعلية لانعكاس الضوء والمعاينات السينمائية.", filterAll: "جميع الأعمال", filter169: "16:9 Master Films", filter916: "9:16 Vertical Motion", playVideo: "شاهد فيديو الحملة", closeModal: "إغلاق" },
+    transformation: { tag: "التحول العصبي", title: "التصوير التقليدي مقابل AI.VIENNE 8K", desc: "اسحب الشريط للتفاعل ومشاهدة كيف يتحول التصوير التقليدي إلى جماليات فخمة.", beforeLabel: "التصوير التقليدي الخام", afterLabel: "إخراج AI.VIENNE بدقة 8K" },
+    estimator: { tag: "أداة تفاعلية", title: "حاسبة الميزانية وعائد الاستثمار", desc: "قم بتكوين متطلبات الإنتاج الفاخر الخاصة بك لحساب نطاق الاستثمار المقدر.", scaleLabel: "مستوى الإنتاج", tier1: "أصل واحد عالي المستوى", tier2: "حملة موسمية 8K", tier3: "عرض سينمائي وتوأم رقمي كامل", deliveryLabel: "سرعة التسليم", standard: "الجدول القياسي (10-14 يوم)", express: "تسليم سريع (3-5 أيام)", estInvestment: "نطاق الاستثمار المقدر:", roiTitle: "تحليل التوفير التنفيذي", tradCost: "تكلفة التصوير المادي:", timeSaved: "سرعة الطرح في السوق:", costSavings: "توفير رأس المال:", range1: "$1,500 – $3,500", range2: "$5,000 – $12,000", range3: "$18,000 – $35,000+", trad1: "$25,000+", trad2: "$75,000+", trad3: "$180,000+" },
+    twinsSection: { tag: "مجموعة النماذج العصبية", title: "معرض التوأم الرقمي", desc: "نماذج رقمية مخصصة مصممة خصيصًا للحفاظ على هُوية العلامة التجارية.", identityTitle: "بروتوكول الحفاظ على الهوية", identityDesc: "يحافظ كل نموذج على بنية الوجه ونسبه بدقة عالية." },
+    briefSection: { tag: "استوديو الإبداع التفاعلي", title: "مهندس المفهوم ولوحة الأفكار", desc: "قم بإعداد رؤيتك بشكل تفاعلي قبل بدء مقترحات المشروع.", s1: "1. إعدادات الإضاءة", s2: "2. قطاع الصناعة", s3: "3. البيئة والموقع", applyBtn: "تطبيق على موجز المقترح", configLabel: "التكوين الحالي:" },
+    showroomSection: { tag: "دعوة خاصة فقط", title: "صالة العرض الخاصة SS27", desc: "معاينات الحصرية للمجموعات غير المعلنة المتاحة حصريًا بموجب اتفاقية NDA.", btn: "طلب مفتاح دعوة VIP", status: "Erişim Kısıtlı • NDA Gereklidir" },
+    chatConsole: { title: "Özel Erişim", sub: "Özel Danışmanlık, Stratejik Ortaklıklar ve NDA Talepleri", placeholder: "Markanızı, projenizi veya stratejik hedefinizi açıklayın...", send: "Güvenli Talebi İlet", welcome: "Markanızı, projenizi veya stratejik hedefinizi açıklayın." },
+    portal: { tag: "Müşteri Portalı", title: "VIP Kasa ve Güvenli Teslimat", desc: "Yayınlanmamış koleksiyon renderlarını incelemek için VIP kodunuzu girin.", passPlaceholder: "VIP Erişim Kodu (örn. AIVIENNE-VIP)", loginBtn: "Kasaya Giriş Yap", errorMsg: "Geçersiz kimlik bilgisi.", successMsg: "Erişim Onaylandı: Hoş Geldiniz.", vaultTitle: "Yönetici Güvenli Arşivi", downloadAsset: "Master Dosyayı İndir", watermarkNotice: "AI.VIENNE NDA Lisanslıdır." },
+    contact: { tag: "Projenizi Başlatın", title: "Özel Proje Teklifi Alın", desc: "Koleksiyonlarınızı geleceğin kreatif standartlarına taşıyın.", namePlaceholder: "Adınız / Marka Adı", emailPlaceholder: "E-Posta Adresiniz", serviceLabel: "Hizmet Seçin", sOpt1: "Sinematik Moda Videosu (8K)", sOpt2: "Lüks Mücevher Kampanyası", sOpt3: "Saat Prodüksiyonu", sOpt4: "Lüks Parfüm Kampanyası", sOpt5: "Lüks Gözlük Prodüksiyonu", sOpt6: "Özel Ürün Fotoğrafçılığı", sOpt7: "AI Marka Kimliği", sOpt8: "Tam Dijital Podyum", uploadTitle: "Dosya Yükleyin", uploadHint: "Görsel, Video veya CAD Sürükleyin (PNG, JPG, MP4, PDF, ZIP)", messagePlaceholder: "Projeniz hakkında bilgi verin...", submitBtn: "Brief'i Gönder", directEmail: "Doğrudan E-Posta: info@aivienne.com" },
+    footerSection: { navTitle: "01 / NAVİGASYON", dirTitle: "02 / DİREKTÖRİK", netTitle: "03 / AĞLARIMIZ", studio: "Stüdyomuz", works: "Seçkin Çalışmalar", initiate: "İletişime Geçin", cities: "New York | Londra | Paris | Milano | Dubai | Viyana | Global", terms: "KULLANIM ŞARTLARI", privacy: "GİZLİLİK POLİTİKASI" },
+    modals: {
+      termsTitle: "Hizmet ve Kullanım Şartları Sözleşmesi",
+      termsP1Title: "1. FİKRİ MÜLKİYET VE TESLİMAT HAKLARI",
+      termsP1Body: "Proje ödemelerinin tamamlanmasının ardından üretilen tüm 8K master görsel ve videolar, 3D varlıklar ve dijital materyaller tüm dünyada sınırsız ticari kullanım haklarıyla Müşteriye devredilir. İkili gizlilik sözleşmesinde (NDA) aksine bir hüküm bulunmadıkça, AI.VIENNE Studio+ eserleri portfolyo amacıyla sergileme moral hakkını saklı tutar.",
+      termsP2Title: "2. GİZLİLİK VE YAYIN ÖNCESİ KORUMA",
+      termsP2Body: "Müşteri tarafından iletilen tüm brief'ler, CAD tasarımları, henüz yayınlanmamış koleksiyon çizimleri ve marka varlıkları ikili Gizlilik Sözleşmesi (NDA) altında korunur. Tüm veriler izole, şifrelenmiş sunucu ortamlarında ve güvenli çalışma alanlarında işlenir.",
+      termsP3Title: "3. ÖDEME VE REVİZYON PROTOKOLLERİ",
+      termsP3Body: "Projeler karşılıklı kapsam onayı ve avans ödemesiyle başlatılır. Renk düzenlemesi, ışık açısı ve materyal dokusundaki küçük ayarlamalar 2 revizyon döngüsü dahilinde ücretsiz yapılır. İlk onay sonrasındaki köklü geometri değişikliği talepleri ek kapsama tabidir.",
+      termsP4Title: "4. SORUMLULUK SINIRLANDIRMASI",
+      termsP4Body: "AI.VIENNE Studio+, pazarlama, editoryal ve reklam yayınlarına uygun ultra yüksek çözünürlüklü yapay zeka içerikleri sunar. Onaylanan brief doğrultusunda 8K master çözünürlük standartları ve fiziksel materyal gerçekçiliği garanti edilir.",
+      privacyTitle: "Gizlilik ve Veri Koruma Politikası (KVKK / GDPR)",
+      privacyP1Title: "1. KURUMSAL VERİ GİZLİLİĞİ",
+      privacyP1Body: "AI.VIENNE Studio+, yalnızca kurumsal iletişim, teklif hazırlama ve teslimat süreçleri için gerekli olan minimum düzeydeki iletişim bilgilerini işler. Verileriniz hiçbir şekilde üçüncü taraflara satılmaz veya ticari amaçla paylaşılamaz.",
+      privacyP2Title: "2. HALKA AÇIK YAPAY ZEKA MODELLERİNE EĞİTİM VERİLMEZ",
+      privacyP2Body: "Müşterilerimize ait hiçbir ürün görseli, CAD dosyası, tasarım taslağı veya dijital ikiz biometrik verisi halka açık yapay zeka modellerini eğitmek veya geliştirmek amacıyla kullanılmaz. Projeler tamamen izole model ağırlıklarıyla yürütülür.",
+      privacyP3Title: "3. ŞİFRELİ VERİ DEPOLAMA VE DİNAMİK FLİGRAN",
+      privacyP3Body: "VIP Kasa alanımızda sergilenen veya müşteri onayına sunulan henüz yayınlanmamış materyaller üst düzey şedeleme standartlarıyla korunur. Onay aşamasındaki içerikler dinamik fligran koruması altında sunulur.",
+      privacyP4Title: "4. VERİ SİLME VE UNUTULMA HAKKI",
+      privacyP4Body: "Müşterilerimiz proje teslimatı tamamlandıktan sonra diledikleri zaman sunucularımızda ve yerel çalışma alanlarımızda kalan tüm taslak dosyaların ve yüklenen belgelerin kalıcı olarak silinmesini talep edebilir."
+    },
+    footer: "© 2026 AI.VIENNE Studio+. Tüm hakları saklıdır."
+  },
   FR: {
     nav: { portfolio: "Portfolio", capabilities: "Capabilities", avatar: "Jumeaux Numériques", studio: "Studio", system: "Système", theStudio: "Le Studio", transformation: "Transformation", roi: "ROI", journal: "Journal", portal: "VIP", contact: "Contact", cta: "CONTACTEZ-NOUS" },
     hero: { badge: "Agence de Contenu de Luxe Propulsée par l'IA", titleStart: "Sublimer la Haute Couture & la Joaillerie Par", titleGradient: "L'Intelligence Artificielle", desc: "AI.VIENNE Studio+ crée des visuels cinématographiques ultra-réalistes et des productions haut de gamme pour les marques de luxe mondiales.", btnPrimary: "Explorer le Portfolio", btnSecondary: "Contact: info@aivienne.com" },
@@ -350,7 +447,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
     showroomSection: { tag: "SUR INVITATION UNIQUEMENT", title: "Showroom Privé SS27", desc: "Aperçus exclusifs de collections non publiées sous accord de confidentialité bilatéral.", btn: "Demander une Clé VIP", status: "Accès Restreint • NDA Requis" },
     chatConsole: { title: "Accès Privé", sub: "Consultation Privée, Partenariats et NDA", placeholder: "Décrivez votre projet...", send: "Envoyer", welcome: "Décrivez votre projet." },
     portal: { tag: "Portail Client", title: "Coffre VIP & Livrables Sécurisés", desc: "Entrez vos identifiants pour examiner en toute sécurité vos fichiers masters 8K.", passPlaceholder: "Code d'Accès VIP (ex. AIVIENNE-VIP)", loginBtn: "Accéder au Coffre Fort", errorMsg: "Identifiants invalides.", successMsg: "Accès Accordé: Bienvenue.", vaultTitle: "Archives Sécurisées Exécutives", downloadAsset: "Télécharger le Fichier Master", watermarkNotice: "Sous Licence Exclusive NDA pour Partenaire Exécutif AI.VIENNE." },
-    contact: { tag: "Démarrer Votre Projet", title: "Demander une Proposition Sur Mesure", desc: "Associez-vous à AI.VIENNE Studio+ pour repousser les limites du contenu de luxe.", namePlaceholder: "Votre Nom / Nom de Marque", emailPlaceholder: "Adresse E-mail", serviceLabel: "Sélectionnez le Service", sOpt1: "Vidéo Mode Cinématographique (8K)", sOpt2: "Campagne Haute Joaillerie", sOpt3: "Visualisation Haute Horlogerie", sOpt4: "Campagne Haute Parfumerie", sOpt5: "Production Lunettes de Luxe", sOpt6: "Photographie Produit Sur Mesure", sOpt7: "AI Brand Identity & Visual Strategy", sOpt8: "Production Défilé Numérique Complet", uploadTitle: "Télécharger des Médias", uploadHint: "Glissez-déposez des images, vidéos ou fichiers CAD (PNG, JPG, MP4, PDF, ZIP)", messagePlaceholder: "Parlez-nous de votre projet...", submitBtn: "Brief'i Gönder", directEmail: "Contact Direct: info@aivienne.com" },
+    contact: { tag: "Démarrer Votre Projet", title: "Demander une Proposition Sur Mesure", desc: "Associez-vous à AI.VIENNE Studio+ pour repousser les limites du contenu de luxe.", namePlaceholder: "Votre Nom / Nom de Marque", emailPlaceholder: "Adresse E-mail", serviceLabel: "Sélectionnez le Service", sOpt1: "Vidéo Mode Cinématographique (8K)", sOpt2: "Campagne Haute Joaillerie", sOpt3: "Visualisation Haute Horlogerie", sOpt4: "Campagne Haute Parfumerie", sOpt5: "Production Lunettes de Luxe", sOpt6: "Photographie Produit Sur Mesure", sOpt7: "Identité de Marque IA", sOpt8: "Production Défilé Numérique Complet", uploadTitle: "Télécharger des Médias", uploadHint: "Glissez-déposez des images, vidéos ou fichiers CAD (PNG, JPG, MP4, PDF, ZIP)", messagePlaceholder: "Parlez-nous de votre projet...", submitBtn: "Envoyer le Brief", directEmail: "Contact Direct: info@aivienne.com" },
     footerSection: { navTitle: "01 / NAVIGATION", dirTitle: "02 / ANNUAIRE", netTitle: "03 / RÉSEAUX", studio: "Le Studio", works: "Œuvres Sélectionnées", initiate: "Initier le Contact", cities: "New York | Londres | Paris | Milan | Dubaï | Vienne | Global", terms: "CONDITIONS GÉNÉRALES", privacy: "POLITIQUE DE CONFIDENTIALITÉ" },
     modals: {
       termsTitle: "Conditions Générales d'Engagement",
@@ -364,7 +461,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       termsP4Body: "AI.VIENNE Studio+ garantit la conformité de résolution 8K et le réalisme physique matériel selon le brief validé.",
       privacyTitle: "Politique de Confidentialité et Protection des Données (RGPD)",
       privacyP1Title: "1. CONFIDENTIALITÉ DES DONNÉES D'ENTREPRISE",
-      privacyP1Body: "Collecte minimale de données B2B strictement nécessaires. Aucune vente ou transmission commerciale.",
+      privacyP1Body: "Collecte minimale de données B2B strictly nécessaires. Aucune vente ou transmission commerciale.",
       privacyP2Title: "2. AUCUN ENTRAÎNEMENT DE MODÈLES PUBLICS",
       privacyP2Body: "Aucun actif client ou scan facial n'est utilisé pour entraîner des modèles IA génératifs publics.",
       privacyP3Title: "3. STOCKAGE SÉCURISÉ ET FILIGRANE DYNAMIQUE",
@@ -398,6 +495,7 @@ const LANGUAGES = [
   { code: "HI", name: "हिन्दी", dir: "ltr", flag: "https://flagcdn.com/w40/in.png" }
 ];
 
+// PORTFOLIO_ITEMS: Tüm öğeler type: "video" ve videoUrl ile güncellendi
 const PORTFOLIO_ITEMS = [
   { 
     id: "1", 
@@ -443,10 +541,11 @@ const PORTFOLIO_ITEMS = [
     title: "Avant-Garde Luxury Eyewear", 
     category: "eyewear", 
     aspect: "9:16",
-    type: "image", 
+    type: "video", 
     badge: "9:16 EDITORIAL POSTER", 
     icon: Glasses, 
     poster: "/traditional-raw.jpg",
+    videoUrl: "/vienne-facial-loop.mp4",
     desc: "Titanium frames & tinted lens reflections in vertical fashion layout.", 
     hoverState: "TITANIUM REFLECTION PASS" 
   },
@@ -455,10 +554,11 @@ const PORTFOLIO_ITEMS = [
     title: "Haute Parfumerie Royal Essence", 
     category: "perfume", 
     aspect: "16:9",
-    type: "image", 
-    badge: "9:16 MACRO RENDER", 
+    type: "video", 
+    badge: "16:9 MACRO RENDER", 
     icon: Sparkles, 
     poster: "/vienne-portrait.jpg",
+    videoUrl: "/vienne-campaign-loop.mp4",
     desc: "Hand-cut crystal perfume bottle & liquid physics motion.", 
     hoverState: "CRYSTAL CAUSTICS PASS" 
   },
@@ -467,10 +567,11 @@ const PORTFOLIO_ITEMS = [
     title: "Royal Emerald High Jewelry", 
     category: "jewelry", 
     aspect: "9:16",
-    type: "image", 
+    type: "video", 
     badge: "9:16 MACRO DETAIL", 
     icon: Gem, 
     poster: "/traditional-raw.jpg",
+    videoUrl: "/aurelia-campaign-loop.mp4",
     desc: "Emerald green light dispersion and platinum rendering for mobile display.", 
     hoverState: "PLATINUM DISPERSION PASS" 
   }
@@ -518,12 +619,17 @@ export default function Home() {
   const [mousePos, setMousePos] = useState({ x: -100, y: -100 });
   const [activeModal, setActiveModal] = useState<"terms" | "privacy" | null>(null);
 
+  // Article Modal State
   const [activeArticle, setActiveArticle] = useState<any | null>(null);
+
+  // Video Player Modal State
   const [activeVideoModal, setActiveVideoModal] = useState<any | null>(null);
 
+  // Sol kart videosunun Mute/Unmute state'i ve ref'i
   const [isVideoMuted, setIsVideoMuted] = useState<boolean>(true);
   const twinVideoRef = useRef<HTMLVideoElement | null>(null);
 
+  // Sağ kart videosunun Mute/Unmute state'i ve ref'i
   const [isScanVideoMuted, setIsScanVideoMuted] = useState<boolean>(true);
   const scanVideoRef = useRef<HTMLVideoElement | null>(null);
 
@@ -531,7 +637,6 @@ export default function Home() {
   const [causticsPosRight, setCausticsPosRight] = useState({ x: 50, y: 50 });
 
   const [formData, setFormData] = useState({ name: "", email: "", service: "sOpt1", message: "" });
-  const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
   const [briefLighting, setBriefLighting] = useState("Dramatic Studio Gold");
   const [briefSegment, setBriefSegment] = useState("High Jewelry & Gems");
@@ -621,34 +726,11 @@ export default function Home() {
 
   const removeFile = (index: number) => { setAttachedFiles((prev) => prev.filter((_, i) => i !== index)); };
 
-  const handleFormSubmit = async (e: React.FormEvent) => {
+  const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setFormStatus("submitting");
-
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          service: formData.service,
-          message: formData.message,
-          brief_config: `${briefLighting} | ${briefSegment} | ${briefAtmosphere}`,
-        }),
-      });
-
-      const result = await response.json();
-      if (result.success) {
-        setFormStatus("success");
-        setFormData({ name: "", email: "", service: "sOpt1", message: "" });
-        setAttachedFiles([]);
-      } else {
-        setFormStatus("error");
-      }
-    } catch (err) {
-      setFormStatus("error");
-    }
+    const fileNames = attachedFiles.map((f) => f.name).join(", ");
+    const mailToUrl = `mailto:info@aivienne.com?subject=New Proposal Request - ${formData.name}&body=Name/Brand: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0AService: ${formData.service}%0D%0ABrief Config: [Lighting: ${briefLighting} | Segment: ${briefSegment} | Atmosphere: ${briefAtmosphere}]%0D%0AAttached Files: ${fileNames || "None"}%0D%0AMessage: ${formData.message}`;
+    window.location.href = mailToUrl;
   };
 
   const handleVipLogin = (e: React.FormEvent) => {
@@ -880,70 +962,63 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      {/* Navigation */}
+      {/* Navigation (Resim 2'deki gibi Büyütülmüş Marka Başlığı + Resim 1'deki gibi Sarı Kavisli Menü Butonları) */}
       <header className="sticky top-0 z-40 border-b border-neutral-800/80 bg-neutral-950/80 backdrop-blur-md">
         <div className="w-full px-8 md:px-12 h-24 flex items-center justify-between">
           
-          <button type="button" onClick={scrollToTop} className="flex items-center gap-4 cursor-pointer text-left group">
+          {/* LOGO: Resim 2'deki gibi belirgin, büyük metin ve ikon boyutu */}
+          <button type="button" onClick={scrollToTop} className="flex items-center gap-4 cursor-pointer text-left group shrink-0">
             <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-amber-600 via-amber-400 to-amber-200 p-[1px]">
-              <div className="w-full h-full bg-neutral-950 rounded-full flex items-center justify-center"><Sparkles className="w-5 h-5 text-amber-400 group-hover:scale-110 transition-transform" /></div>
+              <div className="w-full h-full bg-neutral-950 rounded-full flex items-center justify-center">
+                <Sparkles className="w-6 h-6 text-amber-400 group-hover:scale-110 transition-transform" />
+              </div>
             </div>
-            <span className="font-black text-2xl md:text-3xl tracking-widest text-neutral-100 uppercase group-hover:text-amber-400 transition-colors">
+            <span className="font-extrabold text-2xl md:text-3xl lg:text-4xl tracking-widest text-neutral-100 uppercase group-hover:text-amber-400 transition-colors whitespace-nowrap">
               AI.VIENNE <span className="text-amber-400 font-light">STUDIO+</span>
             </span>
           </button>
 
-          <nav className="hidden xl:flex items-center gap-10 text-sm font-bold tracking-[0.15em] text-neutral-300 uppercase">
-            <a href="#portfolio" className="relative group/link hover:text-amber-400 transition-all duration-300 py-2">
-              {t.nav.portfolio}
-              <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-amber-400 transition-all duration-300 group-hover/link:w-full" />
-            </a>
-            <a href="#capabilities" className="relative group/link hover:text-amber-400 transition-all duration-300 py-2">
-              {t.nav.capabilities}
-              <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-amber-400 transition-all duration-300 group-hover/link:w-full" />
-            </a>
-            <a href="#twins" className="relative group/link hover:text-amber-400 transition-all duration-300 py-2">
-              {t.nav.avatar}
-              <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-amber-400 transition-all duration-300 group-hover/link:w-full" />
-            </a>
-            
+          {/* MENÜ: Resim 1'deki gibi Sarı Kavisli Butonlar (Yan Yana, Eşit h-11 Yükseklikte) */}
+          <nav className="hidden xl:flex items-center gap-3 text-xs font-bold tracking-[0.15em] uppercase">
+            {[
+              { href: "#portfolio", label: t.nav?.portfolio },
+              { href: "#capabilities", label: t.nav?.capabilities },
+              { href: "#twins", label: t.nav?.avatar },
+              { href: "#estimator", label: t.nav?.roi },
+              { href: "#insights", label: t.nav?.journal },
+              { href: "#portal", label: t.nav?.portal },
+              { href: "#contact", label: t.nav?.contact }
+            ].map((item, idx) => (
+              <a 
+                key={idx}
+                href={item.href} 
+                className="h-11 px-5 rounded-full text-neutral-950 bg-amber-400 hover:bg-amber-300 transition-all duration-300 shadow-[0_0_20px_rgba(251,191,36,0.3)] flex items-center justify-center whitespace-nowrap"
+              >
+                {item.label}
+              </a>
+            ))}
+
+            {/* Studio Dropdown as Pill */}
             <div className="relative group py-2" onMouseEnter={() => setIsStudioOpen(true)} onMouseLeave={() => setIsStudioOpen(false)}>
-              <button className="flex items-center gap-1.5 hover:text-amber-400 transition-all duration-300 uppercase cursor-pointer">
-                <span>{t.nav.studio}</span> <ChevronDown className="w-3.5 h-3.5 text-amber-400" />
+              <button className="h-11 px-5 rounded-full text-neutral-950 bg-amber-400 hover:bg-amber-300 transition-all duration-300 flex items-center justify-center gap-1.5 uppercase cursor-pointer shadow-[0_0_20px_rgba(251,191,36,0.3)] whitespace-nowrap">
+                <span>{t.nav?.studio}</span> <ChevronDown className="w-3.5 h-3.5" />
               </button>
               {isStudioOpen && (
-                <div className="absolute top-full left-0 mt-1 w-52 bg-neutral-900 border border-neutral-800 rounded-2xl p-2 z-50 shadow-2xl backdrop-blur-xl">
-                  <a href="#studio" className="block px-4 py-3 hover:bg-neutral-800 rounded-xl text-neutral-300 hover:text-white transition-colors">{t.nav.theStudio}</a>
-                  <a href="#system" className="block px-4 py-3 hover:bg-neutral-800 rounded-xl text-neutral-300 hover:text-white transition-colors">{t.nav.system}</a>
-                  <a href="#transformation" className="block px-4 py-3 hover:bg-neutral-800 rounded-xl text-neutral-300 hover:text-white transition-colors">{t.nav.transformation}</a>
+                <div className="absolute top-full left-0 mt-2 w-52 bg-neutral-900 border border-neutral-800 rounded-2xl p-2 z-50 shadow-2xl backdrop-blur-xl">
+                  <a href="#studio" className="block px-4 py-3 hover:bg-neutral-800 rounded-xl text-neutral-300 hover:text-white transition-colors">{t.nav?.theStudio}</a>
+                  <a href="#system" className="block px-4 py-3 hover:bg-neutral-800 rounded-xl text-neutral-300 hover:text-white transition-colors">{t.nav?.system}</a>
+                  <a href="#transformation" className="block px-4 py-3 hover:bg-neutral-800 rounded-xl text-neutral-300 hover:text-white transition-colors">{t.nav?.transformation}</a>
                 </div>
               )}
             </div>
-
-            <a href="#estimator" className="relative group/link hover:text-amber-400 transition-all duration-300 py-2">
-              {t.nav.roi}
-              <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-amber-400 transition-all duration-300 group-hover/link:w-full" />
-            </a>
-            <a href="#insights" className="relative group/link hover:text-amber-400 transition-all duration-300 py-2">
-              {t.nav.journal}
-              <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-amber-400 transition-all duration-300 group-hover/link:w-full" />
-            </a>
-            <a href="#portal" className="relative group/link hover:text-amber-400 transition-all duration-300 py-2">
-              {t.nav.portal}
-              <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-amber-400 transition-all duration-300 group-hover/link:w-full" />
-            </a>
-            <a href="#contact" className="relative group/link hover:text-amber-400 transition-all duration-300 py-2">
-              {t.nav.contact}
-              <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-amber-400 transition-all duration-300 group-hover/link:w-full" />
-            </a>
           </nav>
 
-          <div className="flex items-center gap-4">
-            <button type="button" onClick={toggleAudio} aria-label="Toggle Voice Guidance" className={`flex items-center gap-2 text-xs font-bold px-4 py-2 rounded-full border transition-all cursor-pointer ${isAudioPlaying ? "bg-amber-400 text-neutral-950 border-amber-400" : "bg-neutral-900 border-neutral-800 text-neutral-300"}`}>
+          <div className="flex items-center gap-4 shrink-0">
+            <button type="button" onClick={toggleAudio} aria-label="Toggle Voice Guidance" className={`flex items-center gap-2 text-xs font-bold h-11 px-4 rounded-full border transition-all cursor-pointer ${isAudioPlaying ? "bg-amber-400 text-neutral-950 border-amber-400" : "bg-neutral-900 border-neutral-800 text-neutral-300"}`}>
               {isAudioPlaying ? <Volume2 className="w-4 h-4 animate-pulse" /> : <VolumeX className="w-4 h-4" />}
             </button>
             <div className="relative">
-              <button type="button" onClick={() => setIsLangOpen(!isLangOpen)} className="flex items-center gap-2 text-xs font-semibold text-neutral-200 border border-neutral-800 bg-neutral-900/80 rounded-full px-3.5 py-2 transition-all">
+              <button type="button" onClick={() => setIsLangOpen(!isLangOpen)} className="flex items-center gap-2 text-xs font-semibold text-neutral-200 border border-neutral-800 bg-neutral-900/80 rounded-full h-11 px-3.5 transition-all cursor-pointer">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={selectedLang.flag} alt={selectedLang.name} loading="lazy" decoding="async" className="w-4 h-3 object-cover rounded-sm" /> <span>{selectedLang.code}</span> <ChevronDown className={`w-3 h-3 text-neutral-400 transition-transform ${isLangOpen ? "rotate-180" : ""}`} />
               </button>
@@ -961,7 +1036,7 @@ export default function Home() {
                 </div>
               )}
             </div>
-            <a href="mailto:info@aivienne.com" className="hidden sm:inline-flex px-7 py-3 rounded-full text-xs font-bold tracking-widest text-neutral-950 bg-amber-400 hover:bg-amber-300 transition-all uppercase">{t.nav.cta}</a>
+            <a href="#contact" className="hidden sm:inline-flex items-center justify-center h-11 px-7 rounded-full text-xs font-bold tracking-widest text-neutral-950 bg-amber-400 hover:bg-amber-300 transition-all uppercase shadow-[0_0_20px_rgba(251,191,36,0.3)] whitespace-nowrap">{t.nav?.cta}</a>
           </div>
         </div>
       </header>
@@ -1051,7 +1126,7 @@ export default function Home() {
           </div>
         )}
 
-        {/* 9:16 VERTICAL REELS SECTION */}
+        {/* 9:16 VERTICAL REELS SECTION (Her Kartın Altına 'WATCH CAMPAIGN VIDEO' Butonu Eklendi) */}
         {(activeFilter === "all" || activeFilter === "916") && (
           <div>
             <div className="flex items-center gap-3 mb-8">
@@ -1801,17 +1876,9 @@ export default function Home() {
               <textarea rows={5} required value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} placeholder={t.contact.messagePlaceholder} className="w-full bg-neutral-950/80 border border-neutral-800 focus:border-amber-400 rounded-2xl px-6 py-4 text-base text-neutral-100 outline-none resize-none" />
             </div>
             <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pt-4">
-              <button type="submit" disabled={formStatus === "submitting"} className="w-full sm:w-auto px-10 py-5 rounded-full text-base font-bold text-neutral-950 bg-amber-400 hover:bg-amber-300 transition-all flex items-center justify-center gap-3 shadow-[0_0_30px_rgba(251,191,36,0.25)] cursor-pointer disabled:opacity-50">
-                <Send className="w-5 h-5" /> {formStatus === "submitting" ? "Sending..." : t.contact.submitBtn}
-              </button>
+              <button type="submit" className="w-full sm:w-auto px-10 py-5 rounded-full text-base font-bold text-neutral-950 bg-amber-400 hover:bg-amber-300 transition-all flex items-center justify-center gap-3 shadow-[0_0_30px_rgba(251,191,36,0.25)]"><Send className="w-5 h-5" /> {t.contact.submitBtn}</button>
               <a href="mailto:info@aivienne.com" className="text-sm font-semibold text-neutral-300 hover:text-amber-400 transition-colors flex items-center gap-2"><Mail className="w-4 h-4 text-amber-400" /> {t.contact.directEmail}</a>
             </div>
-            {formStatus === "success" && (
-              <p className="text-xs text-emerald-400 font-bold uppercase tracking-wider text-center mt-4">✓ Project Brief Sent Successfully to info@aivienne.com!</p>
-            )}
-            {formStatus === "error" && (
-              <p className="text-xs text-red-400 font-bold uppercase tracking-wider text-center mt-4">✕ Error sending brief. Please try emailing directly to info@aivienne.com</p>
-            )}
           </form>
         </div>
       </section>
