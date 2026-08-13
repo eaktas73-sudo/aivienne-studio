@@ -394,7 +394,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       cap1Title: "Rendu Neural 8K", cap1Desc: "Modèles d'IA personnalisés produisant des résolutions 8K pour l'impression grand format et l'affichage numérique.", cap1Tag1: "SPÉCIFICATION D'IMPRESSION", cap1Tag2: "8K (8192 X 4320)",
       cap2Title: "Physique Cutanée Subsurfacique", cap2Desc: "Shaders biophysiques simulant la porosité naturelle et la dispersion de la lumière.", cap2Tag1: "PRÉCISION MATÉRIELLE", cap2Tag2: "SHADER SUBSURFACIQUE",
       cap3Title: "Éclairage Caustique Dynamique", cap3Desc: "Réfraction de la lumière à travers les diamants et les verres saphir.", cap3Tag1: "DISPERSION LUMINEUSE", cap3Tag2: "RAYTRACING SPECTRAL",
-      cap4Title: "Maillage Biamétrique d'Identité", cap4Desc: "Préservation de la géométrie faciale garantissant la continuité absolue du modèle de marque.", cap4Tag1: "CONTINUITÉ D'IDENTITÉ", cap4Tag2: "MAILLAGE GÉOMÉTRIQUE 100%"
+      cap4Title: "Maillage Biamétrique d'Identité", cap4Desc: "Préservation de la géométrie faciale garantissant la continuité absolue du modèle de marque.", cap4Tag1: "CONTINUITÈ D'IDENTITÉ", cap4Tag2: "MAILLAGE GÉOMÉTRIQUE 100%"
     },
     system: {
       tag: "LE FLUX DE TRAVAIL AI.VIENNE",
@@ -495,7 +495,6 @@ const LANGUAGES = [
   { code: "HI", name: "हिन्दी", dir: "ltr", flag: "https://flagcdn.com/w40/in.png" }
 ];
 
-// PORTFOLIO_ITEMS: Tüm öğeler type: "video" ve videoUrl ile güncellendi
 const PORTFOLIO_ITEMS = [
   { 
     id: "1", 
@@ -541,11 +540,10 @@ const PORTFOLIO_ITEMS = [
     title: "Avant-Garde Luxury Eyewear", 
     category: "eyewear", 
     aspect: "9:16",
-    type: "video", 
+    type: "image", 
     badge: "9:16 EDITORIAL POSTER", 
     icon: Glasses, 
     poster: "/traditional-raw.jpg",
-    videoUrl: "/vienne-facial-loop.mp4",
     desc: "Titanium frames & tinted lens reflections in vertical fashion layout.", 
     hoverState: "TITANIUM REFLECTION PASS" 
   },
@@ -554,11 +552,10 @@ const PORTFOLIO_ITEMS = [
     title: "Haute Parfumerie Royal Essence", 
     category: "perfume", 
     aspect: "16:9",
-    type: "video", 
+    type: "image", 
     badge: "16:9 MACRO RENDER", 
     icon: Sparkles, 
     poster: "/vienne-portrait.jpg",
-    videoUrl: "/vienne-campaign-loop.mp4",
     desc: "Hand-cut crystal perfume bottle & liquid physics motion.", 
     hoverState: "CRYSTAL CAUSTICS PASS" 
   },
@@ -567,11 +564,10 @@ const PORTFOLIO_ITEMS = [
     title: "Royal Emerald High Jewelry", 
     category: "jewelry", 
     aspect: "9:16",
-    type: "video", 
+    type: "image", 
     badge: "9:16 MACRO DETAIL", 
     icon: Gem, 
     poster: "/traditional-raw.jpg",
-    videoUrl: "/aurelia-campaign-loop.mp4",
     desc: "Emerald green light dispersion and platinum rendering for mobile display.", 
     hoverState: "PLATINUM DISPERSION PASS" 
   }
@@ -962,23 +958,17 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      {/* Navigation (Resim 2'deki gibi Büyütülmüş Marka Başlığı + Resim 1'deki gibi Sarı Kavisli Menü Butonları) */}
+      {/* Navigation (Sadeleştirilmiş Üst Düzey Lüks Mimari) */}
       <header className="sticky top-0 z-40 border-b border-neutral-800/80 bg-neutral-950/80 backdrop-blur-md">
         <div className="w-full px-8 md:px-12 h-24 flex items-center justify-between">
-          
-          {/* LOGO: Resim 2'deki gibi belirgin, büyük metin ve ikon boyutu */}
-          <button type="button" onClick={scrollToTop} className="flex items-center gap-4 cursor-pointer text-left group shrink-0">
-            <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-amber-600 via-amber-400 to-amber-200 p-[1px]">
-              <div className="w-full h-full bg-neutral-950 rounded-full flex items-center justify-center">
-                <Sparkles className="w-6 h-6 text-amber-400 group-hover:scale-110 transition-transform" />
-              </div>
+          <button type="button" onClick={scrollToTop} className="flex items-center gap-3 cursor-pointer text-left group shrink-0">
+            <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-amber-600 via-amber-400 to-amber-200 p-[1px]">
+              <div className="w-full h-full bg-neutral-950 rounded-full flex items-center justify-center"><Sparkles className="w-4 h-4 text-amber-400 group-hover:scale-110 transition-transform" /></div>
             </div>
-            <span className="font-extrabold text-2xl md:text-3xl lg:text-4xl tracking-widest text-neutral-100 uppercase group-hover:text-amber-400 transition-colors whitespace-nowrap">
-              AI.VIENNE <span className="text-amber-400 font-light">STUDIO+</span>
-            </span>
+            <span className="font-extrabold text-xl tracking-widest text-neutral-100 group-hover:text-amber-400 transition-colors">AI.VIENNE <span className="text-amber-400 font-light">STUDIO+</span></span>
           </button>
 
-          {/* MENÜ: Resim 1'deki gibi Sarı Kavisli Butonlar (Yan Yana, Eşit h-11 Yükseklikte) */}
+          {/* Menü Butonları: Sarı Butonlar, Tek Satır Metinler (whitespace-nowrap) ve Eşit Dikey Yükseklik/Doldurma (h-11) */}
           <nav className="hidden xl:flex items-center gap-3 text-xs font-bold tracking-[0.15em] uppercase">
             {[
               { href: "#portfolio", label: t.nav?.portfolio },
@@ -1036,7 +1026,7 @@ export default function Home() {
                 </div>
               )}
             </div>
-            <a href="#contact" className="hidden sm:inline-flex items-center justify-center h-11 px-7 rounded-full text-xs font-bold tracking-widest text-neutral-950 bg-amber-400 hover:bg-amber-300 transition-all uppercase shadow-[0_0_20px_rgba(251,191,36,0.3)] whitespace-nowrap">{t.nav?.cta}</a>
+            <a href="mailto:info@aivienne.com" className="hidden sm:inline-flex items-center justify-center h-11 px-7 rounded-full text-xs font-bold tracking-widest text-neutral-950 bg-amber-400 hover:bg-amber-300 transition-all uppercase shadow-[0_0_20px_rgba(251,191,36,0.3)] whitespace-nowrap">{t.nav?.cta}</a>
           </div>
         </div>
       </header>
@@ -1126,7 +1116,7 @@ export default function Home() {
           </div>
         )}
 
-        {/* 9:16 VERTICAL REELS SECTION (Her Kartın Altına 'WATCH CAMPAIGN VIDEO' Butonu Eklendi) */}
+        {/* 9:16 VERTICAL REELS SECTION */}
         {(activeFilter === "all" || activeFilter === "916") && (
           <div>
             <div className="flex items-center gap-3 mb-8">
