@@ -309,10 +309,11 @@ const PORTFOLIO_ITEMS = [
     title: "Avant-Garde Luxury Eyewear", 
     category: "eyewear", 
     aspect: "9:16",
-    type: "image", 
+    type: "video", 
     badge: "9:16 EDITORIAL POSTER", 
     icon: Glasses, 
     poster: "/traditional-raw.jpg",
+    videoUrl: "/titanium-eyewear.mp4",
     desc: "Titanium frames & tinted lens reflections in vertical fashion layout.", 
     hoverState: "TITANIUM REFLECTION PASS" 
   },
@@ -321,10 +322,11 @@ const PORTFOLIO_ITEMS = [
     title: "Haute Parfumerie Royal Essence", 
     category: "perfume", 
     aspect: "16:9",
-    type: "image", 
+    type: "video", 
     badge: "16:9 MACRO RENDER", 
     icon: Sparkles, 
     poster: "/vienne-portrait.jpg",
+    videoUrl: "/crystal-perfume.mp4",
     desc: "Hand-cut crystal perfume bottle & liquid physics motion.", 
     hoverState: "CRYSTAL CAUSTICS PASS" 
   },
@@ -337,7 +339,7 @@ const PORTFOLIO_ITEMS = [
     badge: "9:16 HIGH JEWELRY", 
     icon: Gem, 
     poster: "/traditional-raw.jpg",
-    videoUrl: "/emerald-ring.mp4", // 9:16 dikey mücevher videonuz bağlandı
+    videoUrl: "/emerald-ring.mp4",
     desc: "Emerald green light dispersion and platinum rendering for mobile display.", 
     hoverState: "PLATINUM DISPERSION PASS" 
   }
@@ -544,6 +546,9 @@ export default function Home() {
                 {activeMediaModal.type === "video" ? (
                   <video 
                     autoPlay 
+                    loop
+                    muted
+                    preload="auto"
                     controls 
                     playsInline 
                     className="w-full h-full object-cover"
@@ -832,7 +837,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PORTFOLIO GALLERY (Kapak resmi yerine doğrudan sürekli oynayan video akışı) */}
+      {/* PORTFOLIO GALLERY */}
       <section id="portfolio" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50">
         <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12 sm:mb-16">
           <div><span className="text-sm font-bold tracking-widest text-amber-400 uppercase">{t.portfolio?.tag}</span><h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight text-neutral-100 mt-3">{t.portfolio?.title}</h2></div>
@@ -864,9 +869,8 @@ export default function Home() {
                   className="group relative rounded-2xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 p-4 sm:p-5 transition-all duration-500 ease-out hover:scale-[1.01] hover:z-20 hover:shadow-[0_10px_30px_rgba(251,191,36,0.12)] flex flex-col justify-between overflow-hidden cursor-pointer"
                 >
                   <div className="relative aspect-[16/10] w-full rounded-xl bg-neutral-950 border border-neutral-800 flex items-center justify-center overflow-hidden mb-4 shadow-lg">
-                    {/* Statik poster kaldırıldı; tüm kartlar için doğrudan sürekli oynayan video akışı */}
                     {item.type === "video" ? (
-                      <video autoPlay loop muted playsInline className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                      <video autoPlay loop muted playsInline preload="auto" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
                         <source src={item.videoUrl} type="video/mp4" />
                       </video>
                     ) : (
@@ -911,9 +915,8 @@ export default function Home() {
                   className="group relative rounded-2xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 p-4 sm:p-5 transition-all duration-500 ease-out hover:scale-[1.01] hover:z-20 hover:shadow-[0_10px_30px_rgba(251,191,36,0.12)] flex flex-col justify-between overflow-hidden cursor-pointer"
                 >
                   <div className="relative aspect-[9/14] max-h-[340px] w-full rounded-xl bg-neutral-950 border border-neutral-800 flex items-center justify-center overflow-hidden mb-4 shadow-lg mx-auto">
-                    {/* Statik poster kaldırıldı; tüm kartlar için doğrudan sürekli oynayan video akışı */}
                     {item.type === "video" ? (
-                      <video autoPlay loop muted playsInline className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                      <video autoPlay loop muted playsInline preload="auto" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
                         <source src={item.videoUrl} type="video/mp4" />
                       </video>
                     ) : (
@@ -1089,6 +1092,7 @@ export default function Home() {
                     loop
                     muted={isVideoMuted}
                     playsInline
+                    preload="auto"
                     poster={selectedTwin.poster}
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-1000 ease-out opacity-90"
                   >
@@ -1182,6 +1186,7 @@ export default function Home() {
                     loop
                     muted={isScanVideoMuted}
                     playsInline
+                    preload="auto"
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-1000 ease-out opacity-85"
                   >
                     <source src="/vienne-facial-loop.mp4" type="video/mp4" />
