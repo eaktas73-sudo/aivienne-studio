@@ -274,7 +274,7 @@ const PORTFOLIO_ITEMS = [
     badge: "16:9 CINEMATIC MASTER", 
     icon: Gem, 
     poster: "/vienne-portrait.jpg",
-    videoUrl: "/vienne-campaign-loop.mp4", 
+    videoUrl: "/obsidian-necklace.mp4", 
     desc: "Exquisite diamond light refraction & macro jewelry rendering in 16:9 widescreen.", 
     hoverState: "CAUSTICS REFRACTION PASS 8K" 
   },
@@ -333,10 +333,11 @@ const PORTFOLIO_ITEMS = [
     title: "Royal Emerald High Jewelry", 
     category: "jewelry", 
     aspect: "9:16",
-    type: "image", 
-    badge: "9:16 MACRO DETAIL", 
+    type: "video", 
+    badge: "9:16 HIGH JEWELRY", 
     icon: Gem, 
     poster: "/traditional-raw.jpg",
+    videoUrl: "/emerald-ring.mp4", // 9:16 dikey mücevher videonuz bağlandı
     desc: "Emerald green light dispersion and platinum rendering for mobile display.", 
     hoverState: "PLATINUM DISPERSION PASS" 
   }
@@ -373,6 +374,7 @@ export default function Home() {
 
   const [estimatorTier, setEstimatorTier] = useState<number>(1);
   const [estimatorDelivery, setEstimatorDelivery] = useState<number>(1);
+  const [showAssumptions, setShowAssumptions] = useState<boolean>(false);
 
   const [vipPass, setVipPass] = useState("");
   const [vipStatus, setVipStatus] = useState<"idle" | "error" | "success">("idle");
@@ -731,7 +733,7 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      {/* HEADER / NAVIGATION (Sessiz Lüks & Tek CTA Hiyerarşisi) */}
+      {/* HEADER / NAVIGATION */}
       <header className="fixed top-0 left-0 right-0 z-50 w-full border-b border-neutral-800/80 bg-neutral-950/90 backdrop-blur-md">
         <div className="w-full px-4 sm:px-8 md:px-12 h-20 sm:h-24 flex items-center justify-between">
           <button type="button" onClick={scrollToTop} className="flex items-center gap-3 cursor-pointer text-left group shrink-0">
@@ -741,7 +743,6 @@ export default function Home() {
             <span className="font-extrabold text-lg sm:text-xl tracking-widest text-neutral-100 group-hover:text-amber-400 transition-colors">AI.VIENNE <span className="text-amber-400 font-light">STUDIO+</span></span>
           </button>
 
-          {/* Zarif Tipografik Menü Linkleri */}
           <nav className="hidden xl:flex items-center gap-8 text-sm font-semibold tracking-wider text-neutral-300">
             <a href="#portfolio" className="hover:text-amber-400 transition-colors py-2 relative group whitespace-nowrap">
               {t.nav?.portfolio}
@@ -752,7 +753,6 @@ export default function Home() {
               <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-amber-400 transition-all duration-300 group-hover:w-full" />
             </a>
 
-            {/* Studio Dropdown */}
             <div className="relative group py-2" onMouseEnter={() => setIsStudioOpen(true)} onMouseLeave={() => setIsStudioOpen(false)}>
               <button className="flex items-center gap-1.5 hover:text-amber-400 transition-colors cursor-pointer whitespace-nowrap">
                 <span>{t.nav?.studio}</span> <ChevronDown className="w-4 h-4 opacity-70 group-hover:rotate-180 transition-transform duration-300" />
@@ -803,7 +803,6 @@ export default function Home() {
               )}
             </div>
 
-            {/* Sitedeki Tek Dolu Altın Buton (Master CTA) */}
             <a href="#contact" className="hidden sm:inline-flex items-center justify-center h-11 px-7 rounded-full text-xs font-bold tracking-widest text-neutral-950 bg-amber-400 hover:bg-amber-300 transition-all uppercase shadow-[0_0_25px_rgba(251,191,36,0.35)] hover:shadow-[0_0_35px_rgba(251,191,36,0.6)] whitespace-nowrap cursor-pointer">
               {t.nav?.cta}
             </a>
@@ -833,7 +832,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PORTFOLIO GALLERY */}
+      {/* PORTFOLIO GALLERY (Kapak resmi yerine doğrudan sürekli oynayan video akışı) */}
       <section id="portfolio" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50">
         <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12 sm:mb-16">
           <div><span className="text-sm font-bold tracking-widest text-amber-400 uppercase">{t.portfolio?.tag}</span><h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight text-neutral-100 mt-3">{t.portfolio?.title}</h2></div>
@@ -857,37 +856,39 @@ export default function Home() {
               <Tv className="w-5 h-5 text-amber-400" />
               <h3 className="text-lg sm:text-xl font-extrabold text-neutral-100 tracking-wider uppercase">16:9 Cinematic Widescreen Masters</h3>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
               {PORTFOLIO_ITEMS.filter(item => item.aspect === "16:9").map((item) => (
                 <div 
                   key={item.id} 
                   onClick={() => setActiveMediaModal(item)}
-                  className="group relative rounded-3xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 p-5 sm:p-7 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-[1.03] hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between overflow-hidden cursor-pointer"
+                  className="group relative rounded-2xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 p-4 sm:p-5 transition-all duration-500 ease-out hover:scale-[1.01] hover:z-20 hover:shadow-[0_10px_30px_rgba(251,191,36,0.12)] flex flex-col justify-between overflow-hidden cursor-pointer"
                 >
-                  <div className="relative aspect-[16/9] w-full rounded-2xl bg-neutral-950 border border-neutral-800 flex items-center justify-center overflow-hidden mb-6 shadow-xl">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={item.poster} alt={item.title} loading="lazy" decoding="async" className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out opacity-90 group-hover:opacity-20" />
-                    {item.type === "video" && (
-                      <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-out">
+                  <div className="relative aspect-[16/10] w-full rounded-xl bg-neutral-950 border border-neutral-800 flex items-center justify-center overflow-hidden mb-4 shadow-lg">
+                    {/* Statik poster kaldırıldı; tüm kartlar için doğrudan sürekli oynayan video akışı */}
+                    {item.type === "video" ? (
+                      <video autoPlay loop muted playsInline className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
                         <source src={item.videoUrl} type="video/mp4" />
                       </video>
+                    ) : (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={item.poster} alt={item.title} loading="lazy" decoding="async" className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out" />
                     )}
-                    <div className="absolute inset-0 bg-neutral-950/40 group-hover:bg-neutral-950/80 backdrop-blur-[2px] transition-all duration-500 flex flex-col items-center justify-center p-6 text-center">
-                      <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-amber-400/90 text-neutral-950 flex items-center justify-center shadow-[0_0_30px_rgba(251,191,36,0.5)] group-hover:scale-110 transition-all z-10">
-                        <Play className="w-6 h-6 sm:w-7 sm:h-7 ml-1 fill-neutral-950" />
+                    <div className="absolute inset-0 bg-neutral-950/20 group-hover:bg-neutral-950/60 backdrop-blur-[1px] transition-all duration-500 flex flex-col items-center justify-center p-4 text-center opacity-0 group-hover:opacity-100">
+                      <div className="w-12 h-12 rounded-full bg-amber-400 text-neutral-950 flex items-center justify-center shadow-[0_0_20px_rgba(251,191,36,0.5)] scale-90 group-hover:scale-100 transition-all z-10">
+                        <Play className="w-5 h-5 ml-0.5 fill-neutral-950" />
                       </div>
                     </div>
-                    <span className="absolute top-4 left-4 text-[9px] sm:text-[10px] font-mono font-bold uppercase text-amber-300 bg-neutral-950/90 border border-amber-500/40 px-3 py-1 rounded-full z-30 shadow-md">
+                    <span className="absolute top-3 left-3 text-[9px] font-mono font-bold uppercase text-amber-300 bg-neutral-950/90 border border-amber-500/40 px-2.5 py-0.5 rounded-full z-30 shadow-md">
                       {item.badge}
                     </span>
                   </div>
-                  <div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-neutral-100 mb-2 group-hover:text-amber-300 transition-colors">{item.title}</h3>
-                    <p className="text-xs text-neutral-300 leading-relaxed font-light mb-6 group-hover:text-neutral-100 transition-colors">{item.desc}</p>
+                  <div className="mb-4">
+                    <h3 className="text-base sm:text-lg font-bold text-neutral-100 mb-1.5 group-hover:text-amber-300 transition-colors">{item.title}</h3>
+                    <p className="text-[11px] text-neutral-300 leading-relaxed font-light line-clamp-2 group-hover:text-neutral-100 transition-colors">{item.desc}</p>
                   </div>
                   
-                  <button type="button" onClick={(e) => { e.stopPropagation(); setActiveMediaModal(item); }} className="w-full py-3 sm:py-3.5 rounded-xl border border-neutral-800 bg-neutral-950 group-hover:bg-amber-400 group-hover:text-neutral-950 text-xs font-bold uppercase transition-all flex items-center justify-center gap-2 shadow-md cursor-pointer">
-                    <Play className="w-4 h-4" /> {t.portfolio?.playVideo || "Watch Campaign Video"}
+                  <button type="button" onClick={(e) => { e.stopPropagation(); setActiveMediaModal(item); }} className="w-full py-2.5 rounded-xl border border-neutral-800 bg-neutral-950 group-hover:bg-amber-400 group-hover:text-neutral-950 text-[11px] font-bold uppercase transition-all flex items-center justify-center gap-2 shadow-md cursor-pointer">
+                    <Play className="w-3.5 h-3.5" /> {t.portfolio?.playVideo || "Watch Campaign Video"}
                   </button>
                 </div>
               ))}
@@ -902,37 +903,39 @@ export default function Home() {
               <Smartphone className="w-5 h-5 text-amber-400" />
               <h3 className="text-lg sm:text-xl font-extrabold text-neutral-100 tracking-wider uppercase">9:16 Vertical Reels & Mobile Billboards</h3>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
               {PORTFOLIO_ITEMS.filter(item => item.aspect === "9:16").map((item) => (
                 <div 
                   key={item.id} 
                   onClick={() => setActiveMediaModal(item)}
-                  className="group relative rounded-3xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 p-5 sm:p-7 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-[1.03] hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between overflow-hidden cursor-pointer"
+                  className="group relative rounded-2xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 p-4 sm:p-5 transition-all duration-500 ease-out hover:scale-[1.01] hover:z-20 hover:shadow-[0_10px_30px_rgba(251,191,36,0.12)] flex flex-col justify-between overflow-hidden cursor-pointer"
                 >
-                  <div className="relative aspect-[9/16] w-full rounded-2xl bg-neutral-950 border border-neutral-800 flex items-center justify-center overflow-hidden mb-6 shadow-xl">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={item.poster} alt={item.title} loading="lazy" decoding="async" className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out opacity-90 group-hover:opacity-20" />
-                    {item.type === "video" && (
-                      <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-out">
+                  <div className="relative aspect-[9/14] max-h-[340px] w-full rounded-xl bg-neutral-950 border border-neutral-800 flex items-center justify-center overflow-hidden mb-4 shadow-lg mx-auto">
+                    {/* Statik poster kaldırıldı; tüm kartlar için doğrudan sürekli oynayan video akışı */}
+                    {item.type === "video" ? (
+                      <video autoPlay loop muted playsInline className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
                         <source src={item.videoUrl} type="video/mp4" />
                       </video>
+                    ) : (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={item.poster} alt={item.title} loading="lazy" decoding="async" className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out" />
                     )}
-                    <div className="absolute inset-0 bg-neutral-950/40 group-hover:bg-neutral-950/80 backdrop-blur-[2px] transition-all duration-500 flex flex-col items-center justify-center p-6 text-center">
-                      <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-amber-400/90 text-neutral-950 flex items-center justify-center shadow-[0_0_30px_rgba(251,191,36,0.5)] group-hover:scale-110 transition-all z-10">
-                        <Play className="w-6 h-6 sm:w-7 sm:h-7 ml-1 fill-neutral-950" />
+                    <div className="absolute inset-0 bg-neutral-950/20 group-hover:bg-neutral-950/60 backdrop-blur-[1px] transition-all duration-500 flex flex-col items-center justify-center p-4 text-center opacity-0 group-hover:opacity-100">
+                      <div className="w-12 h-12 rounded-full bg-amber-400 text-neutral-950 flex items-center justify-center shadow-[0_0_20px_rgba(251,191,36,0.5)] scale-90 group-hover:scale-100 transition-all z-10">
+                        <Play className="w-5 h-5 ml-0.5 fill-neutral-950" />
                       </div>
                     </div>
-                    <span className="absolute top-4 left-4 text-[9px] sm:text-[10px] font-mono font-bold uppercase text-amber-300 bg-neutral-950/90 border border-amber-500/40 px-3 py-1 rounded-full z-30 shadow-md">
+                    <span className="absolute top-3 left-3 text-[9px] font-mono font-bold uppercase text-amber-300 bg-neutral-950/90 border border-amber-500/40 px-2.5 py-0.5 rounded-full z-30 shadow-md">
                       {item.badge}
                     </span>
                   </div>
-                  <div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-neutral-100 mb-2 group-hover:text-amber-300 transition-colors">{item.title}</h3>
-                    <p className="text-xs text-neutral-300 leading-relaxed font-light mb-6 group-hover:text-neutral-100 transition-colors">{item.desc}</p>
+                  <div className="mb-4">
+                    <h3 className="text-base sm:text-lg font-bold text-neutral-100 mb-1.5 group-hover:text-amber-300 transition-colors">{item.title}</h3>
+                    <p className="text-[11px] text-neutral-300 leading-relaxed font-light line-clamp-2 group-hover:text-neutral-100 transition-colors">{item.desc}</p>
                   </div>
                   
-                  <button type="button" onClick={(e) => { e.stopPropagation(); setActiveMediaModal(item); }} className="w-full py-3 sm:py-3.5 rounded-xl border border-neutral-800 bg-neutral-950 group-hover:bg-amber-400 group-hover:text-neutral-950 text-xs font-bold uppercase transition-all flex items-center justify-center gap-2 shadow-md cursor-pointer">
-                    <Play className="w-4 h-4" /> {t.portfolio?.playVideo || "Watch Campaign Video"}
+                  <button type="button" onClick={(e) => { e.stopPropagation(); setActiveMediaModal(item); }} className="w-full py-2.5 rounded-xl border border-neutral-800 bg-neutral-950 group-hover:bg-amber-400 group-hover:text-neutral-950 text-[11px] font-bold uppercase transition-all flex items-center justify-center gap-2 shadow-md cursor-pointer">
+                    <Play className="w-3.5 h-3.5" /> {t.portfolio?.playVideo || "Watch Campaign Video"}
                   </button>
                 </div>
               ))}
@@ -1429,6 +1432,21 @@ export default function Home() {
                     <span className="text-neutral-400 uppercase font-bold">{t.estimator?.timeSaved}</span>
                     <span className="text-amber-300 font-bold flex items-center gap-1"><Check className="w-4 h-4 text-emerald-400" /> 80% Faster Delivery</span>
                   </div>
+
+                  <div className="pt-2">
+                    <button 
+                      onClick={() => setShowAssumptions(!showAssumptions)}
+                      className="text-[11px] text-amber-400 hover:underline flex items-center gap-1 cursor-pointer"
+                    >
+                      <span>{showAssumptions ? "Hide Calculation Assumptions" : "View Calculation Assumptions & Methodology"}</span>
+                    </button>
+                    {showAssumptions && (
+                      <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} className="mt-2 p-3 rounded-xl bg-neutral-900 border border-neutral-800 text-[10px] text-neutral-300 leading-relaxed">
+                        <strong className="text-amber-300 block mb-1">Calculation Assumptions:</strong>
+                        Estimates are based on benchmark physical campaign costs including crew, multi-location studio rentals, equipment, travel, model licensing, and post-production scaling.
+                      </motion.div>
+                    )}
+                  </div>
                 </div>
               </div>
               <button onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })} className="mt-8 w-full py-3.5 sm:py-4 rounded-2xl bg-amber-400 text-neutral-950 font-bold text-xs uppercase tracking-wider hover:bg-amber-300 transition-all flex items-center justify-center gap-2 cursor-pointer">
@@ -1624,17 +1642,17 @@ export default function Home() {
           <form onSubmit={handleFormSubmit} className="space-y-6 sm:space-y-8 bg-neutral-900/30 border border-neutral-800 p-6 sm:p-10 md:p-14 rounded-3xl backdrop-blur-sm">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
               <div>
-                <label className="block text-xs font-bold text-neutral-300 uppercase mb-3">{t.contact?.namePlaceholder}</label>
-                <input type="text" required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} placeholder={t.contact?.namePlaceholder} className="w-full bg-neutral-950/80 border border-neutral-800 focus:border-amber-400 rounded-2xl px-5 sm:px-6 py-3.5 sm:py-4 text-sm sm:text-base text-neutral-100 outline-none" />
+                <label htmlFor="client-name" className="block text-xs font-bold text-neutral-300 uppercase mb-3">{t.contact?.namePlaceholder} *</label>
+                <input id="client-name" name="clientName" type="text" required autoComplete="name" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} placeholder={t.contact?.namePlaceholder} className="w-full bg-neutral-950/80 border border-neutral-800 focus:border-amber-400 rounded-2xl px-5 sm:px-6 py-3.5 sm:py-4 text-sm sm:text-base text-neutral-100 outline-none" />
               </div>
               <div>
-                <label className="block text-xs font-bold text-neutral-300 uppercase mb-3">{t.contact?.emailPlaceholder}</label>
-                <input type="email" required value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} placeholder={t.contact?.emailPlaceholder} className="w-full bg-neutral-950/80 border border-neutral-800 focus:border-amber-400 rounded-2xl px-5 sm:px-6 py-3.5 sm:py-4 text-sm sm:text-base text-neutral-100 outline-none" />
+                <label htmlFor="client-email" className="block text-xs font-bold text-neutral-300 uppercase mb-3">{t.contact?.emailPlaceholder} *</label>
+                <input id="client-email" name="clientEmail" type="email" required autoComplete="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} placeholder={t.contact?.emailPlaceholder} className="w-full bg-neutral-950/80 border border-neutral-800 focus:border-amber-400 rounded-2xl px-5 sm:px-6 py-3.5 sm:py-4 text-sm sm:text-base text-neutral-100 outline-none" />
               </div>
             </div>
             <div>
-              <label className="block text-xs font-bold text-neutral-300 uppercase mb-3">{t.contact?.serviceLabel}</label>
-              <select value={formData.service} onChange={(e) => setFormData({ ...formData, service: e.target.value })} className="w-full bg-neutral-950/80 border border-neutral-800 focus:border-amber-400 rounded-2xl px-5 sm:px-6 py-3.5 sm:py-4 text-sm sm:text-base text-neutral-100 outline-none cursor-pointer">
+              <label htmlFor="service-select" className="block text-xs font-bold text-neutral-300 uppercase mb-3">{t.contact?.serviceLabel}</label>
+              <select id="service-select" name="serviceSelect" value={formData.service} onChange={(e) => setFormData({ ...formData, service: e.target.value })} className="w-full bg-neutral-950/80 border border-neutral-800 focus:border-amber-400 rounded-2xl px-5 sm:px-6 py-3.5 sm:py-4 text-sm sm:text-base text-neutral-100 outline-none cursor-pointer">
                 <option value="sOpt1">{t.contact?.sOpt1}</option> <option value="sOpt2">{t.contact?.sOpt2}</option> <option value="sOpt3">{t.contact?.sOpt3}</option> <option value="sOpt4">{t.contact?.sOpt4}</option> <option value="sOpt5">{t.contact?.sOpt5}</option> <option value="sOpt6">{t.contact?.sOpt6}</option> <option value="sOpt7">{t.contact?.sOpt7}</option> <option value="sOpt8">{t.contact?.sOpt8}</option>
               </select>
             </div>
@@ -1656,8 +1674,8 @@ export default function Home() {
               )}
             </div>
             <div>
-              <label className="block text-xs font-bold text-neutral-300 uppercase mb-3">{t.contact?.messagePlaceholder}</label>
-              <textarea rows={5} required value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} placeholder={t.contact?.messagePlaceholder} className="w-full bg-neutral-950/80 border border-neutral-800 focus:border-amber-400 rounded-2xl px-5 sm:px-6 py-3.5 sm:py-4 text-sm sm:text-base text-neutral-100 outline-none resize-none" />
+              <label htmlFor="project-message" className="block text-xs font-bold text-neutral-300 uppercase mb-3">{t.contact?.messagePlaceholder} *</label>
+              <textarea id="project-message" name="projectMessage" rows={5} required value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} placeholder={t.contact?.messagePlaceholder} className="w-full bg-neutral-950/80 border border-neutral-800 focus:border-amber-400 rounded-2xl px-5 sm:px-6 py-3.5 sm:py-4 text-sm sm:text-base text-neutral-100 outline-none resize-none" />
             </div>
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6 pt-4">
               <button type="submit" className="w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 rounded-full text-sm sm:text-base font-bold text-neutral-950 bg-amber-400 hover:bg-amber-300 transition-all flex items-center justify-center gap-3 shadow-[0_0_30px_rgba(251,191,36,0.25)] cursor-pointer"><Send className="w-4 h-4 sm:w-5 sm:h-5" /> {t.contact?.submitBtn}</button>
