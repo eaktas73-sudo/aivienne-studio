@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Sparkles,
@@ -287,7 +288,7 @@ const PORTFOLIO_ITEMS = [
     badge: "9:16 VERTICAL REELS", 
     icon: Sparkle, 
     poster: "/traditional-raw.jpg",
-    videoUrl: "/vienne-facial-loop.mp4", 
+    videoUrl: "/2.mp4", 
     desc: "Ultra-realistic 9:16 vertical motion for mobile social campaigns & digital billboards.", 
     hoverState: "VERTICAL NEURAL RUNWAY" 
   },
@@ -313,7 +314,7 @@ const PORTFOLIO_ITEMS = [
     badge: "9:16 EDITORIAL POSTER", 
     icon: Glasses, 
     poster: "/traditional-raw.jpg",
-    videoUrl: "/titanium-eyewear.mp4",
+    videoUrl: "/titanium-eyewear.mp4", 
     desc: "Titanium frames & tinted lens reflections in vertical fashion layout.", 
     hoverState: "TITANIUM REFLECTION PASS" 
   },
@@ -326,7 +327,7 @@ const PORTFOLIO_ITEMS = [
     badge: "16:9 MACRO RENDER", 
     icon: Sparkles, 
     poster: "/vienne-portrait.jpg",
-    videoUrl: "/crystal-perfume.mp4",
+    videoUrl: "/crystal-perfume.mp4", 
     desc: "Hand-cut crystal perfume bottle & liquid physics motion.", 
     hoverState: "CRYSTAL CAUSTICS PASS" 
   },
@@ -339,9 +340,35 @@ const PORTFOLIO_ITEMS = [
     badge: "9:16 HIGH JEWELRY", 
     icon: Gem, 
     poster: "/traditional-raw.jpg",
-    videoUrl: "/emerald-ring.mp4",
+    videoUrl: "/emerald-ring.mp4", 
     desc: "Emerald green light dispersion and platinum rendering for mobile display.", 
     hoverState: "PLATINUM DISPERSION PASS" 
+  },
+  { 
+    id: "7", 
+    title: "Grand Complication Sapphire Horlogerie", 
+    category: "watch", 
+    aspect: "16:9",
+    type: "video", 
+    badge: "16:9 TIMEPIECE MASTER", 
+    icon: Watch, 
+    poster: "/vienne-portrait.jpg",
+    videoUrl: "/watch-promo.mp4", 
+    desc: "Swiss perpetual calendar mechanics & raytraced titanium skeleton case in 16:9 widescreen.", 
+    hoverState: "SAPPHIRE HORLOGERIE PASS" 
+  },
+  { 
+    id: "8", 
+    title: "Sovereign Diamond Haute Joaillerie", 
+    category: "jewelry", 
+    aspect: "9:16",
+    type: "video", 
+    badge: "9:16 HIGH JEWELRY REEL", 
+    icon: Gem, 
+    poster: "/traditional-raw.jpg",
+    videoUrl: "/jewelry-reel.mp4", 
+    desc: "Brilliant-cut diamond cascading necklace & prismatic spectral caustics in 9:16 vertical.", 
+    hoverState: "DIAMOND DISPERSION PASS" 
   }
 ];
 
@@ -364,7 +391,7 @@ const DIGITAL_TWINS = [
     outfit: "Titanium Armor & Sapphire Lens", 
     bg: "from-blue-900/40 via-neutral-950 to-neutral-950",
     poster: "/vienne-portrait.jpg",
-    video: "/aurelia-campaign-loop.mp4"
+    video: "/aurelia-avatar.mp4"
   }
 ];
 
@@ -532,17 +559,17 @@ export default function Home() {
       {/* CINEMATIC MEDIA LIGHTBOX MODAL */}
       <AnimatePresence>
         {activeMediaModal && (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl flex items-center justify-center p-4 md:p-12">
-            <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }} className={`relative w-full ${activeMediaModal.aspect === "9:16" ? "max-w-md" : "max-w-5xl"} bg-neutral-950 border border-amber-500/40 rounded-3xl overflow-hidden shadow-2xl`}>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-3 md:p-8">
+            <motion.div initial={{ scale: 0.95, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.95, opacity: 0 }} className={`relative w-full ${activeMediaModal.aspect === "9:16" ? "max-w-sm" : "max-w-4xl"} bg-neutral-950 border border-amber-500/40 rounded-3xl overflow-hidden shadow-2xl transform-gpu`}>
               <button 
                 onClick={() => setActiveMediaModal(null)} 
-                aria-label="Close Media Player" 
-                className="absolute top-6 right-6 z-30 p-2.5 rounded-full bg-neutral-900/80 border border-amber-400/40 text-neutral-300 hover:text-white hover:bg-amber-400 hover:text-neutral-950 transition-all backdrop-blur-md cursor-pointer"
+                aria-label="Close Media Player Button"
+                className="absolute top-4 right-4 z-30 p-2 rounded-full bg-neutral-900/90 border border-amber-400/40 text-neutral-300 hover:text-white hover:bg-amber-400 hover:text-neutral-950 transition-all cursor-pointer shadow-lg"
               >
-                <X className="w-6 h-6" />
+                <X className="w-5 h-5" />
               </button>
 
-              <div className={`relative ${activeMediaModal.aspect === "9:16" ? "aspect-[9/16]" : "aspect-[16/9]"} w-full bg-black flex items-center justify-center`}>
+              <div className={`relative ${activeMediaModal.aspect === "9:16" ? "aspect-[9/16]" : "aspect-video"} w-full bg-black flex items-center justify-center overflow-hidden`}>
                 {activeMediaModal.type === "video" ? (
                   <video 
                     autoPlay 
@@ -551,32 +578,33 @@ export default function Home() {
                     preload="auto"
                     controls 
                     playsInline 
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain bg-black"
                   >
                     <source src={activeMediaModal.videoUrl} type="video/mp4" />
                   </video>
                 ) : (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img 
+                  <Image 
                     src={activeMediaModal.poster} 
                     alt={activeMediaModal.title} 
-                    className="w-full h-full object-cover"
+                    fill
+                    sizes="(max-width: 1200px) 100vw, 1200px"
+                    className="object-contain bg-black"
                   />
                 )}
               </div>
 
-              <div className="p-6 md:p-8 bg-neutral-950 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-t border-neutral-800">
+              <div className="p-4 md:p-6 bg-neutral-950 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 border-t border-neutral-800">
                 <div>
-                  <span className="text-[10px] font-extrabold tracking-widest text-amber-300 bg-amber-400/10 border border-amber-400/30 px-3 py-1 rounded-full uppercase inline-block mb-2">
+                  <span className="text-[9px] font-extrabold tracking-widest text-amber-300 bg-amber-400/10 border border-amber-400/30 px-2.5 py-0.5 rounded-full uppercase inline-block mb-1.5">
                     {activeMediaModal.badge}
                   </span>
-                  <h3 className="text-xl font-bold text-neutral-100">{activeMediaModal.title}</h3>
-                  <p className="text-xs text-neutral-400 mt-1">{activeMediaModal.desc}</p>
+                  <h3 className="text-base sm:text-lg font-bold text-neutral-100">{activeMediaModal.title}</h3>
+                  <p className="text-[11px] text-neutral-400 mt-0.5 line-clamp-1">{activeMediaModal.desc}</p>
                 </div>
                 <button 
                   onClick={() => setActiveMediaModal(null)} 
-                  aria-label="Close Media Player Button"
-                  className="px-6 py-2.5 rounded-full bg-neutral-900 border border-neutral-800 text-neutral-300 hover:bg-amber-400 hover:text-neutral-950 font-bold text-xs uppercase tracking-wider transition-all cursor-pointer"
+                  aria-label="Close Master Player Button"
+                  className="px-5 py-2 rounded-full bg-neutral-900 border border-neutral-800 text-neutral-300 hover:bg-amber-400 hover:text-neutral-950 font-bold text-[11px] uppercase tracking-wider transition-all cursor-pointer shrink-0"
                 >
                   {t.portfolio?.closeModal || "Close Player"}
                 </button>
@@ -838,114 +866,121 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PORTFOLIO GALLERY */}
-      <section id="portfolio" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50">
-        <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12 sm:mb-16">
-          <div><span className="text-sm font-bold tracking-widest text-amber-400 uppercase">{t.portfolio?.tag}</span><h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight text-neutral-100 mt-3">{t.portfolio?.title}</h2></div>
-          <p className="text-neutral-300 text-sm sm:text-base max-w-xl mt-4 sm:mt-6 md:mt-0 leading-relaxed font-light">{t.portfolio?.desc}</p>
-        </div>
-
-        <div className="flex flex-wrap gap-3 mb-12 sm:mb-16">
-          {[
-            { id: "all", label: t.portfolio?.filterAll },
-            { id: "169", label: t.portfolio?.filter169 },
-            { id: "916", label: t.portfolio?.filter916 }
-          ].map((btn) => (
-            <button key={btn.id} onClick={() => setActiveFilter(btn.id)} className={`px-6 sm:px-8 py-3 sm:py-3.5 rounded-full text-xs font-bold uppercase transition-all cursor-pointer ${activeFilter === btn.id ? "bg-amber-400 text-neutral-950 shadow-[0_0_25px_rgba(251,191,36,0.4)]" : "bg-neutral-900/80 text-neutral-300 border border-neutral-800 hover:border-neutral-700"}`}>{btn.label}</button>
-          ))}
-        </div>
-
-        {/* 16:9 WIDESCREEN SECTION */}
-        {(activeFilter === "all" || activeFilter === "169") && (
-          <div className="mb-16 sm:mb-20">
-            <div className="flex items-center gap-3 mb-8">
-              <Tv className="w-5 h-5 text-amber-400" />
-              <h3 className="text-lg sm:text-xl font-extrabold text-neutral-100 tracking-wider uppercase">16:9 Cinematic Widescreen Masters</h3>
+      {/* PORTFOLIO GALLERY (CONTAINER HİZALAMASI YAPILMIŞTIR) */}
+      <section id="portfolio" className="relative z-10 w-full py-16 sm:py-24 border-t border-neutral-800/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-12 w-full">
+          <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-8 sm:mb-12 gap-6">
+            <div>
+              <span className="text-xs font-bold tracking-widest text-amber-400 uppercase block mb-2">{t.portfolio?.tag}</span>
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight text-neutral-100">{t.portfolio?.title}</h2>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-              {filteredItems.filter(item => item.aspect === "16:9").map((item) => (
-                <div 
-                  key={item.id} 
-                  onClick={() => setActiveMediaModal(item)}
-                  className="group relative rounded-2xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 p-4 sm:p-5 transition-all duration-500 ease-out hover:scale-[1.01] hover:z-20 hover:shadow-[0_10px_30px_rgba(251,191,36,0.12)] flex flex-col justify-between overflow-hidden cursor-pointer"
-                >
-                  <div className="relative aspect-[16/10] w-full rounded-xl bg-neutral-950 border border-neutral-800 flex items-center justify-center overflow-hidden mb-4 shadow-lg">
-                    {item.type === "video" ? (
-                      <video autoPlay loop muted playsInline preload="auto" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
-                        <source src={item.videoUrl} type="video/mp4" />
-                      </video>
-                    ) : (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img src={item.poster} alt={item.title} loading="lazy" decoding="async" className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out" />
-                    )}
-                    <div className="absolute inset-0 bg-neutral-950/20 group-hover:bg-neutral-950/60 backdrop-blur-[1px] transition-all duration-500 flex flex-col items-center justify-center p-4 text-center opacity-0 group-hover:opacity-100">
-                      <div className="w-12 h-12 rounded-full bg-amber-400 text-neutral-950 flex items-center justify-center shadow-[0_0_20px_rgba(251,191,36,0.5)] scale-90 group-hover:scale-100 transition-all z-10">
-                        <Play className="w-5 h-5 ml-0.5 fill-neutral-950" />
+            <p className="text-neutral-300 text-xs sm:text-sm max-w-md leading-relaxed font-light">{t.portfolio?.desc}</p>
+          </div>
+
+          <div className="flex flex-wrap gap-2.5 mb-10 sm:mb-14">
+            {[
+              { id: "all", label: t.portfolio?.filterAll },
+              { id: "169", label: t.portfolio?.filter169 },
+              { id: "916", label: t.portfolio?.filter916 }
+            ].map((btn) => (
+              <button key={btn.id} onClick={() => setActiveFilter(btn.id)} className={`px-5 sm:px-6 py-2 sm:py-2.5 rounded-full text-[11px] font-bold uppercase tracking-wider transition-all cursor-pointer ${activeFilter === btn.id ? "bg-amber-400 text-neutral-950 shadow-[0_0_20px_rgba(251,191,36,0.35)]" : "bg-neutral-900/80 text-neutral-300 border border-neutral-800 hover:border-neutral-700"}`}>{btn.label}</button>
+            ))}
+          </div>
+
+          {/* 16:9 WIDESCREEN SECTION */}
+          {(activeFilter === "all" || activeFilter === "169") && (
+            <div className="mb-14 sm:mb-20">
+              <div className="flex items-center gap-2.5 mb-6">
+                <Tv className="w-4 h-4 text-amber-400" />
+                <h3 className="text-sm sm:text-base font-extrabold text-neutral-100 tracking-wider uppercase">16:9 Cinematic Widescreen Masters</h3>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+                {filteredItems.filter(item => item.aspect === "16:9").map((item) => (
+                  <div 
+                    key={item.id} 
+                    onClick={() => setActiveMediaModal(item)}
+                    className="group relative rounded-2xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 p-3 sm:p-4 transition-all duration-300 ease-out hover:scale-[1.02] hover:z-20 hover:shadow-[0_10px_30px_rgba(251,191,36,0.12)] flex flex-col justify-between overflow-hidden cursor-pointer"
+                  >
+                    <div className="relative aspect-[16/9] w-full rounded-xl bg-neutral-950 border border-neutral-800 flex items-center justify-center overflow-hidden mb-3.5 shadow-md">
+                      {item.type === "video" ? (
+                        <video autoPlay loop muted playsInline preload="metadata" className="w-full h-full object-contain bg-black group-hover:scale-105 transition-transform duration-500 ease-out">
+                          <source src={item.videoUrl} type="video/mp4" />
+                        </video>
+                      ) : (
+                        <Image src={item.poster} alt={item.title} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw" className="object-contain bg-black group-hover:scale-105 transition-transform duration-500 ease-out" />
+                      )}
+                      <div className="absolute inset-0 bg-neutral-950/20 group-hover:bg-neutral-950/60 backdrop-blur-[1px] transition-all duration-300 flex flex-col items-center justify-center p-3 text-center opacity-0 group-hover:opacity-100">
+                        <div className="w-10 h-10 rounded-full bg-amber-400 text-neutral-950 flex items-center justify-center shadow-[0_0_15px_rgba(251,191,36,0.5)] scale-90 group-hover:scale-100 transition-all z-10">
+                          <Play className="w-4 h-4 ml-0.5 fill-neutral-950" />
+                        </div>
+                      </div>
+                      <span className="absolute top-2 left-2 text-[8px] font-mono font-bold uppercase text-amber-300 bg-neutral-950/90 border border-amber-500/40 px-2 py-0.5 rounded-full z-30 shadow-sm">
+                        {item.badge}
+                      </span>
+                    </div>
+                    <div className="mb-3 px-1 flex-1 flex flex-col justify-between">
+                      <div>
+                        <h3 className="text-xs sm:text-sm font-bold text-neutral-100 mb-1 group-hover:text-amber-300 transition-colors line-clamp-1">{item.title}</h3>
+                        <p className="text-[10px] sm:text-[11px] text-neutral-400 leading-tight font-light line-clamp-2 group-hover:text-neutral-200 transition-colors">{item.desc}</p>
                       </div>
                     </div>
-                    <span className="absolute top-3 left-3 text-[9px] font-mono font-bold uppercase text-amber-300 bg-neutral-950/90 border border-amber-500/40 px-2.5 py-0.5 rounded-full z-30 shadow-md">
-                      {item.badge}
-                    </span>
+                    
+                    <button type="button" onClick={(e) => { e.stopPropagation(); setActiveMediaModal(item); }} className="w-full py-2 rounded-xl border border-neutral-800 bg-neutral-950 group-hover:bg-amber-400 group-hover:text-neutral-950 text-[10px] font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 shadow-sm cursor-pointer">
+                      <Play className="w-3 h-3" /> {t.portfolio?.playVideo || "Watch Video"}
+                    </button>
                   </div>
-                  <div className="mb-4">
-                    <h3 className="text-base sm:text-lg font-bold text-neutral-100 mb-1.5 group-hover:text-amber-300 transition-colors">{item.title}</h3>
-                    <p className="text-[11px] text-neutral-300 leading-relaxed font-light line-clamp-2 group-hover:text-neutral-100 transition-colors">{item.desc}</p>
-                  </div>
-                  
-                  <button type="button" onClick={(e) => { e.stopPropagation(); setActiveMediaModal(item); }} className="w-full py-2.5 rounded-xl border border-neutral-800 bg-neutral-950 group-hover:bg-amber-400 group-hover:text-neutral-950 text-[11px] font-bold uppercase transition-all flex items-center justify-center gap-2 shadow-md cursor-pointer">
-                    <Play className="w-3.5 h-3.5" /> {t.portfolio?.playVideo || "Watch Campaign Video"}
-                  </button>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        )}
+          )}
 
-        {/* 9:16 VERTICAL REELS SECTION */}
-        {(activeFilter === "all" || activeFilter === "916") && (
-          <div>
-            <div className="flex items-center gap-3 mb-8">
-              <Smartphone className="w-5 h-5 text-amber-400" />
-              <h3 className="text-lg sm:text-xl font-extrabold text-neutral-100 tracking-wider uppercase">9:16 Vertical Reels & Mobile Billboards</h3>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-              {filteredItems.filter(item => item.aspect === "9:16").map((item) => (
-                <div 
-                  key={item.id} 
-                  onClick={() => setActiveMediaModal(item)}
-                  className="group relative rounded-2xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 p-4 sm:p-5 transition-all duration-500 ease-out hover:scale-[1.01] hover:z-20 hover:shadow-[0_10px_30px_rgba(251,191,36,0.12)] flex flex-col justify-between overflow-hidden cursor-pointer"
-                >
-                  <div className="relative aspect-[9/14] max-h-[340px] w-full rounded-xl bg-neutral-950 border border-neutral-800 flex items-center justify-center overflow-hidden mb-4 shadow-lg mx-auto">
-                    {item.type === "video" ? (
-                      <video autoPlay loop muted playsInline preload="auto" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
-                        <source src={item.videoUrl} type="video/mp4" />
-                      </video>
-                    ) : (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img src={item.poster} alt={item.title} loading="lazy" decoding="async" className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out" />
-                    )}
-                    <div className="absolute inset-0 bg-neutral-950/20 group-hover:bg-neutral-950/60 backdrop-blur-[1px] transition-all duration-500 flex flex-col items-center justify-center p-4 text-center opacity-0 group-hover:opacity-100">
-                      <div className="w-12 h-12 rounded-full bg-amber-400 text-neutral-950 flex items-center justify-center shadow-[0_0_20px_rgba(251,191,36,0.5)] scale-90 group-hover:scale-100 transition-all z-10">
-                        <Play className="w-5 h-5 ml-0.5 fill-neutral-950" />
+          {/* 9:16 VERTICAL REELS SECTION */}
+          {(activeFilter === "all" || activeFilter === "916") && (
+            <div>
+              <div className="flex items-center gap-2.5 mb-6">
+                <Smartphone className="w-4 h-4 text-amber-400" />
+                <h3 className="text-sm sm:text-base font-extrabold text-neutral-100 tracking-wider uppercase">9:16 Vertical Reels & Mobile Billboards</h3>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+                {filteredItems.filter(item => item.aspect === "9:16").map((item) => (
+                  <div 
+                    key={item.id} 
+                    onClick={() => setActiveMediaModal(item)}
+                    className="group relative rounded-2xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 p-3 sm:p-4 transition-all duration-300 ease-out hover:scale-[1.02] hover:z-20 hover:shadow-[0_10px_30px_rgba(251,191,36,0.12)] flex flex-col justify-between overflow-hidden cursor-pointer"
+                  >
+                    <div className="relative aspect-[9/16] w-full rounded-xl bg-neutral-950 border border-neutral-800 flex items-center justify-center overflow-hidden mb-3.5 shadow-md mx-auto">
+                      {item.type === "video" ? (
+                        <video autoPlay loop muted playsInline preload="metadata" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out">
+                          <source src={item.videoUrl} type="video/mp4" />
+                        </video>
+                      ) : (
+                        <Image src={item.poster} alt={item.title} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw" className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out" />
+                      )}
+                      <div className="absolute inset-0 bg-neutral-950/20 group-hover:bg-neutral-950/60 backdrop-blur-[1px] transition-all duration-300 flex flex-col items-center justify-center p-3 text-center opacity-0 group-hover:opacity-100">
+                        <div className="w-10 h-10 rounded-full bg-amber-400 text-neutral-950 flex items-center justify-center shadow-[0_0_15px_rgba(251,191,36,0.5)] scale-90 group-hover:scale-100 transition-all z-10">
+                          <Play className="w-4 h-4 ml-0.5 fill-neutral-950" />
+                        </div>
+                      </div>
+                      <span className="absolute top-2 left-2 text-[8px] font-mono font-bold uppercase text-amber-300 bg-neutral-950/90 border border-amber-500/40 px-2 py-0.5 rounded-full z-30 shadow-sm">
+                        {item.badge}
+                      </span>
+                    </div>
+                    <div className="mb-3 px-1 flex-1 flex flex-col justify-between">
+                      <div>
+                        <h3 className="text-xs sm:text-sm font-bold text-neutral-100 mb-1 group-hover:text-amber-300 transition-colors line-clamp-1">{item.title}</h3>
+                        <p className="text-[10px] sm:text-[11px] text-neutral-400 leading-tight font-light line-clamp-2 group-hover:text-neutral-200 transition-colors">{item.desc}</p>
                       </div>
                     </div>
-                    <span className="absolute top-3 left-3 text-[9px] font-mono font-bold uppercase text-amber-300 bg-neutral-950/90 border border-amber-500/40 px-2.5 py-0.5 rounded-full z-30 shadow-md">
-                      {item.badge}
-                    </span>
+                    
+                    <button type="button" onClick={(e) => { e.stopPropagation(); setActiveMediaModal(item); }} className="w-full py-2 rounded-xl border border-neutral-800 bg-neutral-950 group-hover:bg-amber-400 group-hover:text-neutral-950 text-[10px] font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 shadow-sm cursor-pointer">
+                      <Play className="w-3 h-3" /> {t.portfolio?.playVideo || "Watch Video"}
+                    </button>
                   </div>
-                  <div className="mb-4">
-                    <h3 className="text-base sm:text-lg font-bold text-neutral-100 mb-1.5 group-hover:text-amber-300 transition-colors">{item.title}</h3>
-                    <p className="text-[11px] text-neutral-300 leading-relaxed font-light line-clamp-2 group-hover:text-neutral-100 transition-colors">{item.desc}</p>
-                  </div>
-                  
-                  <button type="button" onClick={(e) => { e.stopPropagation(); setActiveMediaModal(item); }} className="w-full py-2.5 rounded-xl border border-neutral-800 bg-neutral-950 group-hover:bg-amber-400 group-hover:text-neutral-950 text-[11px] font-bold uppercase transition-all flex items-center justify-center gap-2 shadow-md cursor-pointer">
-                    <Play className="w-3.5 h-3.5" /> {t.portfolio?.playVideo || "Watch Campaign Video"}
-                  </button>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </section>
 
       {/* CAPABILITIES SECTION 1: WHAT WE CREATE */}
@@ -960,7 +995,7 @@ export default function Home() {
             {[
               { num: t.capabilitiesSection?.c1Num, title: t.capabilitiesSection?.c1Title, desc: t.capabilitiesSection?.c1Desc, icon: Sparkles },
               { num: t.capabilitiesSection?.c2Num, title: t.capabilitiesSection?.c2Title, desc: t.capabilitiesSection?.c2Desc, icon: Box },
-              { num: t.capabilitiesSection?.c3Num, title: t.capabilitiesSection?.c3Title, desc: t.capabilitiesSection?.c3Desc, icon: Film },
+              { num: t.capabilitiesSection?.c3Num, title: t.capabilitiesSection?.c3Title, desc: t.capabilitiesSection?.c2Desc, icon: Film },
               { num: t.capabilitiesSection?.c4Num, title: t.capabilitiesSection?.c4Title, desc: t.capabilitiesSection?.c4Desc, icon: UserCheck },
               { num: t.capabilitiesSection?.c5Num, title: t.capabilitiesSection?.c5Title, desc: t.capabilitiesSection?.c5Desc, icon: LayoutGrid }
             ].map((cap, idx) => (
@@ -1098,8 +1133,7 @@ export default function Home() {
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-1000 ease-out opacity-90"
                   >
                     <source src={selectedTwin.video} type="video/mp4" />
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={selectedTwin.poster} alt={selectedTwin.name} loading="lazy" decoding="async" className="w-full h-full object-cover" />
+                    <Image src={selectedTwin.poster} alt={selectedTwin.name} fill priority sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
                   </video>
                   
                   <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/20 to-transparent z-10 pointer-events-none" />
@@ -1323,13 +1357,12 @@ export default function Home() {
 
           <div className="relative w-full aspect-[16/9] max-h-[580px] rounded-3xl border border-amber-500/40 overflow-hidden shadow-[0_0_50px_rgba(217,119,6,0.15)] bg-neutral-950 select-none">
             <div className="absolute inset-0 bg-neutral-950 flex items-center justify-center">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img 
+              <Image 
                 src="/vienne-portrait.jpg" 
                 alt="AI.VIENNE 8K Master Render" 
-                loading="lazy" 
-                decoding="async" 
-                className="w-full h-full object-cover object-center"
+                fill
+                sizes="(max-width: 1200px) 100vw, 1200px"
+                className="object-cover object-center"
               />
               <div className="absolute bottom-4 sm:bottom-6 right-4 sm:right-6 px-3 sm:px-4 py-1.5 sm:py-2 rounded-2xl bg-amber-500/10 border border-amber-400/40 text-[9px] sm:text-[10px] font-extrabold text-amber-300 uppercase tracking-widest backdrop-blur-md z-10 shadow-lg">
                 ✨ {t.transformation?.afterLabel}
@@ -1338,13 +1371,12 @@ export default function Home() {
 
             <div className="absolute inset-0 bg-neutral-900 overflow-hidden border-r-2 border-amber-400 z-10" style={{ width: `${sliderPos}%` }}>
               <div className="absolute inset-0 h-full w-full" style={{ width: '100vw', maxWidth: '1200px' }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img 
+                <Image 
                   src="/traditional-raw.jpg" 
                   alt="Traditional Raw Capture" 
-                  loading="lazy" 
-                  decoding="async" 
-                  className="w-full h-full object-cover object-center filter grayscale contrast-75 brightness-75"
+                  fill
+                  sizes="(max-width: 1200px) 100vw, 1200px"
+                  className="object-cover object-center filter grayscale contrast-75 brightness-75"
                 />
               </div>
               <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 px-3 sm:px-4 py-1.5 sm:py-2 rounded-2xl bg-neutral-950/90 border border-neutral-800 text-[9px] sm:text-[10px] font-bold text-neutral-300 uppercase tracking-widest backdrop-blur-md z-20 shadow-lg">
