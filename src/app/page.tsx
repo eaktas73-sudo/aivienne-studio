@@ -417,6 +417,13 @@ export default function Home() {
   const t = TRANSLATIONS[selectedLang.code] || TRANSLATIONS.EN;
   const isRTL = selectedLang.dir === "rtl";
 
+  const filteredItems = PORTFOLIO_ITEMS.filter((item) => {
+    if (activeFilter === "all") return true;
+    if (activeFilter === "169") return item.aspect === "16:9";
+    if (activeFilter === "916") return item.aspect === "9:16";
+    return item.category === activeFilter;
+  });
+
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => { setMousePos({ x: e.clientX, y: e.clientY }); };
     window.addEventListener("mousemove", handleMouseMove);
@@ -473,13 +480,6 @@ export default function Home() {
       }
     }
   };
-
-  const filteredItems = PORTFOLIO_ITEMS.filter((item) => {
-    if (activeFilter === "all") return true;
-    if (activeFilter === "169") return item.aspect === "16:9";
-    if (activeFilter === "916") return item.aspect === "9:16";
-    return item.category === activeFilter;
-  });
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
@@ -863,7 +863,7 @@ export default function Home() {
               <h3 className="text-lg sm:text-xl font-extrabold text-neutral-100 tracking-wider uppercase">16:9 Cinematic Widescreen Masters</h3>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-              {PORTFOLIO_ITEMS.filter(item => item.aspect === "16:9").map((item) => (
+              {filteredItems.filter(item => item.aspect === "16:9").map((item) => (
                 <div 
                   key={item.id} 
                   onClick={() => setActiveMediaModal(item)}
@@ -909,7 +909,7 @@ export default function Home() {
               <h3 className="text-lg sm:text-xl font-extrabold text-neutral-100 tracking-wider uppercase">9:16 Vertical Reels & Mobile Billboards</h3>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-              {PORTFOLIO_ITEMS.filter(item => item.aspect === "9:16").map((item) => (
+              {filteredItems.filter(item => item.aspect === "9:16").map((item) => (
                 <div 
                   key={item.id} 
                   onClick={() => setActiveMediaModal(item)}
