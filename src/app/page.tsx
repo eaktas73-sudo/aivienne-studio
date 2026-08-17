@@ -180,7 +180,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       s2Num: "02", s2Title: "YÖNLENDİRME (DIRECT)", s2Detail: "Sanat direktörlüğü kurgusu, ışık açıları seçimi, kumaş fiziği ve sinematik kompozisyon mimarisi.",
       s3Num: "03", s3Title: "ÜRETİM (PRODUCE)", s3Detail: "Spektral raytracing ışık kırılımları, generatif neural sentez ve 8K ultra çözünürlük oluşturma.",
       s4Num: "04", s4Title: "HASSASLAŞTIRMA (REFINE)", s4Detail: "Kusursuz retuş, profesyonel renk derecelendirme (color grading) ve mücevher ışıltı işleme.",
-      s5Num: "05", s5Title: "TESLİMAT (DELIVER)", s5Detail: "Kampanyaya hazır 8K master görseller ve 120fps sinematik döngülerin şifreli teslimi."
+      s5Num: "05", s5Title: "TESLİMAT (DELIVER)", s5Detail: "Kampanyaya hazır 8K master görseller ve 120fps sinematik döngülerin şifreli teslimi.",
     },
     studioSection: {
       tag: "STÜDYOMUZ",
@@ -459,7 +459,7 @@ export default function Home() {
     e.stopPropagation();
     if (scanVideoRef.current) {
       scanVideoRef.current.muted = !isScanVideoMuted;
-      setIsScanVideoMuted(!isScanVideoMuted);
+      setIsVideoMuted(!isScanVideoMuted);
     }
   };
 
@@ -732,10 +732,18 @@ export default function Home() {
       <header className="fixed top-0 left-0 right-0 z-50 w-full border-b border-neutral-800/80 bg-neutral-950/90 backdrop-blur-md">
         <div className="w-full px-4 sm:px-8 md:px-12 h-20 sm:h-24 flex items-center justify-between">
           <button type="button" onClick={scrollToTop} className="flex items-center gap-3 cursor-pointer text-left group shrink-0">
-            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-tr from-amber-600 via-amber-400 to-amber-200 p-[1px]">
-              <div className="w-full h-full bg-neutral-950 rounded-full flex items-center justify-center"><Sparkles className="w-4 h-4 text-amber-400 group-hover:scale-110 transition-transform" /></div>
+            <div className="relative w-10 h-10 sm:w-12 sm:h-12 transition-transform duration-300 group-hover:scale-105">
+              <Image
+                src="/logo.png"
+                alt="AI.VIENNE Studio+"
+                fill
+                className="object-contain"
+                priority
+              />
             </div>
-            <span className="font-extrabold text-lg sm:text-xl tracking-widest text-neutral-100 group-hover:text-amber-400 transition-colors">AI.VIENNE <span className="text-amber-400 font-light">STUDIO+</span></span>
+            <span className="font-extrabold text-lg sm:text-xl tracking-widest text-neutral-100 group-hover:text-amber-400 transition-colors">
+              AI.VIENNE <span className="text-amber-400 font-light">STUDIO+</span>
+            </span>
           </button>
 
           <nav className="hidden xl:flex items-center gap-8 text-sm font-semibold tracking-wider text-neutral-300">
