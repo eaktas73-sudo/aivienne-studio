@@ -2,12 +2,24 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://aivienne.com"),
   title: "AI.VIENNE Studio+ | AI-Powered Luxury Content Studio",
-  description: "Cinematic campaigns, high jewelry imagery, haute couture films, and digital character worlds for luxury brands.",
-  keywords: ["Luxury AI Studio", "AI Fashion Campaigns", "High Jewelry Rendering", "Digital Twins", "Cinematic AI Films"],
+  description:
+    "Cinematic campaigns, high jewelry imagery, haute couture films, and digital character worlds for luxury brands.",
+  keywords: [
+    "Luxury AI Studio",
+    "AI Fashion Campaigns",
+    "High Jewelry Rendering",
+    "Digital Twins",
+    "Cinematic AI Films",
+  ],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "AI.VIENNE Studio+ | AI-Powered Luxury Content Studio",
-    description: "Cinematic campaigns and high-end visual productions for luxury brands.",
+    description:
+      "Cinematic campaigns and high-end visual productions for luxury brands.",
     url: "https://aivienne.com",
     siteName: "AI.VIENNE Studio+",
     locale: "en_US",
