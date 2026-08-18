@@ -45,10 +45,32 @@ import {
   Lock,
   Briefcase,
   Clock,
-  CheckCircle
+  LucideIcon
 } from "lucide-react";
 
-type TranslationContent = Record<string, any>;
+type TranslationRecord = Record<string, string>;
+
+interface TranslationContent {
+  nav: TranslationRecord;
+  hero: TranslationRecord;
+  manifesto: TranslationRecord;
+  servicesPillars: TranslationRecord;
+  capabilitiesSection: TranslationRecord;
+  capabilitiesTech: TranslationRecord;
+  system: TranslationRecord;
+  studioSection: TranslationRecord;
+  insights: TranslationRecord;
+  portfolio: TranslationRecord;
+  transformation: TranslationRecord;
+  estimator: TranslationRecord;
+  twinsSection: TranslationRecord;
+  briefSection: TranslationRecord;
+  chatConsole: TranslationRecord;
+  contact: TranslationRecord;
+  footerSection: TranslationRecord;
+  modals: TranslationRecord;
+  footer: string;
+}
 
 const TRANSLATIONS: Record<string, TranslationContent> = {
   EN: {
@@ -203,7 +225,6 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       termsP5Body: "Studio production commences upon formal execution of the bilateral NDA, scope mutual sign-off, and receipt of the agreed commencement retainer. Deliverables are transferred via encrypted cryptographic download channels upon final milestone settlement.",
       termsP6Title: "6. LIMITATION OF LIABILITY & FORCE MAJEURE",
       termsP6Body: "AI.VIENNE Studio+ maintains enterprise-grade rendering failovers. In the rare event of unforeseen neural pipeline interrupts or computational downtime, delivery windows are extended with priority compute allocation without additional client expenditure.",
-      
       privacyTitle: "Confidentiality & Data Protection Protocol",
       privacyP1Title: "1. CORPORATE DATA INTEGRITY & GDPR COMPLIANCE",
       privacyP1Body: "AI.VIENNE Studio+ collects and processes minimal corporate information strictly necessary for commercial correspondence, project brief synthesis, bilateral NDA formulation, and final encrypted asset transfer. We adhere to the highest international data privacy standards (GDPR / CCPA).",
@@ -371,7 +392,6 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       termsP5Body: "Prodüksiyon, çift taraflı NDA imzası ve belirlenen başlangıç avansının ödenmesiyle devreye girer. Nihai master dosyalar son aşama onayı ile şifreli kanallar üzerinden teslim edilir.",
       termsP6Title: "6. MÜCBİR SEBEPLER VE SİSTEM GÜVENCESİ",
       termsP6Body: "AI.VIENNE Studio+, yüksek yedekli neural sunucu altyapısına sahiptir. Olası teknik kesintilerde müşteri aleyhine ek maliyet yansıtılmaksızın öncelikli işleme alınır.",
-
       privacyTitle: "Gizlilik ve Veri Koruma Protokolü (GDPR / KVKK)",
       privacyP1Title: "1. KURUMSAL VERİ GÜVENLİĞİ",
       privacyP1Body: "Yalnızca teklif oluşturma, proje brief sentezi ve şifreli teslimat için gerekli asgari kurumsal iletişim verileri işlenir. Uluslararası en yüksek veri koruma standartlarına tam uyum sağlanır.",
@@ -403,7 +423,7 @@ interface CaseStudyItem {
   aspect: "16:9" | "9:16";
   type: "video" | "image";
   badge: string;
-  icon: any;
+  icon: LucideIcon;
   poster: string;
   videoUrl: string;
   desc: string;
@@ -411,6 +431,13 @@ interface CaseStudyItem {
   neuralTechnique: string;
   deliverables: string;
   hoverState: string;
+}
+
+interface ArticleItem {
+  tag: string;
+  title: string;
+  body1: string;
+  body2: string;
 }
 
 const PORTFOLIO_ITEMS: CaseStudyItem[] = [
@@ -587,19 +614,16 @@ export default function Home() {
 
   const [sliderPos, setSliderPos] = useState<number>(50);
 
-  const [isAudioPlaying, setIsAudioPlaying] = useState<boolean>(false);
-  const audioContextRef = useRef<AudioContext | null>(null);
-
   const [mousePos, setMousePos] = useState({ x: -100, y: -100 });
   const [activeModal, setActiveModal] = useState<"terms" | "privacy" | null>(null);
 
-  const [activeArticle, setActiveArticle] = useState<any | null>(null);
+  const [activeArticle, setActiveArticle] = useState<ArticleItem | null>(null);
   const [activeCaseStudy, setActiveCaseStudy] = useState<CaseStudyItem | null>(null);
 
   const [isVideoMuted, setIsVideoMuted] = useState<boolean>(true);
   const twinVideoRef = useRef<HTMLVideoElement | null>(null);
 
-  const [isScanVideoMuted, setIsScanVideoMuted] = useState<boolean>(true);
+  const [isScanVideoMuted] = useState<boolean>(true);
   const scanVideoRef = useRef<HTMLVideoElement | null>(null);
 
   const [causticsPosLeft, setCausticsPosLeft] = useState({ x: 50, y: 50 });
@@ -648,14 +672,6 @@ export default function Home() {
     }
   };
 
-  const toggleScanVideoMute = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (scanVideoRef.current) {
-      scanVideoRef.current.muted = !isScanVideoMuted;
-      setIsVideoMuted(!isScanVideoMuted);
-    }
-  };
-
   const handleLeftCardMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const x = ((e.clientX - rect.left) / rect.width) * 100;
@@ -668,27 +684,6 @@ export default function Home() {
     const x = ((e.clientX - rect.left) / rect.width) * 100;
     const y = ((e.clientY - rect.top) / rect.height) * 100;
     setCausticsPosRight({ x, y });
-  };
-
-  const toggleAudio = () => {
-    if (!audioContextRef.current) {
-      const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
-      audioContextRef.current = new AudioCtx();
-    }
-    const ctx = audioContextRef.current;
-    if (isAudioPlaying) {
-      if (ctx.state === "running") ctx.suspend();
-      setIsAudioPlaying(false);
-    } else {
-      if (ctx.state === "suspended") ctx.resume();
-      setIsAudioPlaying(true);
-      if ("speechSynthesis" in window) {
-        window.speechSynthesis.cancel();
-        const utterance = new SpeechSynthesisUtterance("Welcome to AI.VIENNE Studio Plus. Luxury visual production house.");
-        utterance.rate = 0.9; utterance.pitch = 0.95; utterance.volume = 0.8;
-        window.speechSynthesis.speak(utterance);
-      }
-    }
   };
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -857,7 +852,7 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      {/* Terms & Conditions Modal (ENHANCED CODEX) */}
+      {/* Terms & Conditions Modal */}
       <AnimatePresence>
         {activeModal === "terms" && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex items-center justify-center p-4">
@@ -895,7 +890,7 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      {/* Privacy Policy Modal (ENHANCED CONFIDENTIALITY) */}
+      {/* Privacy Policy Modal */}
       <AnimatePresence>
         {activeModal === "privacy" && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex items-center justify-center p-4">
@@ -933,7 +928,7 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      {/* Floating Executive Desk Console (Private Access) */}
+      {/* Floating Executive Desk Console */}
       <div className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50">
         <button 
           onClick={() => setIsDeskOpen(!isDeskOpen)} 
@@ -973,7 +968,7 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      {/* HEADER / NAVIGATION */}
+      {/* HEADER / NAVIGATION (CLEAN LUXURY - NO AUDIO BUTTON) */}
       <header className="fixed top-0 left-0 right-0 z-50 w-full border-b border-neutral-800/80 bg-neutral-950/90 backdrop-blur-md">
         <div className="w-full px-4 sm:px-8 md:px-12 h-20 sm:h-24 flex items-center justify-between">
           <button type="button" onClick={scrollToTop} className="flex items-center gap-3 cursor-pointer text-left group shrink-0">
@@ -982,6 +977,7 @@ export default function Home() {
                 src="/logo.png"
                 alt="AI.VIENNE Studio+"
                 fill
+                sizes="48px"
                 className="object-contain"
                 priority
               />
@@ -1031,10 +1027,6 @@ export default function Home() {
           </nav>
 
           <div className="flex items-center gap-3 sm:gap-5 shrink-0">
-            <button type="button" onClick={toggleAudio} aria-label="Toggle Voice Guidance" className={`flex items-center gap-2 text-xs font-bold h-10 sm:h-11 px-3 sm:px-4 rounded-full border transition-all cursor-pointer ${isAudioPlaying ? "bg-amber-400 text-neutral-950 border-amber-400 shadow-[0_0_15px_rgba(251,191,36,0.3)]" : "bg-neutral-900 border-neutral-800 text-neutral-300 hover:border-neutral-700"}`}>
-              {isAudioPlaying ? <Volume2 className="w-4 h-4 animate-pulse" /> : <VolumeX className="w-4 h-4" />}
-            </button>
-            
             <div className="relative">
               <button type="button" onClick={() => setIsLangOpen(!isLangOpen)} className="flex items-center gap-2 text-xs font-semibold text-neutral-200 border border-neutral-800 bg-neutral-900/80 rounded-full h-10 sm:h-11 px-3 sm:px-4 transition-all cursor-pointer hover:border-neutral-700">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -1456,7 +1448,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="p-6 sm:p-8 rounded-3xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group cursor-pointer">
+            <div className="p-6 sm:p-8 rounded-3xl border border-neutral-800 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group cursor-pointer">
               <div>
                 <div className="w-12 h-12 rounded-2xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 transition-transform">
                   <Gem className="w-6 h-6" />
@@ -1470,7 +1462,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="p-6 sm:p-8 rounded-3xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group cursor-pointer">
+            <div className="p-6 sm:p-8 rounded-3xl border border-neutral-800 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group cursor-pointer">
               <div>
                 <div className="w-12 h-12 rounded-2xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 transition-transform">
                   <ShieldCheck className="w-6 h-6" />
@@ -1636,15 +1628,6 @@ export default function Home() {
                       <Activity className="w-3 h-3 text-emerald-400" /> BIOMETRIC SCAN • 100% VERIFIED
                     </span>
                   </div>
-
-                  <button
-                    type="button"
-                    onClick={toggleScanVideoMute}
-                    aria-label={isScanVideoMuted ? "Unmute Video" : "Mute Video"}
-                    className="absolute bottom-4 right-4 z-20 p-2.5 rounded-full bg-neutral-950/80 border border-amber-400/50 text-amber-300 hover:bg-amber-400 hover:text-neutral-950 transition-all backdrop-blur-md shadow-lg cursor-pointer"
-                  >
-                    {isScanVideoMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4 animate-pulse" />}
-                  </button>
                 </div>
 
                 <h3 className="text-xl sm:text-2xl font-bold text-neutral-100 mb-3">{t.twinsSection?.identityTitle}</h3>
@@ -1989,7 +1972,7 @@ export default function Home() {
               <label className="block text-xs font-bold text-amber-400 uppercase mb-3">{t.briefSection?.s2}</label>
               <div className="space-y-2">
                 {["High Jewelry & Gems", "Haute Couture Runway", "Swiss Horlogerie Timepiece"].map((opt) => (
-                  <button key={opt} onClick={() => setBriefSegment(opt)} className={`w-full text-left p-3 sm:p-3.5 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${briefSegment === opt ? "bg-amber-400 text-neutral-950 border-amber-400" : "bg-neutral-950 border-neutral-800 text-neutral-300"}`}>{opt}</button>
+                  <button key={opt} onClick={() => setBriefSegment(opt)} className={`w-full text-left p-3.5 sm:p-3.5 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${briefSegment === opt ? "bg-amber-400 text-neutral-950 border-amber-400" : "bg-neutral-950 border-neutral-800 text-neutral-300"}`}>{opt}</button>
                 ))}
               </div>
             </div>
@@ -1997,7 +1980,7 @@ export default function Home() {
               <label className="block text-xs font-bold text-amber-400 uppercase mb-3">{t.briefSection?.s3}</label>
               <div className="space-y-2">
                 {["Parisian Palace Runway", "Futuristic Architectural Stage", "Exotic Desert Dunes"].map((opt) => (
-                  <button key={opt} onClick={() => setBriefAtmosphere(opt)} className={`w-full text-left p-3 sm:p-3.5 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${briefAtmosphere === opt ? "bg-amber-400 text-neutral-950 border-amber-400" : "bg-neutral-950 border-neutral-800 text-neutral-300"}`}>{opt}</button>
+                  <button key={opt} onClick={() => setBriefAtmosphere(opt)} className={`w-full text-left p-3.5 sm:p-3.5 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${briefAtmosphere === opt ? "bg-amber-400 text-neutral-950 border-amber-400" : "bg-neutral-950 border-neutral-800 text-neutral-300"}`}>{opt}</button>
                 ))}
               </div>
             </div>
@@ -2099,7 +2082,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer (ENHANCED LUXURY EMBLEM & EXPANDED CODEX) */}
+      {/* Footer */}
       <footer className="relative z-10 pt-16 sm:pt-20 pb-12 px-4 sm:px-12 md:px-16">
         <div className="w-full bg-amber-400 text-neutral-950 rounded-[30px] sm:rounded-[40px] p-6 sm:p-10 md:p-20 shadow-[0_0_60px_rgba(251,191,36,0.18)]/20 overflow-hidden">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 pb-12 sm:pb-20 border-b border-neutral-950/20">
@@ -2141,6 +2124,7 @@ export default function Home() {
                   src="/logo.png"
                   alt="AI.VIENNE Studio+ Luxury Emblem"
                   fill
+                  sizes="144px"
                   className="object-contain p-2"
                 />
               </div>
