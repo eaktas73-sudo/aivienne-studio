@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -18,8 +18,6 @@ import {
   Glasses,
   Sparkle,
   Calculator,
-  Volume2,
-  VolumeX,
   Layers,
   SlidersHorizontal,
   Activity,
@@ -47,6 +45,8 @@ import {
   Calendar,
   User,
   BookOpen,
+  Volume2,
+  VolumeX,
   LucideIcon
 } from "lucide-react";
 
@@ -82,9 +82,10 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
     servicesPillars: {
       tag: "CORE PRODUCTION DISCIPLINES",
       title: "Strategic Production Services",
-      desc: "Commissioned visual engagements designed to compress production timelines and elevate brand prestige across physical and digital flagships.",
+      desc: "Commissioned visual engagements designed to streamline visual production and elevate brand expression across physical and digital flagships.",
       leadTimeLabel: "Typical Lead Time:",
       leadTimeNote: "Timing varies according to creative scope, asset volume, revision rounds and delivery requirements.",
+      scopeNote: "Campaigns are scoped according to asset volume, creative complexity, revision requirements and delivery formats.",
       btnBrief: "Commission Scope",
       s1Tag: "CAMPAIGNS",
       s1Title: "Haute Couture & Seasonal Campaigns",
@@ -112,7 +113,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       s4Time: "8 – 12 Business Days"
     },
     capabilitiesSection: {
-      tag: "PRODUCTION STANDARDS",
+      tag: "PRODUCTION CAPABILITIES",
       title: "Engineered Visual Capabilities",
       c1Num: "01", c1Title: "HAUTE COUTURE EDITORIALS", c1Desc: "Full-scale seasonal campaign imagery with natural textile weight, fluid movement, and atmospheric styling.",
       c2Num: "02", c2Title: "FINE JEWELRY & WATCHES", c2Desc: "Controlled light dispersion, diamond brilliance, sapphire crystal clarity, and micro-mechanical precision.",
@@ -141,7 +142,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
     },
     studioSection: {
       tag: "THE HOUSE",
-      title: "Independent Luxury AI Studio",
+      title: "AI-Native Luxury Visual Production House",
       desc: "AI.VIENNE Studio+ operates as an independent visual production studio designed for luxury fashion houses, fine jewelers, and horlogerie ateliers worldwide.",
       founderName: "E. AKTAŞ",
       founderTitle: "Founder & Creative Director",
@@ -151,7 +152,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       spec3: "AI-Assisted Production",
       opsTitle: "OPERATIONAL PROTOCOLS",
       opsVal1: "Independent Studio · Global Remote",
-      opsVal2: "Confidentiality Protocols (NDA Available Upon Request)"
+      opsVal2: "Confidentiality Protocols (Mutual NDA Available)"
     },
     insights: {
       tag: "RESEARCH & PERSPECTIVES",
@@ -172,12 +173,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       article3Title: "Material Simulation: Gemstone & Watch Refraction",
       article3Desc: "Achieving controlled optical brilliance in macro jewelry and timepiece visualization.",
       article3Body1: "Macro photography of high jewelry presents extreme studio lighting challenges. Unwanted reflections and flare can obscure the natural fire of precious stones and the finishing of Swiss movements.",
-      article3Body2: "Our pipeline allows precise control over reflection, dispersion, and surface textures, producing high-resolution macro visual assets ready for editorial print and digital flagships.",
-      article4Tag: "CREATIVE STRATEGY",
-      article4Title: "AI Cinematic Video: Framing 120 FPS Motion in Luxury Advertising",
-      article4Desc: "The engineering behind dynamic atmospheric camera paths and spectral depth for prestige flagships.",
-      article4Body1: "Cinematic movement in high-end advertising requires precise frame interpolation to eliminate temporal distortion and jitter. AI.VIENNE applies multi-stage optical flow solvers to ensure pristine clarity across large-format boutique displays.",
-      article4Body2: "By establishing unified color science and volumetric lighting in early production phases, we achieve cinema-grade motion assets ready for worldwide campaign broadcast."
+      article3Body2: "Our pipeline allows precise control over reflection, dispersion, and surface textures, producing high-resolution macro visual assets ready for editorial print and digital flagships."
     },
     portfolio: { 
       tag: "AI.VIENNE CONCEPT ARCHIVE", 
@@ -187,7 +183,8 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       filter169: "16:9 Widescreen Concepts", 
       filter916: "9:16 Vertical Studies", 
       playVideo: "Inspect Speculative Case Study", 
-      closeModal: "Close Preview",
+      requestScope: "REQUEST SCOPE",
+      closePreview: "CLOSE PREVIEW",
       disclaimer: "Speculative concept study produced by AI.VIENNE Studio+. Not commissioned client work."
     },
     transformation: { 
@@ -238,7 +235,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       uc4: "Global Variations", uc4Desc: "Adapt environments, styling, and campaign contexts while preserving character geometry."
     },
     briefSection: { tag: "CREATIVE CONFIGURATOR", title: "Interactive Brief Architect", desc: "Select aesthetic parameters to formulate a tailored visual brief for your upcoming project.", s1: "1. Lighting Architecture", s2: "2. Industry Discipline", s3: "3. Spatial Atmosphere", applyBtn: "ADD TO PROJECT BRIEF", configLabel: "Configured Parameters:" },
-    chatConsole: { title: "Executive Inquiry Desk", sub: "Confidential Consultation, Custom Scopes & NDA Requests", placeholder: "Detail your brand, launch date, or visual objectives...", send: "Transmit Brief", welcome: "Welcome to AI.VIENNE Studio+ Inquiry Desk. Please detail your project scope. All inquiries are handled with strict commercial confidentiality." },
+    chatConsole: { title: "Project Desk", sub: "Confidential Consultation, Custom Scopes & Mutual NDA Requests", placeholder: "Detail your brand, launch date, or visual objectives...", send: "Transmit Brief", welcome: "Welcome to AI.VIENNE Studio+ Project Desk. Please detail your project scope. All inquiries are handled with strict commercial confidentiality." },
     contact: { 
       tag: "PROJECT INQUIRY", 
       title: "Initiate Your Project Brief", 
@@ -260,12 +257,12 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       bOpt2: "Seasonal Campaign Suite: $5,000 – $15,000", 
       bOpt3: "Full Motion & Character Ecosystem: $15,000 – $35,000+", 
       bOpt4: "Custom Production / Scoped to Requirements", 
-      ndaLabel: "Require bilateral Non-Disclosure Agreement (NDA) prior to asset disclosure", 
+      ndaLabel: "Require Mutual Non-Disclosure Agreement (NDA) prior to asset disclosure", 
       uploadTitle: "Upload CAD Schematics, Moodboards or Reference Files", 
       uploadHint: "Drag and drop or select reference files (PNG, JPG, MP4, MOV, PDF, ZIP, CAD)", 
       messagePlaceholder: "Outline your campaign goals, deliverables, aesthetic requirements, and timeline...", 
-      submitBtn: "Transmit Confidential Brief", 
-      directEmail: "Executive Desk: info@aivienne.com",
+      submitBtn: "Submit Confidential Brief", 
+      directEmail: "Project Desk: info@aivienne.com",
       nextStepsTitle: "WHAT HAPPENS NEXT",
       ns1Title: "01 · REVIEW", ns1Desc: "We review your brief, aesthetic direction, and reference materials.",
       ns2Title: "02 · SCOPE", ns2Desc: "We define exact deliverables, schedule milestones, and production requirements.",
@@ -277,8 +274,8 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       termsTitle: "Terms of Engagement & Production Standards",
       termsP1Title: "1. INTELLECTUAL PROPERTY & USAGE RIGHTS",
       termsP1Body: "Upon full settlement of commercial production invoices, all delivered final master visual assets, motion files, and customized digital assets transition exclusively to the Client. The Client holds unrestricted worldwide commercial usage rights across digital flagships, broadcast television, print publications, and out-of-home media with zero perpetual royalty claims.",
-      termsP2Title: "2. PRE-RELEASE CONFIDENTIALITY & NDA",
-      termsP2Body: "All client briefs, CAD files, unreleased collection sketches, and proprietary brand assets are protected under bilateral Non-Disclosure Agreements upon request. AI.VIENNE Studio+ conducts production on isolated, secure compute environments to ensure confidentiality prior to official release.",
+      termsP2Title: "2. PRE-RELEASE CONFIDENTIALITY & MUTUAL NDA",
+      termsP2Body: "All client briefs, CAD files, unreleased collection sketches, and proprietary brand assets are protected under Mutual Non-Disclosure Agreements upon request. AI.VIENNE Studio+ conducts production on isolated, secure compute environments to ensure confidentiality prior to official release.",
       termsP3Title: "3. CHROMATIC CALIBRATION & REVISIONS",
       termsP3Body: "Commissions include structured revision rounds covering chromatic balance, material shader tuning, reflection angles, and composition framing to guarantee adherence to the approved brief.",
       termsP4Title: "4. MASTER RESOLUTION STANDARDS",
@@ -300,9 +297,10 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
     servicesPillars: {
       tag: "TEMEL PRODÜKSİYON DİSİPLİNLERİ",
       title: "Stratejik Prodüksiyon Hizmetleri",
-      desc: "Fiziksel ve dijital temas noktalarında üretim sürelerini kısaltmak ve marka prestijini yükseltmek için tasarlanmış kurumsal görsel hizmetler.",
+      desc: "Görsel üretim süreçlerini kolaylaştırmak ve fiziksel ile dijital amiral gemilerinde marka ifadesini yükseltmek için tasarlanmış hizmetler.",
       leadTimeLabel: "Ortalama Teslim Süresi:",
       leadTimeNote: "Süreler proje kapsamı, varlık adedi, revizyon döngüleri ve teslimat formatlarına göre değişiklik gösterebilir.",
+      scopeNote: "Projeler varlık adedi, kreatif karmaşıklık, revizyon ihtiyaçları ve teslimat formatlarına göre özel olarak kapsamlandırılır.",
       btnBrief: "Hizmet Talebi Oluştur",
       s1Tag: "KAMPANYALAR",
       s1Title: "Haute Couture & Sezonluk Kampanyalar",
@@ -359,7 +357,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
     },
     studioSection: {
       tag: "STÜDYO",
-      title: "Bağımsız Lüks Yapay Zeka Stüdyosu",
+      title: "AI-Native Lüks Görsel Prodüksiyon Evi",
       desc: "AI.VIENNE Studio+, yüksek moda, lüks mücevherat ve saatçilik evleri için çalışan bağımsız bir görsel prodüksiyon stüdyosudur.",
       founderName: "E. AKTAŞ",
       founderTitle: "Kurucu & Kreatif Direktör",
@@ -369,7 +367,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       spec3: "AI Destekli Prodüksiyon",
       opsTitle: "OPERASYONEL PROTOKOLLER",
       opsVal1: "Bağımsız Stüdyo · Global / Uzaktan Erişim",
-      opsVal2: "Gizlilik Protokolü (Talep Üzerine Çift Taraflı NDA)"
+      opsVal2: "Gizlilik Protokolü (Karşılıklı NDA Güvencesi)"
     },
     insights: {
       tag: "ARAŞTIRMA VE PERSPEKTİFLER",
@@ -390,12 +388,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       article3Title: "Materyal Simülasyonu: Değerli Taş ve Saat Yansımaları",
       article3Desc: "Makro mücevher ve saat görselleştirmesinde kontrollü optik mükemmelliğe ulaşmak.",
       article3Body1: "Lüks mücevherlerin makro fotoğrafçılığı ciddi optik zorluklar barındırır. İstenmeyen ışık parlamaları değerli taşların doğal rengini ve İsviçre mekanizma detaylarını gölgeleyebilir.",
-      article3Body2: "Üretim hattımız yansıma, kırılma ve yüzey dokuları üzerinde tam kontrol sağlayarak basılı dergilere ve dijital amiral gemilerine hazır yüksek çözünürlüklü makro görsel varlıklar üretir.",
-      article4Tag: "KREATİF STRATEJİ",
-      article4Title: "AI Sinematik Video: Lüks Reklamcılıkta 120 FPS Hareketi Kurgulamak",
-      article4Desc: "Prestijli amiral gemileri için dinamik atmosferik kamera hareketleri ve spektral derinlik mühendisliği.",
-      article4Body1: "Lüks reklamcılıkta sinematik hareket, zamansal bozulmayı ve titreşimi ortadan kaldırmak için hassas kare interpolasyonu gerektirir. AI.VIENNE, butik ekranlarında kusursuz netlik sağlamak için çok aşamalı optik akış çözücüler uygular.",
-      article4Body2: "Üretimin erken aşamalarında birleşik renk bilimi ve hacimsel ışıklandırma kurarak, dünya çapında kampanya yayınlarına hazır sinema standardında video varlıkları elde ediyoruz."
+      article3Body2: "Üretim hattımız yansıma, kırılma ve yüzey dokuları üzerinde tam kontrol sağlayarak basılı dergilere ve dijital amiral gemilerine hazır yüksek çözünürlüklü makro görsel varlıklar üretir."
     },
     portfolio: { 
       tag: "AI.VIENNE KONSEPT ARŞİVİ", 
@@ -405,7 +398,8 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       filter169: "16:9 Geniş Ekran Konseptleri", 
       filter916: "9:16 Dikey Çalışmalar", 
       playVideo: "Spekülatif Vaka İncelemesi", 
-      closeModal: "Önizlemeyi Kapat",
+      requestScope: "KAPSAM TALEP ET",
+      closePreview: "ÖNİZLEMEYİ KAPAT",
       disclaimer: "AI.VIENNE Studio+ tarafından üretilmiş spekülatif konsept çalışmasıdır. Sipariş edilmiş müşteri işi değildir."
     },
     transformation: { 
@@ -456,7 +450,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       uc4: "Global Varyasyonlar", uc4Desc: "Karakter geometrisini koruyarak atmosfer, stil ve bölgesel kampanya uyarlamaları yapın."
     },
     briefSection: { tag: "KREATİF YAPILANDIRICI", title: "İnteraktif Brief Mimarı", desc: "Projenizi başlatmadan önce görsel atmosfer ve stil tercihlerinizi yapılandırın.", s1: "1. Işık Mimarisi", s2: "2. Sektörel Uzmanlık", s3: "3. Mekan ve Atmosfer", applyBtn: "PROJE BRİEFİNE EKLE", configLabel: "Seçili Parametreler:" },
-    chatConsole: { title: "Yönetici Bilgi Masası", sub: "Özel Danışmanlık, Kapsam Belirleme ve Gizlilik Talepleri", placeholder: "Markanızı, lansman takviminizi veya hedeflerinizi iletin...", send: "Brief İlet", welcome: "AI.VIENNE Studio+ Bilgi Masasına hoş geldiniz. Proje hedeflerinizi paylaşabilirsiniz. Tüm talepler gizlilik protokolüyle incelenir." },
+    chatConsole: { title: "Proje Masası", sub: "Özel Danışmanlık, Kapsam Belirleme ve Karşılıklı NDA Talepleri", placeholder: "Markanızı, lansman takviminizi veya hedeflerinizi iletin...", send: "Brief İlet", welcome: "AI.VIENNE Studio+ Proje Masasına hoş geldiniz. Proje hedeflerinizi paylaşabilirsiniz. Tüm talepler gizlilik protokolüyle incelenir." },
     contact: { 
       tag: "PROJE TALEBİ", 
       title: "Proje Briefinizi Başlatın", 
@@ -478,12 +472,12 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       bOpt2: "Sezonluk Kampanya Paketi: $5,000 – $15,000", 
       bOpt3: "Tam Video ve Karakter Ekosistemi: $15,000 – $35,000+", 
       bOpt4: "Özel Kapsam / İhtiyaca Göre Belirlenen", 
-      ndaLabel: "Materyal paylaşımı öncesi ikili Gizlilik Sözleşmesi (NDA) talep ediyorum", 
+      ndaLabel: "Materyal paylaşımı öncesi Karşılıklı Gizlilik Sözleşmesi (NDA) talep ediyorum", 
       uploadTitle: "CAD Çizimi, Moodboard veya Referans Dosyası Yükleyin", 
       uploadHint: "Dosyaları sürükleyin veya seçin (PNG, JPG, MP4, MOV, PDF, ZIP, CAD)", 
       messagePlaceholder: "Kampanya hedefleriniz, teslimat takviminiz, estetik beklentileriniz hakkında bilgi verin...", 
       submitBtn: "Gizli Brief'i Gönder", 
-      directEmail: "Yönetici İletişim: info@aivienne.com",
+      directEmail: "Proje Masası: info@aivienne.com",
       nextStepsTitle: "SONRAKİ ADIMLAR",
       ns1Title: "01 · İNCELEME", ns1Desc: "Briefinizi, estetik yöneliminizi ve referans materyallerinizi inceliyoruz.",
       ns2Title: "02 · KAPSAM", ns2Desc: "Nihai teslimat formatlarını, takvim adımlarını ve üretim gereksinimlerini belirliyoruz.",
@@ -495,8 +489,8 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       termsTitle: "Hizmet Şartları ve Prodüksiyon Standartları",
       termsP1Title: "1. FİKRİ MÜLKİYET VE KULLANIM HAKLARI",
       termsP1Body: "Proje bedelinin tamamlanmasının ardından üretilen tüm nihai master görseller, video dosyaları ve dijital varlıklar sınırsız ve süresiz olarak Müşteriye devredilir. Müşteri ek telif ödemeksizin dijital platformlarda, basılı medyada ve açık hava panolarında tam ticari kullanım hakkına sahiptir.",
-      termsP2Title: "2. YAYIN ÖNCESİ GİZLİLİK VE ÇİFT TARAFLI NDA",
-      termsP2Body: "Müşteri tarafından iletilen tüm brief'ler, CAD tasarımları ve yayınlanmamış koleksiyon çizimleri talep üzerine çift taraflı Gizlilik Sözleşmesi (NDA) altında korunur. Prodüksiyon tamamen izole ve güvenli ortamlarda yürütülür.",
+      termsP2Title: "2. YAYIN ÖNCESİ GİZLİLİK VE KARŞILIKLI NDA",
+      termsP2Body: "Müşteri tarafından iletilen tüm brief'ler, CAD tasarımları ve yayınlanmamış koleksiyon çizimleri talep üzerine Karşılıklı Gizlilik Sözleşmesi (NDA) altında korunur. Prodüksiyon tamamen izole ve güvenli ortamlarda yürütülür.",
       termsP3Title: "3. RENK KALİBRASYONU VE REVİZYONLAR",
       termsP3Body: "Prodüksiyon süreçleri; renk dengesi, materyal gölgelendirmesi ve kompozisyon uyumu için onaylı brief'e tam uyumu garanti eden yapılandırılmış revizyon döngülerini içerir.",
       termsP4Title: "4. MASTER ÇÖZÜNÜRLÜK STANDARTLARI",
@@ -741,10 +735,12 @@ export default function Home() {
   const [selectedLang, setSelectedLang] = useState(LANGUAGES[0]);
   const [isLangOpen, setIsLangOpen] = useState(false);
   const [activeFilter, setActiveFilter] = useState("all");
+  
+  // Studio Menu Dropdown State & Ref
   const [isStudioOpen, setIsStudioOpen] = useState(false);
-  const studioMenuTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const studioMenuRef = useRef<HTMLDivElement | null>(null);
 
-  // Estimator States (01 Deliverable, 02 Volume, 03 Complexity, 04 Timeline)
+  // Dynamic Estimator States (01 Deliverable, 02 Volume, 03 Complexity, 04 Timeline)
   const [estType, setEstType] = useState<"still" | "motion" | "char" | "full">("still");
   const [estVolume, setEstVolume] = useState<"vol1" | "vol2" | "vol3" | "vol4">("vol1");
   const [estComplexity, setEstComplexity] = useState<"std" | "prem" | "camp">("std");
@@ -795,38 +791,36 @@ export default function Home() {
     return true;
   });
 
-  // ESC tuşu ile açık modalları anında kapatma
-  const handleKeyDown = useCallback((e: KeyboardEvent) => {
-    if (e.key === "Escape") {
-      setActiveCaseStudy(null);
-      setActiveArticle(null);
-      setActiveModal(null);
-      setIsDeskOpen(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [handleKeyDown]);
-
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => { setMousePos({ x: e.clientX, y: e.clientY }); };
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  // Studio menüsünün hemen kaybolmasını engelleyen gecikmeli mouseLeave yönetimi
-  const handleStudioMouseEnter = () => {
-    if (studioMenuTimerRef.current) clearTimeout(studioMenuTimerRef.current);
-    setIsStudioOpen(true);
-  };
+  // Close Studio menu on outside click
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (studioMenuRef.current && !studioMenuRef.current.contains(e.target as Node)) {
+        setIsStudioOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
-  const handleStudioMouseLeave = () => {
-    studioMenuTimerRef.current = setTimeout(() => {
-      setIsStudioOpen(false);
-    }, 250);
-  };
+  // Close modals on ESC key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setActiveCaseStudy(null);
+        setActiveArticle(null);
+        setActiveModal(null);
+        setIsDeskOpen(false);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   const toggleTwinVideoMute = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -862,7 +856,7 @@ export default function Home() {
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const fileNames = attachedFiles.map((f) => f.name).join(", ");
-    const ndaText = formData.requireNDA ? "YES (Bilateral NDA Requested)" : "NO";
+    const ndaText = formData.requireNDA ? "YES (Mutual NDA Requested)" : "NO";
     const mailToUrl = `mailto:info@aivienne.com?subject=Project Inquiry - ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(
       `Contact & Organization: ${formData.name}\nCorporate Email: ${formData.email}\nCompany Website: ${formData.website || "N/A"}\nTarget Launch: ${formData.launchDate || "Flexible"}\nProduction Discipline: ${formData.service}\nEstimated Budget Tier: ${formData.budget}\nNDA Requested: ${ndaText}\nAttached Files: ${fileNames || "None"}\n\nProject Scope & Objectives:\n${formData.message}`
     )}`;
@@ -888,11 +882,12 @@ export default function Home() {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
-  // Dynamic Production Estimator Logic
+  // Dynamic Production Estimator Logic (Updated Engine)
   const calculateEstimate = () => {
     let baseMin = 2500;
     let baseMax = 4500;
 
+    // 01 Deliverable Base
     if (estType === "still") {
       if (estVolume === "vol1") { baseMin = 2500; baseMax = 4500; }
       else if (estVolume === "vol2") { baseMin = 5000; baseMax = 9500; }
@@ -915,6 +910,7 @@ export default function Home() {
       else { baseMin = 45000; baseMax = 75000; }
     }
 
+    // 03 Complexity Multiplier
     if (estComplexity === "prem") {
       baseMin = Math.round(baseMin * 1.15);
       baseMax = Math.round(baseMax * 1.15);
@@ -923,6 +919,7 @@ export default function Home() {
       baseMax = Math.round(baseMax * 1.35);
     }
 
+    // 04 Timeline Multiplier
     if (estTimeline === "exp") {
       baseMin = Math.round(baseMin * 1.25);
       baseMax = Math.round(baseMax * 1.25);
@@ -940,7 +937,7 @@ export default function Home() {
       <div className="fixed inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(217,119,6,0.12),rgba(255,255,255,0))]" />
       <div className="fixed inset-0 pointer-events-none opacity-20 bg-[radial-gradient(#d97706_1px,transparent_1px)] [background-size:32px_32px]" />
 
-      {/* SPECULATIVE CASE STUDY INSPECTOR LIGHTBOX (01-06 DOSSIER) */}
+      {/* SPECULATIVE CASE STUDY INSPECTOR LIGHTBOX (ROBUST CLOSE & ESCAPE) */}
       <AnimatePresence>
         {activeCaseStudy && (
           <motion.div 
@@ -948,34 +945,25 @@ export default function Home() {
             animate={{ opacity: 1 }} 
             exit={{ opacity: 0 }} 
             onClick={() => setActiveCaseStudy(null)}
-            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl flex items-center justify-center p-3 sm:p-6 md:p-8 overflow-y-auto"
+            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl flex items-center justify-center p-3 md:p-8"
           >
-            {/* Sabit Kapat Butonu (Mobil & Masaüstü) */}
-            <button 
-              onClick={(e) => { e.stopPropagation(); setActiveCaseStudy(null); }}
-              aria-label="Close Case Study"
-              className="fixed top-4 right-4 sm:top-6 sm:right-6 z-[60] p-3 rounded-full bg-neutral-900/90 border border-amber-400/60 text-neutral-100 hover:bg-amber-400 hover:text-neutral-950 transition-all shadow-2xl cursor-pointer"
-            >
-              <X className="w-6 h-6" />
-            </button>
-
             <motion.div 
               initial={{ scale: 0.95, opacity: 0 }} 
               animate={{ scale: 1, opacity: 1 }} 
               exit={{ scale: 0.95, opacity: 0 }} 
               onClick={(e) => e.stopPropagation()}
-              className={`relative w-full ${activeCaseStudy.aspect === "9:16" ? "max-w-md md:max-w-lg" : "max-w-5xl"} bg-neutral-950 border border-amber-500/40 rounded-3xl overflow-hidden shadow-2xl max-h-[90vh] flex flex-col my-auto`}
+              className={`relative w-full ${activeCaseStudy.aspect === "9:16" ? "max-w-xl" : "max-w-5xl"} bg-neutral-950 border border-amber-500/40 rounded-3xl overflow-hidden shadow-2xl max-h-[92vh] flex flex-col`}
             >
-              <div className={`relative ${activeCaseStudy.aspect === "9:16" ? "aspect-[9/16] max-h-[46vh]" : "aspect-video max-h-[48vh]"} w-full bg-black flex items-center justify-center overflow-hidden shrink-0`}>
+              <div className={`relative ${activeCaseStudy.aspect === "9:16" ? "aspect-[9/16] max-h-[48vh]" : "aspect-video max-h-[50vh]"} w-full bg-black flex items-center justify-center overflow-hidden shrink-0`}>
                 {activeCaseStudy.type === "video" ? (
                   <video 
                     autoPlay 
                     loop 
                     muted 
-                    playsInline 
-                    preload="auto"
+                    preload="auto" 
                     controls 
-                    className="w-full h-full object-contain bg-black transform-gpu will-change-transform"
+                    playsInline 
+                    className="w-full h-full object-contain bg-black"
                   >
                     <source src={activeCaseStudy.videoUrl} type="video/mp4" />
                   </video>
@@ -990,7 +978,7 @@ export default function Home() {
                 )}
               </div>
 
-              {/* Case Study Production Dossier (01 Brief -> 06 Behind the Master) */}
+              {/* Case Study Production Dossier */}
               <div className="p-6 md:p-8 bg-neutral-950 overflow-y-auto border-t border-neutral-800 space-y-6 text-left">
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <div>
@@ -1004,23 +992,25 @@ export default function Home() {
                     </div>
                     <h3 className="text-xl sm:text-2xl font-extrabold text-neutral-100 mt-2">{activeCaseStudy.title}</h3>
                   </div>
-                  <div className="flex items-center gap-3">
+                  
+                  {/* Action Buttons: REQUEST SCOPE & CLOSE PREVIEW */}
+                  <div className="flex items-center gap-3 shrink-0">
                     <button 
                       onClick={() => {
                         setFormData(prev => ({ ...prev, message: `[COMMISSION INQUIRY]\nI am interested in commissioning a production scope similar to "${activeCaseStudy.title}" (${activeCaseStudy.conceptNum}).` }));
                         setActiveCaseStudy(null);
                         document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
                       }}
-                      className="px-5 py-2.5 rounded-full bg-amber-400 text-neutral-950 font-bold text-xs uppercase tracking-wider hover:bg-amber-300 transition-all cursor-pointer shrink-0 flex items-center gap-2 shadow-lg"
+                      className="px-6 py-2.5 rounded-full bg-amber-400 text-neutral-950 font-bold text-xs uppercase tracking-wider hover:bg-amber-300 transition-all cursor-pointer flex items-center gap-2"
                     >
-                      <span>Request Scope</span>
+                      <span>{t.portfolio?.requestScope || "REQUEST SCOPE"}</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </button>
                     <button 
                       onClick={() => setActiveCaseStudy(null)}
-                      className="px-4 py-2.5 rounded-full bg-neutral-900 border border-neutral-800 text-neutral-300 hover:text-white font-semibold text-xs uppercase tracking-wider cursor-pointer"
+                      className="px-5 py-2.5 rounded-full bg-neutral-900 border border-neutral-700 text-neutral-300 hover:text-white hover:border-amber-400 font-bold text-xs uppercase tracking-wider transition-all cursor-pointer"
                     >
-                      {t.portfolio?.closeModal}
+                      {t.portfolio?.closePreview || "CLOSE PREVIEW"}
                     </button>
                   </div>
                 </div>
@@ -1069,7 +1059,7 @@ export default function Home() {
             animate={{ opacity: 1 }} 
             exit={{ opacity: 0 }} 
             onClick={() => setActiveArticle(null)}
-            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex items-center justify-center p-4 overflow-y-auto"
+            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex items-center justify-center p-4"
           >
             <motion.div 
               initial={{ scale: 0.95 }} 
@@ -1135,7 +1125,7 @@ export default function Home() {
             animate={{ opacity: 1 }} 
             exit={{ opacity: 0 }} 
             onClick={() => setActiveModal(null)}
-            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex items-center justify-center p-4 overflow-y-auto"
+            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex items-center justify-center p-4"
           >
             <motion.div 
               initial={{ scale: 0.95 }} 
@@ -1177,7 +1167,7 @@ export default function Home() {
             animate={{ opacity: 1 }} 
             exit={{ opacity: 0 }} 
             onClick={() => setActiveModal(null)}
-            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex items-center justify-center p-4 overflow-y-auto"
+            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex items-center justify-center p-4"
           >
             <motion.div 
               initial={{ scale: 0.95 }} 
@@ -1247,7 +1237,7 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      {/* HEADER / NAVIGATION (Kusursuz Dropdown Köprüsü) */}
+      {/* HEADER / NAVIGATION (ROBUST STUDIO DROPDOWN) */}
       <header className="fixed top-0 left-0 right-0 z-50 w-full border-b border-neutral-800/80 bg-neutral-950/90 backdrop-blur-md">
         <div className="w-full px-4 sm:px-8 md:px-12 h-20 sm:h-24 flex items-center justify-between">
           <button type="button" onClick={scrollToTop} className="flex items-center gap-3 cursor-pointer text-left group shrink-0">
@@ -1280,33 +1270,60 @@ export default function Home() {
               <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-amber-400 transition-all duration-300 group-hover:w-full" />
             </a>
 
-            {/* Kesintisiz Hover ve Tıklanabilir Studio Menüsü */}
+            {/* Robust Studio Dropdown with no hover gap */}
             <div 
+              ref={studioMenuRef}
               className="relative py-2" 
-              onMouseEnter={handleStudioMouseEnter} 
-              onMouseLeave={handleStudioMouseLeave}
+              onMouseEnter={() => setIsStudioOpen(true)} 
+              onMouseLeave={() => setIsStudioOpen(false)}
             >
               <button 
-                type="button" 
+                type="button"
                 onClick={() => setIsStudioOpen(!isStudioOpen)}
-                className="flex items-center gap-1.5 hover:text-amber-400 transition-colors cursor-pointer whitespace-nowrap py-1"
+                className="flex items-center gap-1.5 hover:text-amber-400 transition-colors cursor-pointer whitespace-nowrap"
               >
                 <span>{t.nav?.studio}</span> 
                 <ChevronDown className={`w-4 h-4 opacity-70 transition-transform duration-300 ${isStudioOpen ? "rotate-180 text-amber-400" : ""}`} />
               </button>
               
               {isStudioOpen && (
-                <div 
-                  className="absolute top-full left-0 pt-2 w-56 z-50"
-                  onMouseEnter={handleStudioMouseEnter} 
-                  onMouseLeave={handleStudioMouseLeave}
-                >
-                  <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-2 shadow-2xl backdrop-blur-xl space-y-1">
-                    <a href="#studio" onClick={() => setIsStudioOpen(false)} className="block px-4 py-2.5 hover:bg-neutral-800 rounded-xl text-xs text-neutral-300 hover:text-white transition-colors">{t.nav?.theStudio}</a>
-                    <a href="#system" onClick={() => setIsStudioOpen(false)} className="block px-4 py-2.5 hover:bg-neutral-800 rounded-xl text-xs text-neutral-300 hover:text-white transition-colors">{t.nav?.system}</a>
-                    <a href="#transformation" onClick={() => setIsStudioOpen(false)} className="block px-4 py-2.5 hover:bg-neutral-800 rounded-xl text-xs text-neutral-300 hover:text-white transition-colors">{t.nav?.transformation}</a>
-                    <a href="#twins" onClick={() => setIsStudioOpen(false)} className="block px-4 py-2.5 hover:bg-neutral-800 rounded-xl text-xs text-neutral-300 hover:text-white transition-colors">{t.nav?.avatar}</a>
-                    <a href="#estimator" onClick={() => setIsStudioOpen(false)} className="block px-4 py-2.5 hover:bg-neutral-800 rounded-xl text-xs text-neutral-300 hover:text-white transition-colors">{t.nav?.roi}</a>
+                <div className="absolute top-full left-0 pt-2 w-56 z-50">
+                  <div className="bg-neutral-900/95 border border-amber-500/40 rounded-2xl p-2 shadow-2xl backdrop-blur-xl space-y-1">
+                    <a 
+                      href="#studio" 
+                      onClick={() => setIsStudioOpen(false)} 
+                      className="block px-4 py-2.5 hover:bg-neutral-800 rounded-xl text-xs font-semibold text-neutral-300 hover:text-amber-300 transition-colors"
+                    >
+                      {t.nav?.theStudio}
+                    </a>
+                    <a 
+                      href="#system" 
+                      onClick={() => setIsStudioOpen(false)} 
+                      className="block px-4 py-2.5 hover:bg-neutral-800 rounded-xl text-xs font-semibold text-neutral-300 hover:text-amber-300 transition-colors"
+                    >
+                      {t.nav?.system}
+                    </a>
+                    <a 
+                      href="#transformation" 
+                      onClick={() => setIsStudioOpen(false)} 
+                      className="block px-4 py-2.5 hover:bg-neutral-800 rounded-xl text-xs font-semibold text-neutral-300 hover:text-amber-300 transition-colors"
+                    >
+                      {t.nav?.transformation}
+                    </a>
+                    <a 
+                      href="#twins" 
+                      onClick={() => setIsStudioOpen(false)} 
+                      className="block px-4 py-2.5 hover:bg-neutral-800 rounded-xl text-xs font-semibold text-neutral-300 hover:text-amber-300 transition-colors"
+                    >
+                      {t.nav?.avatar}
+                    </a>
+                    <a 
+                      href="#estimator" 
+                      onClick={() => setIsStudioOpen(false)} 
+                      className="block px-4 py-2.5 hover:bg-neutral-800 rounded-xl text-xs font-semibold text-neutral-300 hover:text-amber-300 transition-colors"
+                    >
+                      {t.nav?.roi}
+                    </a>
                   </div>
                 </div>
               )}
@@ -1425,12 +1442,15 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="mt-8 pt-6 border-t border-neutral-800 flex items-center justify-between">
-                <span className="text-[10px] font-mono text-neutral-500 uppercase">{t.servicesPillars?.leadTimeLabel} {t.servicesPillars?.s1Time}</span>
+              <div className="mt-8 pt-6 border-t border-neutral-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div>
+                  <span className="text-[10px] font-mono text-neutral-500 uppercase block">{t.servicesPillars?.leadTimeLabel} {t.servicesPillars?.s1Time}</span>
+                  <span className="text-[10px] text-neutral-400 font-light italic">{t.servicesPillars?.scopeNote}</span>
+                </div>
                 <button 
                   type="button"
                   onClick={() => selectServicePillar("sOpt1", "Haute Couture & Seasonal Campaigns")}
-                  className="px-6 py-2.5 rounded-full bg-neutral-900 border border-amber-500/40 text-amber-300 group-hover:bg-amber-400 group-hover:text-neutral-950 font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer"
+                  className="px-6 py-2.5 rounded-full bg-neutral-900 border border-amber-500/40 text-amber-300 group-hover:bg-amber-400 group-hover:text-neutral-950 font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer shrink-0"
                 >
                   <span>{t.servicesPillars?.btnBrief}</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -1469,12 +1489,15 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="mt-8 pt-6 border-t border-neutral-800 flex items-center justify-between">
-                <span className="text-[10px] font-mono text-neutral-500 uppercase">{t.servicesPillars?.leadTimeLabel} {t.servicesPillars?.s2Time}</span>
+              <div className="mt-8 pt-6 border-t border-neutral-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div>
+                  <span className="text-[10px] font-mono text-neutral-500 uppercase block">{t.servicesPillars?.leadTimeLabel} {t.servicesPillars?.s2Time}</span>
+                  <span className="text-[10px] text-neutral-400 font-light italic">{t.servicesPillars?.scopeNote}</span>
+                </div>
                 <button 
                   type="button"
                   onClick={() => selectServicePillar("sOpt2", "Haute Horlogerie & Fine Jewelry")}
-                  className="px-6 py-2.5 rounded-full bg-neutral-900 border border-amber-500/40 text-amber-300 group-hover:bg-amber-400 group-hover:text-neutral-950 font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer"
+                  className="px-6 py-2.5 rounded-full bg-neutral-900 border border-amber-500/40 text-amber-300 group-hover:bg-amber-400 group-hover:text-neutral-950 font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer shrink-0"
                 >
                   <span>{t.servicesPillars?.btnBrief}</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -1513,12 +1536,15 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="mt-8 pt-6 border-t border-neutral-800 flex items-center justify-between">
-                <span className="text-[10px] font-mono text-neutral-500 uppercase">{t.servicesPillars?.leadTimeLabel} {t.servicesPillars?.s3Time}</span>
+              <div className="mt-8 pt-6 border-t border-neutral-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div>
+                  <span className="text-[10px] font-mono text-neutral-500 uppercase block">{t.servicesPillars?.leadTimeLabel} {t.servicesPillars?.s3Time}</span>
+                  <span className="text-[10px] text-neutral-400 font-light italic">{t.servicesPillars?.scopeNote}</span>
+                </div>
                 <button 
                   type="button"
                   onClick={() => selectServicePillar("sOpt3", "Persistent Brand Ambassadors")}
-                  className="px-6 py-2.5 rounded-full bg-neutral-900 border border-amber-500/40 text-amber-300 group-hover:bg-amber-400 group-hover:text-neutral-950 font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer"
+                  className="px-6 py-2.5 rounded-full bg-neutral-900 border border-amber-500/40 text-amber-300 group-hover:bg-amber-400 group-hover:text-neutral-950 font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer shrink-0"
                 >
                   <span>{t.servicesPillars?.btnBrief}</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -1557,12 +1583,15 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="mt-8 pt-6 border-t border-neutral-800 flex items-center justify-between">
-                <span className="text-[10px] font-mono text-neutral-500 uppercase">{t.servicesPillars?.leadTimeLabel} {t.servicesPillars?.s4Time}</span>
+              <div className="mt-8 pt-6 border-t border-neutral-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div>
+                  <span className="text-[10px] font-mono text-neutral-500 uppercase block">{t.servicesPillars?.leadTimeLabel} {t.servicesPillars?.s4Time}</span>
+                  <span className="text-[10px] text-neutral-400 font-light italic">{t.servicesPillars?.scopeNote}</span>
+                </div>
                 <button 
                   type="button"
                   onClick={() => selectServicePillar("sOpt4", "Brand Heritage & Flagship Films")}
-                  className="px-6 py-2.5 rounded-full bg-neutral-900 border border-amber-500/40 text-amber-300 group-hover:bg-amber-400 group-hover:text-neutral-950 font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer"
+                  className="px-6 py-2.5 rounded-full bg-neutral-900 border border-amber-500/40 text-amber-300 group-hover:bg-amber-400 group-hover:text-neutral-950 font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer shrink-0"
                 >
                   <span>{t.servicesPillars?.btnBrief}</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -1614,14 +1643,7 @@ export default function Home() {
                   >
                     <div className="relative aspect-[16/9] w-full rounded-xl bg-neutral-950 border border-neutral-800 flex items-center justify-center overflow-hidden mb-3.5 shadow-md">
                       {item.type === "video" ? (
-                        <video 
-                          autoPlay 
-                          loop 
-                          muted 
-                          playsInline 
-                          preload="none"
-                          className="w-full h-full object-contain bg-black group-hover:scale-105 transition-transform duration-500 ease-out transform-gpu will-change-transform"
-                        >
+                        <video autoPlay loop muted playsInline preload="metadata" className="w-full h-full object-contain bg-black group-hover:scale-105 transition-transform duration-500 ease-out">
                           <source src={item.videoUrl} type="video/mp4" />
                         </video>
                       ) : (
@@ -1669,14 +1691,7 @@ export default function Home() {
                   >
                     <div className="relative aspect-[9/16] w-full rounded-xl bg-neutral-950 border border-neutral-800 flex items-center justify-center overflow-hidden mb-3.5 shadow-md mx-auto">
                       {item.type === "video" ? (
-                        <video 
-                          autoPlay 
-                          loop 
-                          muted 
-                          playsInline 
-                          preload="none"
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out transform-gpu will-change-transform"
-                        >
+                        <video autoPlay loop muted playsInline preload="metadata" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out">
                           <source src={item.videoUrl} type="video/mp4" />
                         </video>
                       ) : (
@@ -1857,7 +1872,7 @@ export default function Home() {
                     playsInline
                     preload="auto"
                     poster={selectedTwin.poster}
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-1000 ease-out opacity-90 transform-gpu will-change-transform"
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-1000 ease-out opacity-90"
                   >
                     <source src={selectedTwin.video} type="video/mp4" />
                     <Image src={selectedTwin.poster} alt={selectedTwin.name} fill priority sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
@@ -1933,7 +1948,7 @@ export default function Home() {
                     muted
                     playsInline
                     preload="auto"
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-1000 ease-out opacity-85 transform-gpu will-change-transform"
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-1000 ease-out opacity-85"
                   >
                     <source src="/vienne-facial-loop.mp4" type="video/mp4" />
                   </video>
@@ -2011,7 +2026,7 @@ export default function Home() {
               { num: t.system?.s2Num, title: t.system?.s2Title, desc: t.system?.s2Detail, icon: Sliders },
               { num: t.system?.s3Num, title: t.system?.s3Title, desc: t.system?.s3Detail, icon: Cpu },
               { num: t.system?.s4Num, title: t.system?.s4Title, desc: t.system?.s4Detail, icon: Sparkles },
-              { num: t.system?.s5Num, title: t.system?.s5Detail, icon: CheckSquare }
+              { num: t.system?.s5Num, title: t.system?.s5Title, desc: t.system?.s5Detail, icon: CheckSquare }
             ].map((step, idx) => (
               <div 
                 key={idx} 
@@ -2162,7 +2177,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PRODUCTION ECONOMICS & SCOPE ESTIMATOR */}
+      {/* DYNAMIC PRODUCTION ECONOMICS & SCOPE ESTIMATOR */}
       <section id="estimator" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50 bg-neutral-900/20">
         <div className="max-w-6xl mx-auto bg-neutral-900/60 border border-amber-500/30 p-6 sm:p-10 md:p-16 rounded-3xl backdrop-blur-md shadow-2xl">
           <div className="flex items-center gap-4 mb-6">
@@ -2173,7 +2188,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10">
             <div className="space-y-5 text-left">
-              {/* Deliverable Focus */}
+              {/* 01 Deliverable Focus */}
               <div>
                 <label className="block text-xs font-bold text-neutral-300 uppercase mb-2.5">{t.estimator?.deliverableType}</label>
                 <div className="grid grid-cols-2 gap-2">
@@ -2190,7 +2205,7 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Volume */}
+              {/* 02 Volume */}
               <div>
                 <label className="block text-xs font-bold text-neutral-300 uppercase mb-2.5">{t.estimator?.volumeLabel}</label>
                 <div className="grid grid-cols-4 gap-2">
@@ -2207,7 +2222,7 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Complexity */}
+              {/* 03 Complexity */}
               <div>
                 <label className="block text-xs font-bold text-neutral-300 uppercase mb-2.5">{t.estimator?.complexityLabel}</label>
                 <div className="grid grid-cols-3 gap-2">
@@ -2223,7 +2238,7 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Timeline */}
+              {/* 04 Timeline */}
               <div>
                 <label className="block text-xs font-bold text-neutral-300 uppercase mb-2.5">{t.estimator?.timelineLabel}</label>
                 <div className="grid grid-cols-2 gap-2">
@@ -2274,7 +2289,7 @@ export default function Home() {
                 onClick={() => {
                   setFormData(prev => ({
                     ...prev,
-                    message: `[PROJECT ESTIMATE REQUEST]\nCalculated Range: ${calculateEstimate()}\nParameters: Focus: ${estType} | Volume: ${estVolume} | Complexity: ${estComplexity} | Timeline: ${estTimeline}`
+                    message: `[PROJECT ESTIMATE REQUEST]\nCalculated Range: ${calculateEstimate()}\nParameters: Deliverable: ${estType} | Volume: ${estVolume} | Complexity: ${estComplexity} | Schedule: ${estTimeline}`
                   }));
                   document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
                 }} 
@@ -2471,13 +2486,13 @@ export default function Home() {
                 <select id="budget-select" name="budgetSelect" value={formData.budget} onChange={(e) => setFormData({ ...formData, budget: e.target.value })} className="w-full bg-neutral-950/80 border border-neutral-800 focus:border-amber-400 rounded-2xl px-5 sm:px-6 py-3.5 sm:py-4 text-sm sm:text-base text-neutral-100 outline-none cursor-pointer">
                   <option value="bOpt1">{t.contact?.bOpt1}</option> 
                   <option value="bOpt2">{t.contact?.bOpt2}</option> 
-                  <option value="bOpt3">{t.contact?.bOpt3}</option>
+                  <option value="bOpt3">{t.contact?.bOpt3}</option> 
                   <option value="bOpt4">{t.contact?.bOpt4}</option>
                 </select>
               </div>
             </div>
 
-            {/* NDA Protocol Toggle */}
+            {/* Mutual NDA Protocol Toggle */}
             <div className="p-4 rounded-2xl bg-neutral-950/80 border border-amber-500/30 flex items-center justify-between gap-4">
               <div className="flex items-center gap-3">
                 <Lock className="w-5 h-5 text-amber-400 shrink-0" />
