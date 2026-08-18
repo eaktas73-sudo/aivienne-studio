@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -44,6 +44,9 @@ import {
   Clock,
   ExternalLink,
   Info,
+  Calendar,
+  User,
+  BookOpen,
   LucideIcon
 } from "lucide-react";
 
@@ -70,11 +73,6 @@ interface TranslationContent {
   modals: TranslationRecord;
   footer: string;
 }
-
-const LANGUAGES = [
-  { code: "EN", name: "English", dir: "ltr", flag: "https://flagcdn.com/w40/gb.png" },
-  { code: "TR", name: "Türkçe", dir: "ltr", flag: "https://flagcdn.com/w40/tr.png" }
-];
 
 const TRANSLATIONS: Record<string, TranslationContent> = {
   EN: {
@@ -174,7 +172,12 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       article3Title: "Material Simulation: Gemstone & Watch Refraction",
       article3Desc: "Achieving controlled optical brilliance in macro jewelry and timepiece visualization.",
       article3Body1: "Macro photography of high jewelry presents extreme studio lighting challenges. Unwanted reflections and flare can obscure the natural fire of precious stones and the finishing of Swiss movements.",
-      article3Body2: "Our pipeline allows precise control over reflection, dispersion, and surface textures, producing high-resolution macro visual assets ready for editorial print and digital flagships."
+      article3Body2: "Our pipeline allows precise control over reflection, dispersion, and surface textures, producing high-resolution macro visual assets ready for editorial print and digital flagships.",
+      article4Tag: "CREATIVE STRATEGY",
+      article4Title: "AI Cinematic Video: Framing 120 FPS Motion in Luxury Advertising",
+      article4Desc: "The engineering behind dynamic atmospheric camera paths and spectral depth for prestige flagships.",
+      article4Body1: "Cinematic movement in high-end advertising requires precise frame interpolation to eliminate temporal distortion and jitter. AI.VIENNE applies multi-stage optical flow solvers to ensure pristine clarity across large-format boutique displays.",
+      article4Body2: "By establishing unified color science and volumetric lighting in early production phases, we achieve cinema-grade motion assets ready for worldwide campaign broadcast."
     },
     portfolio: { 
       tag: "AI.VIENNE CONCEPT ARCHIVE", 
@@ -184,6 +187,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       filter169: "16:9 Widescreen Concepts", 
       filter916: "9:16 Vertical Studies", 
       playVideo: "Inspect Speculative Case Study", 
+      closeModal: "Close Preview",
       disclaimer: "Speculative concept study produced by AI.VIENNE Studio+. Not commissioned client work."
     },
     transformation: { 
@@ -386,7 +390,12 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       article3Title: "Materyal Simülasyonu: Değerli Taş ve Saat Yansımaları",
       article3Desc: "Makro mücevher ve saat görselleştirmesinde kontrollü optik mükemmelliğe ulaşmak.",
       article3Body1: "Lüks mücevherlerin makro fotoğrafçılığı ciddi optik zorluklar barındırır. İstenmeyen ışık parlamaları değerli taşların doğal rengini ve İsviçre mekanizma detaylarını gölgeleyebilir.",
-      article3Body2: "Üretim hattımız yansıma, kırılma ve yüzey dokuları üzerinde tam kontrol sağlayarak basılı dergilere ve dijital amiral gemilerine hazır yüksek çözünürlüklü makro görsel varlıklar üretir."
+      article3Body2: "Üretim hattımız yansıma, kırılma ve yüzey dokuları üzerinde tam kontrol sağlayarak basılı dergilere ve dijital amiral gemilerine hazır yüksek çözünürlüklü makro görsel varlıklar üretir.",
+      article4Tag: "KREATİF STRATEJİ",
+      article4Title: "AI Sinematik Video: Lüks Reklamcılıkta 120 FPS Hareketi Kurgulamak",
+      article4Desc: "Prestijli amiral gemileri için dinamik atmosferik kamera hareketleri ve spektral derinlik mühendisliği.",
+      article4Body1: "Lüks reklamcılıkta sinematik hareket, zamansal bozulmayı ve titreşimi ortadan kaldırmak için hassas kare interpolasyonu gerektirir. AI.VIENNE, butik ekranlarında kusursuz netlik sağlamak için çok aşamalı optik akış çözücüler uygular.",
+      article4Body2: "Üretimin erken aşamalarında birleşik renk bilimi ve hacimsel ışıklandırma kurarak, dünya çapında kampanya yayınlarına hazır sinema standardında video varlıkları elde ediyoruz."
     },
     portfolio: { 
       tag: "AI.VIENNE KONSEPT ARŞİVİ", 
@@ -396,6 +405,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       filter169: "16:9 Geniş Ekran Konseptleri", 
       filter916: "9:16 Dikey Çalışmalar", 
       playVideo: "Spekülatif Vaka İncelemesi", 
+      closeModal: "Önizlemeyi Kapat",
       disclaimer: "AI.VIENNE Studio+ tarafından üretilmiş spekülatif konsept çalışmasıdır. Sipariş edilmiş müşteri işi değildir."
     },
     transformation: { 
@@ -503,6 +513,11 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
   }
 };
 
+const LANGUAGES = [
+  { code: "EN", name: "English", dir: "ltr", flag: "https://flagcdn.com/w40/gb.png" },
+  { code: "TR", name: "Türkçe", dir: "ltr", flag: "https://flagcdn.com/w40/tr.png" }
+];
+
 interface CaseStudyItem {
   id: string;
   conceptNum: string;
@@ -527,8 +542,13 @@ interface CaseStudyItem {
 interface ArticleItem {
   tag: string;
   title: string;
+  author: string;
+  date: string;
+  readTime: string;
   body1: string;
   body2: string;
+  faqQ1?: string;
+  faqA1?: string;
 }
 
 const PORTFOLIO_ITEMS: CaseStudyItem[] = [
@@ -722,8 +742,9 @@ export default function Home() {
   const [isLangOpen, setIsLangOpen] = useState(false);
   const [activeFilter, setActiveFilter] = useState("all");
   const [isStudioOpen, setIsStudioOpen] = useState(false);
+  const studioMenuTimerRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Estimator States
+  // Estimator States (01 Deliverable, 02 Volume, 03 Complexity, 04 Timeline)
   const [estType, setEstType] = useState<"still" | "motion" | "char" | "full">("still");
   const [estVolume, setEstVolume] = useState<"vol1" | "vol2" | "vol3" | "vol4">("vol1");
   const [estComplexity, setEstComplexity] = useState<"std" | "prem" | "camp">("std");
@@ -774,25 +795,38 @@ export default function Home() {
     return true;
   });
 
+  // ESC tuşu ile açık modalları anında kapatma
+  const handleKeyDown = useCallback((e: KeyboardEvent) => {
+    if (e.key === "Escape") {
+      setActiveCaseStudy(null);
+      setActiveArticle(null);
+      setActiveModal(null);
+      setIsDeskOpen(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [handleKeyDown]);
+
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => { setMousePos({ x: e.clientX, y: e.clientY }); };
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  // Global ESC Key Listener to Close All Modals
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setActiveCaseStudy(null);
-        setActiveArticle(null);
-        setActiveModal(null);
-        setIsDeskOpen(false);
-      }
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
+  // Studio menüsünün hemen kaybolmasını engelleyen gecikmeli mouseLeave yönetimi
+  const handleStudioMouseEnter = () => {
+    if (studioMenuTimerRef.current) clearTimeout(studioMenuTimerRef.current);
+    setIsStudioOpen(true);
+  };
+
+  const handleStudioMouseLeave = () => {
+    studioMenuTimerRef.current = setTimeout(() => {
+      setIsStudioOpen(false);
+    }, 250);
+  };
 
   const toggleTwinVideoMute = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -854,7 +888,7 @@ export default function Home() {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
-  // Scope Price Calculator Logic
+  // Dynamic Production Estimator Logic
   const calculateEstimate = () => {
     let baseMin = 2500;
     let baseMax = 4500;
@@ -906,7 +940,7 @@ export default function Home() {
       <div className="fixed inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(217,119,6,0.12),rgba(255,255,255,0))]" />
       <div className="fixed inset-0 pointer-events-none opacity-20 bg-[radial-gradient(#d97706_1px,transparent_1px)] [background-size:32px_32px]" />
 
-      {/* SPECULATIVE CASE STUDY INSPECTOR LIGHTBOX MODAL */}
+      {/* SPECULATIVE CASE STUDY INSPECTOR LIGHTBOX (01-06 DOSSIER) */}
       <AnimatePresence>
         {activeCaseStudy && (
           <motion.div 
@@ -914,13 +948,13 @@ export default function Home() {
             animate={{ opacity: 1 }} 
             exit={{ opacity: 0 }} 
             onClick={() => setActiveCaseStudy(null)}
-            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl flex items-center justify-center p-3 md:p-8"
+            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl flex items-center justify-center p-3 sm:p-6 md:p-8 overflow-y-auto"
           >
-            {/* Global Fixed Close Button for Guaranteed Exit */}
+            {/* Sabit Kapat Butonu (Mobil & Masaüstü) */}
             <button 
-              onClick={(e) => { e.stopPropagation(); setActiveCaseStudy(null); }} 
+              onClick={(e) => { e.stopPropagation(); setActiveCaseStudy(null); }}
               aria-label="Close Case Study"
-              className="fixed top-6 right-6 z-[100] p-3 rounded-full bg-neutral-900 border-2 border-amber-400/80 text-amber-300 hover:text-neutral-950 hover:bg-amber-400 transition-all cursor-pointer shadow-[0_0_20px_rgba(251,191,36,0.5)]"
+              className="fixed top-4 right-4 sm:top-6 sm:right-6 z-[60] p-3 rounded-full bg-neutral-900/90 border border-amber-400/60 text-neutral-100 hover:bg-amber-400 hover:text-neutral-950 transition-all shadow-2xl cursor-pointer"
             >
               <X className="w-6 h-6" />
             </button>
@@ -930,19 +964,17 @@ export default function Home() {
               animate={{ scale: 1, opacity: 1 }} 
               exit={{ scale: 0.95, opacity: 0 }} 
               onClick={(e) => e.stopPropagation()}
-              className={`relative w-full ${activeCaseStudy.aspect === "9:16" ? "max-w-xl" : "max-w-5xl"} bg-neutral-950 border border-amber-500/40 rounded-3xl overflow-hidden shadow-2xl max-h-[90vh] flex flex-col`}
+              className={`relative w-full ${activeCaseStudy.aspect === "9:16" ? "max-w-md md:max-w-lg" : "max-w-5xl"} bg-neutral-950 border border-amber-500/40 rounded-3xl overflow-hidden shadow-2xl max-h-[90vh] flex flex-col my-auto`}
             >
               <div className={`relative ${activeCaseStudy.aspect === "9:16" ? "aspect-[9/16] max-h-[46vh]" : "aspect-video max-h-[48vh]"} w-full bg-black flex items-center justify-center overflow-hidden shrink-0`}>
                 {activeCaseStudy.type === "video" ? (
                   <video 
-                    key={activeCaseStudy.id}
                     autoPlay 
                     loop 
                     muted 
-                    preload="auto" 
-                    controls 
                     playsInline 
-                    disablePictureInPicture
+                    preload="auto"
+                    controls 
                     className="w-full h-full object-contain bg-black transform-gpu will-change-transform"
                   >
                     <source src={activeCaseStudy.videoUrl} type="video/mp4" />
@@ -958,7 +990,7 @@ export default function Home() {
                 )}
               </div>
 
-              {/* Case Study Production Dossier */}
+              {/* Case Study Production Dossier (01 Brief -> 06 Behind the Master) */}
               <div className="p-6 md:p-8 bg-neutral-950 overflow-y-auto border-t border-neutral-800 space-y-6 text-left">
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <div>
@@ -972,17 +1004,25 @@ export default function Home() {
                     </div>
                     <h3 className="text-xl sm:text-2xl font-extrabold text-neutral-100 mt-2">{activeCaseStudy.title}</h3>
                   </div>
-                  <button 
-                    onClick={() => {
-                      setFormData(prev => ({ ...prev, message: `[COMMISSION INQUIRY]\nI am interested in commissioning a production scope similar to "${activeCaseStudy.title}" (${activeCaseStudy.conceptNum}).` }));
-                      setActiveCaseStudy(null);
-                      document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-                    }}
-                    className="px-6 py-2.5 rounded-full bg-amber-400 text-neutral-950 font-bold text-xs uppercase tracking-wider hover:bg-amber-300 transition-all cursor-pointer shrink-0 flex items-center gap-2"
-                  >
-                    <span>Request Similar Scope</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
+                  <div className="flex items-center gap-3">
+                    <button 
+                      onClick={() => {
+                        setFormData(prev => ({ ...prev, message: `[COMMISSION INQUIRY]\nI am interested in commissioning a production scope similar to "${activeCaseStudy.title}" (${activeCaseStudy.conceptNum}).` }));
+                        setActiveCaseStudy(null);
+                        document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                      }}
+                      className="px-5 py-2.5 rounded-full bg-amber-400 text-neutral-950 font-bold text-xs uppercase tracking-wider hover:bg-amber-300 transition-all cursor-pointer shrink-0 flex items-center gap-2 shadow-lg"
+                    >
+                      <span>Request Scope</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </button>
+                    <button 
+                      onClick={() => setActiveCaseStudy(null)}
+                      className="px-4 py-2.5 rounded-full bg-neutral-900 border border-neutral-800 text-neutral-300 hover:text-white font-semibold text-xs uppercase tracking-wider cursor-pointer"
+                    >
+                      {t.portfolio?.closeModal}
+                    </button>
+                  </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
@@ -1006,7 +1046,7 @@ export default function Home() {
                     <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">05 · Deliverables</span>
                     <p className="text-neutral-300 text-xs leading-relaxed font-semibold">{activeCaseStudy.deliverables}</p>
                   </div>
-                  <div className="p-4 rounded-2xl bg-neutral-900/60 border border-amber-500/20">
+                  <div className="p-4 rounded-2xl bg-neutral-900/60 border border-amber-500/30 bg-amber-500/5">
                     <span className="text-[10px] font-bold text-amber-400 uppercase block mb-1">06 · Behind the Master</span>
                     <p className="text-neutral-300 text-xs leading-relaxed font-light">{activeCaseStudy.productionNotes}</p>
                   </div>
@@ -1021,7 +1061,7 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      {/* ARTICLE PUBLICATION MODAL */}
+      {/* ARTICLE MONOGRAPH PUBLICATION MODAL */}
       <AnimatePresence>
         {activeArticle && (
           <motion.div 
@@ -1029,7 +1069,7 @@ export default function Home() {
             animate={{ opacity: 1 }} 
             exit={{ opacity: 0 }} 
             onClick={() => setActiveArticle(null)}
-            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex items-center justify-center p-4"
+            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex items-center justify-center p-4 overflow-y-auto"
           >
             <motion.div 
               initial={{ scale: 0.95 }} 
@@ -1040,9 +1080,20 @@ export default function Home() {
             >
               <button onClick={() => setActiveArticle(null)} aria-label="Close Article" className="absolute top-6 right-6 text-neutral-400 hover:text-white cursor-pointer"><X className="w-6 h-6" /></button>
               
-              <span className="text-[10px] font-extrabold tracking-widest text-amber-300 bg-amber-400/10 border border-amber-400/30 px-3.5 py-1.5 rounded-full uppercase inline-block mb-4">
-                {activeArticle.tag}
-              </span>
+              <div className="flex flex-wrap items-center gap-3 mb-4">
+                <span className="text-[10px] font-extrabold tracking-widest text-amber-300 bg-amber-400/10 border border-amber-400/30 px-3.5 py-1 rounded-full uppercase">
+                  {activeArticle.tag}
+                </span>
+                <span className="text-xs font-mono text-neutral-400 flex items-center gap-1.5">
+                  <User className="w-3.5 h-3.5 text-amber-400" /> {activeArticle.author}
+                </span>
+                <span className="text-xs font-mono text-neutral-400 flex items-center gap-1.5">
+                  <Calendar className="w-3.5 h-3.5 text-amber-400" /> {activeArticle.date}
+                </span>
+                <span className="text-xs font-mono text-neutral-400 flex items-center gap-1.5">
+                  <BookOpen className="w-3.5 h-3.5 text-amber-400" /> {activeArticle.readTime}
+                </span>
+              </div>
               
               <h3 className="text-2xl md:text-3xl font-extrabold text-neutral-100 mb-6 leading-snug">
                 {activeArticle.title}
@@ -1053,8 +1104,16 @@ export default function Home() {
                 <p>{activeArticle.body2}</p>
               </div>
 
+              {activeArticle.faqQ1 && (
+                <div className="mt-8 p-5 rounded-2xl bg-neutral-950 border border-neutral-800 text-xs">
+                  <span className="text-[10px] font-bold text-amber-400 uppercase tracking-widest block mb-1">Frequently Asked Inquiry</span>
+                  <p className="font-bold text-neutral-200 mb-1">{activeArticle.faqQ1}</p>
+                  <p className="text-neutral-400 font-light leading-relaxed">{activeArticle.faqA1}</p>
+                </div>
+              )}
+
               <div className="mt-8 pt-6 border-t border-neutral-800/80 flex items-center justify-between">
-                <span className="text-xs font-mono text-neutral-400">AI.VIENNE Perspectives</span>
+                <span className="text-xs font-mono text-neutral-400">AI.VIENNE Research & Monograph</span>
                 <button 
                   onClick={() => { setActiveArticle(null); document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }); }}
                   className="px-6 py-2.5 rounded-full bg-amber-400 text-neutral-950 font-bold text-xs uppercase tracking-wider hover:bg-amber-300 transition-all flex items-center gap-2 cursor-pointer"
@@ -1076,7 +1135,7 @@ export default function Home() {
             animate={{ opacity: 1 }} 
             exit={{ opacity: 0 }} 
             onClick={() => setActiveModal(null)}
-            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex items-center justify-center p-4"
+            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex items-center justify-center p-4 overflow-y-auto"
           >
             <motion.div 
               initial={{ scale: 0.95 }} 
@@ -1118,7 +1177,7 @@ export default function Home() {
             animate={{ opacity: 1 }} 
             exit={{ opacity: 0 }} 
             onClick={() => setActiveModal(null)}
-            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex items-center justify-center p-4"
+            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex items-center justify-center p-4 overflow-y-auto"
           >
             <motion.div 
               initial={{ scale: 0.95 }} 
@@ -1188,7 +1247,7 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      {/* HEADER / NAVIGATION */}
+      {/* HEADER / NAVIGATION (Kusursuz Dropdown Köprüsü) */}
       <header className="fixed top-0 left-0 right-0 z-50 w-full border-b border-neutral-800/80 bg-neutral-950/90 backdrop-blur-md">
         <div className="w-full px-4 sm:px-8 md:px-12 h-20 sm:h-24 flex items-center justify-between">
           <button type="button" onClick={scrollToTop} className="flex items-center gap-3 cursor-pointer text-left group shrink-0">
@@ -1221,17 +1280,34 @@ export default function Home() {
               <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-amber-400 transition-all duration-300 group-hover:w-full" />
             </a>
 
-            <div className="relative group py-2" onMouseEnter={() => setIsStudioOpen(true)} onMouseLeave={() => setIsStudioOpen(false)}>
-              <button className="flex items-center gap-1.5 hover:text-amber-400 transition-colors cursor-pointer whitespace-nowrap">
-                <span>{t.nav?.studio}</span> <ChevronDown className="w-4 h-4 opacity-70 group-hover:rotate-180 transition-transform duration-300" />
+            {/* Kesintisiz Hover ve Tıklanabilir Studio Menüsü */}
+            <div 
+              className="relative py-2" 
+              onMouseEnter={handleStudioMouseEnter} 
+              onMouseLeave={handleStudioMouseLeave}
+            >
+              <button 
+                type="button" 
+                onClick={() => setIsStudioOpen(!isStudioOpen)}
+                className="flex items-center gap-1.5 hover:text-amber-400 transition-colors cursor-pointer whitespace-nowrap py-1"
+              >
+                <span>{t.nav?.studio}</span> 
+                <ChevronDown className={`w-4 h-4 opacity-70 transition-transform duration-300 ${isStudioOpen ? "rotate-180 text-amber-400" : ""}`} />
               </button>
+              
               {isStudioOpen && (
-                <div className="absolute top-full left-0 mt-2 w-52 bg-neutral-900 border border-neutral-800 rounded-2xl p-2 z-50 shadow-2xl backdrop-blur-xl">
-                  <a href="#studio" className="block px-4 py-2.5 hover:bg-neutral-800 rounded-xl text-xs text-neutral-300 hover:text-white transition-colors">{t.nav?.theStudio}</a>
-                  <a href="#system" className="block px-4 py-2.5 hover:bg-neutral-800 rounded-xl text-xs text-neutral-300 hover:text-white transition-colors">{t.nav?.system}</a>
-                  <a href="#transformation" className="block px-4 py-2.5 hover:bg-neutral-800 rounded-xl text-xs text-neutral-300 hover:text-white transition-colors">{t.nav?.transformation}</a>
-                  <a href="#twins" className="block px-4 py-2.5 hover:bg-neutral-800 rounded-xl text-xs text-neutral-300 hover:text-white transition-colors">{t.nav?.avatar}</a>
-                  <a href="#estimator" className="block px-4 py-2.5 hover:bg-neutral-800 rounded-xl text-xs text-neutral-300 hover:text-white transition-colors">{t.nav?.roi}</a>
+                <div 
+                  className="absolute top-full left-0 pt-2 w-56 z-50"
+                  onMouseEnter={handleStudioMouseEnter} 
+                  onMouseLeave={handleStudioMouseLeave}
+                >
+                  <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-2 shadow-2xl backdrop-blur-xl space-y-1">
+                    <a href="#studio" onClick={() => setIsStudioOpen(false)} className="block px-4 py-2.5 hover:bg-neutral-800 rounded-xl text-xs text-neutral-300 hover:text-white transition-colors">{t.nav?.theStudio}</a>
+                    <a href="#system" onClick={() => setIsStudioOpen(false)} className="block px-4 py-2.5 hover:bg-neutral-800 rounded-xl text-xs text-neutral-300 hover:text-white transition-colors">{t.nav?.system}</a>
+                    <a href="#transformation" onClick={() => setIsStudioOpen(false)} className="block px-4 py-2.5 hover:bg-neutral-800 rounded-xl text-xs text-neutral-300 hover:text-white transition-colors">{t.nav?.transformation}</a>
+                    <a href="#twins" onClick={() => setIsStudioOpen(false)} className="block px-4 py-2.5 hover:bg-neutral-800 rounded-xl text-xs text-neutral-300 hover:text-white transition-colors">{t.nav?.avatar}</a>
+                    <a href="#estimator" onClick={() => setIsStudioOpen(false)} className="block px-4 py-2.5 hover:bg-neutral-800 rounded-xl text-xs text-neutral-300 hover:text-white transition-colors">{t.nav?.roi}</a>
+                  </div>
                 </div>
               )}
             </div>
@@ -1543,9 +1619,8 @@ export default function Home() {
                           loop 
                           muted 
                           playsInline 
-                          preload="metadata" 
-                          disablePictureInPicture
-                          className="w-full h-full object-contain bg-black group-hover:scale-105 transition-transform duration-500 ease-out transform-gpu"
+                          preload="none"
+                          className="w-full h-full object-contain bg-black group-hover:scale-105 transition-transform duration-500 ease-out transform-gpu will-change-transform"
                         >
                           <source src={item.videoUrl} type="video/mp4" />
                         </video>
@@ -1599,9 +1674,8 @@ export default function Home() {
                           loop 
                           muted 
                           playsInline 
-                          preload="metadata" 
-                          disablePictureInPicture
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out transform-gpu"
+                          preload="none"
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out transform-gpu will-change-transform"
                         >
                           <source src={item.videoUrl} type="video/mp4" />
                         </video>
@@ -1636,7 +1710,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PRODUCTION CAPABILITIES */}
+      {/* CAPABILITIES SECTION */}
       <section id="capabilities" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50">
         <div className="max-w-7xl mx-auto">
           <div className="mb-12 sm:mb-16">
@@ -1674,7 +1748,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* AI-ASSISTED PRODUCTION WORKFLOW */}
+      {/* ENTERPRISE WORKFLOW */}
       <section className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50 bg-neutral-900/10">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12 sm:mb-16">
@@ -1745,7 +1819,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* DIGITAL CHARACTERS & USE CASES */}
+      {/* DIGITAL CHARACTERS & VALUE USE CASES */}
       <section id="twins" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12 sm:mb-16">
@@ -1783,7 +1857,7 @@ export default function Home() {
                     playsInline
                     preload="auto"
                     poster={selectedTwin.poster}
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-1000 ease-out opacity-90"
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-1000 ease-out opacity-90 transform-gpu will-change-transform"
                   >
                     <source src={selectedTwin.video} type="video/mp4" />
                     <Image src={selectedTwin.poster} alt={selectedTwin.name} fill priority sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
@@ -1859,7 +1933,7 @@ export default function Home() {
                     muted
                     playsInline
                     preload="auto"
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-1000 ease-out opacity-85"
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-1000 ease-out opacity-85 transform-gpu will-change-transform"
                   >
                     <source src="/vienne-facial-loop.mp4" type="video/mp4" />
                   </video>
@@ -1937,7 +2011,7 @@ export default function Home() {
               { num: t.system?.s2Num, title: t.system?.s2Title, desc: t.system?.s2Detail, icon: Sliders },
               { num: t.system?.s3Num, title: t.system?.s3Title, desc: t.system?.s3Detail, icon: Cpu },
               { num: t.system?.s4Num, title: t.system?.s4Title, desc: t.system?.s4Detail, icon: Sparkles },
-              { num: t.system?.s5Num, title: t.system?.s5Title, desc: t.system?.s5Detail, icon: CheckSquare }
+              { num: t.system?.s5Num, title: t.system?.s5Detail, icon: CheckSquare }
             ].map((step, idx) => (
               <div 
                 key={idx} 
@@ -2236,8 +2310,13 @@ export default function Home() {
                 onClick={() => setActiveArticle({
                   tag: t.insights?.article1Tag,
                   title: t.insights?.article1Title,
+                  author: "E. Aktaş",
+                  date: "August 2026",
+                  readTime: "6 Min Read",
                   body1: t.insights?.article1Body1,
-                  body2: t.insights?.article1Body2
+                  body2: t.insights?.article1Body2,
+                  faqQ1: "How does AI sampling compare to physical fabric prototypes?",
+                  faqA1: "AI sampling allows rapid iteration of lighting, draping, and styling angles, compressing approval timelines before final high-resolution masters are locked."
                 })}
                 className="inline-flex items-center gap-2 text-xs font-bold text-amber-400 hover:text-amber-300 uppercase tracking-wider cursor-pointer text-left"
               >
@@ -2257,8 +2336,13 @@ export default function Home() {
                 onClick={() => setActiveArticle({
                   tag: t.insights?.article2Tag,
                   title: t.insights?.article2Title,
+                  author: "AI.VIENNE Editorial",
+                  date: "August 2026",
+                  readTime: "8 Min Read",
                   body1: t.insights?.article2Body1,
-                  body2: t.insights?.article2Body2
+                  body2: t.insights?.article2Body2,
+                  faqQ1: "Can a digital brand face be deployed across future seasonal campaigns?",
+                  faqA1: "Yes. By archiving model landmark configurations and skin shaders, character identity remains consistent across lookbooks, social, and global retail media."
                 })}
                 className="inline-flex items-center gap-2 text-xs font-bold text-amber-400 hover:text-amber-300 uppercase tracking-wider cursor-pointer text-left"
               >
@@ -2278,8 +2362,13 @@ export default function Home() {
                 onClick={() => setActiveArticle({
                   tag: t.insights?.article3Tag,
                   title: t.insights?.article3Title,
+                  author: "AI.VIENNE Optics Lab",
+                  date: "August 2026",
+                  readTime: "5 Min Read",
                   body1: t.insights?.article3Body1,
-                  body2: t.insights?.article3Body2
+                  body2: t.insights?.article3Body2,
+                  faqQ1: "How are internal reflections controlled on Swiss watch sapphire crystals?",
+                  faqA1: "We apply multi-layered anti-reflective optical passes combined with high-contrast chiaroscuro lighting to reveal dial mechanics clearly."
                 })}
                 className="inline-flex items-center gap-2 text-xs font-bold text-amber-400 hover:text-amber-300 uppercase tracking-wider cursor-pointer text-left"
               >
