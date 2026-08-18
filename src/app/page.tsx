@@ -45,7 +45,9 @@ import {
   Lock,
   Briefcase,
   Clock,
-  LucideIcon
+  LucideIcon,
+  Calendar,
+  Link as LinkIcon
 } from "lucide-react";
 
 type TranslationRecord = Record<string, string>;
@@ -74,338 +76,342 @@ interface TranslationContent {
 
 const TRANSLATIONS: Record<string, TranslationContent> = {
   EN: {
-    nav: { portfolio: "Case Studies", capabilities: "Capabilities", services: "Services", avatar: "Digital Twins", studio: "Studio", system: "System", theStudio: "The Studio", transformation: "Transformation", roi: "ROI Matrix", journal: "Journal", contact: "Private Inquiry", cta: "INITIATE BRIEF" },
-    hero: { badge: "AI-Native Luxury Visual Production House", titleStart: "Elevating High Fashion, Fine Jewelry & Horlogerie Through", titleGradient: "Neural Craftsmanship", desc: "AI.VIENNE Studio+ engineers hyper-realistic cinematic campaigns, 8K macro physical material renderings, and persistent digital brand ambassadors under strict bilateral NDA protocols.", btnPrimary: "Explore Case Studies", btnSecondary: "Direct Access: info@aivienne.com" },
+    nav: { portfolio: "Case Studies", capabilities: "Capabilities", services: "Services", avatar: "Digital Twins", studio: "Studio", system: "System", theStudio: "The Studio", transformation: "Transformation", roi: "Economics", journal: "Insights", contact: "Private Inquiry", cta: "INITIATE BRIEF" },
+    hero: { badge: "AI-Native Luxury Visual Production House", titleStart: "Elevating High Fashion, Fine Jewelry & Horlogerie Through", titleGradient: "Neural Craftsmanship", desc: "AI.VIENNE Studio+ crafts high-fidelity cinematic campaigns, 8K macro material visualizations, and consistent digital brand faces designed for modern luxury flagships.", btnPrimary: "Explore Concept Archive", btnSecondary: "Direct Access: info@aivienne.com" },
     manifesto: { sub: "OUR CREATIVE CODEX", line1: "We do not adapt to fleeting digital trends.", line2: "WE ARCHITECT TIMELESS LUXURY UNIVERSES." },
     servicesPillars: {
-      tag: "BESPOKE SERVICE PILLARS",
-      title: "Strategic Production Services",
-      desc: "Comprehensive luxury visual engagements designed to compress production timelines and elevate brand prestige across physical and digital flagships.",
-      scopeLabel: "Strategic Scope:",
-      deliverablesLabel: "Key Deliverables:",
-      turnaroundLabel: "Production Velocity:",
-      btnBrief: "Commission Service",
-      s1Tag: "SEASONAL CAMPAIGNS",
-      s1Title: "Haute Couture & Runway Production",
-      s1Desc: "End-to-end seasonal campaign synthesis, fluid textile draping physics (silk, velvet, brocade), and atmospheric editorial storytelling without physical location constraints.",
-      s1Scope: "Moodboard architecture, lighting design, fabric micro-physics simulation, and multi-angle editorial curation.",
-      s1Deliverables: "8K Print Masters (8192x4320), 4K Lookbook Suites, 120 FPS Motion Loops.",
+      tag: "STRATEGIC PRODUCTION DISCIPLINES",
+      title: "Luxury Production Services",
+      desc: "Commercial visual production combining creative direction and AI-assisted workflows to accelerate time-to-market without compromising brand prestige.",
+      scopeLabel: "Production Focus:",
+      deliverablesLabel: "Deliverables & Formats:",
+      turnaroundLabel: "Production Schedule:",
+      btnBrief: "Commission Discipline",
+      s1Tag: "HAUTE COUTURE",
+      s1Title: "Seasonal Campaigns & Runway",
+      s1Desc: "Campaign imagery, fluid textile motion, and atmospheric editorial storytelling crafted without physical production and location constraints.",
+      s1Scope: "Concept architecture, haute couture lighting design, fabric movement simulation, and multi-angle editorial curation.",
+      s1Deliverables: "8K Master Stills, Lookbook Suites, Campaign Video Loops (24/30/60/120 FPS).",
       s1Turnaround: "7 – 10 Business Days",
-      s2Tag: "OPTICAL MACRO MASTERY",
-      s2Title: "Haute Horlogerie & Fine Jewelry",
-      s2Desc: "Sub-nanometer raytraced caustics, diamond dispersion fire, sapphire crystal refraction, and Swiss caliber visualization bypassing conventional studio reflection flaws.",
-      s2Scope: "CAD mesh alignment, physical refractive index tuning (diamonds/emeralds), platinum specular mapping, and mechanical movement animation.",
-      s2Deliverables: "8K Macro Stills, Dynamic Caustics Sequences, Transparent Cutout Masters.",
+      s2Tag: "FINE JEWELRY & WATCHES",
+      s2Title: "Haute Horlogerie & High Jewelry",
+      s2Desc: "Controlled rendering of reflective precious metals, gemstone refraction, sapphire crystal optics, and complex mechanical watch movements.",
+      s2Scope: "CAD mesh alignment, gemstone light dispersion, platinum specular mapping, and mechanical caliber motion.",
+      s2Deliverables: "8K Macro Stills, Prismatic Dispersion Sequences, Clean Cutout Masters.",
       s2Turnaround: "5 – 8 Business Days",
-      s3Tag: "BIOMETRIC BRAND FACES",
-      s3Title: "Persistent Digital Brand Ambassadors",
-      s3Desc: "Proprietary Biometric Identity Mesh locking 468 facial anatomical coordinates to deliver persistent, contract-exclusive digital models across multi-year campaigns.",
-      s3Scope: "Facial landmark locking, multi-layered melanin and subsurface scattering (SSS) calibration, dynamic wardrobe fitting, and emotional range rigging.",
-      s3Deliverables: "Dedicated Brand Avatar Model Asset, Multi-Environment Campaign Library, 4K Video Loops.",
+      s3Tag: "BRAND AMBASSADORS",
+      s3Title: "Digital Character Consistency",
+      s3Desc: "Persistent digital model assets developed with high-fidelity facial consistency and brand styling coherence across multi-season campaigns.",
+      s3Scope: "Character landmark alignment, skin tone & subsurface scattering refinement, dynamic styling, and pose library expansion.",
+      s3Deliverables: "Dedicated Brand Model Asset Library, Multi-Scene Visuals, Motion Loops.",
       s3Turnaround: "10 – 14 Business Days",
-      s4Tag: "CINEMATIC STORYTELLING",
-      s4Title: "Brand Heritage Films & Digital Flagships",
-      s4Desc: "High-fidelity 120 FPS cinematic narratives engineered for global flagship boutique displays, mega digital billboards (Times Square/Ginza), and worldwide broadcast.",
-      s4Scope: "Cinematic storyboarding, orchestral audio synchronization, atmospheric volumetrics, and multi-aspect master formatting (16:9, 9:16, 32:9).",
-      s4Deliverables: "Native 4K/8K Master Video Files, Multi-Aspect Social Edits, Color-Graded Cinema Cuts.",
+      s4Tag: "CINEMATIC BRAND FILMS",
+      s4Title: "Digital Flagships & Editorial Video",
+      s4Desc: "High-fidelity cinematic narratives engineered for digital flagship boutique displays, large-format screens, and multi-channel campaign media.",
+      s4Scope: "Cinematic storyboarding, orchestral audio synchronization, atmospheric volumetrics, and multi-format delivery (16:9, 9:16, 32:9).",
+      s4Deliverables: "4K/8K Master Video Files, Platform-Specific Social Edits, Graded Cuts.",
       s4Turnaround: "8 – 12 Business Days"
     },
     capabilitiesSection: {
       tag: "CORE DISCIPLINES",
       title: "Production Capabilities",
       c1Num: "01", c1Title: "HAUTE COUTURE CAMPAIGNS", c1Desc: "Full-scale seasonal campaign imagery, fluid fabric physics, and atmospheric editorial storytelling.",
-      c2Num: "02", c2Title: "HIGH JEWELRY & HORLOGERIE", c2Desc: "Sub-nanometer raytraced caustics, diamond dispersion, sapphire crystal refraction, and Swiss caliber visualization.",
-      c3Num: "03", c3Title: "CINEMATIC NARRATIVES", c3Desc: "Emotionally driven 120 FPS high-fidelity brand films engineered for global broadcast and digital flagships.",
-      c4Num: "04", c4Title: "PERSISTENT DIGITAL TWINS", c4Desc: "Proprietary Biometric Identity Mesh locking 100% facial geometry, pore structure, and model continuity across seasons.",
-      c5Num: "05", c5Title: "ENTERPRISE CONTENT SYSTEMS", c5Desc: "Scalable neural visual ecosystems generating multi-channel master assets with strict color grading and brand DNA coherence."
+      c2Num: "02", c2Title: "HIGH JEWELRY & HORLOGERIE", c2Desc: "Precision light simulation, diamond dispersion, sapphire crystal refraction, and Swiss caliber visualization.",
+      c3Num: "03", c3Title: "CINEMATIC NARRATIVES", c3Desc: "Emotionally driven high-fidelity brand films engineered for broadcast and digital flagships.",
+      c4Num: "04", c4Title: "CONSISTENT DIGITAL TWINS", c4Desc: "High-fidelity facial geometry consistency and character styling continuity across multi-scene productions.",
+      c5Num: "05", c5Title: "ENTERPRISE CONTENT SYSTEMS", c5Desc: "Scalable neural visual ecosystems generating multi-channel master assets with strict brand DNA coherence."
     },
     capabilitiesTech: {
-      tag: "TECHNICAL SOVEREIGNTY",
-      title: "Enterprise Neural Pipeline",
-      desc: "Engineered to deliver uncompromising physical fidelity, absolute pre-release confidentiality, and unprecedented capital velocity.",
-      cap1Title: "8K Neural Master Render", cap1Desc: "Custom-trained neural engines outputting uncompressed 8192 x 4320 masters engineered for mega-format physical billboards and print.", cap1Tag1: "OUTPUT SPEC", cap1Tag2: "8K MASTER",
-      cap2Title: "Subsurface Scattering Shaders", cap2Desc: "Multi-layered optical shaders accurately simulating biophysical skin melanin distribution, micro-pores, and subsurface blood perfusion.", cap2Tag1: "BIOPHYSICAL FIDELITY", cap2Tag2: "MELANIN SIMULATION",
-      cap3Title: "Spectral Dispersion Caustics", cap3Desc: "Physical-path photon simulation calculating wavelength-dependent diamond fire and refraction through precious gems.", cap3Tag1: "OPTICAL PHYSICS", cap3Tag2: "SPECTRAL RAYTRACING",
-      cap4Title: "Biometric Identity Mesh", cap4Desc: "Proprietary 3D structural landmark locking preventing facial distortion or AI morphing across multi-scene production runs.", cap4Tag1: "CONTINUITY LOCK", cap4Tag2: "100% GEOMETRY"
+      tag: "PRODUCTION WORKFLOW",
+      title: "AI-Assisted Neural Pipeline",
+      desc: "Engineered to deliver high physical fidelity, pre-release confidentiality, and unprecedented capital velocity.",
+      cap1Title: "8K Master Production", cap1Desc: "High-resolution production workflows outputting master files up to 8192 x 4320 engineered for large-format displays and print media.", cap1Tag1: "OUTPUT SPEC", cap1Tag2: "UP TO 8K MASTER",
+      cap2Title: "Subsurface Melanin Shaders", cap2Desc: "Multi-layered optical shaders simulating biophysical skin tone distribution, micro-textures, and natural skin translucency.", cap2Tag1: "SKIN FIDELITY", cap2Tag2: "PHYSICAL ACCURACY",
+      cap3Title: "Precision Light & Dispersion", cap3Desc: "Accurate simulation of wavelength-dependent diamond brilliance, gemstones, glass, and polished precious metals.", cap3Tag1: "OPTICAL PHYSICS", cap3Tag2: "CONTROLLED REFLECTION",
+      cap4Title: "Character Consistency System", cap4Desc: "Proprietary structural landmark alignment preventing facial distortion and maintaining character identity across all scenes.", cap4Tag1: "IDENTITY CONTINUITY", cap4Tag2: "STRUCTURAL ALIGNMENT"
     },
     system: {
-      tag: "THE AI.VIENNE METHODOLOGY",
-      title: "Five-Stage Production Protocol",
-      sub: "ARTIFICIAL INTELLIGENCE POWERS EXECUTION. LUXURY CREATIVE DIRECTION SHAPES THE LEGACY.",
-      s1Num: "01", s1Title: "ALIGNMENT & DNA MAPPING", s1Detail: "Deep extraction of brand heritage, physical CAD assets, textile micro-structures, and creative vision.",
-      s2Num: "02", s2Title: "CREATIVE DIRECTION", s2Detail: "High-fashion lighting architecture, cinematic framing, physical lens calibration, and composition layout.",
-      s3Num: "03", s3Title: "NEURAL SYNTHESIS", s3Detail: "Spectral raytracing, multi-pass material synthesis, sub-surface scattering, and 8K ultra-upscaling.",
-      s4Num: "04", s4Title: "HAUTE RETOUCHING", s4Detail: "Bespoke studio color grading, micro-blemish balance, gemstone caustics refinement, and metadata embedding.",
-      s5Num: "05", s5Title: "ENCRYPTED DELIVERY", s5Detail: "Multi-aspect campaign deliverables, print-ready 8K master stills, and uncompressed 120fps motion loops."
+      tag: "PRODUCTION PROTOCOL",
+      title: "Five-Stage Production Workflow",
+      sub: "DISCOVER · DIRECT · PRODUCE · REFINE · DELIVER",
+      s1Num: "01", s1Title: "DISCOVER", s1Detail: "Brand heritage extraction, product CAD assets, textile micro-structures, and creative campaign goals.",
+      s2Num: "02", s2Title: "DIRECT", s2Detail: "High-fashion lighting architecture, cinematic framing, physical lens calibration, and composition layout.",
+      s3Num: "03", s3Title: "PRODUCE", s3Detail: "AI-assisted multi-pass material synthesis, light dispersion passes, and ultra-high-resolution rendering.",
+      s4Num: "04", s4Title: "REFINE", s4Detail: "Bespoke studio color grading, micro-blemish balance, gemstone brilliance tuning, and metadata embedding.",
+      s5Num: "05", s5Title: "DELIVER", s5Detail: "Multi-aspect campaign deliverables, print-ready master stills, and platform-specific motion loops."
     },
     studioSection: {
-      tag: "THE HOUSE",
+      tag: "THE STUDIO",
       title: "Independent Luxury AI Studio",
-      desc: "AI.VIENNE Studio+ operates as a private visual production laboratory, partnering with prestigious fashion houses, fine jewelers, and horlogerie ateliers worldwide.",
+      desc: "AI.VIENNE Studio+ operates as a private visual production laboratory, designed for luxury fashion houses, fine jewelers, and horlogerie ateliers worldwide.",
       founderName: "E. AKTAŞ",
-      founderTitle: "Founder & Executive Creative Director",
-      opsTitle: "CONFIDENTIAL OPERATIONS",
-      opsVal1: "Global Decentralized Studio",
-      opsVal2: "Bilateral NDA Protected B2B Engagements"
+      founderTitle: "Founder & Creative Director",
+      opsTitle: "STUDIO OPERATIONS",
+      opsVal1: "Independent Studio · Global Remote",
+      opsVal2: "Confidentiality Protocols (NDA Available Upon Request)"
     },
     insights: {
-      tag: "EDITORIAL & RESEARCH",
+      tag: "RESEARCH & INSIGHTS",
       title: "Haute Couture & Neural Insights",
       desc: "In-depth explorations at the nexus of artificial intelligence, luxury economics, and digital haute craftsmanship.",
       readMore: "Examine Research Paper",
       article1Tag: "HAUTE COUTURE AI",
-      article1Title: "The Economics of Digital Couture: Reducing Time-to-Market by 80%",
-      article1Desc: "How prestigious fashion houses in Paris and Milan leverage neural rendering to compress prototyping cycles without compromising brand exclusivity.",
-      article1Body1: "The traditional luxury fashion calendar has historically been constrained by the physical velocity of fabric sourcing, bespoke fitting, and multi-location runway production. Conventional seasonal campaigns require months of logistical choreography, high capital allocation, and extensive carbon overhead.",
-      article1Body2: "By deploying AI.VIENNE's neural pipeline, luxury ateliers can now test silk draping physics, velvet textures, and custom jacquard patterns in real-time. This eliminates redundant physical sampling cycles, compresses campaign production from 12 weeks to under 10 business days, and ensures that brand imagery matches exact haute couture standards.",
-      article2Tag: "DIGITAL TWINS",
-      article2Title: "Facial Geometry & Identity Preservation in Luxury AI Avatars",
-      article2Desc: "A technical analysis of biophysical landmark locking ensuring persistent brand model continuity across multi-scene luxury campaigns.",
-      article2Body1: "In luxury brand storytelling, model identity is sacred. Generic generative AI models frequently suffer from identity drift—producing subtle variations in jawline, eye spacing, and skin texture between frames that destroy consumer trust.",
-      article2Body2: "AI.VIENNE solves this through our proprietary Biometric Identity Mesh protocol. By mapping and locking 468 precise facial anatomical coordinates along with custom melanin shaders, our digital avatars maintain absolute facial structure, natural asymmetry, and skin pore fidelity across diverse lighting conditions and camera lenses.",
+      article1Title: "The Economics of Digital Couture: Compressing Time-to-Market",
+      article1Desc: "How modern luxury fashion ateliers leverage neural rendering to accelerate prototyping cycles without compromising exclusivity.",
+      article1Body1: "The luxury fashion calendar has historically been constrained by physical sample logistics, bespoke tailoring fittings, and extensive location runway productions. Seasonal campaigns traditionally demand significant capital allocation and weeks of production time.",
+      article1Body2: "By deploying AI-assisted production pipelines, luxury ateliers can evaluate textile draping, velvet textures, and custom jacquard patterns in rapid iterations. This approach reduces redundant physical sampling cycles, compresses campaign production to business days, and ensures visual consistency.",
+      article2Tag: "DIGITAL CHARACTERS",
+      article2Title: "Facial Consistency & Identity Preservation in Digital Avatars",
+      article2Desc: "An analysis of landmark alignment methodologies ensuring consistent brand model continuity across multi-scene campaigns.",
+      article2Body1: "In luxury brand storytelling, model identity consistency is essential. Uncontrolled generative image generation can introduce subtle variations in facial structure and skin texture between frames that undermine brand cohesion.",
+      article2Body2: "AI.VIENNE solves this through structural landmark alignment and custom melanin shading passes. By anchoring facial anatomical landmarks, our digital character models maintain facial structure and skin texture across varied lighting environments and camera angles.",
       article3Tag: "FINE JEWELRY",
-      article3Title: "Spectral Raytracing: Simulating Diamond Dispersion in 8K Resolution",
-      article3Desc: "Achieving physical material perfection in macro jewelry renders without physical studio optical limitations.",
-      article3Body1: "Macro photography of high jewelry presents extreme optical challenges. The interaction between studio lights, multi-faceted brilliant-cut diamonds, and high-polish platinum surfaces often leads to blown highlights, flare distortion, or loss of gemstone fire.",
-      article3Body2: "Our custom neural pipeline calculates light dispersion at individual nanometer wavelengths. By simulating true chromatic dispersion (Abbe numbers) and internal total reflection within emerald, sapphire, and diamond structures, we produce 8K macro renders that capture authentic gemstone brilliance ready for global billboard deployments."
+      article3Title: "Precision Light Simulation: Capturing Diamond Dispersion in High Resolution",
+      article3Desc: "Achieving physical material perfection in macro jewelry renders without studio optical flaws.",
+      article3Body1: "Macro photography of fine jewelry presents optical challenges. The interaction between studio strobe lighting, brilliant-cut gemstones, and high-polish platinum surfaces often leads to blown highlights or loss of spectral color fire.",
+      article3Body2: "Our visual production workflows calculate light dispersion and total internal reflection within emerald, sapphire, and diamond geometries, producing macro renders ready for global digital and large-format print media."
     },
     portfolio: { 
-      tag: "SELECTED CASE STUDIES", 
-      title: "Curated Master Archive", 
-      desc: "Review selected 16:9 cinematic productions and 9:16 vertical campaign deliverables engineered for elite luxury brands.", 
-      filterAll: "All Archives", 
-      filter169: "16:9 Cinematic Masters", 
-      filter916: "9:16 Vertical Reels", 
-      playVideo: "Inspect Case Study", 
+      tag: "AI.VIENNE CONCEPT ARCHIVE", 
+      title: "Curated Speculative Studies", 
+      desc: "Explore speculative case studies engineered to demonstrate production fidelity across 16:9 widescreen and 9:16 mobile formats.", 
+      filterAll: "All Concepts", 
+      filter169: "16:9 Widescreen Studies", 
+      filter916: "9:16 Mobile Formats", 
+      playVideo: "Inspect Speculative Case Study", 
       closeModal: "Close Case Inspector" 
     },
-    transformation: { tag: "NEURAL TRANSFORMATION", title: "Conventional Studio vs. AI.VIENNE 8K Master", desc: "Interact with the slider to inspect how raw conventional photography is elevated into surreal, hyper-realistic luxury campaign imagery.", beforeLabel: "Conventional Raw Studio Capture", afterLabel: "AI.VIENNE 8K Master Render" },
-    estimator: { tag: "CAPITAL EFFICIENCY MATRIX", title: "Executive Production & ROI Scope", desc: "Select your campaign scope to benchmark neural production velocity against traditional high-end commercial shoots.", scaleLabel: "Campaign Scope & Deliverables", tier1: "Single Hero Master Asset (Macro Render / Still)", tier2: "Seasonal 8K Campaign Suite (Multi-Asset Package)", tier3: "Full Cinematic Runway Film & Digital Twin Ecosystem", deliveryLabel: "Production Schedule Priority", standard: "Standard Studio Protocol (10-14 Business Days)", express: "Haute Priority Delivery (3-5 Business Days)", estInvestment: "Estimated Strategic Allocation:", roiTitle: "EXECUTIVE ROI & EFFICIENCY GAINS", tradCost: "Estimated Physical Shoot Cost:", timeSaved: "Time-to-Market Velocity:", costSavings: "Capital Optimization:", range1: "$1,500 – $3,500", range2: "$5,000 – $12,000", range3: "$18,000 – $35,000+", trad1: "$25,000+", trad2: "$75,000+", trad3: "$180,000+" },
-    twinsSection: { tag: "NEURAL AMBASSADORS", title: "Digital Twin Showcase", desc: "Bespoke digital brand faces engineered with uncompromising facial biometric preservation and timeless luxury aesthetics.", identityTitle: "Biometric Identity Guarantee", identityDesc: "Every digital twin preserves exact facial geometry, natural skin texture, and distinctive physical presence across all editorial environments." },
-    briefSection: { tag: "CREATIVE CONFIGURATOR", title: "Interactive Brief Architect", desc: "Define your aesthetic parameters before initiating formal luxury production briefs.", s1: "1. Lighting Architecture", s2: "2. Industry Discipline", s3: "3. Spatial Atmosphere", applyBtn: "Apply Config To Brief", configLabel: "Active Creative Parameters:" },
-    chatConsole: { title: "Executive Private Access", sub: "Confidential Consultation, Strategic Partnerships & Bilateral NDA Requests", placeholder: "Detail your brand, seasonal timeline or strategic production objectives...", send: "Transmit Secure Brief", welcome: "Welcome to AI.VIENNE Studio+ Private Desk. Please provide your brand credentials and project scope. Our executive team will review your inquiry under strict confidentiality." },
+    transformation: { tag: "NEURAL TRANSFORMATION", title: "Conventional Raw Studio vs. AI.VIENNE Master", desc: "Interact with the slider to inspect how raw photography concepts are elevated into high-fidelity luxury campaign imagery.", beforeLabel: "Conventional Raw Studio Concept", afterLabel: "AI.VIENNE Master Render" },
+    estimator: { tag: "PROJECT ESTIMATOR", title: "Production Economics & Scope Calculator", desc: "Production economics depend on visual complexity, asset volume, and delivery timeline. Benchmark your requirements below.", scaleLabel: "Deliverable Volume & Complexity", tier1: "Single Hero Master Asset (Macro Render / Still)", tier2: "Seasonal 8K Campaign Suite (Multi-Asset Package)", tier3: "Full Motion Film & Consistent Character Library", deliveryLabel: "Production Schedule Priority", standard: "Standard Studio Timeline (7-10 Business Days)", express: "Haute Priority Delivery (3-5 Business Days)", estInvestment: "Estimated Strategic Allocation:", roiTitle: "PRODUCTION SCOPE PARAMETERS", tradCost: "Key Cost Drivers:", timeSaved: "Production Schedule:", costSavings: "Deliverable Fidelity:", range1: "$1,500 – $4,500", range2: "$5,000 – $15,000", range3: "$15,000 – $35,000+", trad1: "Creative Scope & Asset Volume", trad2: "Motion & Format Specifications", trad3: "Bespoke Character Consistency" },
+    twinsSection: { tag: "DIGITAL CHARACTERS", title: "Digital Twin Showcase", desc: "Bespoke digital brand faces engineered with character consistency, natural skin textures, and timeless luxury aesthetics.", identityTitle: "Identity Consistency System", identityDesc: "Our character models maintain facial structure, natural skin textures, and recognizable styling across diverse editorial environments." },
+    briefSection: { tag: "CREATIVE CONFIGURATOR", title: "Interactive Brief Architect", desc: "Define your aesthetic parameters before initiating formal luxury production briefs.", s1: "1. Lighting Architecture", s2: "2. Industry Discipline", s3: "3. Spatial Atmosphere", applyBtn: "ADD TO PROJECT BRIEF", configLabel: "Active Creative Parameters:" },
+    chatConsole: { title: "Executive Private Access", sub: "Confidential Consultation & Project Brief Desk", placeholder: "Detail your brand, seasonal timeline or strategic production objectives...", send: "Transmit Secure Brief", welcome: "Welcome to the AI.VIENNE Studio+ Private Desk. Please provide your brand credentials and project scope. Our team will review your inquiry in confidence." },
     contact: { 
-      tag: "CONFIDENTIAL PROPOSAL", 
-      title: "Initiate Project Brief", 
-      desc: "Partner with AI.VIENNE Studio+ to elevate your brand campaigns into hyper-realistic digital luxury masterworks.", 
+      tag: "PROJECT INQUIRY", 
+      title: "Initiate Production Brief", 
+      desc: "Partner with AI.VIENNE Studio+ to elevate your brand campaigns into high-fidelity digital luxury visuals.", 
       namePlaceholder: "Contact Name & Brand / Organization", 
       emailPlaceholder: "Corporate Email Address", 
+      websitePlaceholder: "Company Website (e.g. yourbrand.com)",
+      timelinePlaceholder: "Target Launch Date / Timeline (e.g. Q3 2026 / 3 Weeks)",
       serviceLabel: "Select Production Discipline", 
-      sOpt1: "Haute Couture & Runway Production (8K Master)", 
-      sOpt2: "Haute Horlogerie & Fine Jewelry (Macro Optical Mastery)", 
+      sOpt1: "Haute Couture & Runway Production", 
+      sOpt2: "Haute Horlogerie & Fine Jewelry", 
       sOpt3: "Persistent Digital Brand Ambassador Suite", 
-      sOpt4: "Brand Heritage Film & Digital Flagship Visuals", 
-      sOpt5: "Haute Parfumerie & Prestige Beauty Campaign", 
+      sOpt4: "Digital Flagships & Editorial Video", 
+      sOpt5: "Haute Parfumerie & Prestige Beauty", 
       sOpt6: "Luxury Eyewear & Optics Production", 
-      sOpt7: "Complete Seasonal Visual Ecosystem & Global Campaign", 
-      budgetLabel: "Target Production Allocation (USD)",
-      bOpt1: "$1,500 – $4,500 (Hero Asset / Single 8K Master)",
+      sOpt7: "Complete Seasonal Visual Campaign", 
+      budgetLabel: "Estimated Production Budget (USD)",
+      bOpt1: "$1,500 – $4,500 (Hero Asset / Single Master)",
       bOpt2: "$5,000 – $15,000 (Seasonal Campaign Suite)",
-      bOpt3: "$15,000 – $35,000+ (Cinematic Film & Digital Twin)",
-      bOpt4: "Undisclosed / Bespoke Enterprise Scope",
-      ndaLabel: "Require bilateral Non-Disclosure Agreement (NDA) prior to asset disclosure",
+      bOpt3: "$15,000 – $35,000+ (Full Motion & Character Library)",
+      bOpt4: "Undisclosed / Bespoke Custom Scope",
+      ndaLabel: "Require Non-Disclosure Agreement (NDA available upon request)",
       uploadTitle: "Upload CAD Assets, Moodboards or Reference Media", 
       uploadHint: "Drag and drop or select reference files (PNG, JPG, MP4, MOV, PDF, ZIP, CAD)", 
       messagePlaceholder: "Outline your campaign objectives, delivery milestones, and aesthetic parameters...", 
-      submitBtn: "Transmit Confidential Brief", 
-      directEmail: "Executive Communication: info@aivienne.com" 
+      submitBtn: "Transmit Project Brief", 
+      directEmail: "Direct Communication: info@aivienne.com" 
     },
-    footerSection: { navTitle: "01 / NAVIGATION", dirTitle: "02 / DIRECTORY", netTitle: "03 / NETWORK", studio: "The Studio", works: "Selected Works", initiate: "Initiate Brief", cities: "Paris | Milan | Geneva | London | New York | Dubai | Global", terms: "TERMS OF ENGAGEMENT", privacy: "CONFIDENTIALITY & PRIVACY" },
+    footerSection: { navTitle: "01 / NAVIGATION", dirTitle: "02 / DIRECTORY", netTitle: "03 / NETWORK", studio: "The Studio", works: "Concept Works", initiate: "Initiate Brief", cities: "Independent Studio · Global Remote", terms: "TERMS OF ENGAGEMENT", privacy: "CONFIDENTIALITY & PRIVACY" },
     modals: {
       termsTitle: "Terms of Engagement & Production Codex",
       termsP1Title: "1. INTELLECTUAL PROPERTY & GLOBAL USAGE RIGHTS",
-      termsP1Body: "Upon full settlement of commercial production invoices, all delivered 8K master visual renders, cinematic video files, and proprietary neural assets transition exclusively and perpetuity to the Client. The Client receives complete, unrestricted worldwide commercial exploitation rights across broadcast television, digital flagships, print media, global out-of-home (OOH) mega-billboards, and paid marketing channels with zero perpetual royalty obligations.",
-      termsP2Title: "2. PRE-RELEASE SECRECY & BILATERAL NDA PROTOCOLS",
-      termsP2Body: "All client briefs, high-resolution CAD schematics, seasonal moodboards, unreleased jewelry prototypes, and haute couture runway sketches are treated under strict pre-launch bilateral Non-Disclosure Agreements (NDA). Production takes place exclusively on isolated, encrypted compute nodes to prevent unauthorized media leaks or competitor discovery prior to the official worldwide release date.",
+      termsP1Body: "Upon full settlement of commercial production invoices, all delivered master visual renders, cinematic video files, and customized digital assets transition exclusively to the Client. The Client receives complete, unrestricted worldwide commercial exploitation rights across broadcast television, digital flagships, print media, global out-of-home (OOH) displays, and marketing channels with zero perpetual royalty obligations.",
+      termsP2Title: "2. PRE-RELEASE SECRECY & NDA PROTOCOLS",
+      termsP2Body: "All client briefs, CAD schematics, seasonal moodboards, and unreleased collection designs are treated with strict confidentiality. Non-Disclosure Agreements (NDAs) are available upon request prior to asset sharing. Production takes place on secure compute nodes to prevent unauthorized media leaks prior to official release.",
       termsP3Title: "3. CHROMATIC CALIBRATION & REVISION FRAMEWORK",
-      termsP3Body: "Every commission includes two comprehensive revision cycles covering sub-surface scattering fine-tuning, raytraced reflection angles, spectral caustics intensity, and color grading adjustments. Any alteration requested to align with approved visual briefs is executed within 48 to 72 business hours under the supervision of the Executive Creative Director.",
-      termsP4Title: "4. 8K MASTER FIDELITY & TECHNICAL COMPLIANCE",
-      termsP4Body: "AI.VIENNE Studio+ guarantees that all primary deliverables meet true 8K master resolution (8192 x 4320 px) or uncompressed 4K 120 FPS high-frame-rate motion video standards. Shaders are physically calibrated according to realistic optical refractive indexes (diamonds, sapphires, titanium, silk, and biophysical melanin).",
-      termsP5Title: "5. PAYMENT MILESTONES & RETAINER ALLOCATION",
-      termsP5Body: "Studio production commences upon formal execution of the bilateral NDA, scope mutual sign-off, and receipt of the agreed commencement retainer. Deliverables are transferred via encrypted cryptographic download channels upon final milestone settlement.",
+      termsP3Body: "Every commission includes two comprehensive revision cycles covering sub-surface scattering adjustments, reflection angles, light intensity, and color grading refinements. Any alteration requested to align with approved visual briefs is executed within 48 to 72 business hours.",
+      termsP4Title: "4. MASTER FIDELITY & TECHNICAL SPECIFICATIONS",
+      termsP4Body: "AI.VIENNE Studio+ guarantees that all primary deliverables meet the agreed technical specifications, including resolutions up to 8K (8192 x 4320 px) and project-calibrated video frame rates (24, 30, 60, or 120 FPS). Shaders and textures are physically calibrated to reflect authentic material properties.",
+      termsP5Title: "5. PAYMENT MILESTONES & COMMENCEMENT",
+      termsP5Body: "Studio production commences upon mutual scope confirmation, NDA execution where requested, and receipt of the agreed initial deposit. Final master files are delivered upon completion of project milestones.",
       termsP6Title: "6. LIMITATION OF LIABILITY & FORCE MAJEURE",
-      termsP6Body: "AI.VIENNE Studio+ maintains enterprise-grade rendering failovers. In the rare event of unforeseen neural pipeline interrupts or computational downtime, delivery windows are extended with priority compute allocation without additional client expenditure.",
+      termsP6Body: "AI.VIENNE Studio+ maintains reliable production workflows. In the event of unforeseen pipeline interrupts or computational downtime, delivery windows are adjusted with priority allocation without additional client expenditure.",
       privacyTitle: "Confidentiality & Data Protection Protocol",
-      privacyP1Title: "1. CORPORATE DATA INTEGRITY & GDPR COMPLIANCE",
-      privacyP1Body: "AI.VIENNE Studio+ collects and processes minimal corporate information strictly necessary for commercial correspondence, project brief synthesis, bilateral NDA formulation, and final encrypted asset transfer. We adhere to the highest international data privacy standards (GDPR / CCPA).",
-      privacyP2Title: "2. STRICT EXCLUSION FROM PUBLIC AI MODEL TRAINING",
-      privacyP2Body: "Zero client media, 3D CAD geometries, collection drafts, biometric facial meshes, or proprietary brand color palettes are ever submitted to, ingested by, or used to train public generative foundation models. All neural weights and custom LoRA models trained for client digital twins remain isolated in secure, dedicated private environments.",
-      privacyP3Title: "3. HARDWARE-LEVEL ENCRYPTION & AIR-GAPPED ASSETS",
-      privacyP3Body: "Pre-launch campaign media and high-resolution raw deliverables are stored using AES-256 military-grade encryption. Intermediate rendering reviews are dynamically watermarked and transmitted via password-protected, time-expiring secure client links.",
-      privacyP4Title: "4. CRYPTOGRAPHIC ASSET PURGE RIGHTS",
-      privacyP4Body: "Following full project deployment and final sign-off, clients hold the absolute contractual right to request the permanent cryptographic erasure of all working project files, uploaded CAD assets, and temporary training caches from our local production infrastructure.",
-      privacyP5Title: "5. THIRD-PARTY CONFIDENTIALITY & SUB-CONTRACTORS",
+      privacyP1Title: "1. CORPORATE DATA INTEGRITY",
+      privacyP1Body: "AI.VIENNE Studio+ collects and processes minimal corporate information strictly necessary for commercial correspondence, project brief synthesis, and asset delivery, adhering to international data privacy standards.",
+      privacyP2Title: "2. EXCLUSION FROM PUBLIC AI MODEL TRAINING",
+      privacyP2Body: "Zero client media, 3D CAD geometries, collection drafts, character scans, or proprietary brand identities are ever submitted to or used to train public generative foundation models. Client models and assets remain isolated in dedicated private environments.",
+      privacyP3Title: "3. HARDWARE-LEVEL ENCRYPTION & DATA SECURITY",
+      privacyP3Body: "Pre-launch campaign media and high-resolution deliverables are stored using AES-256 encryption. Intermediate rendering reviews are watermarked and transmitted via password-protected, secure client links.",
+      privacyP4Title: "4. DATA PURGE RIGHTS",
+      privacyP4Body: "Following full project deployment and final sign-off, clients hold the right to request the permanent erasure of working project files, uploaded CAD assets, and temporary training caches from local production systems.",
+      privacyP5Title: "5. THIRD-PARTY CONFIDENTIALITY",
       privacyP5Body: "AI.VIENNE Studio+ does not disclose, license, or sell any enterprise client information, email correspondence, or creative assets to third-party vendors or marketing aggregators under any circumstances.",
-      privacyP6Title: "6. DEDICATED DATA PROTECTION OFFICER",
-      privacyP6Body: "For enterprise compliance audits, bilateral NDA inquiries, or instant data deletion requests, clients can contact our dedicated executive legal desk directly at legal@aivienne.com or info@aivienne.com."
+      privacyP6Title: "6. DIRECT LEGAL & PRIVACY CONTACT",
+      privacyP6Body: "For enterprise compliance audits, NDA inquiries, or data deletion requests, clients can contact our legal and project desk directly at info@aivienne.com."
     },
     footer: "© 2026 AI.VIENNE Studio+. All rights reserved."
   },
   TR: {
-    nav: { portfolio: "Vaka Analizleri", capabilities: "Yetkinlikler", services: "Hizmetler", avatar: "Dijital İkizler", studio: "Stüdyo", system: "Sistem", theStudio: "Stüdyomuz", transformation: "Dönüşüm", roi: "ROI Matrisi", journal: "Dergi", contact: "Özel Talep", cta: "BRİEF GÖNDER" },
-    hero: { badge: "Yapay Zeka Destekli Lüks Görsel Prodüksiyon Evi", titleStart: "Yüksek Moda, Mücevher ve Saatçilikte", titleGradient: "Neural Zanaatkarlık", desc: "AI.VIENNE Studio+, global lüks markalar için 8K sinematik kampanyalar, spektral materyal renderları ve biyometrik kimliği korunan kalıcı dijital modeller üretir.", btnPrimary: "Vaka Analizlerini İncele", btnSecondary: "Doğrudan İletişim: info@aivienne.com" },
+    nav: { portfolio: "Vaka Analizleri", capabilities: "Yetkinlikler", services: "Hizmetler", avatar: "Dijital İkizler", studio: "Stüdyo", system: "Sistem", theStudio: "Stüdyomuz", transformation: "Dönüşüm", roi: "Ekonomi", journal: "Makaleler", contact: "Özel Talep", cta: "BRİEF GÖNDER" },
+    hero: { badge: "Yapay Zeka Destekli Lüks Görsel Prodüksiyon Evi", titleStart: "Yüksek Moda, Mücevher ve Saatçilikte", titleGradient: "Neural Zanaatkarlık", desc: "AI.VIENNE Studio+, global lüks markalar için yüksek çözünürlüklü sinematik kampanyalar, 8K materyal renderları ve kalıcı dijital modeller üretir.", btnPrimary: "Konsept Arşivini İncele", btnSecondary: "Doğrudan İletişim: info@aivienne.com" },
     manifesto: { sub: "KREATİF KODUMUZ", line1: "Geçici dijital trendlere uyum sağlamıyoruz.", line2: "ZAMANSIZ LÜKS EVRENLER İNŞA EDİYORUZ." },
     servicesPillars: {
-      tag: "ÖZEL HİZMET SÜTUNLARI",
-      title: "Stratejik Prodüksiyon Hizmetleri",
-      desc: "Fiziksel ve dijital amiral gemilerinde marka prestijini yükseltmek ve üretim sürelerini kısaltmak için tasarlanmış kurumsal lüks hizmetler.",
-      scopeLabel: "Stratejik Kapsam:",
-      deliverablesLabel: "Temel Çıktılar:",
-      turnaroundLabel: "Prodüksiyon Hızı:",
-      btnBrief: "Hizmet Talebi Oluştur",
-      s1Tag: "SEZONLUK KAMPANYALAR",
-      s1Title: "Haute Couture & Podyum Prodüksiyonu",
-      s1Desc: "Fiziksel mekan ve lojistik kısıtlamaları olmadan sezonluk kampanya sentezi, akışkan kumaş simülasyonları (ipek, kadife, brokar) ve editoryal moda hikayeleri.",
-      s1Scope: "Moodboard mimarisi, haute couture ışıklandırma, kumaş mikro-fiziği simülasyonu ve çok açılı editoryal kürasyon.",
-      s1Deliverables: "8K Baskı Masterları (8192x4320), 4K Lookbook Paketleri, 120 FPS Sinematik Döngüler.",
+      tag: "STRATEJİK PRODÜKSİYON DİSİPLİNLERİ",
+      title: "Lüks Prodüksiyon Hizmetleri",
+      desc: "Marka prestijini koruyarak pazara çıkış süresini hızlandıran, kreatif yönetim ve yapay zeka destekli ticari görsel prodüksiyon hizmetleri.",
+      scopeLabel: "Prodüksiyon Odağı:",
+      deliverablesLabel: "Format ve Çıktılar:",
+      turnaroundLabel: "Teslimat Takvimi:",
+      btnBrief: "Disiplin Talebi Oluştur",
+      s1Tag: "HAUTE COUTURE",
+      s1Title: "Sezonluk Kampanyalar & Podyum",
+      s1Desc: "Fiziksel mekan ve çekim lojistiği kısıtları olmadan kampanya görselleri, akışkan kumaş simülasyonları ve editoryal moda hikayeleri.",
+      s1Scope: "Konsept mimarisi, haute couture ışık tasarımı, kumaş hareket simülasyonu ve çok açılı editoryal kürasyon.",
+      s1Deliverables: "8K Master Görseller, Lookbook Paketleri, Kampanya Video Döngüleri (24/30/60/120 FPS).",
       s1Turnaround: "7 – 10 İş Günü",
-      s2Tag: "OPTİK MAKRO HAKİMİYETİ",
-      s2Title: "Haute Horlogerie & Lüks Mücevherat",
-      s2Desc: "Geleneksel stüdyo optik hatalarını aşan sub-nanometre raytraced kırılımlar, elmas ışık saçılımı, safir cam yansımaları ve İsviçre mekanizma görselleştirmesi.",
-      s2Scope: "CAD tasarımı hizalama, kırılma indisi kalibrasyonu (elmas/zümrüt), platin parlaklık haritalaması ve mekanizma animasyonu.",
-      s2Deliverables: "8K Makro Görseller, Dinamik Caustics Video Döngüleri, Dekupe Master Çıktılar.",
+      s2Tag: "LÜKS MÜCEVHERAT VE SAAT",
+      s2Title: "Haute Horlogerie & Mücevherat",
+      s2Desc: "Değerli metaller, elmas ışık kırılımı, safir cam yansımaları ve İsviçre saat mekanizmalarının kontrollü görselleştirmesi.",
+      s2Scope: "CAD modeli hizalama, değerli taş ışık saçılımı, platin parıltı haritalama ve mekanizma hareketi.",
+      s2Deliverables: "8K Makro Görseller, Işık Saçılım Video Döngüleri, Dekupe Master Çıktılar.",
       s2Turnaround: "5 – 8 İş Günü",
-      s3Tag: "BİYOMETRİK MARKA YÜZLERİ",
-      s3Title: "Kalıcı Dijital Marka Ambasadorları",
-      s3Desc: "468 anatomik yüz koordinatını kilitleyerek çok sezonlu kampanyalarda kimlik sapmasını engelleyen kalıcı ve markaya özel dijital model üretimi.",
-      s3Scope: "Yüz kemik yapısı kilitleme, çok katmanlı melanin ve cilt altı saçılımı (SSS), dijital gardırop uyarlaması ve mimik kurgusu.",
-      s3Deliverables: "Markaya Özel Dijital Model Varlığı, Çok Ortamlı Kampanya Arşivi, 4K Video Döngüleri.",
+      s3Tag: "MARKA YÜZLERİ",
+      s3Title: "Karakter ve Kimlik Tutarlılığı",
+      s3Desc: "Çok sezonlu kampanyalarda yüz hatlarını ve marka stilini tutarlı biçimde koruyan kalıcı dijital marka modelleri.",
+      s3Scope: "Yüz anatomik hatları hizalama, ten dokusu & ışık geçirgenliği kalibrasyonu, stil uyarlaması ve poz kütüphanesi.",
+      s3Deliverables: "Markaya Özel Model Kütüphanesi, Çok Ortamlı Kampanya Görselleri, Video Döngüleri.",
       s3Turnaround: "10 – 14 İş Günü",
-      s4Tag: "SİNEMATİK ANLATI",
-      s4Title: "Marka Mirası Filmleri & Dijital Flagship",
-      s4Desc: "Global butik ekranları, dev dijital panolar (Times Square/Ginza) ve küresel yayınlar için 120 FPS sinematik derinliğe sahip duygu odaklı marka filmleri.",
-      s4Scope: "Sinematik hikaye kurgusu, orkestral ses senkronizasyonu, hacimsel ışık simülasyonu ve çok formatlı master hazırlığı (16:9, 9:16, 32:9).",
-      s4Deliverables: "Kayıpsız 4K/8K Master Video Dosyaları, Dikey Sosyal Medya Kurguları, Sinema Standardında Renk Paketi.",
+      s4Tag: "SİNEMATİK MARKA FİLMLERİ",
+      s4Title: "Dijital Flagship & Editoryal Video",
+      s4Desc: "Dijital amiral gemisi butik ekranları, dev ekranlar ve çok kanallı medya için sinematik derinliğe sahip marka filmleri.",
+      s4Scope: "Sinematik hikaye kurgusu, ses senkronizasyonu, hacimsel ışık simülasyonu ve çok formatlı teslimat (16:9, 9:16, 32:9).",
+      s4Deliverables: "4K/8K Master Video Dosyaları, Sosyal Medya Kurguları, Renk Paketleri.",
       s4Turnaround: "8 – 12 İş Günü"
     },
     capabilitiesSection: {
       tag: "UZMANLIK ALANLARI",
       title: "Prodüksiyon Yetkinlikleri",
       c1Num: "01", c1Title: "HAUTE COUTURE KAMPANYALARI", c1Desc: "Tam kapsamlı sezonluk kampanya görselleri, akışkan kumaş simülasyonları ve editoryal moda hikayeleri.",
-      c2Num: "02", c2Title: "LÜKS MÜCEVHER VE SAATÇİLİK", c2Desc: "Elmas ışık kırılımı, safir cam yansımaları, rodyum kaplama ve İsviçre mekanizma detayları için 8K spektral render.",
-      c3Num: "03", c3Title: "SİNEMATİK MARKA FİLMLERİ", c3Desc: "Global dijital amiral gemileri ve prestijli ekranlar için 120 FPS sinematik derinlik ve duygu odaklı video prodüksiyonları.",
-      c4Num: "04", c4Title: "KALICI DİJİTAL MARKA YÜZLERİ", c4Desc: "Yüz geometrisini ve doğal cilt dokusunu %100 koruyan özel biyometrik dijital ikizler.",
-      c5Num: "05", c5Title: "KURUMSAL İÇERİK SİSTEMLERİ", c5Desc: "Tüm çoklu kanallarda kusursuz marka tutarlılığı sağlayan ölçeklenebilir, yüksek hacimli görsel üretim altyapısı."
+      c2Num: "02", c2Title: "LÜKS MÜCEVHER VE SAATÇİLİK", c2Desc: "Hassas ışık simülasyonu, elmas ışık kırılımı, safir cam ve İsviçre mekanizma görselleştirmesi.",
+      c3Num: "03", c3Title: "SİNEMATİK ANLATILAR", c3Desc: "Yayın ve dijital amiral gemisi ekranları için üretilen duygu odaklı sinematik marka videoları.",
+      c4Num: "04", c4Title: "TUTARLI DİJİTAL İKİZLER", c4Desc: "Farklı sahnelerde modelin yüz geometrisini ve stil sürekliliğini tavizsiz koruyan altyapı.",
+      c5Num: "05", c5Title: "KURUMSAL İÇERİK SİSTEMLERİ", c5Desc: "Tüm çoklu kanallarda kusursuz marka tutarlılığı sağlayan ölçeklenebilir görsel üretim altyapısı."
     },
     capabilitiesTech: {
-      tag: "TEKNOLOJİK HAKİMİYET",
-      title: "Kurumsal Neural Üretim Hattı",
-      desc: "Global lüks markalar için tavizsiz fiziksel gerçekçilik, mutlak gizlilik ve yüksek sermaye verimliliği sunar.",
-      cap1Title: "8K Neural Master Render", cap1Desc: "Devasa açık hava panoları ve baskılı lüks dergiler için 8192 x 4320 çözünürlüğünde kayıpsız master üretim.", cap1Tag1: "ÇIKIŞ FORMATI", cap1Tag2: "8K MASTER",
-      cap2Title: "Cilt Altı Işık Saçılımı (SSS)", cap2Desc: "Gerçek gözenekleri, melanin pigmentasyonunu ve doğal kan dolaşımı ışık geçirgenliğini simüle eden biyofiziksel şaderler.", cap2Tag1: "BİYOFİZİKSEL GERÇEKLİK", cap2Tag2: "MELANİN SİMÜLASYONU",
-      cap3Title: "Spektral Işık Kırılımı (Caustics)", cap3Desc: "Değerli taşlarda ve elmaslarda dalga boyu bazlı ışık saçılımını hesaplayan spektral raytracing teknolojisi.", cap3Tag1: "OPTİK FİZİK", cap3Tag2: "SPEKTRAL RAYTRACING",
-      cap4Title: "Biyometrik Kimlik Koruma Ağı", cap4Desc: "Dijital modellerin yüz kemik yapısını 468 anatomik koordinat ile kilitleyerek deformasyonu engelleyen altyapı.", cap4Tag1: "KİMLİK SÜREKLİLİĞİ", cap4Tag2: "%100 GEOMETRİ"
+      tag: "PRODÜKSİYON HATTI",
+      title: "Yapay Zeka Destekli Üretim Hattı",
+      desc: "Yüksek fiziksel gerçekçilik, lansman öncesi gizlilik ve sermaye verimliliği sunmak üzere kurgulanmıştır.",
+      cap1Title: "8K Master Üretim", cap1Desc: "Büyük formatlı ekranlar ve basılı mecralar için 8192 x 4320 çözünürlüğe kadar yüksek kaliteli görsel üretim hattı.", cap1Tag1: "ÇIKIŞ FORMATI", cap1Tag2: "8K MASTER",
+      cap2Title: "Cilt Altı Melanin Şaderleri", cap2Desc: "Doğal cilt dokusunu, melanin dağılımını ve gerçekçi ışık geçirgenliğini simüle eden optik şaderler.", cap2Tag1: "CİLT GERÇEKÇİLİĞİ", cap2Tag2: "FİZİKSEL UYUM",
+      cap3Title: "Hassas Işık ve Saçılım", cap3Desc: "Pırlanta ışık kırılımı, değerli taşlar, cam ve parlatılmış lüks metallerin dalga boyu bazlı simülasyonu.", cap3Tag1: "OPTİK FİZİK", cap3Tag2: "KONTROLLÜ YANSIMA",
+      cap4Title: "Karakter Tutarlılık Sistemi", cap4Desc: "Yüz hatlarında yapay zeka deformasyonunu engelleyen ve karakter kimliğini koruyan anatomik hizalama sistemi.", cap4Tag1: "KİMLİK SÜREKLİLİĞİ", cap4Tag2: "YAPISAL HİZALAMA"
     },
     system: {
-      tag: "AI.VIENNE METODOLOJİSİ",
-      title: "Beş Aşamalı Prodüksiyon Protokolü",
-      sub: "YAPAY ZEKA İCRAYI HIZLANDIRIR. LÜKS KREATİF DİREKTÖRLÜK GELECEĞİ ŞEKİLLENDİRİR.",
-      s1Num: "01", s1Title: "HİZALANMA VE DNA ANALİZİ", s1Detail: "Marka mirası, fiziksel CAD tasarımları, kumaş mikro dokuları ve editoryal vizyonun detaylı analizi.",
-      s2Num: "02", s2Title: "SANAT YÖNETİMİ", s2Detail: "Yüksek moda ışık mimarisi, sinematik kadrajlama, optik lens kalibrasyonu ve kompozisyon kurgusu.",
-      s3Num: "03", s3Title: "NEURAL SENTEZ", s3Detail: "Spektral raytracing, çok katmanlı materyal sentezi, cilt altı saçılımı ve 8K ultra çözünürlük oluşturma.",
-      s4Num: "04", s4Title: "HAUTE RETOUCH", s4Detail: "Kusursuz renk derecelendirme (color grading), mücevher ışıltı optimizasyonu ve editoryal retuş.",
-      s5Num: "05", s5Title: "ŞİFRELİ TESLİMAT", s5Detail: "Baskıya hazır 8K master görseller ve 120 FPS akıcı video döngülerinin NDA kapsamında teslimi."
+      tag: "PRODÜKSİYON PROTOKOLÜ",
+      title: "Beş Aşamalı Üretim Hattı",
+      sub: "KEŞFET · YÖNET · ÜRET · RETUŞLA · TESLİM ET",
+      s1Num: "01", s1Title: "KEŞFET", s1Detail: "Marka mirası analizi, CAD tasarımları, kumaş mikro-dokuları ve kampanya hedeflerinin belirlenmesi.",
+      s2Num: "02", s2Title: "YÖNET", s2Detail: "Yüksek moda ışık mimarisi, sinematik kadrajlama, optik lens kalibrasyonu ve kompozisyon kurgusu.",
+      s3Num: "03", s3Title: "ÜRET", s3Detail: "Yapay zeka destekli çok katmanlı materyal sentezi, ışık saçılımı ve yüksek çözünürlüklü render.",
+      s4Num: "04", s4Title: "RETUŞLA", s4Detail: "Kusursuz renk derecelendirme (color grading), mücevher ışıltı optimizasyonu ve editoryal retuş.",
+      s5Num: "05", s5Title: "TESLİM ET", s5Detail: "Baskıya hazır master görseller ve platforma özel video dosyalarının şifreli olarak teslimi."
     },
     studioSection: {
       tag: "STÜDYO",
       title: "Bağımsız Lüks Yapay Zeka Stüdyosu",
-      desc: "AI.VIENNE Studio+, yüksek moda, lüks mücevherat ve saatçilik evleri için çalışan özel bir görsel prodüksiyon laboratuvarıdır.",
+      desc: "AI.VIENNE Studio+, global lüks moda, mücevher ve saatçilik evleri için tasarlanmış bağımsız bir görsel prodüksiyon laboratuvarıdır.",
       founderName: "E. AKTAŞ",
-      founderTitle: "Kurucu & Yönetici Kreatif Direktör",
-      opsTitle: "GİZLİ OPERASYONLAR",
-      opsVal1: "Global Uzaktan Erişimli Stüdyo",
-      opsVal2: "İkili Gizlilik Sözleşmeli (NDA) B2B Prodüksiyon"
+      founderTitle: "Kurucu & Kreatif Direktör",
+      opsTitle: "STÜDYO OPERASYONLARI",
+      opsVal1: "Bağımsız Stüdyo · Global Uzaktan Erişim",
+      opsVal2: "Gizlilik Protokolü (Talep Halinde NDA İmzalanır)"
     },
     insights: {
-      tag: "EDİTORYAL VE ARAŞTIRMA",
+      tag: "ARAŞTIRMA VE MAKALELER",
       title: "Haute Couture & Neural Makaleler",
       desc: "Yapay zeka, lüks ekonomi ve dijital zanaatkarlığın kesişim noktasına derinlemesine akademik bakış.",
       readMore: "Araştırma Makalesini Oku",
       article1Tag: "HAUTE COUTURE AI",
-      article1Title: "Dijital Couture Ekonomisi: Pazara Çıkış Süresini %80 Azaltmak",
-      article1Desc: "Paris ve Milano'nun önde gelen lüks moda evlerinin fiziksel numune maliyetlerini aşma yöntemleri.",
-      article1Body1: "Geleneksel lüks moda takvimi kumaş tedariki, kişiye özel kalıp provaları ve çok lokasyonlu podyum organizasyonlarının fiziksel hızıyla sınırlıydı. Sezonluk kampanyalar aylar süren lojistik hazırlık, yüksek sermaye harcaması ve ciddi bir karbon ayak izi gerektiriyordu.",
-      article1Body2: "AI.VIENNE'in neural üretim hattı sayesinde tasarımcılar artık akışkan ipek fiziğini, kadife ağırlığını ve özel jakar dokularını gerçek zamanlı olarak simüle edebilmektedir. Bu yaklaşım fiziksel prototipleme maliyetlerini ortadan kaldırırken, kampanya üretim süresini 12 haftadan 10 iş gününün altına indirmektedir.",
-      article2Tag: "DİJİTAL İKİZLER",
-      article2Title: "Lüks AI Avatarlarında Yüz Geometrisi ve Kimlik Koruma",
-      article2Desc: "Biyofiziksel anatomik kilitleme ile marka yüzlerinin farklı çekimlerde süreklilik sağlamasını garanti eden inceleme.",
-      article2Body1: "Lüks marka anlatımında model kimliği taviz verilemez bir unsurdur. Standart yapay zeka modelleri kareler arasında çene yapısı, göz mesafesi ve ten renginde tutarsızlıklar üreterek tüketici güvenini zedeler.",
-      article2Body2: "AI.VIENNE bu sorunu Biyometrik Kimlik Koruma Ağı ile çözmektedir. 468 anatomik koordinat ve özel melanin simülasyonları sayesinde dijital modellerimiz farklı ışık koşullarında ve kamera açılarında kemik yapısını ve gözenek dokusunu %100 oranında korur.",
+      article1Title: "Dijital Couture Ekonomisi: Pazara Çıkış Süresini Kısaltmak",
+      article1Desc: "Modern lüks moda evlerinin numune maliyetlerini aşarak ürün geliştirme sürecini hızlandırma yöntemleri.",
+      article1Body1: "Geleneksel lüks moda takvimi kumaş tedariki, kişiye özel prova ve çok lokasyonlu podyum organizasyonlarının fiziksel hızıyla sınırlıydı. Sezonluk kampanyalar haftalar süren hazırlık ve yüksek bütçe gerektiriyordu.",
+      article1Body2: "Yapay zeka destekli üretim hattımız sayesinde tasarımcılar akışkan ipek kumaş hareketini, kadife ağırlığını ve özel jakar dokularını hızlı döngülerle test edebilmektedir. Bu yaklaşım fiziksel prototip maliyetlerini düşürürken kampanya üretim süresini iş günlerine indirir.",
+      article2Tag: "DİJİTAL KARAKTERLER",
+      article2Title: "Dijital Modellerde Yüz ve Kimlik Tutarlılığı",
+      article2Desc: "Marka yüzlerinin farklı kampanya ortamlarında süreklilik sağlamasını güvence altına alan anatomik hizalama analizi.",
+      article2Body1: "Lüks marka anlatımında model kimliği esastır. Kontrolsüz üretilen yapay zeka görselleri kareler arasında yüz yapısında ve cilt tonunda tutarsızlıklar üreterek marka algısını zayıflatır.",
+      article2Body2: "AI.VIENNE bu sorunu anatomik koordinat hizalama ve özel melanin şaderleri ile çözer. Dijital karakterlerimiz farklı ışık koşullarında ve kamera açılarında kemik yapısını ve doku detayını tutarlı biçimde korur.",
       article3Tag: "LÜKS MÜCEVHER",
-      article3Title: "Spektral Raytracing: 8K Çözünürlükte Elmas Işık Kırılımı Simülasyonu",
+      article3Title: "Hassas Işık Simülasyonu: Yüksek Çözünürlükte Elmas Işık Kırılımı",
       article3Desc: "Stüdyo optik kısıtlamaları olmadan makro mücevher renderlarında fiziksel mükemmellik.",
-      article3Body1: "Lüks mücevherlerin makro fotoğrafçılığı aşırı optik zorluklar barındırır. Stüdyo flaşlarının pırlanta fasetleri ve platin yüzeylerle etkileşimi patlamış parlaklıklara veya değerli taşın doğal rengini yitirmesine neden olur.",
-      article3Body2: "Neural altyapımız ışık kırılımını nanometre dalga boylarında hesaplar. Zümrüt, safir ve elmas içi tam yansımaları simüle ederek, global dev panolara ve basılı editoryal dergilere hazır 8K makro mücevher görselleri üretiriz."
+      article3Body1: "Lüks mücevherlerin makro fotoğrafçılığı optik zorluklar barındırır. Stüdyo flaşlarının pırlanta fasetleri ve platin yüzeylerle etkileşimi patlamış parlaklıklara veya değerli taşın doğal rengini yitirmesine neden olur.",
+      article3Body2: "Görsel üretim süreçlerimiz ışık kırılımını zümrüt, safir ve elmas geometrilerinde gerçekçi olarak hesaplar; basılı mecralara ve dev ekranlara uygun makro mücevher görselleri üretir."
     },
     portfolio: { 
-      tag: "SEÇKİN VAKA ANALİZLERİ", 
-      title: "Lüks Prodüksiyon Arşivi", 
-      desc: "Lüks moda ve mücevher markaları için üretilmiş 16:9 sinematik geniş ekran ve 9:16 dikey kampanya çıktılarını inceleyin.", 
-      filterAll: "Tüm Çalışmalar", 
-      filter169: "16:9 Sinematik Master", 
-      filter916: "9:16 Dikey Videolar", 
-      playVideo: "Vaka Analizini İncele", 
+      tag: "AI.VIENNE KONSEPT ARŞİVİ", 
+      title: "Seçkin Konsept Çalışmaları", 
+      desc: "Lüks moda ve mücevher vizyonumuzu yansıtan 16:9 geniş ekran ve 9:16 dikey konsept vaka analizlerini inceleyin.", 
+      filterAll: "Tüm Konseptler", 
+      filter169: "16:9 Geniş Ekran Çalışmaları", 
+      filter916: "9:16 Dikey Formatlar", 
+      playVideo: "Konsept Vaka Analizini İncele", 
       closeModal: "Kapat" 
     },
-    transformation: { tag: "NEURAL DÖNÜŞÜM", title: "Geleneksel Stüdyo vs. AI.VIENNE 8K Master", desc: "Ham geleneksel stüdyo fotoğrafının ultra-gerçekçi lüks editoryal estetiğe nasıl dönüştüğünü kaydırıcı ile test edin.", beforeLabel: "Geleneksel Ham Stüdyo Çekimi", afterLabel: "AI.VIENNE 8K Master Render" },
-    estimator: { tag: "SERMAYE VERİMLİLİK MATRİSİ", title: "Yönetici ROI ve Prodüksiyon Kapsamı", desc: "Geleneksel yüksek bütçeli çekimlerle neural prodüksiyon hızını ve sermaye tasarrufunu kıyaslayın.", scaleLabel: "Kampanya Kapsamı ve Çıktılar", tier1: "Tekli Master Varlık (Makro Render / Fotoğraf)", tier2: "Sezonluk 8K Kampanya Paketi (Çoklu İçerik)", tier3: "Tam Sinematik Podyum Filmi ve Dijital İkiz Ekosistemi", deliveryLabel: "Prodüksiyon Takvimi Önceliği", standard: "Standart Stüdyo Protokolü (10-14 İş Günü)", express: "Öncelikli Haute Couture Teslimatı (3-5 İş Günü)", estInvestment: "Tahmini Stratejik Yatırım:", roiTitle: "YÖNETİCİ VERİMLİLİK VE ROI ANALİZİ", tradCost: "Tahmini Fiziksel Çekim Bütçesi:", timeSaved: "Pazara Çıkış Hız Avantajı:", costSavings: "Sermaye Optimizasyonu:", range1: "$1,500 – $3,500", range2: "$5,000 – $12,000", range3: "$18,000 – $35,000+", trad1: "$25,000+", trad2: "$75,000+", trad3: "$180,000+" },
-    twinsSection: { tag: "NEURAL AMBASADORLAR", title: "Dijital İkiz Vitrini", desc: "Kusursuz yüz biyometrisini ve lüks marka estetiğini koruyan kalıcı dijital modeller.", identityTitle: "Biyometrik Kimlik Garantisi", identityDesc: "Her dijital model farklı kıyafet, ışık ve ortamlarda yüz oranlarını ve doğal cilt dokusunu tavizsiz korur." },
-    briefSection: { tag: "KREATİF YAPILANDIRICI", title: "İnteraktif Brief Mimarı", desc: "Resmi proje teklifi talep etmeden önce görsel parametrelerinizi kurgulayın.", s1: "1. Işık Mimarisi", s2: "2. Sektörel Uzmanlık", s3: "3. Mekan ve Atmosfer", applyBtn: "Konfigürasyonu Brief'e Aktar", configLabel: "Seçili Parametreler:" },
-    chatConsole: { title: "Yönetici Özel Erişim Masası", sub: "Özel Danışmanlık, Stratejik Ortaklıklar ve Gizlilik Talepleri", placeholder: "Markanızı, teslimat takviminizi veya kampanya hedefinizi açıklayın...", send: "Güvenli Brief İlet", welcome: "AI.VIENNE Studio+ Özel Masasına hoş geldiniz. Projenizi ve marka detaylarınızı iletebilirsiniz. Ekibimiz talebinizi gizlilik protokolü altında inceleyecektir." },
+    transformation: { tag: "NEURAL DÖNÜŞÜM", title: "Ham Stüdyo Çekimi vs. AI.VIENNE Master Render", desc: "Ham stüdyo konseptinin yüksek çözünürlüklü lüks kampanya görseline nasıl dönüştüğünü kaydırıcı ile test edin.", beforeLabel: "Geleneksel Ham Stüdyo Konsepti", afterLabel: "AI.VIENNE Master Render" },
+    estimator: { tag: "PROJE HESAPLAYICI", title: "Prodüksiyon Ekonomisi ve Kapsam Matrisi", desc: "Prodüksiyon maliyeti görsel karmaşıklık, varlık sayısı ve teslimat takvimine göre şekillenir. Gereksinimlerinizi aşağıdan belirleyin.", scaleLabel: "Görsel Hacmi ve Karmaşıklık", tier1: "Tekli Master Varlık (Makro Render / Fotoğraf)", tier2: "Sezonluk 8K Kampanya Paketi (Çoklu İçerik)", tier3: "Tam Sinematik Film ve Karakter Kütüphanesi", deliveryLabel: "Prodüksiyon Takvimi Önceliği", standard: "Standart Stüdyo Takvimi (7-10 İş Günü)", express: "Öncelikli Haute Couture Teslimatı (3-5 İş Günü)", estInvestment: "Tahmini Stratejik Yatırım:", roiTitle: "PRODÜKSİYON KAPSAM PARAMETRELERİ", tradCost: "Maliyet Belirleyicileri:", timeSaved: "Prodüksiyon Takvimi:", costSavings: "Teslimat Kalitesi:", range1: "$1,500 – $4,500", range2: "$5,000 – $15,000", range3: "$15,000 – $35,000+", trad1: "Kreatif Kapsam ve Varlık Sayısı", trad2: "Video ve Format Gereksinimleri", trad3: "Özel Karakter Tutarlılığı" },
+    twinsSection: { tag: "DİJİTAL KARAKTERLER", title: "Dijital İkiz Vitrini", desc: "Karakter tutarlılığını, doğal cilt dokusunu ve lüks marka estetiğini koruyan kalıcı dijital modeller.", identityTitle: "Kimlik Tutarlılık Sistemi", identityDesc: "Karakter modellerimiz farklı kıyafet, ışık ve editoryal ortamlarda yüz oranlarını ve doğal dokusunu tutarlı biçimde korur." },
+    briefSection: { tag: "KREATİF YAPILANDIRICI", title: "İnteraktif Brief Mimarı", desc: "Resmi proje teklifi talep etmeden önce görsel parametrelerinizi kurgulayın.", s1: "1. Işık Mimarisi", s2: "2. Sektörel Uzmanlık", s3: "3. Mekan ve Atmosfer", applyBtn: "PROJE BRİEF'İNE EKLE", configLabel: "Seçili Parametreler:" },
+    chatConsole: { title: "Yönetici Özel Erişim Masası", sub: "Özel Danışmanlık ve Proje Brief Masası", placeholder: "Markanızı, teslimat takviminizi veya kampanya hedefinizi açıklayın...", send: "Güvenli Brief İlet", welcome: "AI.VIENNE Studio+ Özel Masasına hoş geldiniz. Projenizi ve marka detaylarınızı iletebilirsiniz. Ekibimiz talebinizi gizlilik protokolü altında inceleyecektir." },
     contact: { 
-      tag: "GİZLİ PROJE TEKLİFİ", 
-      title: "Özel Proje Brief'i Oluşturun", 
-      desc: "Marka kampanyalarınızı geleceğin lüks görsel standartlarına taşımak için AI.VIENNE Studio+ ile çalışın.", 
+      tag: "PROJE TALEBİ", 
+      title: "Prodüksiyon Brief'i Başlatın", 
+      desc: "Marka kampanyalarınızı yüksek çözünürlüklü dijital lüks standartlarına taşımak için AI.VIENNE Studio+ ile çalışın.", 
       namePlaceholder: "Yetkili Kişi & Marka Adı", 
       emailPlaceholder: "Kurumsal E-Posta Adresi", 
+      websitePlaceholder: "Şirket Web Sitesi (örn. markaniz.com)",
+      timelinePlaceholder: "Hedef Lansman / Teslim Takvimi (örn. Q3 2026 / 3 Hafta)",
       serviceLabel: "Prodüksiyon Alanı Seçin", 
-      sOpt1: "Haute Couture & Podyum Prodüksiyonu (8K Master)", 
-      sOpt2: "Haute Horlogerie & Lüks Mücevherat (Makro Optik Hakimiyeti)", 
+      sOpt1: "Haute Couture & Podyum Prodüksiyonu", 
+      sOpt2: "Haute Horlogerie & Lüks Mücevherat", 
       sOpt3: "Kalıcı Dijital Marka Ambasadoru Paketi", 
-      sOpt4: "Marka Mirası Filmleri & Dijital Flagship Görselleri", 
+      sOpt4: "Dijital Flagship & Editoryal Video", 
       sOpt5: "Lüks Parfüm ve Kozmetik Kampanyası", 
       sOpt6: "Lüks Gözlük ve Optik Prodüksiyonu", 
-      sOpt7: "Tam Sezonluk Görsel Ekosistem ve Global Kampanya", 
-      budgetLabel: "Hedef Prodüksiyon Bütçesi (USD)",
+      sOpt7: "Tam Sezonluk Görsel Kampanya", 
+      budgetLabel: "Tahmini Prodüksiyon Bütçesi (USD)",
       bOpt1: "$1,500 – $4,500 (Tekil Master Varlık / 8K Render)",
       bOpt2: "$5,000 – $15,000 (Sezonluk Kampanya Paketi)",
-      bOpt3: "$15,000 – $35,000+ (Sinematik Film ve Dijital İkiz)",
-      bOpt4: "Belirtilmemiş / Özel Kurumsal Kapsam",
-      ndaLabel: "Materyal paylaşımı öncesi ikili Gizlilik Sözleşmesi (NDA) talep ediyorum",
+      bOpt3: "$15,000 – $35,000+ (Tam Sinematik Film ve Karakter Kütüphanesi)",
+      bOpt4: "Belirtilmemiş / Özel Kapsam",
+      ndaLabel: "Gizlilik Sözleşmesi talep ediyorum (Talep halinde NDA imzalanır)",
       uploadTitle: "CAD Çizimi, Moodboard veya Referans Dosyası Yükleyin", 
       uploadHint: "Dosyaları sürükleyin veya seçin (PNG, JPG, MP4, MOV, PDF, ZIP, CAD)", 
       messagePlaceholder: "Kampanya hedefleriniz, teslimat takviminiz ve estetik beklentileriniz hakkında bilgi verin...", 
-      submitBtn: "Gizli Brief'i Gönder", 
-      directEmail: "Yönetici İletişim: info@aivienne.com" 
+      submitBtn: "Proje Brief'ini Gönder", 
+      directEmail: "Doğrudan İletişim: info@aivienne.com" 
     },
-    footerSection: { navTitle: "01 / NAVİGASYON", dirTitle: "02 / DİREKTÖRİK", netTitle: "03 / AĞLARIMIZ", studio: "Stüdyomuz", works: "Seçkin Çalışmalar", initiate: "Brief Başlat", cities: "Paris | Milano | Cenevre | Londra | New York | Dubai | Global", terms: "HİZMET VE KULLANIM ŞARTLARI", privacy: "GİZLİLİK VE VERİ KORUMA PROTOKOLÜ" },
+    footerSection: { navTitle: "01 / NAVİGASYON", dirTitle: "02 / DİREKTÖRİK", netTitle: "03 / AĞLARIMIZ", studio: "Stüdyomuz", works: "Konsept Çalışmalar", initiate: "Brief Başlat", cities: "Bağımsız Stüdyo · Global Uzaktan Erişim", terms: "HİZMET VE KULLANIM ŞARTLARI", privacy: "GİZLİLİK VE VERİ KORUMA PROTOKOLÜ" },
     modals: {
       termsTitle: "Hizmet Şartları ve Prodüksiyon Protokolü",
       termsP1Title: "1. FİKRİ MÜLKİYET VE KÜRESEL KULLANIM HAKLARI",
-      termsP1Body: "Proje bedelinin tamamlanmasının ardından üretilen tüm 8K master görseller, video dosyaları ve 3D varlıklar sınırsız ve süresiz olarak Müşteriye devredilir. Müşteri TV, basılı medya, küresel açık hava dev panoları (OOH) ve dijital platformlarda ek telif ödemeksizin tam ticari kullanım hakkına sahip olur.",
-      termsP2Title: "2. YAYIN ÖNCESİ GİZLİLİK VE ÇİFT TARAFLI NDA",
-      termsP2Body: "Müşteri tarafından iletilen tüm brief'ler, yüksek çözünürlüklü CAD tasarımları, moodboard'lar ve yayınlanmamış sezonluk çizimler çift taraflı Gizlilik Sözleşmesi (NDA) altında korunur. Prodüksiyon tamamen izole, şifreli sunucularda yürütülür.",
+      termsP1Body: "Proje bedelinin tamamlanmasının ardından üretilen tüm master görseller, video dosyaları ve 3D varlıklar sınırsız ve süresiz olarak Müşteriye devredilir. Müşteri TV, basılı medya, küresel açık hava dev panoları (OOH) ve dijital platformlarda ek telif ödemeksizin tam ticari kullanım hakkına sahip olur.",
+      termsP2Title: "2. YAYIN ÖNCESİ GİZLİLİK VE NDA",
+      termsP2Body: "Müşteri tarafından iletilen tüm brief'ler, CAD tasarımları ve yayınlanmamış sezonluk çizimler gizlilik altında korunur. Talep halinde materyal paylaşımı öncesinde Gizlilik Sözleşmesi (NDA) imzalanır. Prodüksiyon güvenli sistemlerde yürütülür.",
       termsP3Title: "3. RENK KALİBRASYONU VE REVİZYON PROTOKOLÜ",
-      termsP3Body: "Her prodüksiyon paketi cilt altı saçılımı, raytraced yansıma açıları, spektral caustics ve renk derecelendirme (color grading) ayarlarını içeren 2 kapsamlı revizyon döngüsünü kapsar. Revizyonlar 48-72 saat içinde Kreatif Direktör denetiminde uygulanır.",
-      termsP4Title: "4. 8K MASTER ÇÖZÜNÜRLÜK VE TEKNİK UYUMLULUK",
-      termsP4Body: "AI.VIENNE Studio+, nihai görsellerin gerçek 8K çözünürlükte (8192 x 4320 px) ve videoların 120 FPS sinematik akıcılıkta olduğunu garanti eder. Materyal şaderleri gerçek fiziksel optik kırılma indislerine göre yapılandırılır.",
-      termsP5Title: "5. ÖDEME AŞAMALARI VE BAŞLANGIÇ PROTOKOLÜ",
-      termsP5Body: "Prodüksiyon, çift taraflı NDA imzası ve belirlenen başlangıç avansının ödenmesiyle devreye girer. Nihai master dosyalar son aşama onayı ile şifreli kanallar üzerinden teslim edilir.",
+      termsP3Body: "Her prodüksiyon paketi cilt tonu ayarlamaları, yansıma açıları, ışık yoğunluğu ve renk derecelendirme (color grading) ayarlarını içeren 2 kapsamlı revizyon döngüsünü kapsar. Revizyonlar 48-72 saat içinde uygulanır.",
+      termsP4Title: "4. MASTER ÇÖZÜNÜRLÜK VE TEKNİK UYUMLULUK",
+      termsP4Body: "AI.VIENNE Studio+, nihai görsellerin 8K çözünürlüğe kadar (8192 x 4320 px) ve videoların belirlenen kare hızlarında (24, 30, 60 veya 120 FPS) olduğunu garanti eder. Materyal dokuları fiziksel optik özelliklere göre yapılandırılır.",
+      termsP5Title: "5. ÖDEME AŞAMALARI VE BAŞLANGIÇ",
+      termsP5Body: "Prodüksiyon, karşılıklı kapsam onayı ve belirlenen başlangıç avansının ödenmesiyle devreye girer. Nihai master dosyalar aşama onayları tamamlandığında teslim edilir.",
       termsP6Title: "6. MÜCBİR SEBEPLER VE SİSTEM GÜVENCESİ",
-      termsP6Body: "AI.VIENNE Studio+, yüksek yedekli neural sunucu altyapısına sahiptir. Olası teknik kesintilerde müşteri aleyhine ek maliyet yansıtılmaksızın öncelikli işleme alınır.",
+      termsP6Body: "AI.VIENNE Studio+, güvenilir üretim altyapısına sahiptir. Olası teknik kesintilerde müşteri aleyhine ek maliyet yansıtılmaksızın teslim takvimi öncelikli olarak tamamlanır.",
       privacyTitle: "Gizlilik ve Veri Koruma Protokolü (GDPR / KVKK)",
       privacyP1Title: "1. KURUMSAL VERİ GÜVENLİĞİ",
-      privacyP1Body: "Yalnızca teklif oluşturma, proje brief sentezi ve şifreli teslimat için gerekli asgari kurumsal iletişim verileri işlenir. Uluslararası en yüksek veri koruma standartlarına tam uyum sağlanır.",
+      privacyP1Body: "Yalnızca teklif oluşturma, proje brief sentezi ve teslimat için gerekli asgari kurumsal iletişim verileri işlenir. Uluslararası veri koruma standartlarına tam uyum sağlanır.",
       privacyP2Title: "2. AÇIK YAPAY ZEKA MODELLERİNE EĞİTİM VERİLMEZ",
-      privacyP2Body: "Müşterilerimize ait hiçbir tasarım, CAD verisi, biyometrik yüz taraması veya renk paleti herkese açık yapay zeka modellerinin eğitiminde kesinlikle kullanılmaz. Dijital ikiz modelleri tamamen kapalı sunucu havuzunda çalıştırılır.",
-      privacyP3Title: "3. ASKERİ DÜZEYDE ŞİFRELEME (AES-256)",
-      privacyP3Body: "Yayınlanmamış sezonluk taslaklar ve master dosyalar AES-256 şifreleme protokolüyle korunur. İnceleme aşamasındaki önizlemeler dinamik fligran korumalı bağlantılarla iletilir.",
-      privacyP4Title: "4. KALICI VERİ İMHA VE UNUTULMA HAKKI",
-      privacyP4Body: "Teslimat sonrası müşterilerimiz, sunucularımızda yer alan tüm ham proje dosyalarının, CAD verilerinin ve eğitim önbelleklerinin kalıcı olarak imha edilmesini talep etme hakkına sahiptir.",
+      privacyP2Body: "Müşterilerimize ait hiçbir tasarım, CAD verisi veya karakter modeli herkese açık yapay zeka modellerinin eğitiminde kesinlikle kullanılmaz. Dijital karakterler kapalı ve özel ortamlarda çalıştırılır.",
+      privacyP3Title: "3. ŞİFRELİ DEPOLAMA VE VERİ GÜVENLİĞİ",
+      privacyP3Body: "Lansman öncesi taslaklar ve master dosyalar AES-256 şifreleme protokolüyle korunur. İnceleme aşamasındaki önizlemeler dinamik filigran korumalı güvenli bağlantılarla iletilir.",
+      privacyP4Title: "4. VERİ İMHA HAKKI",
+      privacyP4Body: "Teslimat sonrası müşterilerimiz, sunucularımızda yer alan tüm çalışma dosyalarının, CAD verilerinin ve geçici önbelleklerin kalıcı olarak imha edilmesini talep etme hakkına sahiptir.",
       privacyP5Title: "5. ÜÇÜNCÜ TARAFLARLA PAYLAŞIM YASAĞI",
       privacyP5Body: "Müşteri bilgileri, e-posta yazışmaları ve görsel varlıklar hiçbir koşulda üçüncü taraf şirketlerle, reklam ağlarıyla veya veri toplayıcılarla paylaşılmaz ve satılamaz.",
-      privacyP6Title: "6. DOĞRUDAN HUKUKİ İLETİŞİM",
-      privacyP6Body: "Kurumsal denetimler, gizlilik sözleşmesi (NDA) talepleri veya anlık veri silme işlemleri için doğrudan legal@aivienne.com veya info@aivienne.com adresinden erişim sağlanabilir."
+      privacyP6Title: "6. DOĞRUDAN İLETİŞİM",
+      privacyP6Body: "Kurumsal denetimler, gizlilik sözleşmesi (NDA) talepleri veya veri silme işlemleri için doğrudan info@aivienne.com adresinden erişim sağlanabilir."
     },
     footer: "© 2026 AI.VIENNE Studio+. Tüm hakları saklıdır."
   }
@@ -419,8 +425,8 @@ const LANGUAGES = [
 interface CaseStudyItem {
   id: string;
   title: string;
-  clientSector: string;
-  category: "jewelry" | "fashion" | "watch" | "eyewear" | "perfume";
+  projectType: string;
+  discipline: string;
   aspect: "16:9" | "9:16";
   type: "video" | "image";
   badge: string;
@@ -429,9 +435,9 @@ interface CaseStudyItem {
   videoUrl: string;
   desc: string;
   objective: string;
-  neuralTechnique: string;
+  creativeDirection: string;
+  productionNotes: string;
   deliverables: string;
-  hoverState: string;
 }
 
 interface ArticleItem {
@@ -444,159 +450,159 @@ interface ArticleItem {
 const PORTFOLIO_ITEMS: CaseStudyItem[] = [
   { 
     id: "1", 
-    title: "Imperial Diamond Showcase 8K", 
-    clientSector: "Haute Joaillerie Atelier",
-    category: "jewelry", 
+    title: "Imperial Diamond Showcase", 
+    projectType: "SPECULATIVE STUDY",
+    discipline: "High Jewelry",
     aspect: "16:9",
     type: "video", 
-    badge: "16:9 CINEMATIC MASTER", 
+    badge: "16:9 SPECULATIVE STUDY", 
     icon: Gem, 
     poster: "/vienne-portrait.jpg",
     videoUrl: "/obsidian-necklace.mp4", 
-    desc: "Exquisite diamond light refraction & macro jewelry rendering in 16:9 widescreen.", 
-    objective: "Eliminate studio flare and capture true spectral fire across 100+ brilliant-cut diamonds.",
-    neuralTechnique: "Spectral Raytracing & Nanometer Chromatic Dispersion",
-    deliverables: "8K Master Still (8192x4320) + 120 FPS Motion Loop",
-    hoverState: "CAUSTICS REFRACTION PASS 8K" 
+    desc: "Refraction and light dispersion study across multi-faceted diamond geometry in 16:9 widescreen.", 
+    objective: "Simulate natural gemstone brilliance and eliminate unwanted glare on polished platinum settings.",
+    creativeDirection: "Chiaroscuro studio lighting emphasizing contrast and deep mineral transparency.",
+    productionNotes: "AI-assisted base generation, optical refraction tuning, and high-resolution compositing.",
+    deliverables: "8K Master Still + Platform-Specific Motion Loops"
   },
   { 
     id: "2", 
-    title: "Haute Couture Paris Vertical Runway", 
-    clientSector: "Parisian Fashion House",
-    category: "fashion", 
+    title: "Haute Couture Vertical Motion", 
+    projectType: "SPECULATIVE STUDY",
+    discipline: "Haute Couture",
     aspect: "9:16",
     type: "video", 
-    badge: "9:16 VERTICAL REEL", 
+    badge: "9:16 MOBILE CONCEPT", 
     icon: Sparkle, 
     poster: "/traditional-raw.jpg",
     videoUrl: "/2.mp4", 
-    desc: "Ultra-realistic 9:16 vertical motion for mobile social campaigns & digital billboards.", 
-    objective: "Simulate complex fluid silk movement and micro-pleating without physical model shoots.",
-    neuralTechnique: "Subsurface Scattering & Dynamic Fabric Physics Shaders",
-    deliverables: "9:16 4K Mobile Campaign Reel + Social Cutdowns",
-    hoverState: "VERTICAL NEURAL RUNWAY" 
+    desc: "Vertical motion study exploring dynamic silk physics and high-fashion editorial styling.", 
+    objective: "Achieve fluid garment motion and natural textile weight without physical location shoots.",
+    creativeDirection: "Atmospheric Parisian runway aesthetic with soft directional backlight.",
+    productionNotes: "Cloth movement simulation passes, facial consistency alignment, and cinematic color grading.",
+    deliverables: "9:16 Vertical Master + Social Format Cutdowns"
   },
   { 
     id: "3", 
-    title: "Haute Horlogerie Royal Tourbillon", 
-    clientSector: "Swiss Horlogerie Manufacture",
-    category: "watch", 
+    title: "Royal Tourbillon Horlogerie", 
+    projectType: "SPECULATIVE STUDY",
+    discipline: "Haute Horlogerie",
     aspect: "16:9",
     type: "video", 
-    badge: "16:9 HORLOGERIE FILM", 
+    badge: "16:9 TIMEPIECE CONCEPT", 
     icon: Watch, 
     poster: "/vienne-portrait.jpg",
     videoUrl: "/aurelia-campaign-loop.mp4", 
-    desc: "Swiss timepiece mechanics & sapphire glass caustics reflections.", 
-    objective: "Showcase internal mechanical escapement and anti-reflective sapphire crystal coatings.",
-    neuralTechnique: "CAD Mesh Synthesis & Multi-Layer Optical Reflection Shaders",
-    deliverables: "16:9 4K Cinema Loop + High-Resolution Print Masters",
-    hoverState: "MACRO CAUSTICS PASS" 
+    desc: "Macro mechanical movement study showcasing escapement mechanics and anti-reflective sapphire crystal.", 
+    objective: "Highlight intricate mechanical gears and precision tolerances under macro studio lighting.",
+    creativeDirection: "Sleek monochromatic palette with subtle warm metallic reflections.",
+    productionNotes: "CAD model synthesis, multi-layer reflection mapping, and optical clarity refinement.",
+    deliverables: "16:9 Master Video + High-Resolution Editorial Stills"
   },
   { 
     id: "4", 
-    title: "Avant-Garde Luxury Eyewear", 
-    clientSector: "Prestige Titanium Optics",
-    category: "eyewear", 
+    title: "Avant-Garde Titanium Optics", 
+    projectType: "SPECULATIVE STUDY",
+    discipline: "Luxury Eyewear",
     aspect: "9:16",
     type: "video", 
-    badge: "9:16 EDITORIAL POSTER", 
+    badge: "9:16 EDITORIAL CONCEPT", 
     icon: Glasses, 
     poster: "/traditional-raw.jpg",
     videoUrl: "/titanium-eyewear.mp4", 
-    desc: "Titanium frames & tinted lens reflections in vertical fashion layout.", 
-    objective: "Render brushed titanium textures and gradient ultraviolet lens coatings.",
-    neuralTechnique: "Anisotropic Metal Shaders & Polarized Lighting Passes",
-    deliverables: "Vertical Billboard Master + Digital Ad Suite",
-    hoverState: "TITANIUM REFLECTION PASS" 
+    desc: "Brushed titanium frame textures and ultraviolet tinted lens reflections in 9:16 vertical layout.", 
+    objective: "Render lightweight metal textures and subtle lens transparency gradient across varied angles.",
+    creativeDirection: "Minimalist architectural background with sharp, linear studio key lights.",
+    productionNotes: "Anisotropic metal shading, polarized lighting passes, and clean cutouts.",
+    deliverables: "Vertical Billboard Masters + Digital Campaign Suite"
   },
   { 
     id: "5", 
-    title: "Haute Parfumerie Royal Essence", 
-    clientSector: "Niche Fragrance Atelier",
-    category: "perfume", 
+    title: "Haute Parfumerie Essence", 
+    projectType: "SPECULATIVE STUDY",
+    discipline: "Prestige Beauty",
     aspect: "16:9",
     type: "video", 
-    badge: "16:9 MACRO RENDER", 
+    badge: "16:9 BOTTLE CONCEPT", 
     icon: Sparkles, 
     poster: "/vienne-portrait.jpg",
     videoUrl: "/crystal-perfume.mp4", 
-    desc: "Hand-cut crystal perfume bottle & liquid physics motion.", 
-    objective: "Simulate viscous perfume liquid dynamics and crystal refraction in real-time.",
-    neuralTechnique: "Volumetric Fluid Dynamics & Internal Photon Scattering",
-    deliverables: "Global Commercial Cut + E-Flagship Hero Stills",
-    hoverState: "CRYSTAL CAUSTICS PASS" 
+    desc: "Hand-cut crystal bottle study exploring fluid liquid physics and internal glass reflection.", 
+    objective: "Simulate fragrance liquid viscosity and delicate crystal glass refraction.",
+    creativeDirection: "Warm golden twilight ambiance with soft diffused bokeh.",
+    productionNotes: "Volumetric fluid dynamics, internal photon scattering, and print-ready upscaling.",
+    deliverables: "E-Flagship Hero Stills + Multi-Format Motion Loops"
   },
   { 
     id: "6", 
-    title: "Royal Emerald High Jewelry", 
-    clientSector: "Geneva High Jewelry House",
-    category: "jewelry", 
+    title: "Emerald Solitaire Study", 
+    projectType: "SPECULATIVE STUDY",
+    discipline: "High Jewelry",
     aspect: "9:16",
     type: "video", 
-    badge: "9:16 HIGH JEWELRY", 
+    badge: "9:16 JEWELRY CONCEPT", 
     icon: Gem, 
     poster: "/traditional-raw.jpg",
     videoUrl: "/emerald-ring.mp4", 
-    desc: "Emerald green light dispersion and platinum rendering for mobile display.", 
-    objective: "Highlight emerald jardin inclusions and platinum micro-pavé brilliance.",
-    neuralTechnique: "Deep Mineral Subsurface Shading & Spectral Dispersion",
-    deliverables: "9:16 Vertical Master + Social Showcase Suite",
-    hoverState: "PLATINUM DISPERSION PASS" 
+    desc: "Emerald mineral color depth and pavé diamond brilliance rendered for vertical mobile display.", 
+    objective: "Accurately capture genuine emerald hue and micro-pavé brilliance without color distortion.",
+    creativeDirection: "Velvet dark backdrop with focused micro-spotlights.",
+    productionNotes: "Subsurface mineral shading passes and high-precision diamond dispersion.",
+    deliverables: "9:16 Vertical Video + 8K Editorial Still"
   },
   { 
     id: "7", 
-    title: "Grand Complication Sapphire Horlogerie", 
-    clientSector: "Independent Watchmaker",
-    category: "watch", 
+    title: "Sapphire Skeleton Caliber", 
+    projectType: "SPECULATIVE STUDY",
+    discipline: "Haute Horlogerie",
     aspect: "16:9",
     type: "video", 
-    badge: "16:9 TIMEPIECE MASTER", 
+    badge: "16:9 CALIBER CONCEPT", 
     icon: Watch, 
     poster: "/vienne-portrait.jpg",
     videoUrl: "/watch-promo.mp4", 
-    desc: "Swiss perpetual calendar mechanics & raytraced titanium skeleton case in 16:9 widescreen.", 
-    objective: "Visualize intricate skeleton movement gears under dramatic moody chiaroscuro lighting.",
-    neuralTechnique: "Micro-Mechanical Kinematic Solver & Spectral Raytracing",
-    deliverables: "16:9 Cinematic Video + 8K Editorial Stills",
-    hoverState: "SAPPHIRE HORLOGERIE PASS" 
+    desc: "Skeleton movement study featuring titanium bridges and sapphire glass casing in 16:9 widescreen.", 
+    objective: "Showcase internal mechanical complexity with balanced depth-of-field separation.",
+    creativeDirection: "Dramatic low-key moody studio setting with cold titanium accents.",
+    productionNotes: "Micro-mechanical kinematics solver and multi-pass studio lighting.",
+    deliverables: "16:9 Cinematic Video + High-Resolution Print Stills"
   },
   { 
     id: "8", 
-    title: "Sovereign Diamond Haute Joaillerie", 
-    clientSector: "Place Vendôme Jewelry Maison",
-    category: "jewelry", 
+    title: "Sovereign Diamond Necklace", 
+    projectType: "SPECULATIVE STUDY",
+    discipline: "High Jewelry",
     aspect: "9:16",
     type: "video", 
-    badge: "9:16 HIGH JEWELRY REEL", 
+    badge: "9:16 NECKLACE CONCEPT", 
     icon: Gem, 
     poster: "/traditional-raw.jpg",
     videoUrl: "/jewelry-reel.mp4", 
-    desc: "Brilliant-cut diamond cascading necklace & prismatic spectral caustics in 9:16 vertical.", 
-    objective: "Deliver fluid motion for cascading diamond necklace with dynamic light refraction.",
-    neuralTechnique: "Dynamic Caustics Path-Tracing & Biometric Model Alignment",
-    deliverables: "4K Vertical Reel + 8K Print Master Archive",
-    hoverState: "DIAMOND DISPERSION PASS" 
+    desc: "Cascading brilliant-cut diamond necklace study rendered in vertical 9:16 format.", 
+    objective: "Deliver fluid motion for cascading diamond strands while maintaining individual gemstone fire.",
+    creativeDirection: "High-contrast editorial mood highlighting movement and sparkle.",
+    productionNotes: "Light refraction passes, dynamic link movement solvers, and fine retouching.",
+    deliverables: "4K Vertical Motion Reel + High-Resolution Master Archive"
   }
 ];
 
 const DIGITAL_TWINS = [
   { 
     id: "vienne", 
-    name: "Vienne - Neural Avatar", 
-    role: "Haute Couture & High Jewelry Face", 
-    lighting: "Chiaroscuro Gold Studio", 
-    outfit: "Silk Evening Gown & Emerald Pavé", 
+    name: "Vienne - Digital Model", 
+    role: "Haute Couture & High Jewelry Character", 
+    lighting: "Warm Gold Studio Key Light", 
+    outfit: "Silk Evening Gown & Emerald Setting", 
     bg: "from-amber-900/40 via-neutral-950 to-neutral-950",
     poster: "/vienne-portrait.jpg",
     video: "/vienne-campaign-loop.mp4"
   },
   { 
     id: "aurelia", 
-    name: "Aurelia - Avant-Garde Avatar", 
-    role: "Horlogerie & Futuristic Optics", 
-    lighting: "Raytraced Neon Caustics", 
-    outfit: "Titanium Armor & Sapphire Lens", 
+    name: "Aurelia - Digital Model", 
+    role: "Horlogerie & Precision Optics Character", 
+    lighting: "Directional Studio Neutral Light", 
+    outfit: "Structured Minimalist Styling", 
     bg: "from-blue-900/40 via-neutral-950 to-neutral-950",
     poster: "/vienne-portrait.jpg",
     video: "/aurelia-avatar.mp4"
@@ -611,7 +617,6 @@ export default function Home() {
 
   const [estimatorTier, setEstimatorTier] = useState<number>(1);
   const [estimatorDelivery, setEstimatorDelivery] = useState<number>(1);
-  const [showAssumptions, setShowAssumptions] = useState<boolean>(false);
 
   const [sliderPos, setSliderPos] = useState<number>(50);
 
@@ -633,6 +638,8 @@ export default function Home() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    website: "",
+    timeline: "",
     service: "sOpt1",
     budget: "bOpt1",
     requireNDA: true,
@@ -656,7 +663,7 @@ export default function Home() {
     if (activeFilter === "all") return true;
     if (activeFilter === "169") return item.aspect === "16:9";
     if (activeFilter === "916") return item.aspect === "9:16";
-    return item.category === activeFilter;
+    return true;
   });
 
   useEffect(() => {
@@ -699,9 +706,9 @@ export default function Home() {
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const fileNames = attachedFiles.map((f) => f.name).join(", ");
-    const ndaText = formData.requireNDA ? "YES (Bilateral NDA Required)" : "NO";
-    const mailToUrl = `mailto:info@aivienne.com?subject=Confidential Luxury Proposal Request - ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(
-      `Executive Name/Brand: ${formData.name}\nCorporate Email: ${formData.email}\nProduction Discipline: ${formData.service}\nTarget Budget Tier: ${formData.budget}\nNDA Requested: ${ndaText}\nBrief Configuration: [Lighting: ${briefLighting} | Segment: ${briefSegment} | Atmosphere: ${briefAtmosphere}]\nAttached Files: ${fileNames || "None"}\n\nProject Scope & Objectives:\n${formData.message}`
+    const ndaText = formData.requireNDA ? "YES (NDA Requested)" : "NO";
+    const mailToUrl = `mailto:info@aivienne.com?subject=Project Brief Inquiry - ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(
+      `Contact Name/Brand: ${formData.name}\nCorporate Email: ${formData.email}\nCompany Website: ${formData.website || "N/A"}\nTarget Timeline: ${formData.timeline || "N/A"}\nProduction Discipline: ${formData.service}\nEstimated Budget Tier: ${formData.budget}\nNDA Requested: ${ndaText}\nBrief Configuration: [Lighting: ${briefLighting} | Segment: ${briefSegment} | Atmosphere: ${briefAtmosphere}]\nAttached Files: ${fileNames || "None"}\n\nProject Scope & Objectives:\n${formData.message}`
     )}`;
     window.location.href = mailToUrl;
   };
@@ -711,7 +718,7 @@ export default function Home() {
   const applyBriefToForm = () => {
     setFormData(prev => ({
       ...prev,
-      message: `[CREATIVE ARCHITECT PARAMETERS]\n- Lighting Architecture: ${briefLighting}\n- Industry Discipline: ${briefSegment}\n- Spatial Atmosphere: ${briefAtmosphere}\n\nPlease prepare a bespoke executive luxury proposal aligning with these parameters.`
+      message: `[CREATIVE CONFIGURATION PARAMETERS]\n- Lighting Architecture: ${briefLighting}\n- Industry Discipline: ${briefSegment}\n- Spatial Atmosphere: ${briefAtmosphere}\n\nPlease prepare a customized production proposal reflecting these parameters.`
     }));
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -720,7 +727,7 @@ export default function Home() {
     setFormData(prev => ({
       ...prev,
       service: serviceKey,
-      message: `[SERVICE PILLAR ENGAGEMENT: ${serviceName}]\nWe would like to initiate a confidential scope discussion regarding ${serviceName}.`
+      message: `[DISCIPLINE INQUIRY: ${serviceName}]\nWe would like to discuss production requirements and timeline for ${serviceName}.`
     }));
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -734,7 +741,7 @@ export default function Home() {
       <div className="fixed inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(217,119,6,0.12),rgba(255,255,255,0))]" />
       <div className="fixed inset-0 pointer-events-none opacity-20 bg-[radial-gradient(#d97706_1px,transparent_1px)] [background-size:32px_32px]" />
 
-      {/* LUXURY CASE STUDY INSPECTOR LIGHTBOX MODAL */}
+      {/* LUXURY SPECULATIVE CASE STUDY INSPECTOR LIGHTBOX */}
       <AnimatePresence>
         {activeCaseStudy && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl flex items-center justify-center p-3 md:p-8">
@@ -780,14 +787,14 @@ export default function Home() {
                         {activeCaseStudy.badge}
                       </span>
                       <span className="text-[10px] font-mono text-neutral-400 uppercase tracking-wider">
-                        Client: {activeCaseStudy.clientSector}
+                        Discipline: {activeCaseStudy.discipline}
                       </span>
                     </div>
                     <h3 className="text-xl sm:text-2xl font-extrabold text-neutral-100 mt-2">{activeCaseStudy.title}</h3>
                   </div>
                   <button 
                     onClick={() => {
-                      setFormData(prev => ({ ...prev, message: `[CASE STUDY INQUIRY]\nI am interested in executing a campaign with similar specifications to "${activeCaseStudy.title}".` }));
+                      setFormData(prev => ({ ...prev, message: `[STUDY INQUIRY]\nI am interested in commissioning a production scope similar to "${activeCaseStudy.title}".` }));
                       setActiveCaseStudy(null);
                       document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
                     }}
@@ -798,17 +805,21 @@ export default function Home() {
                   </button>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-neutral-800/80 text-xs">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-4 border-t border-neutral-800/80 text-xs">
                   <div className="p-3.5 rounded-2xl bg-neutral-900/60 border border-neutral-800">
-                    <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">Strategic Objective</span>
+                    <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">Visual Objective</span>
                     <p className="text-neutral-300 text-xs leading-relaxed font-light">{activeCaseStudy.objective}</p>
                   </div>
                   <div className="p-3.5 rounded-2xl bg-neutral-900/60 border border-neutral-800">
-                    <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">Neural Pipeline & Shaders</span>
-                    <p className="text-neutral-300 text-xs leading-relaxed font-light">{activeCaseStudy.neuralTechnique}</p>
+                    <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">Creative Direction</span>
+                    <p className="text-neutral-300 text-xs leading-relaxed font-light">{activeCaseStudy.creativeDirection}</p>
                   </div>
                   <div className="p-3.5 rounded-2xl bg-neutral-900/60 border border-neutral-800">
-                    <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">Deliverables & Specs</span>
+                    <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">Production Notes</span>
+                    <p className="text-neutral-300 text-xs leading-relaxed font-light">{activeCaseStudy.productionNotes}</p>
+                  </div>
+                  <div className="p-3.5 rounded-2xl bg-neutral-900/60 border border-neutral-800">
+                    <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">Deliverables</span>
                     <p className="text-neutral-300 text-xs leading-relaxed font-light">{activeCaseStudy.deliverables}</p>
                   </div>
                 </div>
@@ -1062,7 +1073,7 @@ export default function Home() {
           <h1 className="text-4xl sm:text-6xl md:text-8xl lg:text-[92px] font-extrabold tracking-tight text-neutral-100 max-w-7xl mx-auto leading-[1.1] sm:leading-[1.05]">{t.hero?.titleStart} <span className="bg-gradient-to-r from-amber-200 via-amber-400 to-amber-600 bg-clip-text text-transparent">{t.hero?.titleGradient}</span></h1>
           <p className="mt-8 sm:mt-10 text-base sm:text-xl md:text-2xl text-neutral-300 max-w-4xl mx-auto font-light leading-relaxed">{t.hero?.desc}</p>
           <div className="mt-10 sm:mt-14 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
-            <a href="#services" className="w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 rounded-full text-sm sm:text-base font-bold tracking-wide text-neutral-950 bg-amber-400 hover:bg-amber-300 transition-all flex items-center justify-center gap-3 shadow-[0_0_40px_rgba(251,191,36,0.3)]">{t.hero?.btnPrimary} <ArrowRight className="w-5 h-5" /></a>
+            <a href="#portfolio" className="w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 rounded-full text-sm sm:text-base font-bold tracking-wide text-neutral-950 bg-amber-400 hover:bg-amber-300 transition-all flex items-center justify-center gap-3 shadow-[0_0_40px_rgba(251,191,36,0.3)]">{t.hero?.btnPrimary} <ArrowRight className="w-5 h-5" /></a>
             <a href="mailto:info@aivienne.com" className="w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 rounded-full text-sm sm:text-base font-bold tracking-wide text-neutral-200 border border-neutral-800 hover:border-neutral-700 bg-neutral-900/50 hover:bg-neutral-900 transition-all flex items-center justify-center gap-3"><Mail className="w-5 h-5 text-amber-400" /> {t.hero?.btnSecondary}</a>
           </div>
         </motion.div>
@@ -1157,7 +1168,7 @@ export default function Home() {
               </div>
 
               <div className="mt-8 pt-6 border-t border-neutral-800 flex items-center justify-between">
-                <span className="text-[10px] font-mono text-neutral-400 uppercase">Swiss & Vendôme Quality</span>
+                <span className="text-[10px] font-mono text-neutral-400 uppercase">Jewelry & Watch Optics</span>
                 <button 
                   type="button"
                   onClick={() => selectServicePillar("sOpt2", "Haute Horlogerie & Fine Jewelry")}
@@ -1197,7 +1208,7 @@ export default function Home() {
               </div>
 
               <div className="mt-8 pt-6 border-t border-neutral-800 flex items-center justify-between">
-                <span className="text-[10px] font-mono text-neutral-400 uppercase">100% Geometry Lock</span>
+                <span className="text-[10px] font-mono text-neutral-400 uppercase">Consistent Character Continuity</span>
                 <button 
                   type="button"
                   onClick={() => selectServicePillar("sOpt3", "Persistent Digital Brand Ambassador Suite")}
@@ -1237,10 +1248,10 @@ export default function Home() {
               </div>
 
               <div className="mt-8 pt-6 border-t border-neutral-800 flex items-center justify-between">
-                <span className="text-[10px] font-mono text-neutral-400 uppercase">120 FPS Cinema Standard</span>
+                <span className="text-[10px] font-mono text-neutral-400 uppercase">Flagship Display Ready</span>
                 <button 
                   type="button"
-                  onClick={() => selectServicePillar("sOpt4", "Brand Heritage Film & Digital Flagship Visuals")}
+                  onClick={() => selectServicePillar("sOpt4", "Digital Flagships & Editorial Video")}
                   className="px-6 py-2.5 rounded-full bg-neutral-900 border border-amber-500/40 text-amber-300 group-hover:bg-amber-400 group-hover:text-neutral-950 font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer"
                 >
                   <span>{t.servicesPillars?.btnBrief}</span>
@@ -1252,7 +1263,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PORTFOLIO CASE STUDIES GALLERY */}
+      {/* PORTFOLIO CASE STUDIES GALLERY (CONCEPT ARCHIVE) */}
       <section id="portfolio" className="relative z-10 w-full py-16 sm:py-24 border-t border-neutral-800/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-12 w-full">
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-8 sm:mb-12 gap-6">
@@ -1278,7 +1289,7 @@ export default function Home() {
             <div className="mb-14 sm:mb-20">
               <div className="flex items-center gap-2.5 mb-6">
                 <Tv className="w-4 h-4 text-amber-400" />
-                <h3 className="text-sm sm:text-base font-extrabold text-neutral-100 tracking-wider uppercase">16:9 Cinematic Widescreen Case Studies</h3>
+                <h3 className="text-sm sm:text-base font-extrabold text-neutral-100 tracking-wider uppercase">16:9 Widescreen Speculative Studies</h3>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
                 {filteredItems.filter(item => item.aspect === "16:9").map((item) => (
@@ -1306,14 +1317,14 @@ export default function Home() {
                     </div>
                     <div className="mb-3 px-1 flex-1 flex flex-col justify-between">
                       <div>
-                        <span className="text-[9px] font-mono text-amber-400 uppercase tracking-widest block mb-0.5">{item.clientSector}</span>
+                        <span className="text-[9px] font-mono text-amber-400 uppercase tracking-widest block mb-0.5">{item.discipline}</span>
                         <h3 className="text-xs sm:text-sm font-bold text-neutral-100 mb-1 group-hover:text-amber-300 transition-colors line-clamp-1">{item.title}</h3>
                         <p className="text-[10px] sm:text-[11px] text-neutral-400 leading-tight font-light line-clamp-2 group-hover:text-neutral-200 transition-colors">{item.desc}</p>
                       </div>
                     </div>
                     
                     <button type="button" onClick={(e) => { e.stopPropagation(); setActiveCaseStudy(item); }} className="w-full py-2 rounded-xl border border-neutral-800 bg-neutral-950 group-hover:bg-amber-400 group-hover:text-neutral-950 text-[10px] font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 shadow-sm cursor-pointer">
-                      <Briefcase className="w-3 h-3" /> {t.portfolio?.playVideo || "Inspect Case Study"}
+                      <Briefcase className="w-3 h-3" /> {t.portfolio?.playVideo}
                     </button>
                   </div>
                 ))}
@@ -1326,7 +1337,7 @@ export default function Home() {
             <div>
               <div className="flex items-center gap-2.5 mb-6">
                 <Smartphone className="w-4 h-4 text-amber-400" />
-                <h3 className="text-sm sm:text-base font-extrabold text-neutral-100 tracking-wider uppercase">9:16 Vertical Reels & Mobile Billboard Cases</h3>
+                <h3 className="text-sm sm:text-base font-extrabold text-neutral-100 tracking-wider uppercase">9:16 Mobile & Vertical Speculative Studies</h3>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
                 {filteredItems.filter(item => item.aspect === "9:16").map((item) => (
@@ -1354,14 +1365,14 @@ export default function Home() {
                     </div>
                     <div className="mb-3 px-1 flex-1 flex flex-col justify-between">
                       <div>
-                        <span className="text-[9px] font-mono text-amber-400 uppercase tracking-widest block mb-0.5">{item.clientSector}</span>
+                        <span className="text-[9px] font-mono text-amber-400 uppercase tracking-widest block mb-0.5">{item.discipline}</span>
                         <h3 className="text-xs sm:text-sm font-bold text-neutral-100 mb-1 group-hover:text-amber-300 transition-colors line-clamp-1">{item.title}</h3>
                         <p className="text-[10px] sm:text-[11px] text-neutral-400 leading-tight font-light line-clamp-2 group-hover:text-neutral-200 transition-colors">{item.desc}</p>
                       </div>
                     </div>
                     
                     <button type="button" onClick={(e) => { e.stopPropagation(); setActiveCaseStudy(item); }} className="w-full py-2 rounded-xl border border-neutral-800 bg-neutral-950 group-hover:bg-amber-400 group-hover:text-neutral-950 text-[10px] font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 shadow-sm cursor-pointer">
-                      <Briefcase className="w-3 h-3" /> {t.portfolio?.playVideo || "Inspect Case Study"}
+                      <Briefcase className="w-3 h-3" /> {t.portfolio?.playVideo}
                     </button>
                   </div>
                 ))}
@@ -1401,7 +1412,7 @@ export default function Home() {
                 </div>
                 <div className="mt-8 pt-4 border-t border-neutral-800/60 flex items-center gap-2 text-[10px] font-mono text-amber-400/80 group-hover:text-amber-300 uppercase transition-colors">
                   <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
-                  <span>Bespoke Enterprise Scope</span>
+                  <span>Production Standard</span>
                 </div>
               </div>
             ))}
@@ -1409,7 +1420,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CAPABILITIES SECTION 2: ENTERPRISE CAPABILITIES & NEURAL PIPELINE */}
+      {/* CAPABILITIES SECTION 2: AI-ASSISTED PRODUCTION PIPELINE */}
       <section className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50 bg-neutral-900/10">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12 sm:mb-16">
@@ -1504,7 +1515,7 @@ export default function Home() {
               />
 
               <div className="absolute top-6 right-6 px-4 py-1.5 rounded-full bg-neutral-950/80 border border-amber-400/40 text-[9px] sm:text-[10px] font-extrabold text-amber-300 uppercase tracking-widest backdrop-blur-md z-20">
-                8K NEURAL MODEL
+                DIGITAL CHARACTER
               </div>
 
               <div>
@@ -1529,7 +1540,7 @@ export default function Home() {
                   <div className="absolute top-4 left-4 z-20 px-3.5 py-1.5 rounded-full bg-neutral-950/80 border border-amber-400/40 backdrop-blur-md flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
                     <span className="text-[9px] sm:text-[10px] font-extrabold text-amber-300 uppercase tracking-widest">
-                      {selectedTwin.name.split(" ")[0].toUpperCase()} • LIVE 8K NEURAL PASS
+                      {selectedTwin.name.split(" ")[0].toUpperCase()} • MOTION LOOK
                     </span>
                   </div>
 
@@ -1548,7 +1559,7 @@ export default function Home() {
 
                 <div className="space-y-4 border-t border-neutral-800/80 pt-6">
                   <div className="flex justify-between text-xs">
-                    <span className="text-neutral-400 uppercase font-bold">Lighting Pass:</span>
+                    <span className="text-neutral-400 uppercase font-bold">Lighting Focus:</span>
                     <span className="text-neutral-200 font-semibold">{selectedTwin.lighting}</span>
                   </div>
                   <div className="flex justify-between text-xs">
@@ -1561,15 +1572,15 @@ export default function Home() {
               <div className="pt-6 mt-6 border-t border-neutral-800/80 grid grid-cols-2 gap-4 text-left">
                 <div className="p-3 sm:p-3.5 rounded-xl bg-neutral-950/90 border border-neutral-800">
                   <p className="text-[10px] font-bold text-amber-300 uppercase flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3 h-3 text-amber-400" /> Runway Motion
+                    <CheckCircle2 className="w-3 h-3 text-amber-400" /> Motion Continuity
                   </p>
-                  <p className="text-xs font-semibold text-neutral-200 mt-1">120 FPS Cinematic</p>
+                  <p className="text-xs font-semibold text-neutral-200 mt-1">Calibrated Delivery</p>
                 </div>
                 <div className="p-3 sm:p-3.5 rounded-xl bg-neutral-950/90 border border-neutral-800">
                   <p className="text-[10px] font-bold text-amber-300 uppercase flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3 h-3 text-amber-400" /> Post-Studio Color
+                    <CheckCircle2 className="w-3 h-3 text-amber-400" /> Color Finishing
                   </p>
-                  <p className="text-xs font-semibold text-neutral-200 mt-1">Grade A+ Master</p>
+                  <p className="text-xs font-semibold text-neutral-200 mt-1">Studio Grade Master</p>
                 </div>
               </div>
 
@@ -1626,7 +1637,7 @@ export default function Home() {
                   <div className="absolute top-4 left-4 z-20 px-3.5 py-1.5 rounded-full bg-neutral-950/80 border border-amber-400/40 backdrop-blur-md flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                     <span className="text-[9px] sm:text-[10px] font-extrabold text-amber-300 uppercase tracking-widest flex items-center gap-1.5">
-                      <Activity className="w-3 h-3 text-emerald-400" /> BIOMETRIC SCAN • 100% VERIFIED
+                      <Activity className="w-3 h-3 text-emerald-400" /> CHARACTER CONSISTENCY PASS
                     </span>
                   </div>
                 </div>
@@ -1638,15 +1649,15 @@ export default function Home() {
               <div className="pt-6 border-t border-neutral-800/80 grid grid-cols-2 gap-4 text-left">
                 <div className="p-3 sm:p-3.5 rounded-xl bg-neutral-950/90 border border-neutral-800">
                   <p className="text-[10px] font-bold text-amber-300 uppercase flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3 h-3 text-emerald-400" /> 468 Point Mesh
+                    <CheckCircle2 className="w-3 h-3 text-emerald-400" /> Facial Landmarks
                   </p>
-                  <p className="text-xs font-semibold text-neutral-200 mt-1">100% Geometry Verified</p>
+                  <p className="text-xs font-semibold text-neutral-200 mt-1">Consistent Proportions</p>
                 </div>
                 <div className="p-3 sm:p-3.5 rounded-xl bg-neutral-950/90 border border-neutral-800">
                   <p className="text-[10px] font-bold text-amber-300 uppercase flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3 h-3 text-emerald-400" /> Multi-Layer SSS
+                    <CheckCircle2 className="w-3 h-3 text-emerald-400" /> Skin Tone Calibration
                   </p>
-                  <p className="text-xs font-semibold text-neutral-200 mt-1">Biophysical Melanin Pass</p>
+                  <p className="text-xs font-semibold text-neutral-200 mt-1">Multi-Layer Shading</p>
                 </div>
               </div>
             </div>
@@ -1654,7 +1665,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* THE PRODUCTION SYSTEM */}
+      {/* THE PRODUCTION SYSTEM (FIVE STAGES - COMPLETE WITH 05 DELIVER) */}
       <section id="system" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50 bg-neutral-950">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
@@ -1669,7 +1680,7 @@ export default function Home() {
               { num: t.system?.s2Num, title: t.system?.s2Title, desc: t.system?.s2Detail, icon: Sliders },
               { num: t.system?.s3Num, title: t.system?.s3Title, desc: t.system?.s3Detail, icon: Cpu },
               { num: t.system?.s4Num, title: t.system?.s4Title, desc: t.system?.s4Detail, icon: Sparkles },
-              { num: t.system?.s5Num, title: t.system?.s5Detail, icon: CheckSquare }
+              { num: t.system?.s5Num, title: t.system?.s5Title, desc: t.system?.s5Detail, icon: CheckSquare }
             ].map((step, idx) => (
               <div 
                 key={idx} 
@@ -1685,7 +1696,7 @@ export default function Home() {
                 </div>
                 <div className="mt-6 pt-4 border-t border-neutral-800/60 flex items-center gap-1.5 text-[10px] font-mono text-amber-400/80 group-hover:text-amber-300 uppercase transition-colors">
                   <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
-                  <span>Phase {step.num} Active</span>
+                  <span>Phase {step.num}</span>
                 </div>
               </div>
             ))}
@@ -1738,7 +1749,7 @@ export default function Home() {
             <div className="absolute inset-0 bg-neutral-950 flex items-center justify-center">
               <Image 
                 src="/vienne-portrait.jpg" 
-                alt="AI.VIENNE 8K Master Render" 
+                alt="AI.VIENNE Master Render" 
                 fill
                 sizes="(max-width: 1200px) 100vw, 1200px"
                 className="object-cover object-center"
@@ -1752,7 +1763,7 @@ export default function Home() {
               <div className="absolute inset-0 h-full w-full" style={{ width: '100vw', maxWidth: '1200px' }}>
                 <Image 
                   src="/traditional-raw.jpg" 
-                  alt="Conventional Raw Studio Capture" 
+                  alt="Conventional Raw Studio Concept" 
                   fill
                   sizes="(max-width: 1200px) 100vw, 1200px"
                   className="object-cover object-center filter grayscale contrast-75 brightness-75"
@@ -1782,7 +1793,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ESTIMATOR + EXECUTIVE ROI MATRIX */}
+      {/* PRODUCTION ECONOMICS & SCOPE CALCULATOR */}
       <section id="estimator" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50 bg-neutral-900/20">
         <div className="max-w-6xl mx-auto bg-neutral-900/60 border border-amber-500/30 p-6 sm:p-10 md:p-16 rounded-3xl backdrop-blur-md shadow-2xl">
           <div className="flex items-center gap-4 mb-6">
@@ -1836,45 +1847,30 @@ export default function Home() {
                   <div className="border-t border-neutral-800 pt-4 grid grid-cols-2 gap-4 text-xs">
                     <div>
                       <p className="text-neutral-400 uppercase font-bold">{t.estimator?.tradCost}</p>
-                      <p className="text-neutral-300 font-bold mt-1 line-through decoration-red-500">
+                      <p className="text-neutral-200 font-semibold mt-1">
                         {estimatorTier === 1 ? t.estimator?.trad1 : estimatorTier === 2 ? t.estimator?.trad2 : t.estimator?.trad3}
                       </p>
                     </div>
                     <div>
                       <p className="text-neutral-400 uppercase font-bold">{t.estimator?.costSavings}</p>
-                      <p className="text-emerald-400 font-bold mt-1">~85% Capital Efficiency</p>
+                      <p className="text-amber-300 font-semibold mt-1">Master Output (Up to 8K)</p>
                     </div>
                   </div>
                   <div className="border-t border-neutral-800 pt-4 flex items-center justify-between text-xs">
                     <span className="text-neutral-400 uppercase font-bold">{t.estimator?.timeSaved}</span>
-                    <span className="text-amber-300 font-bold flex items-center gap-1"><Check className="w-4 h-4 text-emerald-400" /> 80% Faster Delivery</span>
-                  </div>
-
-                  <div className="pt-2">
-                    <button 
-                      onClick={() => setShowAssumptions(!showAssumptions)}
-                      className="text-[11px] text-amber-400 hover:underline flex items-center gap-1 cursor-pointer"
-                    >
-                      <span>{showAssumptions ? "Hide Calculation Assumptions" : "View Calculation Assumptions & Methodology"}</span>
-                    </button>
-                    {showAssumptions && (
-                      <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} className="mt-2 p-3 rounded-xl bg-neutral-900 border border-neutral-800 text-[10px] text-neutral-300 leading-relaxed">
-                        <strong className="text-amber-300 block mb-1">Calculation Methodology:</strong>
-                        Estimates are benchmarked against traditional physical luxury campaigns factoring high-end location rentals, union crew rates, model licensing, post-production CGI, and multi-day travel logistics.
-                      </motion.div>
-                    )}
+                    <span className="text-amber-300 font-bold flex items-center gap-1"><Check className="w-4 h-4 text-emerald-400" /> {estimatorDelivery === 1 ? "7-10 Business Days" : "3-5 Business Days (Express)"}</span>
                   </div>
                 </div>
               </div>
               <button onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })} className="mt-8 w-full py-3.5 sm:py-4 rounded-2xl bg-amber-400 text-neutral-950 font-bold text-xs uppercase tracking-wider hover:bg-amber-300 transition-all flex items-center justify-center gap-2 cursor-pointer">
-                Lock Strategic Production Rate <ArrowRight className="w-4 h-4" />
+                Request Scope Proposal <ArrowRight className="w-4 h-4" />
               </button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* SEO JOURNAL & INSIGHTS SECTION */}
+      {/* RESEARCH & INSIGHTS MONOGRAPHS */}
       <section id="insights" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50 bg-neutral-900/10">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12 sm:mb-16">
@@ -1973,7 +1969,7 @@ export default function Home() {
               <label className="block text-xs font-bold text-amber-400 uppercase mb-3">{t.briefSection?.s2}</label>
               <div className="space-y-2">
                 {["High Jewelry & Gems", "Haute Couture Runway", "Swiss Horlogerie Timepiece"].map((opt) => (
-                  <button key={opt} onClick={() => setBriefSegment(opt)} className={`w-full text-left p-3.5 sm:p-3.5 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${briefSegment === opt ? "bg-amber-400 text-neutral-950 border-amber-400" : "bg-neutral-950 border-neutral-800 text-neutral-300"}`}>{opt}</button>
+                  <button key={opt} onClick={() => setBriefSegment(opt)} className={`w-full text-left p-3 sm:p-3.5 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${briefSegment === opt ? "bg-amber-400 text-neutral-950 border-amber-400" : "bg-neutral-950 border-neutral-800 text-neutral-300"}`}>{opt}</button>
                 ))}
               </div>
             </div>
@@ -1981,7 +1977,7 @@ export default function Home() {
               <label className="block text-xs font-bold text-amber-400 uppercase mb-3">{t.briefSection?.s3}</label>
               <div className="space-y-2">
                 {["Parisian Palace Runway", "Futuristic Architectural Stage", "Exotic Desert Dunes"].map((opt) => (
-                  <button key={opt} onClick={() => setBriefAtmosphere(opt)} className={`w-full text-left p-3.5 sm:p-3.5 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${briefAtmosphere === opt ? "bg-amber-400 text-neutral-950 border-amber-400" : "bg-neutral-950 border-neutral-800 text-neutral-300"}`}>{opt}</button>
+                  <button key={opt} onClick={() => setBriefAtmosphere(opt)} className={`w-full text-left p-3 sm:p-3.5 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${briefAtmosphere === opt ? "bg-amber-400 text-neutral-950 border-amber-400" : "bg-neutral-950 border-neutral-800 text-neutral-300"}`}>{opt}</button>
                 ))}
               </div>
             </div>
@@ -2011,6 +2007,23 @@ export default function Home() {
               <div>
                 <label htmlFor="client-email" className="block text-xs font-bold text-neutral-300 uppercase mb-3">{t.contact?.emailPlaceholder} *</label>
                 <input id="client-email" name="clientEmail" type="email" required autoComplete="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} placeholder={t.contact?.emailPlaceholder} className="w-full bg-neutral-950/80 border border-neutral-800 focus:border-amber-400 rounded-2xl px-5 sm:px-6 py-3.5 sm:py-4 text-sm sm:text-base text-neutral-100 outline-none" />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+              <div>
+                <label htmlFor="client-website" className="block text-xs font-bold text-neutral-300 uppercase mb-3 flex items-center gap-1.5">
+                  <LinkIcon className="w-3.5 h-3.5 text-amber-400" />
+                  <span>{t.contact?.websitePlaceholder}</span>
+                </label>
+                <input id="client-website" name="clientWebsite" type="text" value={formData.website} onChange={(e) => setFormData({ ...formData, website: e.target.value })} placeholder="https://yourbrand.com" className="w-full bg-neutral-950/80 border border-neutral-800 focus:border-amber-400 rounded-2xl px-5 sm:px-6 py-3.5 sm:py-4 text-sm sm:text-base text-neutral-100 outline-none" />
+              </div>
+              <div>
+                <label htmlFor="client-timeline" className="block text-xs font-bold text-neutral-300 uppercase mb-3 flex items-center gap-1.5">
+                  <Calendar className="w-3.5 h-3.5 text-amber-400" />
+                  <span>{t.contact?.timelinePlaceholder}</span>
+                </label>
+                <input id="client-timeline" name="clientTimeline" type="text" value={formData.timeline} onChange={(e) => setFormData({ ...formData, timeline: e.target.value })} placeholder="e.g. Q3 2026 / Next Month" className="w-full bg-neutral-950/80 border border-neutral-800 focus:border-amber-400 rounded-2xl px-5 sm:px-6 py-3.5 sm:py-4 text-sm sm:text-base text-neutral-100 outline-none" />
               </div>
             </div>
 
@@ -2117,7 +2130,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Maison Emblem & Giant Typographic Brand Header */}
+          {/* Maison Emblem & Brand Typographic Block */}
           <div className="py-8 sm:py-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 overflow-hidden">
             <div className="flex items-center gap-6 sm:gap-8">
               <div className="relative w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36 rounded-full bg-neutral-950 border-2 border-neutral-950 p-2 sm:p-3 shadow-2xl shrink-0">
