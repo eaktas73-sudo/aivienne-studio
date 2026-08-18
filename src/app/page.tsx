@@ -20,7 +20,6 @@ import {
   Calculator,
   Volume2,
   VolumeX,
-  Download,
   Layers,
   SlidersHorizontal,
   TrendingUp,
@@ -42,213 +41,350 @@ import {
   LayoutGrid,
   Box,
   Smartphone,
-  Tv
+  Tv,
+  Lock,
+  Briefcase,
+  Clock,
+  CheckCircle
 } from "lucide-react";
 
 type TranslationContent = Record<string, any>;
 
 const TRANSLATIONS: Record<string, TranslationContent> = {
   EN: {
-    nav: { portfolio: "Portfolio", capabilities: "Capabilities", avatar: "Digital Twins", studio: "Studio", system: "System", theStudio: "The Studio", transformation: "Transformation", roi: "ROI Matrix", journal: "Journal", contact: "Contact", cta: "GET IN TOUCH" },
-    hero: { badge: "AI-Powered Luxury Content Agency", titleStart: "Elevating High Fashion & Fine Jewelry Through", titleGradient: "Artificial Intelligence", desc: "AI.VIENNE Studio+ crafts ultra-realistic, cinematic imagery and high-end visual productions tailored for luxury brands worldwide.", btnPrimary: "Explore Portfolio", btnSecondary: "Contact: info@aivienne.com" },
-    manifesto: { sub: "OUR PHILOSOPHY", line1: "We do not adapt to trends.", line2: "WE ARCHITECT TIMELESS UNIVERSES." },
+    nav: { portfolio: "Case Studies", capabilities: "Capabilities", services: "Services", avatar: "Digital Twins", studio: "Studio", system: "System", theStudio: "The Studio", transformation: "Transformation", roi: "ROI Matrix", journal: "Journal", contact: "Private Inquiry", cta: "INITIATE BRIEF" },
+    hero: { badge: "AI-Native Luxury Visual Production House", titleStart: "Elevating High Fashion, Fine Jewelry & Horlogerie Through", titleGradient: "Neural Craftsmanship", desc: "AI.VIENNE Studio+ engineers hyper-realistic cinematic campaigns, 8K macro physical material renderings, and persistent digital brand ambassadors under strict bilateral NDA protocols.", btnPrimary: "Explore Case Studies", btnSecondary: "Direct Access: info@aivienne.com" },
+    manifesto: { sub: "OUR CREATIVE CODEX", line1: "We do not adapt to fleeting digital trends.", line2: "WE ARCHITECT TIMELESS LUXURY UNIVERSES." },
+    servicesPillars: {
+      tag: "BESPOKE SERVICE PILLARS",
+      title: "Strategic Production Services",
+      desc: "Comprehensive luxury visual engagements designed to compress production timelines and elevate brand prestige across physical and digital flagships.",
+      scopeLabel: "Strategic Scope:",
+      deliverablesLabel: "Key Deliverables:",
+      turnaroundLabel: "Production Velocity:",
+      btnBrief: "Commission Service",
+      s1Tag: "SEASONAL CAMPAIGNS",
+      s1Title: "Haute Couture & Runway Production",
+      s1Desc: "End-to-end seasonal campaign synthesis, fluid textile draping physics (silk, velvet, brocade), and atmospheric editorial storytelling without physical location constraints.",
+      s1Scope: "Moodboard architecture, lighting design, fabric micro-physics simulation, and multi-angle editorial curation.",
+      s1Deliverables: "8K Print Masters (8192x4320), 4K Lookbook Suites, 120 FPS Motion Loops.",
+      s1Turnaround: "7 – 10 Business Days",
+      s2Tag: "OPTICAL MACRO MASTERY",
+      s2Title: "Haute Horlogerie & Fine Jewelry",
+      s2Desc: "Sub-nanometer raytraced caustics, diamond dispersion fire, sapphire crystal refraction, and Swiss caliber visualization bypassing conventional studio reflection flaws.",
+      s2Scope: "CAD mesh alignment, physical refractive index tuning (diamonds/emeralds), platinum specular mapping, and mechanical movement animation.",
+      s2Deliverables: "8K Macro Stills, Dynamic Caustics Sequences, Transparent Cutout Masters.",
+      s2Turnaround: "5 – 8 Business Days",
+      s3Tag: "BIOMETRIC BRAND FACES",
+      s3Title: "Persistent Digital Brand Ambassadors",
+      s3Desc: "Proprietary Biometric Identity Mesh locking 468 facial anatomical coordinates to deliver persistent, contract-exclusive digital models across multi-year campaigns.",
+      s3Scope: "Facial landmark locking, multi-layered melanin and subsurface scattering (SSS) calibration, dynamic wardrobe fitting, and emotional range rigging.",
+      s3Deliverables: "Dedicated Brand Avatar Model Asset, Multi-Environment Campaign Library, 4K Video Loops.",
+      s3Turnaround: "10 – 14 Business Days",
+      s4Tag: "CINEMATIC STORYTELLING",
+      s4Title: "Brand Heritage Films & Digital Flagships",
+      s4Desc: "High-fidelity 120 FPS cinematic narratives engineered for global flagship boutique displays, mega digital billboards (Times Square/Ginza), and worldwide broadcast.",
+      s4Scope: "Cinematic storyboarding, orchestral audio synchronization, atmospheric volumetrics, and multi-aspect master formatting (16:9, 9:16, 32:9).",
+      s4Deliverables: "Native 4K/8K Master Video Files, Multi-Aspect Social Edits, Color-Graded Cinema Cuts.",
+      s4Turnaround: "8 – 12 Business Days"
+    },
     capabilitiesSection: {
-      tag: "CAPABILITIES",
-      title: "What We Create",
-      c1Num: "01", c1Title: "LUXURY CAMPAIGNS", c1Desc: "Full-scale, AI-powered seasonal campaign imagery for haute couture, fine jewelry, and prestige beauty.",
-      c2Num: "02", c2Title: "PRODUCT VISUALIZATION", c2Desc: "Ultra-high-precision 8K macro rendering for Swiss timepieces, fragrance bottles, and titanium eyewear.",
-      c3Num: "03", c3Title: "CINEMATIC FILMS", c3Desc: "High-fidelity, emotionally driven cinematic storytelling and video productions engineered for immersive brand narratives and global digital campaigns.",
-      c4Num: "04", c4Title: "DIGITAL CHARACTERS", c4Desc: "Bespoke virtual avatars and brand ambassadors engineered with strict facial geometry preservation.",
-      c5Num: "05", c5Title: "CONTENT SYSTEMS", c5Desc: "Scalable, high-volume visual ecosystems designed for global luxury houses needing continuous output."
+      tag: "CORE DISCIPLINES",
+      title: "Production Capabilities",
+      c1Num: "01", c1Title: "HAUTE COUTURE CAMPAIGNS", c1Desc: "Full-scale seasonal campaign imagery, fluid fabric physics, and atmospheric editorial storytelling.",
+      c2Num: "02", c2Title: "HIGH JEWELRY & HORLOGERIE", c2Desc: "Sub-nanometer raytraced caustics, diamond dispersion, sapphire crystal refraction, and Swiss caliber visualization.",
+      c3Num: "03", c3Title: "CINEMATIC NARRATIVES", c3Desc: "Emotionally driven 120 FPS high-fidelity brand films engineered for global broadcast and digital flagships.",
+      c4Num: "04", c4Title: "PERSISTENT DIGITAL TWINS", c4Desc: "Proprietary Biometric Identity Mesh locking 100% facial geometry, pore structure, and model continuity across seasons.",
+      c5Num: "05", c5Title: "ENTERPRISE CONTENT SYSTEMS", c5Desc: "Scalable neural visual ecosystems generating multi-channel master assets with strict color grading and brand DNA coherence."
     },
     capabilitiesTech: {
-      tag: "CORE TECHNICAL MASTERY",
-      title: "Enterprise Capabilities & Neural Pipeline",
-      desc: "Engineered to deliver uncompromising quality, absolute confidentiality, and rapid time-to-market.",
-      cap1Title: "8K Neural Rendering", cap1Desc: "Custom-trained AI models outputting cinematic 8K resolutions suited for large-format print and digital billboards.", cap1Tag1: "MASTER PRINT SPEC", cap1Tag2: "8K (8192 X 4320)",
-      cap2Title: "Subsurface Skin Physics", cap2Desc: "Advanced biophysical shaders simulating realistic pores, melanin distribution, and light dispersion.", cap2Tag1: "MATERIAL ACCURACY", cap2Tag2: "SUBSURFACE SHADER",
-      cap3Title: "Dynamic Caustics Lighting", cap3Desc: "Raytraced light refraction through diamonds, sapphire glass, and precious metals using spectral techniques.", cap3Tag1: "LIGHT DISPERSION", cap3Tag2: "SPECTRAL RAYTRACING",
-      cap4Title: "Biometric Identity Mesh", cap4Desc: "Proprietary facial geometry preservation ensuring digital avatars retain 100% brand model identity.", cap4Tag1: "IDENTITY CONTINUITY", cap4Tag2: "100% GEOMETRY MESH"
+      tag: "TECHNICAL SOVEREIGNTY",
+      title: "Enterprise Neural Pipeline",
+      desc: "Engineered to deliver uncompromising physical fidelity, absolute pre-release confidentiality, and unprecedented capital velocity.",
+      cap1Title: "8K Neural Master Render", cap1Desc: "Custom-trained neural engines outputting uncompressed 8192 x 4320 masters engineered for mega-format physical billboards and print.", cap1Tag1: "OUTPUT SPEC", cap1Tag2: "8K MASTER",
+      cap2Title: "Subsurface Scattering Shaders", cap2Desc: "Multi-layered optical shaders accurately simulating biophysical skin melanin distribution, micro-pores, and subsurface blood perfusion.", cap2Tag1: "BIOPHYSICAL FIDELITY", cap2Tag2: "MELANIN SIMULATION",
+      cap3Title: "Spectral Dispersion Caustics", cap3Desc: "Physical-path photon simulation calculating wavelength-dependent diamond fire and refraction through precious gems.", cap3Tag1: "OPTICAL PHYSICS", cap3Tag2: "SPECTRAL RAYTRACING",
+      cap4Title: "Biometric Identity Mesh", cap4Desc: "Proprietary 3D structural landmark locking preventing facial distortion or AI morphing across multi-scene production runs.", cap4Tag1: "CONTINUITY LOCK", cap4Tag2: "100% GEOMETRY"
     },
     system: {
-      tag: "THE AI.VIENNE WORKFLOW",
-      title: "The Production System",
-      sub: "AI ACCELERATES EXECUTION. HUMAN CREATIVE DIRECTION DEFINES THE RESULT.",
-      s1Num: "01", s1Title: "DISCOVER", s1Detail: "Deep-dive alignment on brand DNA, CAD references, moodboards, and campaign objectives.",
-      s2Num: "02", s2Title: "DIRECT", s2Detail: "Art direction framing, lighting pass curation, fabric physics definition, and cinematic composition.",
-      s3Num: "03", s3Title: "PRODUCE", s3Detail: "Spectral raytracing, generative neural synthesis, 8K ultra-resolution pass, and biometric alignment.",
-      s4Num: "04", s4Title: "REFINE", s4Detail: "Precision retouching, color grading, subsurface scattering adjustments, and sparkle passes.",
-      s5Num: "05", s5Title: "DELIVER", s5Detail: "Campaign-ready 8K master stills, 120fps motion loops, and vertical assets under strict NDA."
+      tag: "THE AI.VIENNE METHODOLOGY",
+      title: "Five-Stage Production Protocol",
+      sub: "ARTIFICIAL INTELLIGENCE POWERS EXECUTION. LUXURY CREATIVE DIRECTION SHAPES THE LEGACY.",
+      s1Num: "01", s1Title: "ALIGNMENT & DNA MAPPING", s1Detail: "Deep extraction of brand heritage, physical CAD assets, textile micro-structures, and creative vision.",
+      s2Num: "02", s2Title: "CREATIVE DIRECTION", s2Detail: "High-fashion lighting architecture, cinematic framing, physical lens calibration, and composition layout.",
+      s3Num: "03", s3Title: "NEURAL SYNTHESIS", s3Detail: "Spectral raytracing, multi-pass material synthesis, sub-surface scattering, and 8K ultra-upscaling.",
+      s4Num: "04", s4Title: "HAUTE RETOUCHING", s4Detail: "Bespoke studio color grading, micro-blemish balance, gemstone caustics refinement, and metadata embedding.",
+      s5Num: "05", s5Title: "ENCRYPTED DELIVERY", s5Detail: "Multi-aspect campaign deliverables, print-ready 8K master stills, and uncompressed 120fps motion loops."
     },
     studioSection: {
-      tag: "THE STUDIO",
-      title: "Independent Luxury AI Creative Studio",
-      desc: "AI.VIENNE Studio+ is an elite, independent AI-native creative engine specializing in synthetic media for luxury fashion and fine jewelry.",
+      tag: "THE HOUSE",
+      title: "Independent Luxury AI Studio",
+      desc: "AI.VIENNE Studio+ operates as a private visual production laboratory, partnering with prestigious fashion houses, fine jewelers, and horlogerie ateliers worldwide.",
       founderName: "E. AKTAŞ",
-      founderTitle: "Founder & Creative Director",
-      opsTitle: "GLOBAL OPERATIONS",
-      opsVal1: "Global Remote Studio",
-      opsVal2: "Bespoke B2B Production"
+      founderTitle: "Founder & Executive Creative Director",
+      opsTitle: "CONFIDENTIAL OPERATIONS",
+      opsVal1: "Global Decentralized Studio",
+      opsVal2: "Bilateral NDA Protected B2B Engagements"
     },
     insights: {
-      tag: "Brand Authority & SEO",
+      tag: "EDITORIAL & RESEARCH",
       title: "Haute Couture & Neural Insights",
-      desc: "Deep dives into the intersection of artificial intelligence, luxury economics, and digital craftsmanship.",
-      readMore: "Read Publication",
+      desc: "In-depth explorations at the nexus of artificial intelligence, luxury economics, and digital haute craftsmanship.",
+      readMore: "Examine Research Paper",
       article1Tag: "HAUTE COUTURE AI",
       article1Title: "The Economics of Digital Couture: Reducing Time-to-Market by 80%",
-      article1Desc: "How leading luxury houses in Paris and Milan leverage neural rendering to bypass physical prototyping.",
-      article1Body1: "The luxury fashion calendar has traditionally been constrained by the velocity of textile sourcing.",
-      article1Body2: "Neural Couture allows art directors to simulate fluid silk dynamics and velvet weight in real-time.",
+      article1Desc: "How prestigious fashion houses in Paris and Milan leverage neural rendering to compress prototyping cycles without compromising brand exclusivity.",
+      article1Body1: "The traditional luxury fashion calendar has historically been constrained by the physical velocity of fabric sourcing, bespoke fitting, and multi-location runway production. Conventional seasonal campaigns require months of logistical choreography, high capital allocation, and extensive carbon overhead.",
+      article1Body2: "By deploying AI.VIENNE's neural pipeline, luxury ateliers can now test silk draping physics, velvet textures, and custom jacquard patterns in real-time. This eliminates redundant physical sampling cycles, compresses campaign production from 12 weeks to under 10 business days, and ensures that brand imagery matches exact haute couture standards.",
       article2Tag: "DIGITAL TWINS",
       article2Title: "Facial Geometry & Identity Preservation in Luxury AI Avatars",
-      article2Desc: "A technical examination of biometric preservation techniques ensuring brand model continuity.",
-      article2Body1: "In luxury brand storytelling, model identity is non-negotiable.",
-      article2Body2: "AI.VIENNE's Biometric Mesh Protocol locks the exact facial geometry and pore distribution.",
+      article2Desc: "A technical analysis of biophysical landmark locking ensuring persistent brand model continuity across multi-scene luxury campaigns.",
+      article2Body1: "In luxury brand storytelling, model identity is sacred. Generic generative AI models frequently suffer from identity drift—producing subtle variations in jawline, eye spacing, and skin texture between frames that destroy consumer trust.",
+      article2Body2: "AI.VIENNE solves this through our proprietary Biometric Identity Mesh protocol. By mapping and locking 468 precise facial anatomical coordinates along with custom melanin shaders, our digital avatars maintain absolute facial structure, natural asymmetry, and skin pore fidelity across diverse lighting conditions and camera lenses.",
       article3Tag: "FINE JEWELRY",
       article3Title: "Spectral Raytracing: Simulating Diamond Dispersion in 8K Resolution",
-      article3Desc: "Achieving physical material perfection in macro jewelry renders without physical lighting setups.",
-      article3Body1: "Macro jewelry photography is notoriously difficult due to extreme reflections.",
-      article3Body2: "Our neural pipeline calculates light dispersion at individual nanometer wavelengths."
+      article3Desc: "Achieving physical material perfection in macro jewelry renders without physical studio optical limitations.",
+      article3Body1: "Macro photography of high jewelry presents extreme optical challenges. The interaction between studio lights, multi-faceted brilliant-cut diamonds, and high-polish platinum surfaces often leads to blown highlights, flare distortion, or loss of gemstone fire.",
+      article3Body2: "Our custom neural pipeline calculates light dispersion at individual nanometer wavelengths. By simulating true chromatic dispersion (Abbe numbers) and internal total reflection within emerald, sapphire, and diamond structures, we produce 8K macro renders that capture authentic gemstone brilliance ready for global billboard deployments."
     },
     portfolio: { 
-      tag: "Curated Showcase", 
-      title: "Bespoke Luxury Media Gallery", 
-      desc: "Explore 8K widescreen masters and 9:16 vertical social reels engineered specifically for global luxury houses.", 
-      filterAll: "All Works", 
+      tag: "SELECTED CASE STUDIES", 
+      title: "Curated Master Archive", 
+      desc: "Review selected 16:9 cinematic productions and 9:16 vertical campaign deliverables engineered for elite luxury brands.", 
+      filterAll: "All Archives", 
       filter169: "16:9 Cinematic Masters", 
       filter916: "9:16 Vertical Reels", 
-      playVideo: "Watch Campaign Video", 
-      closeModal: "Close Master Player" 
+      playVideo: "Inspect Case Study", 
+      closeModal: "Close Case Inspector" 
     },
-    transformation: { tag: "Neural Transformation", title: "Traditional Studio vs. AI.VIENNE 8K Master", desc: "Drag the interactive slider to experience how raw conventional photography is elevated into surreal neural luxury aesthetics.", beforeLabel: "Traditional Raw Capture", afterLabel: "AI.VIENNE 8K Master Render" },
-    estimator: { tag: "Interactive Tool", title: "Bespoke Budget & Executive ROI Matrix", desc: "Configure your production scope and compare the capital efficiency against traditional physical shoots.", scaleLabel: "Production Tier / Scope", tier1: "Single High-End Asset (Macro Render / Still)", tier2: "Seasonal 8K Campaign Package (Multiple Assets)", tier3: "Full Cinematic Runway Film & Digital Twin Suite", deliveryLabel: "Delivery Speed", standard: "Standard Studio Timeline (10-14 Days)", express: "Priority Haute Couture Delivery (3-5 Days)", estInvestment: "Estimated Investment Scale:", roiTitle: "EXECUTIVE SAVINGS ANALYSIS", tradCost: "Est. Physical Shoot Cost:", timeSaved: "Time to Market Efficiency:", costSavings: "Capital Efficiency Savings:", range1: "$1,500 – $3,500", range2: "$5,000 – $12,000", range3: "$18,000 – $35,000+", trad1: "$25,000+", trad2: "$75,000+", trad3: "$180,000+" },
-    twinsSection: { tag: "NEURAL AVATAR SUITE", title: "Digital Twin Showcase", desc: "Explore bespoke digital models engineered specifically to preserve strict facial geometry and brand aesthetics.", identityTitle: "Identity Preservation Protocol", identityDesc: "Every avatar maintains exact facial structure, proportions, and natural skin texture across all lighting setups." },
-    briefSection: { tag: "INTERACTIVE CREATIVE STUDIO", title: "Brief Architect & Moodboard Builder", desc: "Configure your vision interactively before initiating project proposals.", s1: "1. Lighting Setup", s2: "2. Industry Segment", s3: "3. Setting & Atmosphere", applyBtn: "Apply To Proposal Brief", configLabel: "Current Brief Configuration:" },
-    chatConsole: { title: "Private Access", sub: "Private Consultation, Strategic Partnerships & NDA Requests", placeholder: "Describe your brand, project or strategic objective...", send: "Submit Secure Inquiry", welcome: "Describe your brand, project or strategic objective. Our executive team will review your inquiry." },
-    contact: { tag: "Start Your Project", title: "Request a Bespoke Proposal", desc: "Partner with AI.VIENNE Studio+ to push the boundaries of luxury content creation.", namePlaceholder: "Your Name / Brand Name", emailPlaceholder: "Email Address", serviceLabel: "Select Desired Service", sOpt1: "Cinematic Fashion & Runway Video (8K)", sOpt2: "High Jewelry & Gemstone Campaign", sOpt3: "Haute Horlogerie & Timepiece Visuals", sOpt4: "Haute Parfumerie & Beauty Campaign", sOpt5: "Luxury Eyewear & Optics Production", sOpt6: "Bespoke Product & High-End Photography", sOpt7: "AI Brand Identity & Visual Strategy", sOpt8: "Full Digital Runway & Campaign Production", uploadTitle: "Upload Product Media & Attachments", uploadHint: "Drag and drop or tap to select Images, Videos, CAD, or Documents (PNG, JPG, MP4, MOV, PDF, ZIP)", messagePlaceholder: "Tell us about your project or collection...", submitBtn: "Send Project Brief", directEmail: "Direct Inquiry: info@aivienne.com" },
-    footerSection: { navTitle: "01 / NAVIGATE", dirTitle: "02 / DIRECTORY", netTitle: "03 / NETWORK", studio: "The Studio", works: "Selected Works", initiate: "Initiate Contact", cities: "New York | London | Paris | Milan | Dubai | Vienna | Global", terms: "TERMS AND CONDITIONS", privacy: "PRIVACY POLICY" },
+    transformation: { tag: "NEURAL TRANSFORMATION", title: "Conventional Studio vs. AI.VIENNE 8K Master", desc: "Interact with the slider to inspect how raw conventional photography is elevated into surreal, hyper-realistic luxury campaign imagery.", beforeLabel: "Conventional Raw Studio Capture", afterLabel: "AI.VIENNE 8K Master Render" },
+    estimator: { tag: "CAPITAL EFFICIENCY MATRIX", title: "Executive Production & ROI Scope", desc: "Select your campaign scope to benchmark neural production velocity against traditional high-end commercial shoots.", scaleLabel: "Campaign Scope & Deliverables", tier1: "Single Hero Master Asset (Macro Render / Still)", tier2: "Seasonal 8K Campaign Suite (Multi-Asset Package)", tier3: "Full Cinematic Runway Film & Digital Twin Ecosystem", deliveryLabel: "Production Schedule Priority", standard: "Standard Studio Protocol (10-14 Business Days)", express: "Haute Priority Delivery (3-5 Business Days)", estInvestment: "Estimated Strategic Allocation:", roiTitle: "EXECUTIVE ROI & EFFICIENCY GAINS", tradCost: "Estimated Physical Shoot Cost:", timeSaved: "Time-to-Market Velocity:", costSavings: "Capital Optimization:", range1: "$1,500 – $3,500", range2: "$5,000 – $12,000", range3: "$18,000 – $35,000+", trad1: "$25,000+", trad2: "$75,000+", trad3: "$180,000+" },
+    twinsSection: { tag: "NEURAL AMBASSADORS", title: "Digital Twin Showcase", desc: "Bespoke digital brand faces engineered with uncompromising facial biometric preservation and timeless luxury aesthetics.", identityTitle: "Biometric Identity Guarantee", identityDesc: "Every digital twin preserves exact facial geometry, natural skin texture, and distinctive physical presence across all editorial environments." },
+    briefSection: { tag: "CREATIVE CONFIGURATOR", title: "Interactive Brief Architect", desc: "Define your aesthetic parameters before initiating formal luxury production briefs.", s1: "1. Lighting Architecture", s2: "2. Industry Discipline", s3: "3. Spatial Atmosphere", applyBtn: "Apply Config To Brief", configLabel: "Active Creative Parameters:" },
+    chatConsole: { title: "Executive Private Access", sub: "Confidential Consultation, Strategic Partnerships & Bilateral NDA Requests", placeholder: "Detail your brand, seasonal timeline or strategic production objectives...", send: "Transmit Secure Brief", welcome: "Welcome to AI.VIENNE Studio+ Private Desk. Please provide your brand credentials and project scope. Our executive team will review your inquiry under strict confidentiality." },
+    contact: { 
+      tag: "CONFIDENTIAL PROPOSAL", 
+      title: "Initiate Project Brief", 
+      desc: "Partner with AI.VIENNE Studio+ to elevate your brand campaigns into hyper-realistic digital luxury masterworks.", 
+      namePlaceholder: "Contact Name & Brand / Organization", 
+      emailPlaceholder: "Corporate Email Address", 
+      serviceLabel: "Select Production Discipline", 
+      sOpt1: "Haute Couture & Runway Production (8K Master)", 
+      sOpt2: "Haute Horlogerie & Fine Jewelry (Macro Optical Mastery)", 
+      sOpt3: "Persistent Digital Brand Ambassador Suite", 
+      sOpt4: "Brand Heritage Film & Digital Flagship Visuals", 
+      sOpt5: "Haute Parfumerie & Prestige Beauty Campaign", 
+      sOpt6: "Luxury Eyewear & Optics Production", 
+      sOpt7: "Complete Seasonal Visual Ecosystem & Global Campaign", 
+      budgetLabel: "Target Production Allocation (USD)",
+      bOpt1: "$1,500 – $4,500 (Hero Asset / Single 8K Master)",
+      bOpt2: "$5,000 – $15,000 (Seasonal Campaign Suite)",
+      bOpt3: "$15,000 – $35,000+ (Cinematic Film & Digital Twin)",
+      bOpt4: "Undisclosed / Bespoke Enterprise Scope",
+      ndaLabel: "Require bilateral Non-Disclosure Agreement (NDA) prior to asset disclosure",
+      uploadTitle: "Upload CAD Assets, Moodboards or Reference Media", 
+      uploadHint: "Drag and drop or select reference files (PNG, JPG, MP4, MOV, PDF, ZIP, CAD)", 
+      messagePlaceholder: "Outline your campaign objectives, delivery milestones, and aesthetic parameters...", 
+      submitBtn: "Transmit Confidential Brief", 
+      directEmail: "Executive Communication: info@aivienne.com" 
+    },
+    footerSection: { navTitle: "01 / NAVIGATION", dirTitle: "02 / DIRECTORY", netTitle: "03 / NETWORK", studio: "The Studio", works: "Selected Works", initiate: "Initiate Brief", cities: "Paris | Milan | Geneva | London | New York | Dubai | Global", terms: "TERMS OF ENGAGEMENT", privacy: "CONFIDENTIALITY & PRIVACY" },
     modals: {
-      termsTitle: "Terms & Conditions of Engagement",
-      termsP1Title: "1. INTELLECTUAL PROPERTY & DELIVERABLES",
-      termsP1Body: "Upon full settlement of project fees, all final 8K master renders transition entirely to the Client with unrestricted commercial usage rights worldwide.",
-      termsP2Title: "2. CONFIDENTIALITY & PRE-RELEASE SECRECY",
-      termsP2Body: "All client briefs, CAD files, unreleased fashion collection sketches, and proprietary brand assets remain under strict pre-launch bilateral Non-Disclosure Agreement (NDA) frameworks.",
-      termsP3Title: "3. PAYMENT & REVISION PROTOCOLS",
-      termsP3Body: "Projects are initiated upon mutual agreement of scope and retainer receipt. Minor adjustments are included within two revision cycles.",
-      termsP4Title: "4. LIMITATION OF LIABILITY",
-      termsP4Body: "AI.VIENNE Studio+ guarantees 8K master resolution compliance and material physical realism as defined within accepted project briefs.",
-      privacyTitle: "Confidentiality & Privacy Policy (GDPR / CCPA Compliance)",
-      privacyP1Title: "1. CORPORATE DATA PRIVACY",
-      privacyP1Body: "AI.VIENNE Studio+ collects minimal corporate and contact data strictly necessary for B2B communications, proposal formulation, and project delivery.",
-      privacyP2Title: "2. NO PUBLIC GENERATIVE MODEL TRAINING",
-      privacyP2Body: "Zero client assets, proprietary CAD drawings, brand identity files, or custom digital twin facial scans are used to train public generative models.",
-      privacyP3Title: "3. ENCRYPTED ASSET STORAGE & WATERMARKING",
-      privacyP3Body: "Unreleased assets stored within our systems are protected using industry-standard encryption protocols and dynamic watermarking.",
-      privacyP4Title: "4. DATA RETENTION & DELETION RIGHTS",
-      privacyP4Body: "Clients may request complete purge and permanent deletion of all local working files and uploaded briefs upon project completion."
+      termsTitle: "Terms of Engagement & Production Codex",
+      termsP1Title: "1. INTELLECTUAL PROPERTY & GLOBAL USAGE RIGHTS",
+      termsP1Body: "Upon full settlement of commercial production invoices, all delivered 8K master visual renders, cinematic video files, and proprietary neural assets transition exclusively and perpetuity to the Client. The Client receives complete, unrestricted worldwide commercial exploitation rights across broadcast television, digital flagships, print media, global out-of-home (OOH) mega-billboards, and paid marketing channels with zero perpetual royalty obligations.",
+      termsP2Title: "2. PRE-RELEASE SECRECY & BILATERAL NDA PROTOCOLS",
+      termsP2Body: "All client briefs, high-resolution CAD schematics, seasonal moodboards, unreleased jewelry prototypes, and haute couture runway sketches are treated under strict pre-launch bilateral Non-Disclosure Agreements (NDA). Production takes place exclusively on isolated, encrypted compute nodes to prevent unauthorized media leaks or competitor discovery prior to the official worldwide release date.",
+      termsP3Title: "3. CHROMATIC CALIBRATION & REVISION FRAMEWORK",
+      termsP3Body: "Every commission includes two comprehensive revision cycles covering sub-surface scattering fine-tuning, raytraced reflection angles, spectral caustics intensity, and color grading adjustments. Any alteration requested to align with approved visual briefs is executed within 48 to 72 business hours under the supervision of the Executive Creative Director.",
+      termsP4Title: "4. 8K MASTER FIDELITY & TECHNICAL COMPLIANCE",
+      termsP4Body: "AI.VIENNE Studio+ guarantees that all primary deliverables meet true 8K master resolution (8192 x 4320 px) or uncompressed 4K 120 FPS high-frame-rate motion video standards. Shaders are physically calibrated according to realistic optical refractive indexes (diamonds, sapphires, titanium, silk, and biophysical melanin).",
+      termsP5Title: "5. PAYMENT MILESTONES & RETAINER ALLOCATION",
+      termsP5Body: "Studio production commences upon formal execution of the bilateral NDA, scope mutual sign-off, and receipt of the agreed commencement retainer. Deliverables are transferred via encrypted cryptographic download channels upon final milestone settlement.",
+      termsP6Title: "6. LIMITATION OF LIABILITY & FORCE MAJEURE",
+      termsP6Body: "AI.VIENNE Studio+ maintains enterprise-grade rendering failovers. In the rare event of unforeseen neural pipeline interrupts or computational downtime, delivery windows are extended with priority compute allocation without additional client expenditure.",
+      
+      privacyTitle: "Confidentiality & Data Protection Protocol",
+      privacyP1Title: "1. CORPORATE DATA INTEGRITY & GDPR COMPLIANCE",
+      privacyP1Body: "AI.VIENNE Studio+ collects and processes minimal corporate information strictly necessary for commercial correspondence, project brief synthesis, bilateral NDA formulation, and final encrypted asset transfer. We adhere to the highest international data privacy standards (GDPR / CCPA).",
+      privacyP2Title: "2. STRICT EXCLUSION FROM PUBLIC AI MODEL TRAINING",
+      privacyP2Body: "Zero client media, 3D CAD geometries, collection drafts, biometric facial meshes, or proprietary brand color palettes are ever submitted to, ingested by, or used to train public generative foundation models. All neural weights and custom LoRA models trained for client digital twins remain isolated in secure, dedicated private environments.",
+      privacyP3Title: "3. HARDWARE-LEVEL ENCRYPTION & AIR-GAPPED ASSETS",
+      privacyP3Body: "Pre-launch campaign media and high-resolution raw deliverables are stored using AES-256 military-grade encryption. Intermediate rendering reviews are dynamically watermarked and transmitted via password-protected, time-expiring secure client links.",
+      privacyP4Title: "4. CRYPTOGRAPHIC ASSET PURGE RIGHTS",
+      privacyP4Body: "Following full project deployment and final sign-off, clients hold the absolute contractual right to request the permanent cryptographic erasure of all working project files, uploaded CAD assets, and temporary training caches from our local production infrastructure.",
+      privacyP5Title: "5. THIRD-PARTY CONFIDENTIALITY & SUB-CONTRACTORS",
+      privacyP5Body: "AI.VIENNE Studio+ does not disclose, license, or sell any enterprise client information, email correspondence, or creative assets to third-party vendors or marketing aggregators under any circumstances.",
+      privacyP6Title: "6. DEDICATED DATA PROTECTION OFFICER",
+      privacyP6Body: "For enterprise compliance audits, bilateral NDA inquiries, or instant data deletion requests, clients can contact our dedicated executive legal desk directly at legal@aivienne.com or info@aivienne.com."
     },
     footer: "© 2026 AI.VIENNE Studio+. All rights reserved."
   },
   TR: {
-    nav: { portfolio: "Portfolyo", capabilities: "Yetkinlikler", avatar: "Dijital İkizler", studio: "Stüdyo", system: "Sistem", theStudio: "Stüdyomuz", transformation: "Dönüşüm", roi: "ROI Matrisi", journal: "Dergi", contact: "İletişim", cta: "İLETİŞİME GEÇ" },
-    hero: { badge: "Yapay Zeka Destekli Lüks İçerik Ajansı", titleStart: "Yüksek Moda ve Mücevher Sanatında", titleGradient: "Yapay Zeka Dokunuşu", desc: "AI.VIENNE Studio+, global lüks markalar için sinematik kalitede ultra-gerçekçi görsel içerikler ve prodüksiyonlar üretir.", btnPrimary: "Çalışmaları İncele", btnSecondary: "İletişim: info@aivienne.com" },
-    manifesto: { sub: "FELSEFEMİZ", line1: "Trendlere uyum sağlamıyoruz.", line2: "ZAMANSIZ EVRENLER İNŞA EDİYORUZ." },
+    nav: { portfolio: "Vaka Analizleri", capabilities: "Yetkinlikler", services: "Hizmetler", avatar: "Dijital İkizler", studio: "Stüdyo", system: "Sistem", theStudio: "Stüdyomuz", transformation: "Dönüşüm", roi: "ROI Matrisi", journal: "Dergi", contact: "Özel Talep", cta: "BRİEF GÖNDER" },
+    hero: { badge: "Yapay Zeka Destekli Lüks Görsel Prodüksiyon Evi", titleStart: "Yüksek Moda, Mücevher ve Saatçilikte", titleGradient: "Neural Zanaatkarlık", desc: "AI.VIENNE Studio+, global lüks markalar için 8K sinematik kampanyalar, spektral materyal renderları ve biyometrik kimliği korunan kalıcı dijital modeller üretir.", btnPrimary: "Vaka Analizlerini İncele", btnSecondary: "Doğrudan İletişim: info@aivienne.com" },
+    servicesPillars: {
+      tag: "ÖZEL HİZMET SÜTUNLARI",
+      title: "Stratejik Prodüksiyon Hizmetleri",
+      desc: "Fiziksel ve dijital amiral gemilerinde marka prestijini yükseltmek ve üretim sürelerini kısaltmak için tasarlanmış kurumsal lüks hizmetler.",
+      scopeLabel: "Stratejik Kapsam:",
+      deliverablesLabel: "Temel Çıktılar:",
+      turnaroundLabel: "Prodüksiyon Hızı:",
+      btnBrief: "Hizmet Talebi Oluştur",
+      s1Tag: "SEZONLUK KAMPANYALAR",
+      s1Title: "Haute Couture & Podyum Prodüksiyonu",
+      s1Desc: "Fiziksel mekan ve lojistik kısıtlamaları olmadan sezonluk kampanya sentezi, akışkan kumaş simülasyonları (ipek, kadife, brokar) ve editoryal moda hikayeleri.",
+      s1Scope: "Moodboard mimarisi, haute couture ışıklandırma, kumaş mikro-fiziği simülasyonu ve çok açılı editoryal kürasyon.",
+      s1Deliverables: "8K Baskı Masterları (8192x4320), 4K Lookbook Paketleri, 120 FPS Sinematik Döngüler.",
+      s1Turnaround: "7 – 10 İş Günü",
+      s2Tag: "OPTİK MAKRO HAKİMİYETİ",
+      s2Title: "Haute Horlogerie & Lüks Mücevherat",
+      s2Desc: "Geleneksel stüdyo optik hatalarını aşan sub-nanometre raytraced kırılımlar, elmas ışık saçılımı, safir cam yansımaları ve İsviçre mekanizma görselleştirmesi.",
+      s2Scope: "CAD tasarımı hizalama, kırılma indisi kalibrasyonu (elmas/zümrüt), platin parlaklık haritalaması ve mekanizma animasyonu.",
+      s2Deliverables: "8K Makro Görseller, Dinamik Caustics Video Döngüleri, Dekupe Master Çıktılar.",
+      s2Turnaround: "5 – 8 İş Günü",
+      s3Tag: "BİYOMETRİK MARKA YÜZLERİ",
+      s3Title: "Kalıcı Dijital Marka Ambasadorları",
+      s3Desc: "468 anatomik yüz koordinatını kilitleyerek çok sezonlu kampanyalarda kimlik sapmasını engelleyen kalıcı ve markaya özel dijital model üretimi.",
+      s3Scope: "Yüz kemik yapısı kilitleme, çok katmanlı melanin ve cilt altı saçılımı (SSS), dijital gardırop uyarlaması ve mimik kurgusu.",
+      s3Deliverables: "Markaya Özel Dijital Model Varlığı, Çok Ortamlı Kampanya Arşivi, 4K Video Döngüleri.",
+      s3Turnaround: "10 – 14 İş Günü",
+      s4Tag: "SİNEMATİK ANLATI",
+      s4Title: "Marka Mirası Filmleri & Dijital Flagship",
+      s4Desc: "Global butik ekranları, dev dijital panolar (Times Square/Ginza) ve küresel yayınlar için 120 FPS sinematik derinliğe sahip duygu odaklı marka filmleri.",
+      s4Scope: "Sinematik hikaye kurgusu, orkestral ses senkronizasyonu, hacimsel ışık simülasyonu ve çok formatlı master hazırlığı (16:9, 9:16, 32:9).",
+      s4Deliverables: "Kayıpsız 4K/8K Master Video Dosyaları, Dikey Sosyal Medya Kurguları, Sinema Standardında Renk Paketi.",
+      s4Turnaround: "8 – 12 İş Günü"
+    },
     capabilitiesSection: {
-      tag: "YETKİNLİKLER",
-      title: "Ne Üretiyoruz?",
-      c1Num: "01", c1Title: "LÜKS KAMPANYALAR", c1Desc: "Haute couture, lüks mücevherat ve elit kozmetik markaları için tam kapsamlı sezonluk kampanya görselleri.",
-      c2Num: "02", c2Title: "ÜRÜN GÖRSELLEŞTİRME", c2Desc: "İsviçre saatleri, kristal parfüm şişeleri ve titanyum gözlükler için ultra-yüksek hassasiyetli 8K makro render çözümleri.",
-      c3Num: "03", c3Title: "SİNEMATİK FİLMLER", c3Desc: "High-fidelity, emotionally driven cinematic storytelling and video productions engineered for immersive brand narratives and global digital campaigns.",
-      c4Num: "04", c4Title: "DİJİTAL KARAKTERLER", c4Desc: "Biyometrik yüz geometrisini %100 koruyan özel dijital avatarlar ve marka yüzleri.",
-      c5Num: "05", c5Title: "İÇERİK SİSTEMLERİ", c5Desc: "Sürekli ve yüksek hacimli editoryal üretime ihtiyaç duyan global lüks markalar için ölçeklenebilir görsel sistemler."
+      tag: "UZMANLIK ALANLARI",
+      title: "Prodüksiyon Yetkinlikleri",
+      c1Num: "01", c1Title: "HAUTE COUTURE KAMPANYALARI", c1Desc: "Tam kapsamlı sezonluk kampanya görselleri, akışkan kumaş simülasyonları ve editoryal moda hikayeleri.",
+      c2Num: "02", c2Title: "LÜKS MÜCEVHER VE SAATÇİLİK", c2Desc: "Elmas ışık kırılımı, safir cam yansımaları, rodyum kaplama ve İsviçre mekanizma detayları için 8K spektral render.",
+      c3Num: "03", c3Title: "SİNEMATİK MARKA FİLMLERİ", c3Desc: "Global dijital amiral gemileri ve prestijli ekranlar için 120 FPS sinematik derinlik ve duygu odaklı video prodüksiyonları.",
+      c4Num: "04", c4Title: "KALICI DİJİTAL MARKA YÜZLERİ", c4Desc: "Yüz geometrisini ve doğal cilt dokusunu %100 koruyan özel biyometrik dijital ikizler.",
+      c5Num: "05", c5Title: "KURUMSAL İÇERİK SİSTEMLERİ", c5Desc: "Tüm çoklu kanallarda kusursuz marka tutarlılığı sağlayan ölçeklenebilir, yüksek hacimli görsel üretim altyapısı."
     },
     capabilitiesTech: {
-      tag: "TEMEL TEKNİK UZMANLIK",
-      title: "Kurumsal Yetkinlikler ve Neural Üretim Hattı",
-      desc: "Global lüks markalar için tavizsiz kalite, tam gizlilik ve hızlı pazara sunuş süresi hedeflenerek geliştirilmiştir.",
-      cap1Title: "8K Neural Rendering", cap1Desc: "Devasa baskı ve dijital panolar için bozulmasız, sinematik 8K çözünürlük üreten AI modelleri.", cap1Tag1: "BASKI ÖZELLİĞİ", cap1Tag2: "8K (8192 X 4320)",
-      cap2Title: "Cilt Altı Işık Saçılımı", cap2Desc: "Gerçekçi gözenek, melanin dağılımı ve ışık kırılımını simüle eden biyofiziksel şaderler.", cap2Tag1: "MATERYAL HASSASİYETİ", cap2Tag2: "CİLT ALTI ŞADERİ",
-      cap3Title: "Dinamik Caustics Işıklandırma", cap3Desc: "Elmas ve değerli metallerde tayf ışık kırılmasını hesaplayan spektral render teknikleri.", cap3Tag1: "IŞIK DAĞILIMI", cap3Tag2: "SPEKTRAL RAYTRACING",
-      cap4Title: "Biyometrik Kimlik Koruma", cap4Desc: "Dijital modellerin yüz geometrisini %100 oranında koruyarak sahneler arası marka sürekliliği sağlayan altyapı.", cap4Tag1: "KİMLİK SÜREKLİLİĞİ", cap4Tag2: "%100 GEOMETRİK AĞ"
+      tag: "TEKNOLOJİK HAKİMİYET",
+      title: "Kurumsal Neural Üretim Hattı",
+      desc: "Global lüks markalar için tavizsiz fiziksel gerçekçilik, mutlak gizlilik ve yüksek sermaye verimliliği sunar.",
+      cap1Title: "8K Neural Master Render", cap1Desc: "Devasa açık hava panoları ve baskılı lüks dergiler için 8192 x 4320 çözünürlüğünde kayıpsız master üretim.", cap1Tag1: "ÇIKIŞ FORMATI", cap1Tag2: "8K MASTER",
+      cap2Title: "Cilt Altı Işık Saçılımı (SSS)", cap2Desc: "Gerçek gözenekleri, melanin pigmentasyonunu ve doğal kan dolaşımı ışık geçirgenliğini simüle eden biyofiziksel şaderler.", cap2Tag1: "BİYOFİZİKSEL GERÇEKLİK", cap2Tag2: "MELANİN SİMÜLASYONU",
+      cap3Title: "Spektral Işık Kırılımı (Caustics)", cap3Desc: "Değerli taşlarda ve elmaslarda dalga boyu bazlı ışık saçılımını hesaplayan spektral raytracing teknolojisi.", cap3Tag1: "OPTİK FİZİK", cap3Tag2: "SPEKTRAL RAYTRACING",
+      cap4Title: "Biyometrik Kimlik Koruma Ağı", cap4Desc: "Dijital modellerin yüz kemik yapısını 468 anatomik koordinat ile kilitleyerek deformasyonu engelleyen altyapı.", cap4Tag1: "KİMLİK SÜREKLİLİĞİ", cap4Tag2: "%100 GEOMETRİ"
     },
     system: {
-      tag: "AI.VIENNE ÜRETİM AKIŞI",
-      title: "Üretim Sistemi",
-      sub: "YAPAY ZEKA İCRAYI HIZLANDIRIR. İNSANİ KREATİF DİREKTÖRLÜK SONUCU TAYİN EDER.",
-      s1Num: "01", s1Title: "KEŞİF (DISCOVER)", s1Detail: "Marka DNA'sı, CAD tasarımları, moodboard'lar ve çok kanallı kampanya hedefleri üzerinde analiz.",
-      s2Num: "02", s2Title: "YÖNLENDİRME (DIRECT)", s2Detail: "Sanat direktörlüğü kurgusu, ışık açıları seçimi, kumaş fiziği ve sinematik kompozisyon mimarisi.",
-      s3Num: "03", s3Title: "ÜRETİM (PRODUCE)", s3Detail: "Spektral raytracing ışık kırılımları, generatif neural sentez ve 8K ultra çözünürlük oluşturma.",
-      s4Num: "04", s4Title: "HASSASLAŞTIRMA (REFINE)", s4Detail: "Kusursuz retuş, profesyonel renk derecelendirme (color grading) ve mücevher ışıltı işleme.",
-      s5Num: "05", s5Title: "TESLİMAT (DELIVER)", s5Detail: "Kampanyaya hazır 8K master görseller ve 120fps sinematik döngülerin şifreli teslimi.",
+      tag: "AI.VIENNE METODOLOJİSİ",
+      title: "Beş Aşamalı Prodüksiyon Protokolü",
+      sub: "YAPAY ZEKA İCRAYI HIZLANDIRIR. LÜKS KREATİF DİREKTÖRLÜK GELECEĞİ ŞEKİLLENDİRİR.",
+      s1Num: "01", s1Title: "HİZALANMA VE DNA ANALİZİ", s1Detail: "Marka mirası, fiziksel CAD tasarımları, kumaş mikro dokuları ve editoryal vizyonun detaylı analizi.",
+      s2Num: "02", s2Title: "SANAT YÖNETİMİ", s2Detail: "Yüksek moda ışık mimarisi, sinematik kadrajlama, optik lens kalibrasyonu ve kompozisyon kurgusu.",
+      s3Num: "03", s3Title: "NEURAL SENTEZ", s3Detail: "Spektral raytracing, çok katmanlı materyal sentezi, cilt altı saçılımı ve 8K ultra çözünürlük oluşturma.",
+      s4Num: "04", s4Title: "HAUTE RETOUCH", s4Detail: "Kusursuz renk derecelendirme (color grading), mücevher ışıltı optimizasyonu ve editoryal retuş.",
+      s5Num: "05", s5Title: "ŞİFRELİ TESLİMAT", s5Detail: "Baskıya hazır 8K master görseller ve 120 FPS akıcı video döngülerinin NDA kapsamında teslimi."
     },
     studioSection: {
-      tag: "STÜDYOMUZ",
-      title: "Bağımsız Lüks Yapay Zeka Kreatif Stüdyosu",
-      desc: "AI.VIENNE Studio+, yüksek moda ve lüks mücevherat için sentetik medya prodüksiyonuna odaklanmış bağımsız bir kreatif üretim merkezidir.",
+      tag: "STÜDYO",
+      title: "Bağımsız Lüks Yapay Zeka Stüdyosu",
+      desc: "AI.VIENNE Studio+, yüksek moda, lüks mücevherat ve saatçilik evleri için çalışan özel bir görsel prodüksiyon laboratuvarıdır.",
       founderName: "E. AKTAŞ",
-      founderTitle: "Kurucu & Kreatif Direktör",
-      opsTitle: "KÜRESEL OPERASYONLAR",
+      founderTitle: "Kurucu & Yönetici Kreatif Direktör",
+      opsTitle: "GİZLİ OPERASYONLAR",
       opsVal1: "Global Uzaktan Erişimli Stüdyo",
-      opsVal2: "Özel B2B Prodüksiyon Hizmeti"
+      opsVal2: "İkili Gizlilik Sözleşmeli (NDA) B2B Prodüksiyon"
     },
     insights: {
-      tag: "Marka Otoritesi & SEO",
-      title: "Haute Couture & Yapay Zeka Makaleleri",
-      desc: "Yapay zeka, lüks ekonomi ve dijital zanaatkarlığın kesişim noktasına derinlemesine bakış.",
-      readMore: "Yayını Oku",
+      tag: "EDİTORYAL VE ARAŞTIRMA",
+      title: "Haute Couture & Neural Makaleler",
+      desc: "Yapay zeka, lüks ekonomi ve dijital zanaatkarlığın kesişim noktasına derinlemesine akademik bakış.",
+      readMore: "Araştırma Makalesini Oku",
       article1Tag: "HAUTE COUTURE AI",
       article1Title: "Dijital Couture Ekonomisi: Pazara Çıkış Süresini %80 Azaltmak",
-      article1Desc: "Paris ve Milano'nun önde gelen lüks markalarının fiziksel prototipleri aşma stratejileri.",
-      article1Body1: "Geleneksel lüks moda takvimi kumaş tedariki ve numune üretiminin fiziksel hızıyla sınırlıydı.",
-      article1Body2: "Neural Couture; sanat yönetmenlerinin akışkan ipek fiziğini gerçek zamanlı simüle etmelerini sağlar.",
+      article1Desc: "Paris ve Milano'nun önde gelen lüks moda evlerinin fiziksel numune maliyetlerini aşma yöntemleri.",
+      article1Body1: "Geleneksel lüks moda takvimi kumaş tedariki, kişiye özel kalıp provaları ve çok lokasyonlu podyum organizasyonlarının fiziksel hızıyla sınırlıydı. Sezonluk kampanyalar aylar süren lojistik hazırlık, yüksek sermaye harcaması ve ciddi bir karbon ayak izi gerektiriyordu.",
+      article1Body2: "AI.VIENNE'in neural üretim hattı sayesinde tasarımcılar artık akışkan ipek fiziğini, kadife ağırlığını ve özel jakar dokularını gerçek zamanlı olarak simüle edebilmektedir. Bu yaklaşım fiziksel prototipleme maliyetlerini ortadan kaldırırken, kampanya üretim süresini 12 haftadan 10 iş gününün altına indirmektedir.",
       article2Tag: "DİJİTAL İKİZLER",
       article2Title: "Lüks AI Avatarlarında Yüz Geometrisi ve Kimlik Koruma",
-      article2Desc: "Marka yüzlerinin kampanyalar boyunca kusursuz süreklilik sağlamasını garanti eden inceleme.",
-      article2Body1: "Lüks marka anlatımında model kimliği taviz verilemez bir unsurdur.",
-      article2Body2: "AI.VIENNE Biyometrik Ağ Protokolü marka yüzlerinin kemik yapısını ve cilt dokusunu kilitler.",
+      article2Desc: "Biyofiziksel anatomik kilitleme ile marka yüzlerinin farklı çekimlerde süreklilik sağlamasını garanti eden inceleme.",
+      article2Body1: "Lüks marka anlatımında model kimliği taviz verilemez bir unsurdur. Standart yapay zeka modelleri kareler arasında çene yapısı, göz mesafesi ve ten renginde tutarsızlıklar üreterek tüketici güvenini zedeler.",
+      article2Body2: "AI.VIENNE bu sorunu Biyometrik Kimlik Koruma Ağı ile çözmektedir. 468 anatomik koordinat ve özel melanin simülasyonları sayesinde dijital modellerimiz farklı ışık koşullarında ve kamera açılarında kemik yapısını ve gözenek dokusunu %100 oranında korur.",
       article3Tag: "LÜKS MÜCEVHER",
       article3Title: "Spektral Raytracing: 8K Çözünürlükte Elmas Işık Kırılımı Simülasyonu",
-      article3Desc: "Yüksek maliyetli stüdyo ve ışık kurulumları olmadan makro mücevher renderlarında fiziksel mükemmellik.",
-      article3Body1: "Makro mücevher fotoğrafçılığı aşırı yansımalar nedeniyle stüdyo ortamlarında oldukça zorludur.",
-      article3Body2: "Spektral raytracing teknolojimiz, ışık kırılımını nanometre dalga boylarında hesaplar."
+      article3Desc: "Stüdyo optik kısıtlamaları olmadan makro mücevher renderlarında fiziksel mükemmellik.",
+      article3Body1: "Lüks mücevherlerin makro fotoğrafçılığı aşırı optik zorluklar barındırır. Stüdyo flaşlarının pırlanta fasetleri ve platin yüzeylerle etkileşimi patlamış parlaklıklara veya değerli taşın doğal rengini yitirmesine neden olur.",
+      article3Body2: "Neural altyapımız ışık kırılımını nanometre dalga boylarında hesaplar. Zümrüt, safir ve elmas içi tam yansımaları simüle ederek, global dev panolara ve basılı editoryal dergilere hazır 8K makro mücevher görselleri üretiriz."
     },
     portfolio: { 
-      tag: "Seçkin Koleksiyonlar", 
-      title: "Özel Lüks Medya Galerisi", 
-      desc: "8K sinematik geniş ekran masterlar ve lüks dijital kanallar için özel 9:16 dikey videolar.", 
+      tag: "SEÇKİN VAKA ANALİZLERİ", 
+      title: "Lüks Prodüksiyon Arşivi", 
+      desc: "Lüks moda ve mücevher markaları için üretilmiş 16:9 sinematik geniş ekran ve 9:16 dikey kampanya çıktılarını inceleyin.", 
       filterAll: "Tüm Çalışmalar", 
       filter169: "16:9 Sinematik Master", 
       filter916: "9:16 Dikey Videolar", 
-      playVideo: "Kampanya Videosunu İzle", 
-      closeModal: "Master Oynatıcıyı Kapat" 
+      playVideo: "Vaka Analizini İncele", 
+      closeModal: "Kapat" 
     },
-    transformation: { tag: "Neural Dönüşüm", title: "Geleneksel Stüdyo vs. AI.VIENNE 8K Master", desc: "Ham geleneksel fotoğrafın üst düzey yapay zeka estetiğine dönüşümünü inceleyin.", beforeLabel: "Geleneksel Ham Çekim", afterLabel: "AI.VIENNE 8K Master Render" },
-    estimator: { tag: "İnteraktif Araç", title: "Özel Bütçe & Yönetici ROI Analizi", desc: "Prodüksiyon kapsamınızı belirleyin ve sermaye verimliliğini canlı olarak görün.", scaleLabel: "Prodüksiyon Seviyesi / Kapsamı", tier1: "Tekli Üst Segment Varlık (Makro Render / Fotoğraf)", tier2: "Sezonluk 8K Kampanya Paketi (Çoklu İçerik)", tier3: "Tam Sinematik Podyum Filmi & Dijital İkiz Paketi", deliveryLabel: "Teslimat Hızı", standard: "Standart Stüdyo Takvimi (10-14 Gün)", express: "Öncelikli Haute Couture Teslimatı (3-5 Gün)", estInvestment: "Tahmini Yatırım Ölçeği:", roiTitle: "YÖNETİCİ TASARRUF ANALİZİ", tradCost: "Tahmini Fiziksel Çekim Bütçesi:", timeSaved: "Pazara Çıkış Hız Avantajı:", costSavings: "Sermaye Verimliliği Tasarrufu:", range1: "$1,500 – $3,500", range2: "$5,000 – $12,000", range3: "$18,000 – $35,000+", trad1: "$25,000+", trad2: "$75,000+", trad3: "$180,000+" },
-    twinsSection: { tag: "NEURAL AVATAR SUITE", title: "Dijital İkiz Vitrini", desc: "Yüz geometrisini ve marka estetiğini hassasiyetle koruyan özel dijital modeller.", identityTitle: "Kimlik Koruma Protokolü", identityDesc: "Her avatar tüm ışık kurulumlarında kusursuz yüz yapısını ve cilt dokusunu korur." },
-    briefSection: { tag: "İNTERAKTİF KREATİF STÜDYO", title: "Brief Mimarı & Moodboard Oluşturucu", desc: "Proje teklifi oluşturmadan önce vizyonunuzu interaktif olarak yapılandırın.", s1: "1. Işık Kurgusu", s2: "2. Sektörel Segment", s3: "3. Atmosfer & Mekan", applyBtn: "Teklif Brief'ine Uygula", configLabel: "Mevcut Konfigürasyon:" },
-    chatConsole: { title: "Özel Erişim", sub: "Özel Danışmanlık, Stratejik Ortaklıklar ve NDA Talepleri", placeholder: "Markanızı, projenizi veya stratejik hedefinizi açıklayın...", send: "Güvenli Talebi İlet", welcome: "Markanızı veya projenizi açıklayın. Yönetici ekibimiz talebinizi inceleyecektir." },
-    contact: { tag: "Projenizi Başlatın", title: "Özel Proje Teklifi Alın", desc: "Koleksiyonlarınızı geleceğin kreatif standartlarına taşıyın.", namePlaceholder: "Adınız / Marka Adı", emailPlaceholder: "E-Posta Adresiniz", serviceLabel: "Hizmet Seçin", sOpt1: "Sinematik Moda Videosu (8K)", sOpt2: "Lüks Mücevher Kampanyası", sOpt3: "Saat Prodüksiyonu", sOpt4: "Lüks Parfüm Kampanyası", sOpt5: "Lüks Gözlük Prodüksiyonu", sOpt6: "Özel Ürün Fotoğrafçılığı", sOpt7: "AI Marka Kimliği", sOpt8: "Tam Dijital Podyum", uploadTitle: "Dosya Yükleyin", uploadHint: "Görsel, Video veya CAD Sürükleyin (PNG, JPG, MP4, PDF, ZIP)", messagePlaceholder: "Projeniz hakkında bilgi verin...", submitBtn: "Brief'i Gönder", directEmail: "Doğrudan E-Posta: info@aivienne.com" },
-    footerSection: { navTitle: "01 / NAVİGASYON", dirTitle: "02 / DİREKTÖRİK", netTitle: "03 / AĞLARIMIZ", studio: "Stüdyomuz", works: "Seçkin Çalışmalar", initiate: "İletişime Geçin", cities: "New York | Londra | Paris | Milano | Dubai | Viyana | Global", terms: "KULLANIM ŞARTLARI", privacy: "GİZLİLİK POLİTİKASI" },
+    transformation: { tag: "NEURAL DÖNÜŞÜM", title: "Geleneksel Stüdyo vs. AI.VIENNE 8K Master", desc: "Ham geleneksel stüdyo fotoğrafının ultra-gerçekçi lüks editoryal estetiğe nasıl dönüştüğünü kaydırıcı ile test edin.", beforeLabel: "Geleneksel Ham Stüdyo Çekimi", afterLabel: "AI.VIENNE 8K Master Render" },
+    estimator: { tag: "SERMAYE VERİMLİLİK MATRİSİ", title: "Yönetici ROI ve Prodüksiyon Kapsamı", desc: "Geleneksel yüksek bütçeli çekimlerle neural prodüksiyon hızını ve sermaye tasarrufunu kıyaslayın.", scaleLabel: "Kampanya Kapsamı ve Çıktılar", tier1: "Tekli Master Varlık (Makro Render / Fotoğraf)", tier2: "Sezonluk 8K Kampanya Paketi (Çoklu İçerik)", tier3: "Tam Sinematik Podyum Filmi ve Dijital İkiz Ekosistemi", deliveryLabel: "Prodüksiyon Takvimi Önceliği", standard: "Standart Stüdyo Protokolü (10-14 İş Günü)", express: "Öncelikli Haute Couture Teslimatı (3-5 İş Günü)", estInvestment: "Tahmini Stratejik Yatırım:", roiTitle: "YÖNETİCİ VERİMLİLİK VE ROI ANALİZİ", tradCost: "Tahmini Fiziksel Çekim Bütçesi:", timeSaved: "Pazara Çıkış Hız Avantajı:", costSavings: "Sermaye Optimizasyonu:", range1: "$1,500 – $3,500", range2: "$5,000 – $12,000", range3: "$18,000 – $35,000+", trad1: "$25,000+", trad2: "$75,000+", trad3: "$180,000+" },
+    twinsSection: { tag: "NEURAL AMBASADORLAR", title: "Dijital İkiz Vitrini", desc: "Kusursuz yüz biyometrisini ve lüks marka estetiğini koruyan kalıcı dijital modeller.", identityTitle: "Biyometrik Kimlik Garantisi", identityDesc: "Her dijital model farklı kıyafet, ışık ve ortamlarda yüz oranlarını ve doğal cilt dokusunu tavizsiz korur." },
+    briefSection: { tag: "KREATİF YAPILANDIRICI", title: "İnteraktif Brief Mimarı", desc: "Resmi proje teklifi talep etmeden önce görsel parametrelerinizi kurgulayın.", s1: "1. Işık Mimarisi", s2: "2. Sektörel Uzmanlık", s3: "3. Mekan ve Atmosfer", applyBtn: "Konfigürasyonu Brief'e Aktar", configLabel: "Seçili Parametreler:" },
+    chatConsole: { title: "Yönetici Özel Erişim Masası", sub: "Özel Danışmanlık, Stratejik Ortaklıklar ve Gizlilik Talepleri", placeholder: "Markanızı, teslimat takviminizi veya kampanya hedefinizi açıklayın...", send: "Güvenli Brief İlet", welcome: "AI.VIENNE Studio+ Özel Masasına hoş geldiniz. Projenizi ve marka detaylarınızı iletebilirsiniz. Ekibimiz talebinizi gizlilik protokolü altında inceleyecektir." },
+    contact: { 
+      tag: "GİZLİ PROJE TEKLİFİ", 
+      title: "Özel Proje Brief'i Oluşturun", 
+      desc: "Marka kampanyalarınızı geleceğin lüks görsel standartlarına taşımak için AI.VIENNE Studio+ ile çalışın.", 
+      namePlaceholder: "Yetkili Kişi & Marka Adı", 
+      emailPlaceholder: "Kurumsal E-Posta Adresi", 
+      serviceLabel: "Prodüksiyon Alanı Seçin", 
+      sOpt1: "Haute Couture & Podyum Prodüksiyonu (8K Master)", 
+      sOpt2: "Haute Horlogerie & Lüks Mücevherat (Makro Optik Hakimiyeti)", 
+      sOpt3: "Kalıcı Dijital Marka Ambasadoru Paketi", 
+      sOpt4: "Marka Mirası Filmleri & Dijital Flagship Görselleri", 
+      sOpt5: "Lüks Parfüm ve Kozmetik Kampanyası", 
+      sOpt6: "Lüks Gözlük ve Optik Prodüksiyonu", 
+      sOpt7: "Tam Sezonluk Görsel Ekosistem ve Global Kampanya", 
+      budgetLabel: "Hedef Prodüksiyon Bütçesi (USD)",
+      bOpt1: "$1,500 – $4,500 (Tekil Master Varlık / 8K Render)",
+      bOpt2: "$5,000 – $15,000 (Sezonluk Kampanya Paketi)",
+      bOpt3: "$15,000 – $35,000+ (Sinematik Film ve Dijital İkiz)",
+      bOpt4: "Belirtilmemiş / Özel Kurumsal Kapsam",
+      ndaLabel: "Materyal paylaşımı öncesi ikili Gizlilik Sözleşmesi (NDA) talep ediyorum",
+      uploadTitle: "CAD Çizimi, Moodboard veya Referans Dosyası Yükleyin", 
+      uploadHint: "Dosyaları sürükleyin veya seçin (PNG, JPG, MP4, MOV, PDF, ZIP, CAD)", 
+      messagePlaceholder: "Kampanya hedefleriniz, teslimat takviminiz ve estetik beklentileriniz hakkında bilgi verin...", 
+      submitBtn: "Gizli Brief'i Gönder", 
+      directEmail: "Yönetici İletişim: info@aivienne.com" 
+    },
+    footerSection: { navTitle: "01 / NAVİGASYON", dirTitle: "02 / DİREKTÖRİK", netTitle: "03 / AĞLARIMIZ", studio: "Stüdyomuz", works: "Seçkin Çalışmalar", initiate: "Brief Başlat", cities: "Paris | Milano | Cenevre | Londra | New York | Dubai | Global", terms: "HİZMET VE KULLANIM ŞARTLARI", privacy: "GİZLİLİK VE VERİ KORUMA PROTOKOLÜ" },
     modals: {
-      termsTitle: "Hizmet ve Kullanım Şartları Sözleşmesi",
-      termsP1Title: "1. FİKRİ MÜLKİYET VE TESLİMAT HAKLARI",
-      termsP1Body: "Proje ödemelerinin tamamlanmasının ardından üretilen tüm 8K master görseller ve 3D varlıklar sınırsız ticari kullanım haklarıyla Müşteriye devredilir.",
-      termsP2Title: "2. GİZLİLİK VE YAYIN ÖNCESİ KORUMA",
-      termsP2Body: "Müşteri tarafından iletilen tüm brief'ler ve CAD tasarımları ikili Gizlilik Sözleşmesi (NDA) altında korunur.",
-      termsP3Title: "3. ÖDEME VE REVİZYON PROTOKOLLERİ",
-      termsP3Body: "Renk ve ışık düzenlemeleri 2 revizyon döngüsü dahilinde ücretsiz yapılır.",
-      termsP4Title: "4. SORUMLULUK SINIRLANDIRMASI",
-      termsP4Body: "AI.VIENNE Studio+, 8K master çözünürlük standartları ve fiziksel materyal gerçekçiliğini garanti eder.",
-      privacyTitle: "Gizlilik ve Veri Koruma Politikası (KVKK / GDPR)",
-      privacyP1Title: "1. KURUMSAL VERİ GİZLİLİĞİ",
-      privacyP1Body: "Yalnızca kurumsal iletişim ve teslimat süreçleri için gerekli olan minimum düzeydeki iletişim bilgileri işlenir.",
-      privacyP2Title: "2. HALKA AÇIK YAPAY ZEKA MODELLERİNE EĞİTİM VERİLMEZ",
-      privacyP2Body: "Müşterilerimize ait hiçbir veri halka açık yapay zeka modellerini eğitmek amacıyla kullanılmaz.",
-      privacyP3Title: "3. ŞİFRELİ VERİ DEPOLAMA VE DİNAMİK FLİGRAN",
-      privacyP3Body: "Üretilen materyaller üst düzey şifreleme ve dinamik fligran koruması altındadır.",
-      privacyP4Title: "4. VERİ SİLME VE UNUTULMA HAKKI",
-      privacyP4Body: "Müşterilerimiz teslimat sonrası tüm taslak dosyaların kalıcı olarak silinmesini talep edebilir."
+      termsTitle: "Hizmet Şartları ve Prodüksiyon Protokolü",
+      termsP1Title: "1. FİKRİ MÜLKİYET VE KÜRESEL KULLANIM HAKLARI",
+      termsP1Body: "Proje bedelinin tamamlanmasının ardından üretilen tüm 8K master görseller, video dosyaları ve 3D varlıklar sınırsız ve süresiz olarak Müşteriye devredilir. Müşteri TV, basılı medya, küresel açık hava dev panoları (OOH) ve dijital platformlarda ek telif ödemeksizin tam ticari kullanım hakkına sahip olur.",
+      termsP2Title: "2. YAYIN ÖNCESİ GİZLİLİK VE ÇİFT TARAFLI NDA",
+      termsP2Body: "Müşteri tarafından iletilen tüm brief'ler, yüksek çözünürlüklü CAD tasarımları, moodboard'lar ve yayınlanmamış sezonluk çizimler çift taraflı Gizlilik Sözleşmesi (NDA) altında korunur. Prodüksiyon tamamen izole, şifreli sunucularda yürütülür.",
+      termsP3Title: "3. RENK KALİBRASYONU VE REVİZYON PROTOKOLÜ",
+      termsP3Body: "Her prodüksiyon paketi cilt altı saçılımı, raytraced yansıma açıları, spektral caustics ve renk derecelendirme (color grading) ayarlarını içeren 2 kapsamlı revizyon döngüsünü kapsar. Revizyonlar 48-72 saat içinde Kreatif Direktör denetiminde uygulanır.",
+      termsP4Title: "4. 8K MASTER ÇÖZÜNÜRLÜK VE TEKNİK UYUMLULUK",
+      termsP4Body: "AI.VIENNE Studio+, nihai görsellerin gerçek 8K çözünürlükte (8192 x 4320 px) ve videoların 120 FPS sinematik akıcılıkta olduğunu garanti eder. Materyal şaderleri gerçek fiziksel optik kırılma indislerine göre yapılandırılır.",
+      termsP5Title: "5. ÖDEME AŞAMALARI VE BAŞLANGIÇ PROTOKOLÜ",
+      termsP5Body: "Prodüksiyon, çift taraflı NDA imzası ve belirlenen başlangıç avansının ödenmesiyle devreye girer. Nihai master dosyalar son aşama onayı ile şifreli kanallar üzerinden teslim edilir.",
+      termsP6Title: "6. MÜCBİR SEBEPLER VE SİSTEM GÜVENCESİ",
+      termsP6Body: "AI.VIENNE Studio+, yüksek yedekli neural sunucu altyapısına sahiptir. Olası teknik kesintilerde müşteri aleyhine ek maliyet yansıtılmaksızın öncelikli işleme alınır.",
+
+      privacyTitle: "Gizlilik ve Veri Koruma Protokolü (GDPR / KVKK)",
+      privacyP1Title: "1. KURUMSAL VERİ GÜVENLİĞİ",
+      privacyP1Body: "Yalnızca teklif oluşturma, proje brief sentezi ve şifreli teslimat için gerekli asgari kurumsal iletişim verileri işlenir. Uluslararası en yüksek veri koruma standartlarına tam uyum sağlanır.",
+      privacyP2Title: "2. AÇIK YAPAY ZEKA MODELLERİNE EĞİTİM VERİLMEZ",
+      privacyP2Body: "Müşterilerimize ait hiçbir tasarım, CAD verisi, biyometrik yüz taraması veya renk paleti herkese açık yapay zeka modellerinin eğitiminde kesinlikle kullanılmaz. Dijital ikiz modelleri tamamen kapalı sunucu havuzunda çalıştırılır.",
+      privacyP3Title: "3. ASKERİ DÜZEYDE ŞİFRELEME (AES-256)",
+      privacyP3Body: "Yayınlanmamış sezonluk taslaklar ve master dosyalar AES-256 şifreleme protokolüyle korunur. İnceleme aşamasındaki önizlemeler dinamik fligran korumalı bağlantılarla iletilir.",
+      privacyP4Title: "4. KALICI VERİ İMHA VE UNUTULMA HAKKI",
+      privacyP4Body: "Teslimat sonrası müşterilerimiz, sunucularımızda yer alan tüm ham proje dosyalarının, CAD verilerinin ve eğitim önbelleklerinin kalıcı olarak imha edilmesini talep etme hakkına sahiptir.",
+      privacyP5Title: "5. ÜÇÜNCÜ TARAFLARLA PAYLAŞIM YASAĞI",
+      privacyP5Body: "Müşteri bilgileri, e-posta yazışmaları ve görsel varlıklar hiçbir koşulda üçüncü taraf şirketlerle, reklam ağlarıyla veya veri toplayıcılarla paylaşılmaz ve satılamaz.",
+      privacyP6Title: "6. DOĞRUDAN HUKUKİ İLETİŞİM",
+      privacyP6Body: "Kurumsal denetimler, gizlilik sözleşmesi (NDA) talepleri veya anlık veri silme işlemleri için doğrudan legal@aivienne.com veya info@aivienne.com adresinden erişim sağlanabilir."
     },
     footer: "© 2026 AI.VIENNE Studio+. Tüm hakları saklıdır."
   }
@@ -259,10 +395,29 @@ const LANGUAGES = [
   { code: "TR", name: "Türkçe", dir: "ltr", flag: "https://flagcdn.com/w40/tr.png" }
 ];
 
-const PORTFOLIO_ITEMS = [
+interface CaseStudyItem {
+  id: string;
+  title: string;
+  clientSector: string;
+  category: "jewelry" | "fashion" | "watch" | "eyewear" | "perfume";
+  aspect: "16:9" | "9:16";
+  type: "video" | "image";
+  badge: string;
+  icon: any;
+  poster: string;
+  videoUrl: string;
+  desc: string;
+  objective: string;
+  neuralTechnique: string;
+  deliverables: string;
+  hoverState: string;
+}
+
+const PORTFOLIO_ITEMS: CaseStudyItem[] = [
   { 
     id: "1", 
     title: "Imperial Diamond Showcase 8K", 
+    clientSector: "Haute Joaillerie Atelier",
     category: "jewelry", 
     aspect: "16:9",
     type: "video", 
@@ -271,24 +426,32 @@ const PORTFOLIO_ITEMS = [
     poster: "/vienne-portrait.jpg",
     videoUrl: "/obsidian-necklace.mp4", 
     desc: "Exquisite diamond light refraction & macro jewelry rendering in 16:9 widescreen.", 
+    objective: "Eliminate studio flare and capture true spectral fire across 100+ brilliant-cut diamonds.",
+    neuralTechnique: "Spectral Raytracing & Nanometer Chromatic Dispersion",
+    deliverables: "8K Master Still (8192x4320) + 120 FPS Motion Loop",
     hoverState: "CAUSTICS REFRACTION PASS 8K" 
   },
   { 
     id: "2", 
     title: "Haute Couture Paris Vertical Runway", 
+    clientSector: "Parisian Fashion House",
     category: "fashion", 
     aspect: "9:16",
     type: "video", 
-    badge: "9:16 VERTICAL REELS", 
+    badge: "9:16 VERTICAL REEL", 
     icon: Sparkle, 
     poster: "/traditional-raw.jpg",
     videoUrl: "/2.mp4", 
     desc: "Ultra-realistic 9:16 vertical motion for mobile social campaigns & digital billboards.", 
+    objective: "Simulate complex fluid silk movement and micro-pleating without physical model shoots.",
+    neuralTechnique: "Subsurface Scattering & Dynamic Fabric Physics Shaders",
+    deliverables: "9:16 4K Mobile Campaign Reel + Social Cutdowns",
     hoverState: "VERTICAL NEURAL RUNWAY" 
   },
   { 
     id: "3", 
     title: "Haute Horlogerie Royal Tourbillon", 
+    clientSector: "Swiss Horlogerie Manufacture",
     category: "watch", 
     aspect: "16:9",
     type: "video", 
@@ -297,11 +460,15 @@ const PORTFOLIO_ITEMS = [
     poster: "/vienne-portrait.jpg",
     videoUrl: "/aurelia-campaign-loop.mp4", 
     desc: "Swiss timepiece mechanics & sapphire glass caustics reflections.", 
+    objective: "Showcase internal mechanical escapement and anti-reflective sapphire crystal coatings.",
+    neuralTechnique: "CAD Mesh Synthesis & Multi-Layer Optical Reflection Shaders",
+    deliverables: "16:9 4K Cinema Loop + High-Resolution Print Masters",
     hoverState: "MACRO CAUSTICS PASS" 
   },
   { 
     id: "4", 
     title: "Avant-Garde Luxury Eyewear", 
+    clientSector: "Prestige Titanium Optics",
     category: "eyewear", 
     aspect: "9:16",
     type: "video", 
@@ -310,11 +477,15 @@ const PORTFOLIO_ITEMS = [
     poster: "/traditional-raw.jpg",
     videoUrl: "/titanium-eyewear.mp4", 
     desc: "Titanium frames & tinted lens reflections in vertical fashion layout.", 
+    objective: "Render brushed titanium textures and gradient ultraviolet lens coatings.",
+    neuralTechnique: "Anisotropic Metal Shaders & Polarized Lighting Passes",
+    deliverables: "Vertical Billboard Master + Digital Ad Suite",
     hoverState: "TITANIUM REFLECTION PASS" 
   },
   { 
     id: "5", 
     title: "Haute Parfumerie Royal Essence", 
+    clientSector: "Niche Fragrance Atelier",
     category: "perfume", 
     aspect: "16:9",
     type: "video", 
@@ -323,11 +494,15 @@ const PORTFOLIO_ITEMS = [
     poster: "/vienne-portrait.jpg",
     videoUrl: "/crystal-perfume.mp4", 
     desc: "Hand-cut crystal perfume bottle & liquid physics motion.", 
+    objective: "Simulate viscous perfume liquid dynamics and crystal refraction in real-time.",
+    neuralTechnique: "Volumetric Fluid Dynamics & Internal Photon Scattering",
+    deliverables: "Global Commercial Cut + E-Flagship Hero Stills",
     hoverState: "CRYSTAL CAUSTICS PASS" 
   },
   { 
     id: "6", 
     title: "Royal Emerald High Jewelry", 
+    clientSector: "Geneva High Jewelry House",
     category: "jewelry", 
     aspect: "9:16",
     type: "video", 
@@ -336,11 +511,15 @@ const PORTFOLIO_ITEMS = [
     poster: "/traditional-raw.jpg",
     videoUrl: "/emerald-ring.mp4", 
     desc: "Emerald green light dispersion and platinum rendering for mobile display.", 
+    objective: "Highlight emerald jardin inclusions and platinum micro-pavé brilliance.",
+    neuralTechnique: "Deep Mineral Subsurface Shading & Spectral Dispersion",
+    deliverables: "9:16 Vertical Master + Social Showcase Suite",
     hoverState: "PLATINUM DISPERSION PASS" 
   },
   { 
     id: "7", 
     title: "Grand Complication Sapphire Horlogerie", 
+    clientSector: "Independent Watchmaker",
     category: "watch", 
     aspect: "16:9",
     type: "video", 
@@ -349,11 +528,15 @@ const PORTFOLIO_ITEMS = [
     poster: "/vienne-portrait.jpg",
     videoUrl: "/watch-promo.mp4", 
     desc: "Swiss perpetual calendar mechanics & raytraced titanium skeleton case in 16:9 widescreen.", 
+    objective: "Visualize intricate skeleton movement gears under dramatic moody chiaroscuro lighting.",
+    neuralTechnique: "Micro-Mechanical Kinematic Solver & Spectral Raytracing",
+    deliverables: "16:9 Cinematic Video + 8K Editorial Stills",
     hoverState: "SAPPHIRE HORLOGERIE PASS" 
   },
   { 
     id: "8", 
     title: "Sovereign Diamond Haute Joaillerie", 
+    clientSector: "Place Vendôme Jewelry Maison",
     category: "jewelry", 
     aspect: "9:16",
     type: "video", 
@@ -362,6 +545,9 @@ const PORTFOLIO_ITEMS = [
     poster: "/traditional-raw.jpg",
     videoUrl: "/jewelry-reel.mp4", 
     desc: "Brilliant-cut diamond cascading necklace & prismatic spectral caustics in 9:16 vertical.", 
+    objective: "Deliver fluid motion for cascading diamond necklace with dynamic light refraction.",
+    neuralTechnique: "Dynamic Caustics Path-Tracing & Biometric Model Alignment",
+    deliverables: "4K Vertical Reel + 8K Print Master Archive",
     hoverState: "DIAMOND DISPERSION PASS" 
   }
 ];
@@ -408,7 +594,7 @@ export default function Home() {
   const [activeModal, setActiveModal] = useState<"terms" | "privacy" | null>(null);
 
   const [activeArticle, setActiveArticle] = useState<any | null>(null);
-  const [activeMediaModal, setActiveMediaModal] = useState<any | null>(null);
+  const [activeCaseStudy, setActiveCaseStudy] = useState<CaseStudyItem | null>(null);
 
   const [isVideoMuted, setIsVideoMuted] = useState<boolean>(true);
   const twinVideoRef = useRef<HTMLVideoElement | null>(null);
@@ -419,7 +605,14 @@ export default function Home() {
   const [causticsPosLeft, setCausticsPosLeft] = useState({ x: 50, y: 50 });
   const [causticsPosRight, setCausticsPosRight] = useState({ x: 50, y: 50 });
 
-  const [formData, setFormData] = useState({ name: "", email: "", service: "sOpt1", message: "" });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    service: "sOpt1",
+    budget: "bOpt1",
+    requireNDA: true,
+    message: ""
+  });
 
   const [briefLighting, setBriefLighting] = useState("Dramatic Studio Gold");
   const [briefSegment, setBriefSegment] = useState("Swiss Horlogerie Timepiece");
@@ -491,7 +684,7 @@ export default function Home() {
       setIsAudioPlaying(true);
       if ("speechSynthesis" in window) {
         window.speechSynthesis.cancel();
-        const utterance = new SpeechSynthesisUtterance("Welcome to AI.VIENNE Studio Plus.");
+        const utterance = new SpeechSynthesisUtterance("Welcome to AI.VIENNE Studio Plus. Luxury visual production house.");
         utterance.rate = 0.9; utterance.pitch = 0.95; utterance.volume = 0.8;
         window.speechSynthesis.speak(utterance);
       }
@@ -510,8 +703,9 @@ export default function Home() {
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const fileNames = attachedFiles.map((f) => f.name).join(", ");
-    const mailToUrl = `mailto:info@aivienne.com?subject=New Proposal Request - ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(
-      `Name/Brand: ${formData.name}\nEmail: ${formData.email}\nService: ${formData.service}\nBrief Config: [Lighting: ${briefLighting} | Segment: ${briefSegment} | Atmosphere: ${briefAtmosphere}]\nAttached Files: ${fileNames || "None"}\n\nMessage:\n${formData.message}`
+    const ndaText = formData.requireNDA ? "YES (Bilateral NDA Required)" : "NO";
+    const mailToUrl = `mailto:info@aivienne.com?subject=Confidential Luxury Proposal Request - ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(
+      `Executive Name/Brand: ${formData.name}\nCorporate Email: ${formData.email}\nProduction Discipline: ${formData.service}\nTarget Budget Tier: ${formData.budget}\nNDA Requested: ${ndaText}\nBrief Configuration: [Lighting: ${briefLighting} | Segment: ${briefSegment} | Atmosphere: ${briefAtmosphere}]\nAttached Files: ${fileNames || "None"}\n\nProject Scope & Objectives:\n${formData.message}`
     )}`;
     window.location.href = mailToUrl;
   };
@@ -521,35 +715,44 @@ export default function Home() {
   const applyBriefToForm = () => {
     setFormData(prev => ({
       ...prev,
-      message: `[BRIEF ARCHITECT CONFIGURATION]\n- Lighting Pass: ${briefLighting}\n- Industry Segment: ${briefSegment}\n- Atmosphere: ${briefAtmosphere}\n\nPlease prepare a customized luxury production scope.`
+      message: `[CREATIVE ARCHITECT PARAMETERS]\n- Lighting Architecture: ${briefLighting}\n- Industry Discipline: ${briefSegment}\n- Spatial Atmosphere: ${briefAtmosphere}\n\nPlease prepare a bespoke executive luxury proposal aligning with these parameters.`
+    }));
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const selectServicePillar = (serviceKey: string, serviceName: string) => {
+    setFormData(prev => ({
+      ...prev,
+      service: serviceKey,
+      message: `[SERVICE PILLAR ENGAGEMENT: ${serviceName}]\nWe would like to initiate a confidential scope discussion regarding ${serviceName}.`
     }));
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <main dir={selectedLang.dir} className={`min-h-screen w-full max-w-full overflow-x-hidden bg-neutral-950 text-neutral-100 selection:bg-amber-500/20 selection:text-amber-200 relative pt-20 sm:pt-24 ${isRTL ? "font-serif" : ""}`}>
-      {/* Custom Cursor */}
+      {/* Custom Precision Cursor */}
       <div className="fixed pointer-events-none z-50 w-8 h-8 rounded-full border border-amber-400/80 -translate-x-1/2 -translate-y-1/2 transition-transform duration-75 hidden md:block" style={{ left: `${mousePos.x}px`, top: `${mousePos.y}px` }} />
       <div className="fixed pointer-events-none z-50 w-1.5 h-1.5 rounded-full bg-amber-400 -translate-x-1/2 -translate-y-1/2 hidden md:block" style={{ left: `${mousePos.x}px`, top: `${mousePos.y}px` }} />
 
       <div className="fixed inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(217,119,6,0.12),rgba(255,255,255,0))]" />
       <div className="fixed inset-0 pointer-events-none opacity-20 bg-[radial-gradient(#d97706_1px,transparent_1px)] [background-size:32px_32px]" />
 
-      {/* CINEMATIC MEDIA LIGHTBOX MODAL */}
+      {/* LUXURY CASE STUDY INSPECTOR LIGHTBOX MODAL */}
       <AnimatePresence>
-        {activeMediaModal && (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-3 md:p-8">
-            <motion.div initial={{ scale: 0.95, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.95, opacity: 0 }} className={`relative w-full ${activeMediaModal.aspect === "9:16" ? "max-w-sm" : "max-w-4xl"} bg-neutral-950 border border-amber-500/40 rounded-3xl overflow-hidden shadow-2xl transform-gpu`}>
+        {activeCaseStudy && (
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl flex items-center justify-center p-3 md:p-8">
+            <motion.div initial={{ scale: 0.95, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.95, opacity: 0 }} className={`relative w-full ${activeCaseStudy.aspect === "9:16" ? "max-w-xl" : "max-w-5xl"} bg-neutral-950 border border-amber-500/40 rounded-3xl overflow-hidden shadow-2xl max-h-[92vh] flex flex-col`}>
               <button 
-                onClick={() => setActiveMediaModal(null)} 
-                aria-label="Close Media Player Button"
-                className="absolute top-4 right-4 z-30 p-2 rounded-full bg-neutral-900/90 border border-amber-400/40 text-neutral-300 hover:text-white hover:bg-amber-400 hover:text-neutral-950 transition-all cursor-pointer shadow-lg"
+                onClick={() => setActiveCaseStudy(null)} 
+                aria-label="Close Case Study"
+                className="absolute top-4 right-4 z-30 p-2.5 rounded-full bg-neutral-900/90 border border-amber-400/40 text-neutral-300 hover:text-white hover:bg-amber-400 hover:text-neutral-950 transition-all cursor-pointer shadow-lg"
               >
                 <X className="w-5 h-5" />
               </button>
 
-              <div className={`relative ${activeMediaModal.aspect === "9:16" ? "aspect-[9/16]" : "aspect-video"} w-full bg-black flex items-center justify-center overflow-hidden`}>
-                {activeMediaModal.type === "video" ? (
+              <div className={`relative ${activeCaseStudy.aspect === "9:16" ? "aspect-[9/16] max-h-[50vh]" : "aspect-video max-h-[52vh]"} w-full bg-black flex items-center justify-center overflow-hidden shrink-0`}>
+                {activeCaseStudy.type === "video" ? (
                   <video 
                     autoPlay 
                     loop
@@ -559,12 +762,12 @@ export default function Home() {
                     playsInline 
                     className="w-full h-full object-contain bg-black"
                   >
-                    <source src={activeMediaModal.videoUrl} type="video/mp4" />
+                    <source src={activeCaseStudy.videoUrl} type="video/mp4" />
                   </video>
                 ) : (
                   <Image 
-                    src={activeMediaModal.poster} 
-                    alt={activeMediaModal.title} 
+                    src={activeCaseStudy.poster} 
+                    alt={activeCaseStudy.title} 
                     fill
                     sizes="(max-width: 1200px) 100vw, 1200px"
                     className="object-contain bg-black"
@@ -572,21 +775,47 @@ export default function Home() {
                 )}
               </div>
 
-              <div className="p-4 md:p-6 bg-neutral-950 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 border-t border-neutral-800">
-                <div>
-                  <span className="text-[9px] font-extrabold tracking-widest text-amber-300 bg-amber-400/10 border border-amber-400/30 px-2.5 py-0.5 rounded-full uppercase inline-block mb-1.5">
-                    {activeMediaModal.badge}
-                  </span>
-                  <h3 className="text-base sm:text-lg font-bold text-neutral-100">{activeMediaModal.title}</h3>
-                  <p className="text-[11px] text-neutral-400 mt-0.5 line-clamp-1">{activeMediaModal.desc}</p>
+              {/* Case Study Dossier Specifications */}
+              <div className="p-6 md:p-8 bg-neutral-950 overflow-y-auto border-t border-neutral-800 space-y-5 text-left">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-[9px] font-extrabold tracking-widest text-amber-300 bg-amber-400/10 border border-amber-400/30 px-2.5 py-0.5 rounded-full uppercase">
+                        {activeCaseStudy.badge}
+                      </span>
+                      <span className="text-[10px] font-mono text-neutral-400 uppercase tracking-wider">
+                        Client: {activeCaseStudy.clientSector}
+                      </span>
+                    </div>
+                    <h3 className="text-xl sm:text-2xl font-extrabold text-neutral-100 mt-2">{activeCaseStudy.title}</h3>
+                  </div>
+                  <button 
+                    onClick={() => {
+                      setFormData(prev => ({ ...prev, message: `[CASE STUDY INQUIRY]\nI am interested in executing a campaign with similar specifications to "${activeCaseStudy.title}".` }));
+                      setActiveCaseStudy(null);
+                      document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                    }}
+                    className="px-6 py-2.5 rounded-full bg-amber-400 text-neutral-950 font-bold text-xs uppercase tracking-wider hover:bg-amber-300 transition-all cursor-pointer shrink-0 flex items-center gap-2"
+                  >
+                    <span>Request Similar Scope</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
                 </div>
-                <button 
-                  onClick={() => setActiveMediaModal(null)} 
-                  aria-label="Close Master Player Button"
-                  className="px-5 py-2 rounded-full bg-neutral-900 border border-neutral-800 text-neutral-300 hover:bg-amber-400 hover:text-neutral-950 font-bold text-[11px] uppercase tracking-wider transition-all cursor-pointer shrink-0"
-                >
-                  {t.portfolio?.closeModal || "Close Player"}
-                </button>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-neutral-800/80 text-xs">
+                  <div className="p-3.5 rounded-2xl bg-neutral-900/60 border border-neutral-800">
+                    <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">Strategic Objective</span>
+                    <p className="text-neutral-300 text-xs leading-relaxed font-light">{activeCaseStudy.objective}</p>
+                  </div>
+                  <div className="p-3.5 rounded-2xl bg-neutral-900/60 border border-neutral-800">
+                    <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">Neural Pipeline & Shaders</span>
+                    <p className="text-neutral-300 text-xs leading-relaxed font-light">{activeCaseStudy.neuralTechnique}</p>
+                  </div>
+                  <div className="p-3.5 rounded-2xl bg-neutral-900/60 border border-neutral-800">
+                    <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">Deliverables & Specs</span>
+                    <p className="text-neutral-300 text-xs leading-relaxed font-light">{activeCaseStudy.deliverables}</p>
+                  </div>
+                </div>
               </div>
             </motion.div>
           </motion.div>
@@ -614,12 +843,12 @@ export default function Home() {
               </div>
 
               <div className="mt-8 pt-6 border-t border-neutral-800/80 flex items-center justify-between">
-                <span className="text-xs font-mono text-neutral-400">AI.VIENNE Editorial Research</span>
+                <span className="text-xs font-mono text-neutral-400">AI.VIENNE Research Monograph</span>
                 <button 
                   onClick={() => { setActiveArticle(null); document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }); }}
                   className="px-6 py-2.5 rounded-full bg-amber-400 text-neutral-950 font-bold text-xs uppercase tracking-wider hover:bg-amber-300 transition-all flex items-center gap-2 cursor-pointer"
                 >
-                  <span>Request Full Paper</span>
+                  <span>Request Full Whitepaper</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
@@ -628,29 +857,37 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      {/* Terms & Conditions Modal */}
+      {/* Terms & Conditions Modal (ENHANCED CODEX) */}
       <AnimatePresence>
         {activeModal === "terms" && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex items-center justify-center p-4">
-            <motion.div initial={{ scale: 0.95 }} animate={{ scale: 1 }} exit={{ scale: 0.95 }} className="relative w-full max-w-3xl bg-neutral-900 border border-amber-500/30 rounded-3xl p-6 md:p-8 shadow-2xl text-left max-h-[85vh] overflow-y-auto">
+            <motion.div initial={{ scale: 0.95 }} animate={{ scale: 1 }} exit={{ scale: 0.95 }} className="relative w-full max-w-3xl bg-neutral-900 border border-amber-500/30 rounded-3xl p-6 md:p-10 shadow-2xl text-left max-h-[85vh] overflow-y-auto">
               <button onClick={() => setActiveModal(null)} aria-label="Close Terms Modal" className="absolute top-6 right-6 text-neutral-400 hover:text-white cursor-pointer"><X className="w-6 h-6" /></button>
-              <h3 className="text-2xl font-bold text-neutral-100 mb-6 flex items-center gap-3"><FileText className="w-6 h-6 text-amber-400" /> {t.modals?.termsTitle || t.footerSection?.terms}</h3>
+              <h3 className="text-2xl font-bold text-neutral-100 mb-6 flex items-center gap-3"><FileText className="w-6 h-6 text-amber-400" /> {t.modals?.termsTitle}</h3>
               <div className="space-y-6 text-xs text-neutral-300 leading-relaxed border-t border-neutral-800 pt-6">
                 <div>
                   <h4 className="text-sm font-bold text-amber-300 uppercase tracking-wide mb-2">{t.modals?.termsP1Title}</h4>
-                  <p>{t.modals?.termsP1Body}</p>
+                  <p className="font-light leading-relaxed">{t.modals?.termsP1Body}</p>
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-amber-300 uppercase tracking-wide mb-2">{t.modals?.termsP2Title}</h4>
-                  <p>{t.modals?.termsP2Body}</p>
+                  <p className="font-light leading-relaxed">{t.modals?.termsP2Body}</p>
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-amber-300 uppercase tracking-wide mb-2">{t.modals?.termsP3Title}</h4>
-                  <p>{t.modals?.termsP3Body}</p>
+                  <p className="font-light leading-relaxed">{t.modals?.termsP3Body}</p>
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-amber-300 uppercase tracking-wide mb-2">{t.modals?.termsP4Title}</h4>
-                  <p>{t.modals?.termsP4Body}</p>
+                  <p className="font-light leading-relaxed">{t.modals?.termsP4Body}</p>
+                </div>
+                <div>
+                  <h4 className="text-sm font-bold text-amber-300 uppercase tracking-wide mb-2">{t.modals?.termsP5Title}</h4>
+                  <p className="font-light leading-relaxed">{t.modals?.termsP5Body}</p>
+                </div>
+                <div>
+                  <h4 className="text-sm font-bold text-amber-300 uppercase tracking-wide mb-2">{t.modals?.termsP6Title}</h4>
+                  <p className="font-light leading-relaxed">{t.modals?.termsP6Body}</p>
                 </div>
               </div>
             </motion.div>
@@ -658,29 +895,37 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      {/* Privacy Policy Modal */}
+      {/* Privacy Policy Modal (ENHANCED CONFIDENTIALITY) */}
       <AnimatePresence>
         {activeModal === "privacy" && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex items-center justify-center p-4">
-            <motion.div initial={{ scale: 0.95 }} animate={{ scale: 1 }} exit={{ scale: 0.95 }} className="relative w-full max-w-3xl bg-neutral-900 border border-amber-500/30 rounded-3xl p-6 md:p-8 shadow-2xl text-left max-h-[85vh] overflow-y-auto">
+            <motion.div initial={{ scale: 0.95 }} animate={{ scale: 1 }} exit={{ scale: 0.95 }} className="relative w-full max-w-3xl bg-neutral-900 border border-amber-500/30 rounded-3xl p-6 md:p-10 shadow-2xl text-left max-h-[85vh] overflow-y-auto">
               <button onClick={() => setActiveModal(null)} aria-label="Close Privacy Modal" className="absolute top-6 right-6 text-neutral-400 hover:text-white cursor-pointer"><X className="w-6 h-6" /></button>
-              <h3 className="text-2xl font-bold text-neutral-100 mb-6 flex items-center gap-3"><ShieldCheck className="w-6 h-6 text-amber-400" /> {t.modals?.privacyTitle || t.footerSection?.privacy}</h3>
+              <h3 className="text-2xl font-bold text-neutral-100 mb-6 flex items-center gap-3"><ShieldCheck className="w-6 h-6 text-amber-400" /> {t.modals?.privacyTitle}</h3>
               <div className="space-y-6 text-xs text-neutral-300 leading-relaxed border-t border-neutral-800 pt-6">
                 <div>
                   <h4 className="text-sm font-bold text-amber-300 uppercase tracking-wide mb-2">{t.modals?.privacyP1Title}</h4>
-                  <p>{t.modals?.privacyP1Body}</p>
+                  <p className="font-light leading-relaxed">{t.modals?.privacyP1Body}</p>
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-amber-300 uppercase tracking-wide mb-2">{t.modals?.privacyP2Title}</h4>
-                  <p>{t.modals?.privacyP2Body}</p>
+                  <p className="font-light leading-relaxed">{t.modals?.privacyP2Body}</p>
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-amber-300 uppercase tracking-wide mb-2">{t.modals?.privacyP3Title}</h4>
-                  <p>{t.modals?.privacyP3Body}</p>
+                  <p className="font-light leading-relaxed">{t.modals?.privacyP3Body}</p>
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-amber-300 uppercase tracking-wide mb-2">{t.modals?.privacyP4Title}</h4>
-                  <p>{t.modals?.privacyP4Body}</p>
+                  <p className="font-light leading-relaxed">{t.modals?.privacyP4Body}</p>
+                </div>
+                <div>
+                  <h4 className="text-sm font-bold text-amber-300 uppercase tracking-wide mb-2">{t.modals?.privacyP5Title}</h4>
+                  <p className="font-light leading-relaxed">{t.modals?.privacyP5Body}</p>
+                </div>
+                <div>
+                  <h4 className="text-sm font-bold text-amber-300 uppercase tracking-wide mb-2">{t.modals?.privacyP6Title}</h4>
+                  <p className="font-light leading-relaxed">{t.modals?.privacyP6Body}</p>
                 </div>
               </div>
             </motion.div>
@@ -714,11 +959,11 @@ export default function Home() {
               <button onClick={() => setIsDeskOpen(false)} aria-label="Close Console" className="text-neutral-400 hover:text-white cursor-pointer"><X className="w-4 h-4" /></button>
             </div>
             <div className="py-6 space-y-3 text-xs">
-              <div className="p-3.5 rounded-2xl bg-neutral-950 border border-neutral-800 text-neutral-300 leading-relaxed">
+              <div className="p-3.5 rounded-2xl bg-neutral-950 border border-neutral-800 text-neutral-300 leading-relaxed font-light">
                 {t.chatConsole?.welcome}
               </div>
             </div>
-            <form onSubmit={(e) => { e.preventDefault(); window.location.href = `mailto:info@aivienne.com?subject=Private Access Inquiry&body=${encodeURIComponent(deskMessage)}`; setDeskMessage(""); setIsDeskOpen(false); }} className="space-y-3">
+            <form onSubmit={(e) => { e.preventDefault(); window.location.href = `mailto:info@aivienne.com?subject=Private Executive Inquiry&body=${encodeURIComponent(deskMessage)}`; setDeskMessage(""); setIsDeskOpen(false); }} className="space-y-3">
               <input type="text" required value={deskMessage} onChange={(e) => setDeskMessage(e.target.value)} placeholder={t.chatConsole?.placeholder} className="w-full bg-neutral-950 border border-neutral-800 rounded-xl px-4 py-2.5 text-xs text-neutral-100 outline-none focus:border-amber-400" />
               <button type="submit" className="w-full py-2.5 rounded-xl bg-amber-400 text-neutral-950 font-bold text-xs uppercase tracking-wider hover:bg-amber-300 transition-colors flex items-center justify-center gap-2 cursor-pointer">
                 <Send className="w-3.5 h-3.5" /> {t.chatConsole?.send}
@@ -747,6 +992,10 @@ export default function Home() {
           </button>
 
           <nav className="hidden xl:flex items-center gap-8 text-sm font-semibold tracking-wider text-neutral-300">
+            <a href="#services" className="hover:text-amber-400 transition-colors py-2 relative group whitespace-nowrap">
+              {t.nav?.services}
+              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-amber-400 transition-all duration-300 group-hover:w-full" />
+            </a>
             <a href="#portfolio" className="hover:text-amber-400 transition-colors py-2 relative group whitespace-nowrap">
               {t.nav?.portfolio}
               <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-amber-400 transition-all duration-300 group-hover:w-full" />
@@ -817,10 +1066,10 @@ export default function Home() {
       <section className="relative z-10 w-full px-4 sm:px-8 md:px-16 pt-16 sm:pt-24 pb-16 sm:pb-20 text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
           <span className="inline-flex items-center gap-2.5 px-4 sm:px-6 py-2 rounded-full border border-amber-500/30 bg-amber-500/10 text-xs sm:text-sm font-semibold text-amber-300 mb-8 sm:mb-10"><Sparkles className="w-4 h-4" /> {t.hero?.badge}</span>
-          <h1 className="text-4xl sm:text-6xl md:text-8xl lg:text-[100px] font-extrabold tracking-tight text-neutral-100 max-w-7xl mx-auto leading-[1.1] sm:leading-[1.05]">{t.hero?.titleStart} <span className="bg-gradient-to-r from-amber-200 via-amber-400 to-amber-600 bg-clip-text text-transparent">{t.hero?.titleGradient}</span></h1>
+          <h1 className="text-4xl sm:text-6xl md:text-8xl lg:text-[92px] font-extrabold tracking-tight text-neutral-100 max-w-7xl mx-auto leading-[1.1] sm:leading-[1.05]">{t.hero?.titleStart} <span className="bg-gradient-to-r from-amber-200 via-amber-400 to-amber-600 bg-clip-text text-transparent">{t.hero?.titleGradient}</span></h1>
           <p className="mt-8 sm:mt-10 text-base sm:text-xl md:text-2xl text-neutral-300 max-w-4xl mx-auto font-light leading-relaxed">{t.hero?.desc}</p>
           <div className="mt-10 sm:mt-14 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
-            <a href="#portfolio" className="w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 rounded-full text-sm sm:text-base font-bold tracking-wide text-neutral-950 bg-amber-400 hover:bg-amber-300 transition-all flex items-center justify-center gap-3 shadow-[0_0_40px_rgba(251,191,36,0.3)]">{t.hero?.btnPrimary} <ArrowRight className="w-5 h-5" /></a>
+            <a href="#services" className="w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 rounded-full text-sm sm:text-base font-bold tracking-wide text-neutral-950 bg-amber-400 hover:bg-amber-300 transition-all flex items-center justify-center gap-3 shadow-[0_0_40px_rgba(251,191,36,0.3)]">{t.hero?.btnPrimary} <ArrowRight className="w-5 h-5" /></a>
             <a href="mailto:info@aivienne.com" className="w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 rounded-full text-sm sm:text-base font-bold tracking-wide text-neutral-200 border border-neutral-800 hover:border-neutral-700 bg-neutral-900/50 hover:bg-neutral-900 transition-all flex items-center justify-center gap-3"><Mail className="w-5 h-5 text-amber-400" /> {t.hero?.btnSecondary}</a>
           </div>
         </motion.div>
@@ -835,7 +1084,182 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PORTFOLIO GALLERY */}
+      {/* STRATEGIC LUXURY SERVICE PILLARS */}
+      <section id="services" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12 sm:mb-16">
+            <div>
+              <span className="text-xs font-bold tracking-[0.3em] text-amber-400 uppercase block mb-3">{t.servicesPillars?.tag}</span>
+              <h2 className="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight text-neutral-100">{t.servicesPillars?.title}</h2>
+            </div>
+            <p className="text-neutral-300 text-xs sm:text-sm max-w-lg mt-4 sm:mt-6 md:mt-0 leading-relaxed font-light">{t.servicesPillars?.desc}</p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10">
+            {/* Pillar 1 */}
+            <div className="p-8 sm:p-10 rounded-3xl border border-neutral-800 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 flex flex-col justify-between group shadow-xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-8 opacity-5 text-amber-400 pointer-events-none"><Sparkles className="w-32 h-32" /></div>
+              <div>
+                <div className="flex items-center justify-between gap-4 mb-6">
+                  <span className="text-[10px] font-extrabold tracking-widest text-amber-300 bg-amber-400/10 border border-amber-400/30 px-3 py-1 rounded-full uppercase">
+                    {t.servicesPillars?.s1Tag}
+                  </span>
+                  <span className="text-xs font-mono text-neutral-400 flex items-center gap-1.5">
+                    <Clock className="w-3.5 h-3.5 text-amber-400" /> {t.servicesPillars?.s1Turnaround}
+                  </span>
+                </div>
+                <h3 className="text-2xl font-bold text-neutral-100 mb-4 group-hover:text-amber-300 transition-colors">{t.servicesPillars?.s1Title}</h3>
+                <p className="text-xs text-neutral-300 leading-relaxed mb-6 font-light">{t.servicesPillars?.s1Desc}</p>
+                
+                <div className="space-y-3 pt-6 border-t border-neutral-800/80 text-xs">
+                  <div>
+                    <span className="text-[10px] font-bold text-neutral-400 uppercase block mb-1">{t.servicesPillars?.scopeLabel}</span>
+                    <p className="text-neutral-200 font-light">{t.servicesPillars?.s1Scope}</p>
+                  </div>
+                  <div className="pt-2">
+                    <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">{t.servicesPillars?.deliverablesLabel}</span>
+                    <p className="text-neutral-200 font-semibold">{t.servicesPillars?.s1Deliverables}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-8 pt-6 border-t border-neutral-800 flex items-center justify-between">
+                <span className="text-[10px] font-mono text-neutral-400 uppercase">Haute Couture Standard</span>
+                <button 
+                  type="button"
+                  onClick={() => selectServicePillar("sOpt1", "Haute Couture & Runway Production")}
+                  className="px-6 py-2.5 rounded-full bg-neutral-900 border border-amber-500/40 text-amber-300 group-hover:bg-amber-400 group-hover:text-neutral-950 font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer"
+                >
+                  <span>{t.servicesPillars?.btnBrief}</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </div>
+
+            {/* Pillar 2 */}
+            <div className="p-8 sm:p-10 rounded-3xl border border-neutral-800 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 flex flex-col justify-between group shadow-xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-8 opacity-5 text-amber-400 pointer-events-none"><Gem className="w-32 h-32" /></div>
+              <div>
+                <div className="flex items-center justify-between gap-4 mb-6">
+                  <span className="text-[10px] font-extrabold tracking-widest text-amber-300 bg-amber-400/10 border border-amber-400/30 px-3 py-1 rounded-full uppercase">
+                    {t.servicesPillars?.s2Tag}
+                  </span>
+                  <span className="text-xs font-mono text-neutral-400 flex items-center gap-1.5">
+                    <Clock className="w-3.5 h-3.5 text-amber-400" /> {t.servicesPillars?.s2Turnaround}
+                  </span>
+                </div>
+                <h3 className="text-2xl font-bold text-neutral-100 mb-4 group-hover:text-amber-300 transition-colors">{t.servicesPillars?.s2Title}</h3>
+                <p className="text-xs text-neutral-300 leading-relaxed mb-6 font-light">{t.servicesPillars?.s2Desc}</p>
+                
+                <div className="space-y-3 pt-6 border-t border-neutral-800/80 text-xs">
+                  <div>
+                    <span className="text-[10px] font-bold text-neutral-400 uppercase block mb-1">{t.servicesPillars?.scopeLabel}</span>
+                    <p className="text-neutral-200 font-light">{t.servicesPillars?.s2Scope}</p>
+                  </div>
+                  <div className="pt-2">
+                    <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">{t.servicesPillars?.deliverablesLabel}</span>
+                    <p className="text-neutral-200 font-semibold">{t.servicesPillars?.s2Deliverables}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-8 pt-6 border-t border-neutral-800 flex items-center justify-between">
+                <span className="text-[10px] font-mono text-neutral-400 uppercase">Swiss & Vendôme Quality</span>
+                <button 
+                  type="button"
+                  onClick={() => selectServicePillar("sOpt2", "Haute Horlogerie & Fine Jewelry")}
+                  className="px-6 py-2.5 rounded-full bg-neutral-900 border border-amber-500/40 text-amber-300 group-hover:bg-amber-400 group-hover:text-neutral-950 font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer"
+                >
+                  <span>{t.servicesPillars?.btnBrief}</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </div>
+
+            {/* Pillar 3 */}
+            <div className="p-8 sm:p-10 rounded-3xl border border-neutral-800 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 flex flex-col justify-between group shadow-xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-8 opacity-5 text-amber-400 pointer-events-none"><UserCheck className="w-32 h-32" /></div>
+              <div>
+                <div className="flex items-center justify-between gap-4 mb-6">
+                  <span className="text-[10px] font-extrabold tracking-widest text-amber-300 bg-amber-400/10 border border-amber-400/30 px-3 py-1 rounded-full uppercase">
+                    {t.servicesPillars?.s3Tag}
+                  </span>
+                  <span className="text-xs font-mono text-neutral-400 flex items-center gap-1.5">
+                    <Clock className="w-3.5 h-3.5 text-amber-400" /> {t.servicesPillars?.s3Turnaround}
+                  </span>
+                </div>
+                <h3 className="text-2xl font-bold text-neutral-100 mb-4 group-hover:text-amber-300 transition-colors">{t.servicesPillars?.s3Title}</h3>
+                <p className="text-xs text-neutral-300 leading-relaxed mb-6 font-light">{t.servicesPillars?.s3Desc}</p>
+                
+                <div className="space-y-3 pt-6 border-t border-neutral-800/80 text-xs">
+                  <div>
+                    <span className="text-[10px] font-bold text-neutral-400 uppercase block mb-1">{t.servicesPillars?.scopeLabel}</span>
+                    <p className="text-neutral-200 font-light">{t.servicesPillars?.s3Scope}</p>
+                  </div>
+                  <div className="pt-2">
+                    <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">{t.servicesPillars?.deliverablesLabel}</span>
+                    <p className="text-neutral-200 font-semibold">{t.servicesPillars?.s3Deliverables}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-8 pt-6 border-t border-neutral-800 flex items-center justify-between">
+                <span className="text-[10px] font-mono text-neutral-400 uppercase">100% Geometry Lock</span>
+                <button 
+                  type="button"
+                  onClick={() => selectServicePillar("sOpt3", "Persistent Digital Brand Ambassador Suite")}
+                  className="px-6 py-2.5 rounded-full bg-neutral-900 border border-amber-500/40 text-amber-300 group-hover:bg-amber-400 group-hover:text-neutral-950 font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer"
+                >
+                  <span>{t.servicesPillars?.btnBrief}</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </div>
+
+            {/* Pillar 4 */}
+            <div className="p-8 sm:p-10 rounded-3xl border border-neutral-800 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 flex flex-col justify-between group shadow-xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-8 opacity-5 text-amber-400 pointer-events-none"><Film className="w-32 h-32" /></div>
+              <div>
+                <div className="flex items-center justify-between gap-4 mb-6">
+                  <span className="text-[10px] font-extrabold tracking-widest text-amber-300 bg-amber-400/10 border border-amber-400/30 px-3 py-1 rounded-full uppercase">
+                    {t.servicesPillars?.s4Tag}
+                  </span>
+                  <span className="text-xs font-mono text-neutral-400 flex items-center gap-1.5">
+                    <Clock className="w-3.5 h-3.5 text-amber-400" /> {t.servicesPillars?.s4Turnaround}
+                  </span>
+                </div>
+                <h3 className="text-2xl font-bold text-neutral-100 mb-4 group-hover:text-amber-300 transition-colors">{t.servicesPillars?.s4Title}</h3>
+                <p className="text-xs text-neutral-300 leading-relaxed mb-6 font-light">{t.servicesPillars?.s4Desc}</p>
+                
+                <div className="space-y-3 pt-6 border-t border-neutral-800/80 text-xs">
+                  <div>
+                    <span className="text-[10px] font-bold text-neutral-400 uppercase block mb-1">{t.servicesPillars?.scopeLabel}</span>
+                    <p className="text-neutral-200 font-light">{t.servicesPillars?.s4Scope}</p>
+                  </div>
+                  <div className="pt-2">
+                    <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">{t.servicesPillars?.deliverablesLabel}</span>
+                    <p className="text-neutral-200 font-semibold">{t.servicesPillars?.s4Deliverables}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-8 pt-6 border-t border-neutral-800 flex items-center justify-between">
+                <span className="text-[10px] font-mono text-neutral-400 uppercase">120 FPS Cinema Standard</span>
+                <button 
+                  type="button"
+                  onClick={() => selectServicePillar("sOpt4", "Brand Heritage Film & Digital Flagship Visuals")}
+                  className="px-6 py-2.5 rounded-full bg-neutral-900 border border-amber-500/40 text-amber-300 group-hover:bg-amber-400 group-hover:text-neutral-950 font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer"
+                >
+                  <span>{t.servicesPillars?.btnBrief}</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PORTFOLIO CASE STUDIES GALLERY */}
       <section id="portfolio" className="relative z-10 w-full py-16 sm:py-24 border-t border-neutral-800/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-12 w-full">
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-8 sm:mb-12 gap-6">
@@ -861,13 +1285,13 @@ export default function Home() {
             <div className="mb-14 sm:mb-20">
               <div className="flex items-center gap-2.5 mb-6">
                 <Tv className="w-4 h-4 text-amber-400" />
-                <h3 className="text-sm sm:text-base font-extrabold text-neutral-100 tracking-wider uppercase">16:9 Cinematic Widescreen Masters</h3>
+                <h3 className="text-sm sm:text-base font-extrabold text-neutral-100 tracking-wider uppercase">16:9 Cinematic Widescreen Case Studies</h3>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
                 {filteredItems.filter(item => item.aspect === "16:9").map((item) => (
                   <div 
                     key={item.id} 
-                    onClick={() => setActiveMediaModal(item)}
+                    onClick={() => setActiveCaseStudy(item)}
                     className="group relative rounded-2xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 p-3 sm:p-4 transition-all duration-300 ease-out hover:scale-[1.02] hover:z-20 hover:shadow-[0_10px_30px_rgba(251,191,36,0.12)] flex flex-col justify-between overflow-hidden cursor-pointer"
                   >
                     <div className="relative aspect-[16/9] w-full rounded-xl bg-neutral-950 border border-neutral-800 flex items-center justify-center overflow-hidden mb-3.5 shadow-md">
@@ -889,13 +1313,14 @@ export default function Home() {
                     </div>
                     <div className="mb-3 px-1 flex-1 flex flex-col justify-between">
                       <div>
+                        <span className="text-[9px] font-mono text-amber-400 uppercase tracking-widest block mb-0.5">{item.clientSector}</span>
                         <h3 className="text-xs sm:text-sm font-bold text-neutral-100 mb-1 group-hover:text-amber-300 transition-colors line-clamp-1">{item.title}</h3>
                         <p className="text-[10px] sm:text-[11px] text-neutral-400 leading-tight font-light line-clamp-2 group-hover:text-neutral-200 transition-colors">{item.desc}</p>
                       </div>
                     </div>
                     
-                    <button type="button" onClick={(e) => { e.stopPropagation(); setActiveMediaModal(item); }} className="w-full py-2 rounded-xl border border-neutral-800 bg-neutral-950 group-hover:bg-amber-400 group-hover:text-neutral-950 text-[10px] font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 shadow-sm cursor-pointer">
-                      <Play className="w-3 h-3" /> {t.portfolio?.playVideo || "Watch Video"}
+                    <button type="button" onClick={(e) => { e.stopPropagation(); setActiveCaseStudy(item); }} className="w-full py-2 rounded-xl border border-neutral-800 bg-neutral-950 group-hover:bg-amber-400 group-hover:text-neutral-950 text-[10px] font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 shadow-sm cursor-pointer">
+                      <Briefcase className="w-3 h-3" /> {t.portfolio?.playVideo || "Inspect Case Study"}
                     </button>
                   </div>
                 ))}
@@ -908,13 +1333,13 @@ export default function Home() {
             <div>
               <div className="flex items-center gap-2.5 mb-6">
                 <Smartphone className="w-4 h-4 text-amber-400" />
-                <h3 className="text-sm sm:text-base font-extrabold text-neutral-100 tracking-wider uppercase">9:16 Vertical Reels & Mobile Billboards</h3>
+                <h3 className="text-sm sm:text-base font-extrabold text-neutral-100 tracking-wider uppercase">9:16 Vertical Reels & Mobile Billboard Cases</h3>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
                 {filteredItems.filter(item => item.aspect === "9:16").map((item) => (
                   <div 
                     key={item.id} 
-                    onClick={() => setActiveMediaModal(item)}
+                    onClick={() => setActiveCaseStudy(item)}
                     className="group relative rounded-2xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 p-3 sm:p-4 transition-all duration-300 ease-out hover:scale-[1.02] hover:z-20 hover:shadow-[0_10px_30px_rgba(251,191,36,0.12)] flex flex-col justify-between overflow-hidden cursor-pointer"
                   >
                     <div className="relative aspect-[9/16] w-full rounded-xl bg-neutral-950 border border-neutral-800 flex items-center justify-center overflow-hidden mb-3.5 shadow-md mx-auto">
@@ -936,13 +1361,14 @@ export default function Home() {
                     </div>
                     <div className="mb-3 px-1 flex-1 flex flex-col justify-between">
                       <div>
+                        <span className="text-[9px] font-mono text-amber-400 uppercase tracking-widest block mb-0.5">{item.clientSector}</span>
                         <h3 className="text-xs sm:text-sm font-bold text-neutral-100 mb-1 group-hover:text-amber-300 transition-colors line-clamp-1">{item.title}</h3>
                         <p className="text-[10px] sm:text-[11px] text-neutral-400 leading-tight font-light line-clamp-2 group-hover:text-neutral-200 transition-colors">{item.desc}</p>
                       </div>
                     </div>
                     
-                    <button type="button" onClick={(e) => { e.stopPropagation(); setActiveMediaModal(item); }} className="w-full py-2 rounded-xl border border-neutral-800 bg-neutral-950 group-hover:bg-amber-400 group-hover:text-neutral-950 text-[10px] font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 shadow-sm cursor-pointer">
-                      <Play className="w-3 h-3" /> {t.portfolio?.playVideo || "Watch Video"}
+                    <button type="button" onClick={(e) => { e.stopPropagation(); setActiveCaseStudy(item); }} className="w-full py-2 rounded-xl border border-neutral-800 bg-neutral-950 group-hover:bg-amber-400 group-hover:text-neutral-950 text-[10px] font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 shadow-sm cursor-pointer">
+                      <Briefcase className="w-3 h-3" /> {t.portfolio?.playVideo || "Inspect Case Study"}
                     </button>
                   </div>
                 ))}
@@ -1069,7 +1495,7 @@ export default function Home() {
               <span className="text-sm font-bold tracking-widest text-amber-400 uppercase">{t.twinsSection?.tag}</span>
               <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight text-neutral-100 mt-3">{t.twinsSection?.title}</h2>
             </div>
-            <p className="text-neutral-300 text-sm sm:text-base max-w-xl mt-4 sm:mt-6 md:mt-0 leading-relaxed">{t.twinsSection?.desc}</p>
+            <p className="text-neutral-300 text-sm sm:text-base max-w-xl mt-4 sm:mt-6 md:mt-0 leading-relaxed font-light">{t.twinsSection?.desc}</p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
@@ -1222,21 +1648,21 @@ export default function Home() {
                 </div>
 
                 <h3 className="text-xl sm:text-2xl font-bold text-neutral-100 mb-3">{t.twinsSection?.identityTitle}</h3>
-                <p className="text-neutral-300 text-xs sm:text-sm leading-relaxed max-w-md mx-auto mb-8">{t.twinsSection?.identityDesc}</p>
+                <p className="text-neutral-300 text-xs sm:text-sm leading-relaxed max-w-md mx-auto mb-8 font-light">{t.twinsSection?.identityDesc}</p>
               </div>
 
               <div className="pt-6 border-t border-neutral-800/80 grid grid-cols-2 gap-4 text-left">
                 <div className="p-3 sm:p-3.5 rounded-xl bg-neutral-950/90 border border-neutral-800">
                   <p className="text-[10px] font-bold text-amber-300 uppercase flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3 h-3 text-emerald-400" /> Facial Mesh
+                    <CheckCircle2 className="w-3 h-3 text-emerald-400" /> 468 Point Mesh
                   </p>
                   <p className="text-xs font-semibold text-neutral-200 mt-1">100% Geometry Verified</p>
                 </div>
                 <div className="p-3 sm:p-3.5 rounded-xl bg-neutral-950/90 border border-neutral-800">
                   <p className="text-[10px] font-bold text-amber-300 uppercase flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3 h-3 text-emerald-400" /> Subsurface Scattering
+                    <CheckCircle2 className="w-3 h-3 text-emerald-400" /> Multi-Layer SSS
                   </p>
-                  <p className="text-xs font-semibold text-neutral-200 mt-1">Active Pore Layer</p>
+                  <p className="text-xs font-semibold text-neutral-200 mt-1">Biophysical Melanin Pass</p>
                 </div>
               </div>
             </div>
@@ -1259,7 +1685,7 @@ export default function Home() {
               { num: t.system?.s2Num, title: t.system?.s2Title, desc: t.system?.s2Detail, icon: Sliders },
               { num: t.system?.s3Num, title: t.system?.s3Title, desc: t.system?.s3Detail, icon: Cpu },
               { num: t.system?.s4Num, title: t.system?.s4Title, desc: t.system?.s4Detail, icon: Sparkles },
-              { num: t.system?.s5Num, title: t.system?.s5Title, desc: t.system?.s5Detail, icon: CheckSquare }
+              { num: t.system?.s5Num, title: t.system?.s5Detail, icon: CheckSquare }
             ].map((step, idx) => (
               <div 
                 key={idx} 
@@ -1321,7 +1747,7 @@ export default function Home() {
           <div className="text-center mb-12 sm:mb-16">
             <span className="text-sm font-bold tracking-widest text-amber-400 uppercase">{t.transformation?.tag}</span>
             <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight text-neutral-100 mt-3">{t.transformation?.title}</h2>
-            <p className="mt-4 text-neutral-300 text-sm sm:text-base max-w-2xl mx-auto">{t.transformation?.desc}</p>
+            <p className="mt-4 text-neutral-300 text-sm sm:text-base max-w-2xl mx-auto font-light">{t.transformation?.desc}</p>
           </div>
 
           <div className="relative w-full aspect-[16/9] max-h-[580px] rounded-3xl border border-amber-500/40 overflow-hidden shadow-[0_0_50px_rgba(217,119,6,0.15)] bg-neutral-950 select-none">
@@ -1342,7 +1768,7 @@ export default function Home() {
               <div className="absolute inset-0 h-full w-full" style={{ width: '100vw', maxWidth: '1200px' }}>
                 <Image 
                   src="/traditional-raw.jpg" 
-                  alt="Traditional Raw Capture" 
+                  alt="Conventional Raw Studio Capture" 
                   fill
                   sizes="(max-width: 1200px) 100vw, 1200px"
                   className="object-cover object-center filter grayscale contrast-75 brightness-75"
@@ -1379,7 +1805,7 @@ export default function Home() {
             <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400"><Calculator className="w-5 h-5 sm:w-6 sm:h-6" /></div>
             <div><span className="text-xs font-bold tracking-widest text-amber-400 uppercase">{t.estimator?.tag}</span><h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-neutral-100 mt-1">{t.estimator?.title}</h2></div>
           </div>
-          <p className="text-neutral-300 text-sm sm:text-base mb-8 sm:mb-10">{t.estimator?.desc}</p>
+          <p className="text-neutral-300 text-sm sm:text-base mb-8 sm:mb-10 font-light">{t.estimator?.desc}</p>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10">
             <div className="space-y-6">
@@ -1449,15 +1875,15 @@ export default function Home() {
                     </button>
                     {showAssumptions && (
                       <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} className="mt-2 p-3 rounded-xl bg-neutral-900 border border-neutral-800 text-[10px] text-neutral-300 leading-relaxed">
-                        <strong className="text-amber-300 block mb-1">Calculation Assumptions:</strong>
-                        Estimates are based on benchmark physical campaign costs including crew, multi-location studio rentals, equipment, travel, model licensing, and post-production scaling.
+                        <strong className="text-amber-300 block mb-1">Calculation Methodology:</strong>
+                        Estimates are benchmarked against traditional physical luxury campaigns factoring high-end location rentals, union crew rates, model licensing, post-production CGI, and multi-day travel logistics.
                       </motion.div>
                     )}
                   </div>
                 </div>
               </div>
               <button onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })} className="mt-8 w-full py-3.5 sm:py-4 rounded-2xl bg-amber-400 text-neutral-950 font-bold text-xs uppercase tracking-wider hover:bg-amber-300 transition-all flex items-center justify-center gap-2 cursor-pointer">
-                Lock Investment Rate <ArrowRight className="w-4 h-4" />
+                Lock Strategic Production Rate <ArrowRight className="w-4 h-4" />
               </button>
             </div>
           </div>
@@ -1472,7 +1898,7 @@ export default function Home() {
               <span className="text-sm font-bold tracking-widest text-amber-400 uppercase">{t.insights?.tag}</span>
               <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight text-neutral-100 mt-3">{t.insights?.title}</h2>
             </div>
-            <p className="text-neutral-300 text-sm sm:text-base max-w-xl mt-4 sm:mt-6 md:mt-0 leading-relaxed">{t.insights?.desc}</p>
+            <p className="text-neutral-300 text-sm sm:text-base max-w-xl mt-4 sm:mt-6 md:mt-0 leading-relaxed font-light">{t.insights?.desc}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-10">
@@ -1549,7 +1975,7 @@ export default function Home() {
             <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400"><SlidersHorizontal className="w-5 h-5 sm:w-6 sm:h-6" /></div>
             <div><span className="text-xs font-bold tracking-widest text-amber-400 uppercase">{t.briefSection?.tag}</span><h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-neutral-100 mt-1">{t.briefSection?.title}</h2></div>
           </div>
-          <p className="text-neutral-300 text-sm sm:text-base mb-8 sm:mb-10">{t.briefSection?.desc}</p>
+          <p className="text-neutral-300 text-sm sm:text-base mb-8 sm:mb-10 font-light">{t.briefSection?.desc}</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-10">
             <div>
               <label className="block text-xs font-bold text-amber-400 uppercase mb-3">{t.briefSection?.s1}</label>
@@ -1583,16 +2009,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact Section */}
+      {/* B2B QUALIFIED LEAD FUNNEL & PROPOSAL SECTION */}
       <section id="contact" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
             <span className="text-sm font-bold tracking-widest text-amber-400 uppercase">{t.contact?.tag}</span>
             <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight text-neutral-100 mt-3">{t.contact?.title}</h2>
-            <p className="mt-4 text-neutral-300 text-sm sm:text-base max-w-2xl mx-auto">{t.contact?.desc}</p>
+            <p className="mt-4 text-neutral-300 text-sm sm:text-base max-w-2xl mx-auto font-light">{t.contact?.desc}</p>
           </div>
 
-          <form onSubmit={handleFormSubmit} className="space-y-6 sm:space-y-8 bg-neutral-900/30 border border-neutral-800 p-6 sm:p-10 md:p-14 rounded-3xl backdrop-blur-sm">
+          <form onSubmit={handleFormSubmit} className="space-y-6 sm:space-y-8 bg-neutral-900/30 border border-neutral-800 p-6 sm:p-10 md:p-14 rounded-3xl backdrop-blur-sm shadow-2xl">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
               <div>
                 <label htmlFor="client-name" className="block text-xs font-bold text-neutral-300 uppercase mb-3">{t.contact?.namePlaceholder} *</label>
@@ -1603,12 +2029,45 @@ export default function Home() {
                 <input id="client-email" name="clientEmail" type="email" required autoComplete="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} placeholder={t.contact?.emailPlaceholder} className="w-full bg-neutral-950/80 border border-neutral-800 focus:border-amber-400 rounded-2xl px-5 sm:px-6 py-3.5 sm:py-4 text-sm sm:text-base text-neutral-100 outline-none" />
               </div>
             </div>
-            <div>
-              <label htmlFor="service-select" className="block text-xs font-bold text-neutral-300 uppercase mb-3">{t.contact?.serviceLabel}</label>
-              <select id="service-select" name="serviceSelect" value={formData.service} onChange={(e) => setFormData({ ...formData, service: e.target.value })} className="w-full bg-neutral-950/80 border border-neutral-800 focus:border-amber-400 rounded-2xl px-5 sm:px-6 py-3.5 sm:py-4 text-sm sm:text-base text-neutral-100 outline-none cursor-pointer">
-                <option value="sOpt1">{t.contact?.sOpt1}</option> <option value="sOpt2">{t.contact?.sOpt2}</option> <option value="sOpt3">{t.contact?.sOpt3}</option> <option value="sOpt4">{t.contact?.sOpt4}</option> <option value="sOpt5">{t.contact?.sOpt5}</option> <option value="sOpt6">{t.contact?.sOpt6}</option> <option value="sOpt7">{t.contact?.sOpt7}</option> <option value="sOpt8">{t.contact?.sOpt8}</option>
-              </select>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+              <div>
+                <label htmlFor="service-select" className="block text-xs font-bold text-neutral-300 uppercase mb-3">{t.contact?.serviceLabel}</label>
+                <select id="service-select" name="serviceSelect" value={formData.service} onChange={(e) => setFormData({ ...formData, service: e.target.value })} className="w-full bg-neutral-950/80 border border-neutral-800 focus:border-amber-400 rounded-2xl px-5 sm:px-6 py-3.5 sm:py-4 text-sm sm:text-base text-neutral-100 outline-none cursor-pointer">
+                  <option value="sOpt1">{t.contact?.sOpt1}</option> 
+                  <option value="sOpt2">{t.contact?.sOpt2}</option> 
+                  <option value="sOpt3">{t.contact?.sOpt3}</option> 
+                  <option value="sOpt4">{t.contact?.sOpt4}</option> 
+                  <option value="sOpt5">{t.contact?.sOpt5}</option> 
+                  <option value="sOpt6">{t.contact?.sOpt6}</option> 
+                  <option value="sOpt7">{t.contact?.sOpt7}</option>
+                </select>
+              </div>
+              <div>
+                <label htmlFor="budget-select" className="block text-xs font-bold text-neutral-300 uppercase mb-3">{t.contact?.budgetLabel}</label>
+                <select id="budget-select" name="budgetSelect" value={formData.budget} onChange={(e) => setFormData({ ...formData, budget: e.target.value })} className="w-full bg-neutral-950/80 border border-neutral-800 focus:border-amber-400 rounded-2xl px-5 sm:px-6 py-3.5 sm:py-4 text-sm sm:text-base text-neutral-100 outline-none cursor-pointer">
+                  <option value="bOpt1">{t.contact?.bOpt1}</option> 
+                  <option value="bOpt2">{t.contact?.bOpt2}</option> 
+                  <option value="bOpt3">{t.contact?.bOpt3}</option>
+                  <option value="bOpt4">{t.contact?.bOpt4}</option>
+                </select>
+              </div>
             </div>
+
+            {/* NDA Protocol Toggle */}
+            <div className="p-4 rounded-2xl bg-neutral-950/80 border border-amber-500/30 flex items-center justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <Lock className="w-5 h-5 text-amber-400 shrink-0" />
+                <span className="text-xs sm:text-sm text-neutral-200 font-medium">{t.contact?.ndaLabel}</span>
+              </div>
+              <input 
+                type="checkbox" 
+                checked={formData.requireNDA} 
+                onChange={(e) => setFormData({ ...formData, requireNDA: e.target.checked })} 
+                className="w-5 h-5 accent-amber-400 rounded cursor-pointer" 
+              />
+            </div>
+
             <div>
               <label className="block text-xs font-bold text-neutral-300 uppercase mb-3">{t.contact?.uploadTitle}</label>
               <div className="relative border-2 border-dashed border-neutral-800 hover:border-amber-500/50 rounded-2xl p-6 sm:p-8 bg-neutral-950/60 text-center transition-colors group cursor-pointer">
@@ -1626,10 +2085,12 @@ export default function Home() {
                 </div>
               )}
             </div>
+
             <div>
               <label htmlFor="project-message" className="block text-xs font-bold text-neutral-300 uppercase mb-3">{t.contact?.messagePlaceholder} *</label>
-              <textarea id="project-message" name="projectMessage" rows={5} required value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} placeholder={t.contact?.messagePlaceholder} className="w-full bg-neutral-950/80 border border-neutral-800 focus:border-amber-400 rounded-2xl px-5 sm:px-6 py-3.5 sm:py-4 text-sm sm:text-base text-neutral-100 outline-none resize-none" />
+              <textarea id="project-message" name="projectMessage" rows={5} required value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} placeholder={t.contact?.messagePlaceholder} className="w-full bg-neutral-950/80 border border-neutral-800 focus:border-amber-400 rounded-2xl px-5 sm:px-6 py-3.5 sm:py-4 text-sm sm:text-base text-neutral-100 outline-none resize-none font-light" />
             </div>
+
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6 pt-4">
               <button type="submit" className="w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 rounded-full text-sm sm:text-base font-bold text-neutral-950 bg-amber-400 hover:bg-amber-300 transition-all flex items-center justify-center gap-3 shadow-[0_0_30px_rgba(251,191,36,0.25)] cursor-pointer"><Send className="w-4 h-4 sm:w-5 sm:h-5" /> {t.contact?.submitBtn}</button>
               <a href="mailto:info@aivienne.com" className="text-xs sm:text-sm font-semibold text-neutral-300 hover:text-amber-400 transition-colors flex items-center gap-2"><Mail className="w-4 h-4 text-amber-400" /> {t.contact?.directEmail}</a>
@@ -1638,15 +2099,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
+      {/* Footer (ENHANCED LUXURY EMBLEM & EXPANDED CODEX) */}
       <footer className="relative z-10 pt-16 sm:pt-20 pb-12 px-4 sm:px-12 md:px-16">
         <div className="w-full bg-amber-400 text-neutral-950 rounded-[30px] sm:rounded-[40px] p-6 sm:p-10 md:p-20 shadow-[0_0_60px_rgba(251,191,36,0.18)]/20 overflow-hidden">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 pb-12 sm:pb-20 border-b border-neutral-950/20">
             <div>
               <span className="inline-block bg-neutral-950 text-amber-400 text-xs font-extrabold tracking-widest px-4 py-1.5 rounded-full uppercase mb-6 sm:mb-8">{t.footerSection?.navTitle}</span>
               <ul className="space-y-3 sm:space-y-4 text-sm sm:text-base font-semibold">
-                <li><a href="#capabilities" className="hover:opacity-75 block">{t.nav?.capabilities}</a></li>
+                <li><a href="#services" className="hover:opacity-75 block">{t.nav?.services}</a></li>
                 <li><a href="#portfolio" className="hover:opacity-75 block">{t.footerSection?.works}</a></li>
+                <li><a href="#capabilities" className="hover:opacity-75 block">{t.nav?.capabilities}</a></li>
                 <li><a href="#system" className="hover:opacity-75 block">{t.nav?.system}</a></li>
                 <li><a href="#studio" className="hover:opacity-75 block">{t.nav?.studio}</a></li>
                 <li><a href="#transformation" className="hover:opacity-75 block">{t.nav?.transformation}</a></li>
@@ -1671,8 +2133,24 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="py-8 sm:py-12 text-center md:text-left overflow-hidden">
-            <h1 className="text-[12vw] sm:text-[11vw] leading-[0.9] font-black tracking-tighter text-neutral-950 select-none">AI.VIENNE Studio+</h1>
+          {/* Maison Emblem & Giant Typographic Brand Header */}
+          <div className="py-8 sm:py-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 overflow-hidden">
+            <div className="flex items-center gap-6 sm:gap-8">
+              <div className="relative w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36 rounded-full bg-neutral-950 border-2 border-neutral-950 p-2 sm:p-3 shadow-2xl shrink-0">
+                <Image
+                  src="/logo.png"
+                  alt="AI.VIENNE Studio+ Luxury Emblem"
+                  fill
+                  className="object-contain p-2"
+                />
+              </div>
+              <div>
+                <span className="text-xs sm:text-sm font-mono font-extrabold tracking-[0.3em] uppercase text-neutral-950/70 block">Haute Visual Production</span>
+                <h1 className="text-4xl sm:text-7xl md:text-8xl font-black tracking-tighter text-neutral-950 select-none leading-none">
+                  AI.VIENNE<br /><span className="font-light">STUDIO+</span>
+                </h1>
+              </div>
+            </div>
           </div>
 
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-xs md:text-sm font-bold pt-6 sm:pt-8 border-t border-neutral-950/20">
