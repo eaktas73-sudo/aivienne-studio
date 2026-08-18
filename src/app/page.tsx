@@ -244,6 +244,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
   TR: {
     nav: { portfolio: "Vaka Analizleri", capabilities: "Yetkinlikler", services: "Hizmetler", avatar: "Dijital İkizler", studio: "Stüdyo", system: "Sistem", theStudio: "Stüdyomuz", transformation: "Dönüşüm", roi: "ROI Matrisi", journal: "Dergi", contact: "Özel Talep", cta: "BRİEF GÖNDER" },
     hero: { badge: "Yapay Zeka Destekli Lüks Görsel Prodüksiyon Evi", titleStart: "Yüksek Moda, Mücevher ve Saatçilikte", titleGradient: "Neural Zanaatkarlık", desc: "AI.VIENNE Studio+, global lüks markalar için 8K sinematik kampanyalar, spektral materyal renderları ve biyometrik kimliği korunan kalıcı dijital modeller üretir.", btnPrimary: "Vaka Analizlerini İncele", btnSecondary: "Doğrudan İletişim: info@aivienne.com" },
+    manifesto: { sub: "KREATİF KODUMUZ", line1: "Geçici dijital trendlere uyum sağlamıyoruz.", line2: "ZAMANSIZ LÜKS EVRENLER İNŞA EDİYORUZ." },
     servicesPillars: {
       tag: "ÖZEL HİZMET SÜTUNLARI",
       title: "Stratejik Prodüksiyon Hizmetleri",
@@ -968,7 +969,7 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      {/* HEADER / NAVIGATION (CLEAN LUXURY - NO AUDIO BUTTON) */}
+      {/* HEADER / NAVIGATION */}
       <header className="fixed top-0 left-0 right-0 z-50 w-full border-b border-neutral-800/80 bg-neutral-950/90 backdrop-blur-md">
         <div className="w-full px-4 sm:px-8 md:px-12 h-20 sm:h-24 flex items-center justify-between">
           <button type="button" onClick={scrollToTop} className="flex items-center gap-3 cursor-pointer text-left group shrink-0">
