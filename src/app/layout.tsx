@@ -14,7 +14,11 @@ export const metadata: Metadata = {
     "Cinematic AI Films",
   ],
   alternates: {
-    canonical: "/",
+    canonical: "https://aivienne.com",
+  },
+  icons: {
+    icon: "/icon.png",
+    apple: "/apple-icon.png",
   },
   openGraph: {
     title: "AI.VIENNE Studio+ | AI-Powered Luxury Content Studio",
