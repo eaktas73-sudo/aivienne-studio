@@ -127,13 +127,13 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       cap1Title: "8K Master Output", cap1Desc: "High-resolution master stills calibrated for large-format displays, print publications, and global digital flagships.", cap1Tag1: "OUTPUT SPEC", cap1Tag2: "UP TO 8K",
       cap2Title: "Advanced Skin & Material Shading", cap2Desc: "Multi-layered skin shading, micro-texture refinement, and natural translucency for authentic digital character portraits.", cap2Tag1: "SKIN FIDELITY", cap2Tag2: "NATURALISTIC SHADING",
       cap3Title: "Precision Material & Light Simulation", cap3Desc: "Controlled rendering of reflective metals, cut gemstones, and transparent crystals with naturalistic optical refraction.", cap3Tag1: "MATERIAL FIDELITY", cap3Tag2: "CONTROLLED REFRACTION",
-      cap4Title: "Identity Consistency Workflow", cap4Desc: "Reference-guided identity and facial consistency across multi-scene production runs without character distortion.", cap4Tag1: "CONTINUITY", cap4Tag2: "HIGH-FIDELITY LOCK"
+      cap4Title: "Identity Consistency Workflow", cap4Desc: "Reference-guided identity and facial consistency across multi-scene production runs without character distortion.", cap4Tag1: "CONTINUITY", cap4Tag2: "REFERENCE-GUIDED CONSISTENCY"
     },
     system: {
       tag: "THE AI.VIENNE WORKFLOW",
       title: "Five-Stage Production Protocol",
       sub: "DISCOVER · DIRECT · PRODUCE · REFINE · DELIVER",
-      s1Num: "01", s1Title: "DISCOVER", s1Detail: "Brand identity, campaign objectives, product references, CAD schematics, and creative requirements.",
+      s1Num: "01", s1Title: "DISCOVER", s1Detail: "Brand identity, campaign objectives, product references, textile samples, and creative requirements.",
       s2Num: "02", s2Title: "DIRECT", s2Detail: "Art direction, lighting architecture, cinematic framing, visual language, and moodboard alignment.",
       s3Num: "03", s3Title: "PRODUCE", s3Detail: "AI-assisted visual generation, multi-pass material synthesis, light simulation, and high-resolution upscaling.",
       s4Num: "04", s4Title: "REFINE", s4Detail: "Haute retouching, material refinement, chromatic calibration, gemstone clarity, and quality control.",
@@ -184,7 +184,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       playVideo: "Inspect Speculative Case Study", 
       requestScope: "REQUEST SCOPE",
       closePreview: "CLOSE PREVIEW",
-      disclaimer: "Speculative concept study produced by AI.VIENNE Studio+. Not commissioned client work."
+      disclaimer: "Speculative concept study created independently by AI.VIENNE Studio+. Not commissioned by or affiliated with any third-party brand shown or referenced."
     },
     transformation: { 
       tag: "FROM CONCEPT TO MASTER", 
@@ -257,8 +257,8 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       bOpt3: "Full Motion & Character Ecosystem: $15,000 – $35,000+", 
       bOpt4: "Custom Production / Scoped to Requirements", 
       ndaLabel: "Require Mutual Non-Disclosure Agreement (NDA) prior to asset disclosure", 
-      uploadTitle: "Upload CAD Schematics, Moodboards or Reference Files", 
-      uploadHint: "Drag and drop or select reference files (PNG, JPG, MP4, MOV, PDF, ZIP, CAD)", 
+      uploadTitle: "Upload Moodboards or Reference Files", 
+      uploadHint: "Drag and drop or select reference files (PNG, JPG, MP4, MOV, PDF, ZIP)", 
       messagePlaceholder: "Outline your campaign goals, deliverables, aesthetic requirements, and timeline...", 
       submitBtn: "Submit Confidential Brief", 
       directEmail: "Project Desk: info@aivienne.com",
@@ -274,7 +274,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       termsP1Title: "1. INTELLECTUAL PROPERTY & USAGE RIGHTS",
       termsP1Body: "Upon full settlement of commercial production invoices, all delivered final master visual assets, motion files, and customized digital assets transition exclusively to the Client. The Client holds unrestricted worldwide commercial usage rights across digital flagships, broadcast television, print publications, and out-of-home media with zero perpetual royalty claims.",
       termsP2Title: "2. PRE-RELEASE CONFIDENTIALITY & MUTUAL NDA",
-      termsP2Body: "All client briefs, CAD files, unreleased collection sketches, and proprietary brand assets are protected under Mutual Non-Disclosure Agreements upon request. AI.VIENNE Studio+ conducts production on isolated, secure compute environments to ensure confidentiality prior to official release.",
+      termsP2Body: "All client briefs, moodboards, unreleased collection sketches, and proprietary brand assets are protected under Mutual Non-Disclosure Agreements upon request. AI.VIENNE Studio+ conducts production on isolated, secure compute environments to ensure confidentiality prior to official release.",
       termsP3Title: "3. CHROMATIC CALIBRATION & REVISIONS",
       termsP3Body: "Commissions include structured revision rounds covering chromatic balance, material shader tuning, reflection angles, and composition framing to guarantee adherence to the approved brief.",
       termsP4Title: "4. MASTER RESOLUTION STANDARDS",
@@ -283,9 +283,11 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       privacyP1Title: "1. CORPORATE DATA INTEGRITY",
       privacyP1Body: "AI.VIENNE Studio+ collects and processes minimal corporate information strictly necessary for commercial correspondence, project brief formulation, and encrypted file transfer, adhering to international privacy standards.",
       privacyP2Title: "2. ZERO PUBLIC AI MODEL TRAINING",
-      privacyP2Body: "Zero client media, 3D CAD geometries, collection drafts, or proprietary brand identities are ever submitted to or used to train public generative AI foundation models.",
+      privacyP2Body: "Zero client media, reference drafts, or proprietary brand identities are ever submitted to or used to train public generative AI foundation models.",
       privacyP3Title: "3. HARDWARE-LEVEL ENCRYPTION, STORAGE & DATA PURGE",
-      privacyP3Body: "All uploaded brief assets (CAD, ZIP, MP4, MOV, PDF) are stored in secure, encrypted storage with restricted access. Clients retain the contractual right to request the complete cryptographic purge of all project files and uploaded media upon project completion."
+      privacyP3Body: "All uploaded brief assets (PNG, JPG, MP4, MOV, PDF, ZIP) are stored in secure, encrypted storage with restricted access. Clients retain the contractual right to request the complete cryptographic purge of all project files and uploaded media upon project completion.",
+      privacyP4Title: "4. SECURE FILE RETENTION & RESTRICTED ACCESS",
+      privacyP4Body: "All uploaded project assets and reference media are isolated on encrypted volumes and never shared with third-party networks or aggregators."
     },
     footer: "© 2026 AI.VIENNE Studio+. All rights reserved."
   },
@@ -341,13 +343,13 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       cap1Title: "8K Master Çıktı", cap1Desc: "Baskılı lüks yayınlar, dev açık hava panoları ve dijital amiral gemileri için yüksek çözünürlüklü master üretim.", cap1Tag1: "ÇIKIŞ FORMATI", cap1Tag2: "8K MASTER",
       cap2Title: "İleri Düzey Cilt ve Materyal Gölgelendirme", cap2Desc: "Doğal görünümlü dijital karakterler için çok katmanlı cilt geçirgenliği ve mikro-doku optimizasyonu.", cap2Tag1: "CİLT DOĞALLIĞI", cap2Tag2: "ORGANİK DOKU",
       cap3Title: "Hassas Materyal ve Işık Simülasyonu", cap3Desc: "Değerli metallerde, fasetli pırlantalarda ve cam yüzeylerde doğal optik yansıma ve kırılma modellemesi.", cap3Tag1: "MATERYAL HAKİMİYETİ", cap3Tag2: "KONTROLLÜ KIRILMA",
-      cap4Title: "Karakter Tutarlılık Sistemi", cap4Desc: "Referans kılavuzlu yüz yapısı, oran ve stil kontrolü ile çoklu sahnelerde model tutarlılığı.", cap4Tag1: "TUTARLILIK", cap4Tag2: "KİMLİK KİLİTLEME"
+      cap4Title: "Karakter Tutarlılık Sistemi", cap4Desc: "Referans kılavuzlu yüz yapısı, oran ve stil kontrolü ile çoklu sahnelerde model tutarlılığı.", cap4Tag1: "TUTARLILIK", cap4Tag2: "REFERANS KILAVUZLU TUTARLILIK"
     },
     system: {
       tag: "AI.VIENNE METODOLOJİSİ",
       title: "Beş Aşamalı Prodüksiyon Protokolü",
       sub: "KEŞİF · YÖNETİM · ÜRETİM · İŞLEME · TESLİMAT",
-      s1Num: "01", s1Title: "KEŞİF (DISCOVER)", s1Detail: "Marka kimliği, kampanya hedefleri, CAD tasarımları, kumaş numuneleri ve görsel gereksinimlerin analizi.",
+      s1Num: "01", s1Title: "KEŞİF (DISCOVER)", s1Detail: "Marka kimliği, kampanya hedefleri, kumaş numuneleri ve görsel gereksinimlerin analizi.",
       s2Num: "02", s2Title: "YÖNETİM (DIRECT)", s2Detail: "Sanat yönetimi, ışıklandırma mimarisi, sinematik kadrajlama, görsel dil ve moodboard hizalanması.",
       s3Num: "03", s3Title: "ÜRETİM (PRODUCE)", s3Detail: "Yapay zeka destekli görsel üretimi, çok katmanlı materyal sentezi ve yüksek çözünürlüklü işleme.",
       s4Num: "04", s4Title: "İŞLEME (REFINE)", s4Detail: "Haute retouching, materyal iyileştirmesi, renk kalibrasyonu, mücevher ışıltısı ve kalite kontrol.",
@@ -398,7 +400,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       playVideo: "Spekülatif Vaka İncelemesi", 
       requestScope: "KAPSAM TALEP ET",
       closePreview: "ÖNİZLEMEYİ KAPAT",
-      disclaimer: "AI.VIENNE Studio+ tarafından üretilmiş spekülatif konsept çalışmasıdır. Sipariş edilmiş müşteri işi değildir."
+      disclaimer: "AI.VIENNE Studio+ tarafından bağımsız olarak üretilmiş spekülatif konsept çalışmasıdır. Gösterilen veya referans verilen hiçbir üçüncü taraf marka ile bağlantısı veya sponsorluğu bulunmamaktadır."
     },
     transformation: { 
       tag: "KONSEPTTEN MASTERE", 
@@ -471,8 +473,8 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       bOpt3: "Tam Video ve Karakter Ekosistemi: $15,000 – $35,000+", 
       bOpt4: "Özel Kapsam / İhtiyaca Göre Belirlenen", 
       ndaLabel: "Materyal paylaşımı öncesi Karşılıklı Gizlilik Sözleşmesi (NDA) talep ediyorum", 
-      uploadTitle: "CAD Çizimi, Moodboard veya Referans Dosyası Yükleyin", 
-      uploadHint: "Dosyaları sürükleyin veya seçin (PNG, JPG, MP4, MOV, PDF, ZIP, CAD)", 
+      uploadTitle: "Moodboard veya Referans Dosyası Yükleyin", 
+      uploadHint: "Dosyaları sürükleyin veya seçin (PNG, JPG, MP4, MOV, PDF, ZIP)", 
       messagePlaceholder: "Kampanya hedefleriniz, teslimat takviminiz, estetik beklentileriniz hakkında bilgi verin...", 
       submitBtn: "Gizli Brief'i Gönder", 
       directEmail: "Proje Masası: info@aivienne.com",
@@ -488,7 +490,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       termsP1Title: "1. FİKRİ MÜLKİYET VE KULLANIM HAKLARI",
       termsP1Body: "Proje bedelinin tamamlanmasının ardından üretilen tüm nihai master görseller, video dosyaları ve dijital varlıklar sınırsız ve süresiz olarak Müşteriye devredilir. Müşteri ek telif ödemeksizin dijital platformlarda, basılı medyada ve açık hava panolarında tam ticari kullanım hakkına sahiptir.",
       termsP2Title: "2. YAYIN ÖNCESİ GİZLİLİK VE KARŞILIKLI NDA",
-      termsP2Body: "Müşteri tarafından iletilen tüm brief'ler, CAD tasarımları ve yayınlanmamış koleksiyon çizimleri talep üzerine Karşılıklı Gizlilik Sözleşmesi (NDA) altında korunur. Prodüksiyon tamamen izole ve güvenli ortamlarda yürütülür.",
+      termsP2Body: "Müşteri tarafından iletilen tüm brief'ler, moodboard'lar ve yayınlanmamış koleksiyon çizimleri talep üzerine Karşılıklı Gizlilik Sözleşmesi (NDA) altında korunur. Prodüksiyon tamamen izole ve güvenli ortamlarda yürütülür.",
       termsP3Title: "3. RENK KALİBRASYONU VE REVİZYONLAR",
       termsP3Body: "Prodüksiyon süreçleri; renk dengesi, materyal gölgelendirmesi ve kompozisyon uyumu için onaylı brief'e tam uyumu garanti eden yapılandırılmış revizyon döngülerini içerir.",
       termsP4Title: "4. MASTER ÇÖZÜNÜRLÜK STANDARTLARI",
@@ -497,11 +499,11 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       privacyP1Title: "1. KURUMSAL VERİ GÜVENLİĞİ",
       privacyP1Body: "Yalnızca teklif oluşturma, proje brief iletişimi ve şifreli dosya transferi için gerekli asgari kurumsal veriler uluslararası standartlara uygun olarak işlenir.",
       privacyP2Title: "2. AÇIK YAPAY ZEKA MODELLERİNE EĞİTİM VERİLMEZ",
-      privacyP2Body: "Müşterilerimize ait hiçbir tasarım, CAD verisi veya biyometrik yüz taraması herkese açık yapay zeka modellerinin eğitiminde kesinlikle kullanılmaz.",
+      privacyP2Body: "Müşterilerimize ait hiçbir tasarım veya biyometrik yüz taraması herkese açık yapay zeka modellerinin eğitiminde kesinlikle kullanılmaz.",
       privacyP3Title: "3. ŞİFRELİ DEPOLAMA VE VERİ İMHA HAKKI",
-      privacyP3Body: "Yüklenen tüm proje dosyaları (CAD, ZIP, MP4, MOV, PDF) şifreli ve yetkilendirilmiş sunucularda saklanır. Müşteriler teslimat sonrasında tüm çalışma dosyalarının kalıcı olarak imha edilmesini talep etme hakkına sahiptir.",
+      privacyP3Body: "Yüklenen tüm proje dosyaları (PNG, JPG, MP4, MOV, PDF, ZIP) şifreli ve yetkilendirilmiş sunucularda saklanır. Müşteriler teslimat sonrasında tüm çalışma dosyalarının kalıcı olarak imha edilmesini talep etme hakkına sahiptir.",
       privacyP4Title: "4. GÜVENLİ DOSYA RETENTION VE ERİŞİM",
-      privacyP4Body: "Yüklenen tüm referans medya ve CAD çizimleri şifrelenmiş izole disklerde barındırılır ve üçüncü taraf modellerle kesinlikle paylaşılmaz."
+      privacyP4Body: "Yüklenen tüm referans medya şifrelenmiş izole disklerde barındırılır ve üçüncü taraf modellerle kesinlikle paylaşılmaz."
     },
     footer: "© 2026 AI.VIENNE Studio+. Tüm hakları saklıdır."
   }
@@ -601,10 +603,10 @@ const PORTFOLIO_ITEMS: CaseStudyItem[] = [
     desc: "Swiss timepiece complication visualization with sapphire glass reflection control.", 
     brief: "Showcasing internal skeleton escapement motion through anti-reflective curved sapphire crystal.",
     direction: "Precision moody technical lighting emphasizing brushed titanium bevels.",
-    production: "3D CAD geometry alignment integrated with AI neural light shaders and kinematic movement.",
+    production: "Reference-aligned geometry integrated with neural light shaders and kinematic movement.",
     materialStudy: "Blued steel screws, brushed rhodium plates, and anti-reflective optical coatings.",
     deliverables: "16:9 4K Cinema Loop · High-Resolution Master Stills · Movement Isolations",
-    productionNotes: "Behind the Master: CAD-guided structural synthesis ensuring precise gear tooth meshing and realistic optical transparency."
+    productionNotes: "Behind the Master: Reference-guided structural synthesis ensuring precise gear tooth meshing and realistic optical transparency."
   },
   { 
     id: "4", 
@@ -621,7 +623,7 @@ const PORTFOLIO_ITEMS: CaseStudyItem[] = [
     desc: "Brushed titanium frames and polarized gradient lens reflections in vertical fashion format.", 
     brief: "Creating high-fashion eyewear campaign assets balancing metal textures with gradient lenses.",
     direction: "Minimalist brutalist architectural set with high-contrast sunlight.",
-    production: "AI character generation combined with 3D eyewear projection and polarization grading.",
+    production: "AI character generation combined with optical lens shading and polarization grading.",
     materialStudy: "Anisotropic brushed titanium, UV400 gradient lens reflections, and natural skin contact.",
     deliverables: "Vertical Billboard Master · High-Resolution Print Posters · Digital Lookbook",
     productionNotes: "Behind the Master: Precision face-fitting pass ensuring eyewear geometry rests naturally across facial bone landmarks."
@@ -937,7 +939,7 @@ export default function Home() {
       <div className="fixed inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(217,119,6,0.12),rgba(255,255,255,0))]" />
       <div className="fixed inset-0 pointer-events-none opacity-20 bg-[radial-gradient(#d97706_1px,transparent_1px)] [background-size:32px_32px]" />
 
-      {/* SPECULATIVE CASE STUDY INSPECTOR LIGHTBOX (ROBUST CLOSE & ESCAPE) */}
+      {/* SPECULATIVE CASE STUDY INSPECTOR LIGHTBOX (EDITORIAL SPLIT-VIEW ON DESKTOP) */}
       <AnimatePresence>
         {activeCaseStudy && (
           <motion.div 
@@ -945,16 +947,26 @@ export default function Home() {
             animate={{ opacity: 1 }} 
             exit={{ opacity: 0 }} 
             onClick={() => setActiveCaseStudy(null)}
-            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl flex items-center justify-center p-3 md:p-8"
+            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl flex items-center justify-center p-3 sm:p-6 lg:p-10"
           >
             <motion.div 
               initial={{ scale: 0.95, opacity: 0 }} 
               animate={{ scale: 1, opacity: 1 }} 
               exit={{ scale: 0.95, opacity: 0 }} 
               onClick={(e) => e.stopPropagation()}
-              className={`relative w-full ${activeCaseStudy.aspect === "9:16" ? "max-w-xl" : "max-w-5xl"} bg-neutral-950 border border-amber-500/40 rounded-3xl overflow-hidden shadow-2xl max-h-[92vh] flex flex-col`}
+              className="relative w-full max-w-6xl bg-neutral-950 border border-amber-500/40 rounded-3xl overflow-hidden shadow-2xl max-h-[92vh] flex flex-col lg:flex-row"
             >
-              <div className={`relative ${activeCaseStudy.aspect === "9:16" ? "aspect-[9/16] max-h-[48vh]" : "aspect-video max-h-[50vh]"} w-full bg-black flex items-center justify-center overflow-hidden shrink-0`}>
+              {/* Floating Top Close Button */}
+              <button 
+                onClick={() => setActiveCaseStudy(null)} 
+                aria-label="Close Case Study"
+                className="absolute top-4 right-4 z-40 p-2.5 rounded-full bg-neutral-900/90 border border-amber-400/60 text-amber-300 hover:text-neutral-950 hover:bg-amber-400 transition-all cursor-pointer shadow-2xl"
+              >
+                <X className="w-5 h-5 stroke-[2.5]" />
+              </button>
+
+              {/* Left Column (52% on Desktop): Hero Visual / Video Player */}
+              <div className="relative w-full lg:w-[52%] bg-black flex items-center justify-center overflow-hidden shrink-0 min-h-[300px] lg:min-h-[600px] border-b lg:border-b-0 lg:border-r border-neutral-800">
                 {activeCaseStudy.type === "video" ? (
                   <video 
                     autoPlay 
@@ -963,7 +975,7 @@ export default function Home() {
                     preload="auto" 
                     controls 
                     playsInline 
-                    className="w-full h-full object-contain bg-black"
+                    className="w-full h-full object-contain bg-black max-h-[48vh] lg:max-h-[85vh]"
                   >
                     <source src={activeCaseStudy.videoUrl} type="video/mp4" />
                   </video>
@@ -972,36 +984,38 @@ export default function Home() {
                     src={activeCaseStudy.poster} 
                     alt={activeCaseStudy.title} 
                     fill 
-                    sizes="(max-width: 1200px) 100vw, 1200px" 
+                    sizes="(max-width: 1200px) 100vw, 800px" 
                     className="object-contain bg-black" 
                   />
                 )}
               </div>
 
-              {/* Case Study Production Dossier */}
-              <div className="p-6 md:p-8 bg-neutral-950 overflow-y-auto border-t border-neutral-800 space-y-6 text-left">
-                <div className="flex flex-wrap items-center justify-between gap-3">
-                  <div>
-                    <div className="flex items-center gap-2">
-                      <span className="text-[9px] font-extrabold tracking-widest text-amber-300 bg-amber-400/10 border border-amber-400/30 px-2.5 py-0.5 rounded-full uppercase">
-                        {activeCaseStudy.conceptNum}
-                      </span>
-                      <span className="text-[10px] font-mono text-neutral-400 uppercase tracking-wider">
-                        {activeCaseStudy.discipline}
-                      </span>
-                    </div>
-                    <h3 className="text-xl sm:text-2xl font-extrabold text-neutral-100 mt-2">{activeCaseStudy.title}</h3>
+              {/* Right Column (48% on Desktop): Editorial Production Breakdown Dossier */}
+              <div className="w-full lg:w-[48%] p-6 sm:p-8 bg-neutral-950 overflow-y-auto space-y-6 text-left flex flex-col justify-between">
+                <div>
+                  <div className="flex flex-wrap items-center gap-2 mb-2">
+                    <span className="text-[9px] font-extrabold tracking-widest text-amber-300 bg-amber-400/10 border border-amber-400/30 px-2.5 py-0.5 rounded-full uppercase">
+                      {activeCaseStudy.conceptNum}
+                    </span>
+                    <span className="text-[10px] font-mono text-neutral-400 uppercase tracking-wider">
+                      {activeCaseStudy.discipline}
+                    </span>
                   </div>
                   
-                  {/* Action Buttons: REQUEST SCOPE & CLOSE PREVIEW */}
-                  <div className="flex items-center gap-3 shrink-0">
+                  <h3 className="text-xl sm:text-2xl font-extrabold text-neutral-100 mb-4">{activeCaseStudy.title}</h3>
+
+                  {/* Action Buttons */}
+                  <div className="flex flex-wrap items-center gap-3 mb-6 pb-6 border-b border-neutral-800">
                     <button 
                       onClick={() => {
-                        setFormData(prev => ({ ...prev, message: `[COMMISSION INQUIRY]\nI am interested in commissioning a production scope similar to "${activeCaseStudy.title}" (${activeCaseStudy.conceptNum}).` }));
+                        setFormData(prev => ({ 
+                          ...prev, 
+                          message: `[CASE STUDY INQUIRY: ${activeCaseStudy.title}]\nReferenced Study: ${activeCaseStudy.conceptNum} (${activeCaseStudy.discipline})\nDeliverable Focus: ${activeCaseStudy.deliverables}\n\nWe would like to request an official project proposal based on these specifications.` 
+                        }));
                         setActiveCaseStudy(null);
                         document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
                       }}
-                      className="px-6 py-2.5 rounded-full bg-amber-400 text-neutral-950 font-bold text-xs uppercase tracking-wider hover:bg-amber-300 transition-all cursor-pointer flex items-center gap-2"
+                      className="px-6 py-2.5 rounded-full bg-amber-400 text-neutral-950 font-bold text-xs uppercase tracking-wider hover:bg-amber-300 transition-all cursor-pointer flex items-center gap-2 shadow-lg"
                     >
                       <span>{t.portfolio?.requestScope || "REQUEST SCOPE"}</span>
                       <ArrowRight className="w-3.5 h-3.5" />
@@ -1013,36 +1027,38 @@ export default function Home() {
                       {t.portfolio?.closePreview || "CLOSE PREVIEW"}
                     </button>
                   </div>
+
+                  {/* 6-Stage Breakdown Grid */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-xs">
+                    <div className="p-3.5 rounded-2xl bg-neutral-900/60 border border-neutral-800">
+                      <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">01 · Creative Brief</span>
+                      <p className="text-neutral-300 text-[11px] leading-relaxed font-light">{activeCaseStudy.brief}</p>
+                    </div>
+                    <div className="p-3.5 rounded-2xl bg-neutral-900/60 border border-neutral-800">
+                      <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">02 · Creative Direction</span>
+                      <p className="text-neutral-300 text-[11px] leading-relaxed font-light">{activeCaseStudy.direction}</p>
+                    </div>
+                    <div className="p-3.5 rounded-2xl bg-neutral-900/60 border border-neutral-800">
+                      <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">03 · Production Approach</span>
+                      <p className="text-neutral-300 text-[11px] leading-relaxed font-light">{activeCaseStudy.production}</p>
+                    </div>
+                    <div className="p-3.5 rounded-2xl bg-neutral-900/60 border border-neutral-800">
+                      <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">04 · Material & Lighting</span>
+                      <p className="text-neutral-300 text-[11px] leading-relaxed font-light">{activeCaseStudy.materialStudy}</p>
+                    </div>
+                    <div className="p-3.5 rounded-2xl bg-neutral-900/60 border border-neutral-800">
+                      <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">05 · Deliverables</span>
+                      <p className="text-neutral-300 text-[11px] leading-relaxed font-semibold">{activeCaseStudy.deliverables}</p>
+                    </div>
+                    <div className="p-3.5 rounded-2xl bg-neutral-900/60 border border-amber-500/30 bg-amber-500/5">
+                      <span className="text-[10px] font-bold text-amber-400 uppercase block mb-1">06 · Refinement & Master</span>
+                      <p className="text-neutral-300 text-[11px] leading-relaxed font-light">{activeCaseStudy.productionNotes}</p>
+                    </div>
+                  </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
-                  <div className="p-4 rounded-2xl bg-neutral-900/60 border border-neutral-800">
-                    <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">01 · Creative Brief</span>
-                    <p className="text-neutral-300 text-xs leading-relaxed font-light">{activeCaseStudy.brief}</p>
-                  </div>
-                  <div className="p-4 rounded-2xl bg-neutral-900/60 border border-neutral-800">
-                    <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">02 · Creative Direction</span>
-                    <p className="text-neutral-300 text-xs leading-relaxed font-light">{activeCaseStudy.direction}</p>
-                  </div>
-                  <div className="p-4 rounded-2xl bg-neutral-900/60 border border-neutral-800">
-                    <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">03 · Production Approach</span>
-                    <p className="text-neutral-300 text-xs leading-relaxed font-light">{activeCaseStudy.production}</p>
-                  </div>
-                  <div className="p-4 rounded-2xl bg-neutral-900/60 border border-neutral-800">
-                    <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">04 · Material & Lighting</span>
-                    <p className="text-neutral-300 text-xs leading-relaxed font-light">{activeCaseStudy.materialStudy}</p>
-                  </div>
-                  <div className="p-4 rounded-2xl bg-neutral-900/60 border border-neutral-800">
-                    <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">05 · Deliverables</span>
-                    <p className="text-neutral-300 text-xs leading-relaxed font-semibold">{activeCaseStudy.deliverables}</p>
-                  </div>
-                  <div className="p-4 rounded-2xl bg-neutral-900/60 border border-amber-500/30 bg-amber-500/5">
-                    <span className="text-[10px] font-bold text-amber-400 uppercase block mb-1">06 · Refinement & Master</span>
-                    <p className="text-neutral-300 text-xs leading-relaxed font-light">{activeCaseStudy.productionNotes}</p>
-                  </div>
-                </div>
-
-                <div className="pt-2 border-t border-neutral-900 flex items-center justify-between text-[10px] text-neutral-500 font-mono">
+                {/* Footer Disclaimers */}
+                <div className="pt-4 mt-6 border-t border-neutral-900 flex items-center justify-between text-[10px] text-neutral-500 font-mono">
                   <span>{t.portfolio?.disclaimer}</span>
                 </div>
               </div>
@@ -1245,13 +1261,13 @@ export default function Home() {
       <header className="fixed top-0 left-0 right-0 z-50 w-full border-b border-neutral-800/80 bg-neutral-950/90 backdrop-blur-md">
         <div className="w-full px-4 sm:px-8 md:px-12 h-20 sm:h-24 flex items-center justify-between">
           <button type="button" onClick={scrollToTop} className="flex items-center gap-3 cursor-pointer text-left group shrink-0">
-            <div className="relative w-10 h-10 sm:w-12 sm:h-12 transition-transform duration-300 group-hover:scale-105">
+            <div className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden transition-transform duration-300 group-hover:scale-105">
               <Image
                 src="/logo.png"
                 alt="AI.VIENNE Studio+"
                 fill
                 sizes="48px"
-                className="object-contain"
+                className="object-cover rounded-full"
                 priority
               />
             </div>
@@ -1403,7 +1419,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* STRATEGIC PRODUCTION SERVICES */}
+      {/* STRATEGIC PRODUCTION SERVICES (CLEANED - NO COMMISSION SCOPE REPEATS) */}
       <section id="services" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12 sm:mb-16">
@@ -1731,7 +1747,7 @@ export default function Home() {
               { num: t.capabilitiesSection?.c2Num, title: t.capabilitiesSection?.c2Title, desc: t.capabilitiesSection?.c2Desc, icon: Box },
               { num: t.capabilitiesSection?.c3Num, title: t.capabilitiesSection?.c3Title, desc: t.capabilitiesSection?.c3Desc, icon: Film },
               { num: t.capabilitiesSection?.c4Num, title: t.capabilitiesSection?.c4Title, desc: t.capabilitiesSection?.c4Desc, icon: UserCheck },
-              { num: t.capabilitiesSection?.c5Num, title: t.capabilitiesSection?.c5Title, desc: t.capabilitiesSection?.c5Desc, icon: LayoutGrid }
+              { num: t.capabilitiesSection?.c5Num, title: t.capabilitiesSection?.c5Desc, icon: LayoutGrid }
             ].map((cap, idx) => (
               <div 
                 key={idx} 
@@ -2018,11 +2034,11 @@ export default function Home() {
               { num: t.system?.s2Num, title: t.system?.s2Title, desc: t.system?.s2Detail, icon: Sliders },
               { num: t.system?.s3Num, title: t.system?.s3Title, desc: t.system?.s3Detail, icon: Cpu },
               { num: t.system?.s4Num, title: t.system?.s4Title, desc: t.system?.s4Detail, icon: Sparkles },
-              { num: t.system?.s5Num, title: t.system?.s5Title, desc: t.system?.s5Detail, icon: CheckSquare }
+              { num: t.system?.s5Num, title: t.system?.s5Detail, icon: CheckSquare }
             ].map((step, idx) => (
               <div 
                 key={idx} 
-                className="p-6 rounded-2xl bg-neutral-900/40 border border-neutral-800/80 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group relative shadow-lg cursor-pointer"
+                className="p-6 rounded-2xl bg-neutral-900/40 border border-neutral-800/80 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group relative shadow-lg cursor-pointer"
               >
                 <div className="absolute top-4 right-4 text-neutral-700 group-hover:text-amber-400 transition-colors">
                   <step.icon className="w-5 h-5" />
@@ -2428,7 +2444,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PROJECT INQUIRY & WHAT HAPPENS NEXT */}
+      {/* PROJECT INQUIRY & WHAT HAPPENS NEXT (CLEANED - MOODBOARDS & REFERENCE FILES ONLY) */}
       <section id="contact" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
@@ -2501,7 +2517,7 @@ export default function Home() {
             <div>
               <label className="block text-xs font-bold text-neutral-300 uppercase mb-3">{t.contact?.uploadTitle}</label>
               <div className="relative border-2 border-dashed border-neutral-800 hover:border-amber-500/50 rounded-2xl p-6 sm:p-8 bg-neutral-950/60 text-center transition-colors group cursor-pointer">
-                <input type="file" multiple onChange={handleFileUpload} accept="image/*,video/*,.pdf,.zip,.cad,.obj" className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10" />
+                <input type="file" multiple onChange={handleFileUpload} accept="image/*,video/*,.pdf,.zip" className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10" />
                 <div className="flex flex-col items-center justify-center gap-3">
                   <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform"><UploadCloud className="w-6 h-6" /></div>
                   <p className="text-xs sm:text-sm font-medium text-neutral-200 max-w-md leading-relaxed">{t.contact?.uploadHint}</p>
@@ -2554,7 +2570,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FOOTER */}
+      {/* FOOTER (CLEAN CIRCULAR EMBLEM) */}
       <footer className="relative z-10 pt-16 sm:pt-20 pb-12 px-4 sm:px-12 md:px-16">
         <div className="w-full bg-amber-400 text-neutral-950 rounded-[30px] sm:rounded-[40px] p-6 sm:p-10 md:p-20 shadow-[0_0_60px_rgba(251,191,36,0.18)]/20 overflow-hidden">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 pb-12 sm:pb-20 border-b border-neutral-950/20 text-left">
@@ -2588,16 +2604,16 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Maison Emblem & Brand Header */}
+          {/* Maison Emblem & Brand Header - Pure Circle No Square Artifact */}
           <div className="py-8 sm:py-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 overflow-hidden text-left">
             <div className="flex items-center gap-6 sm:gap-8">
-              <div className="relative w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36 rounded-full bg-neutral-950 border-2 border-neutral-950 p-2 sm:p-3 shadow-2xl shrink-0">
+              <div className="relative w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36 rounded-full overflow-hidden shadow-2xl shrink-0 bg-neutral-950 border-2 border-neutral-950">
                 <Image
                   src="/logo.png"
                   alt="AI.VIENNE Studio+ Luxury Emblem"
                   fill
                   sizes="144px"
-                  className="object-contain p-2"
+                  className="object-cover rounded-full"
                 />
               </div>
               <div>
