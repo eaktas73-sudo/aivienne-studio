@@ -94,7 +94,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       s1Time: "7 – 10 Business Days",
       s2Tag: "OBJECT & HOROLOGY",
       s2Title: "Haute Horlogerie & Fine Jewelry",
-      s2Desc: "Create high-magnification product campaigns with controlled specular reflection and gemstone light dispersion.",
+      s2Desc: "Create high-magnification luxury watch and fine jewelry product campaigns with controlled specular reflection and gemstone light dispersion.",
       s2Capabilities: "CAD Alignment · Precision Light Control · Gemstone Refraction · Mechanical Movement Visualization",
       s2Deliverables: "Hero Product Stills · Macro Detail Series · Motion Loops · Cutout / E-Commerce Masters",
       s2Time: "5 – 8 Business Days",
@@ -115,7 +115,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       tag: "PRODUCTION CAPABILITIES",
       title: "Engineered Visual Capabilities",
       c1Num: "01", c1Title: "HAUTE COUTURE EDITORIALS", c1Desc: "Full-scale seasonal campaign imagery with natural textile weight, fluid movement, and atmospheric styling.",
-      c2Num: "02", c2Title: "FINE JEWELRY & WATCHES", c2Desc: "Controlled light dispersion, diamond brilliance, sapphire crystal clarity, and micro-mechanical precision.",
+      c2Num: "02", c2Title: "FINE JEWELRY & WATCHES", c2Desc: "Controlled light dispersion, diamond brilliance, sapphire crystal clarity, and micro-mechanical precision for high-end watch and jewelry campaigns.",
       c3Num: "03", c3Title: "CINEMATIC BRAND FILMS", c3Desc: "Emotion-led high-frame-rate motion visuals calibrated for luxury broadcast and retail flagships.",
       c4Num: "04", c4Title: "CONSISTENT DIGITAL CHARACTERS", c4Desc: "Reliable character continuity preserving facial structure, natural expression, and styling across diverse settings.",
       c5Num: "05", c5Title: "SCALABLE CAMPAIGN SYSTEMS", c5Desc: "Multi-channel visual systems delivering cohesive color grading and consistent brand DNA across all outputs."
@@ -127,7 +127,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       cap1Title: "8K Master Output", cap1Desc: "High-resolution master stills calibrated for large-format displays, print publications, and global digital flagships.", cap1Tag1: "OUTPUT SPEC", cap1Tag2: "UP TO 8K",
       cap2Title: "Advanced Skin & Material Shading", cap2Desc: "Multi-layered skin shading, micro-texture refinement, and natural translucency for authentic digital character portraits.", cap2Tag1: "SKIN FIDELITY", cap2Tag2: "NATURALISTIC SHADING",
       cap3Title: "Precision Material & Light Simulation", cap3Desc: "Controlled rendering of reflective metals, cut gemstones, and transparent crystals with naturalistic optical refraction.", cap3Tag1: "MATERIAL FIDELITY", cap3Tag2: "CONTROLLED REFRACTION",
-      cap4Title: "Identity Consistency Workflow", cap4Desc: "Reference-guided facial structure, proportion and styling control across multi-scene production.", cap4Tag1: "CONTINUITY", cap4Tag2: "HIGH-FIDELITY LOCK"
+      cap4Title: "Identity Consistency Workflow", cap4Desc: "Reference-guided identity and facial consistency across multi-scene production runs without character distortion.", cap4Tag1: "CONTINUITY", cap4Tag2: "HIGH-FIDELITY LOCK"
     },
     system: {
       tag: "THE AI.VIENNE WORKFLOW",
@@ -177,7 +177,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
     portfolio: { 
       tag: "AI.VIENNE CONCEPT ARCHIVE", 
       title: "Speculative Campaign Studies", 
-      desc: "Explore curated speculative productions and vertical concept studies demonstrating our capabilities across high fashion, fine jewelry, and horology.", 
+      desc: "Explore curated speculative productions and vertical concept studies demonstrating our capabilities across high fashion, fine jewelry, and luxury watch visualization.", 
       filterAll: "All Concepts", 
       filter169: "16:9 Widescreen Concepts", 
       filter916: "9:16 Vertical Studies", 
@@ -245,7 +245,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       datePlaceholder: "Target Launch Date / Timeline", 
       serviceLabel: "Select Production Discipline", 
       sOpt1: "Haute Couture & Seasonal Campaigns", 
-      sOpt2: "Haute Horlogerie & Fine Jewelry Visualization", 
+      sOpt2: "Haute Horlogerie & Fine Jewelry Visualization (Luxury Watches & Jewelry)", 
       sOpt3: "Persistent Digital Brand Ambassadors", 
       sOpt4: "Brand Heritage & Flagship Films", 
       sOpt5: "Haute Parfumerie & Prestige Beauty Campaign", 
@@ -308,7 +308,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       s1Time: "7 – 10 İş Günü",
       s2Tag: "ÜRÜN VE SAATÇİLİK",
       s2Title: "Haute Horlogerie & Lüks Mücevherat",
-      s2Desc: "Kontrollü ışık yansımaları, pırlanta kırılımları ve İsviçre mekanizma detaylarıyla makro lüks ürün görselleştirmesi.",
+      s2Desc: "Kontrollü ışık yansımaları, pırlanta kırılımları ve lüks saat mekanizması detaylarıyla makro ürün görselleştirmesi.",
       s2Capabilities: "CAD Hizalama · Hassas Işık Kontrolü · Değerli Taş Kırılımı · Mekanik Hareket Görselleştirmesi",
       s2Deliverables: "Hero Ürün Görselleri · Makro Detay Serileri · Video Döngüleri · Dekupe E-Ticaret Masterları",
       s2Time: "5 – 8 İş Günü",
@@ -329,7 +329,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       tag: "PRODÜKSİYON STANDARTLARI",
       title: "Görsel Üretim Standartları",
       c1Num: "01", c1Title: "HAUTE COUTURE EDİTORYAL", c1Desc: "Doğal kumaş ağırlığı, akışkan döküm ve editoryal atmosfer ile tam kapsamlı sezonluk moda görselleri.",
-      c2Num: "02", c2Title: "MÜCEVHER VE SAATÇİLİK", c2Desc: "Kontrollü ışık kırılımı, safir cam yansımaları, pırlanta ışıltısı ve mikro-mekanik saat detayları.",
+      c2Num: "02", c2Title: "MÜCEVHER VE SAATÇİLİK", c2Desc: "Kontrollü ışık kırılımı, safir cam yansımaları, pırlanta ışıltısı ve lüks saat mekanizma detayları.",
       c3Num: "03", c3Title: "SİNEMATİK MARKA FİLMLERİ", c3Desc: "Lüks amiral mağaza ekranları ve küresel yayınlar için duygu odaklı sinematik video prodüksiyonları.",
       c4Num: "04", c4Title: "TUTARLI DİJİTAL KARAKTERLER", c4Desc: "Farklı çekim ortamlarında yüz kemik yapısını, ifadesini ve marka stilini tavizsiz koruyan karakter altyapısı.",
       c5Num: "05", c5Title: "ÖLÇEKLENEBİLİR KAMPANYA SİSTEMLERİ", c5Desc: "Tüm temas noktalarında kusursuz renk derecelendirme ve marka DNA tutarlılığı sunan görsel ekosistem."
@@ -391,7 +391,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
     portfolio: { 
       tag: "AI.VIENNE KONSEPT ARŞİVİ", 
       title: "Spekülatif Kampanya Çalışmaları", 
-      desc: "Yüksek moda, mücevher ve saatçilik alanındaki prodüksiyon yetkinliklerimizi sergileyen küratörlü konsept çalışmaları inceleyin.", 
+      desc: "Yüksek moda, mücevher ve lüks saat görselleştirmesi alanındaki prodüksiyon yetkinliklerimizi sergileyen küratörlü konsept çalışmaları inceleyin.", 
       filterAll: "Tüm Konseptler", 
       filter169: "16:9 Geniş Ekran Konseptleri", 
       filter916: "9:16 Dikey Çalışmalar", 
@@ -499,7 +499,9 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       privacyP2Title: "2. AÇIK YAPAY ZEKA MODELLERİNE EĞİTİM VERİLMEZ",
       privacyP2Body: "Müşterilerimize ait hiçbir tasarım, CAD verisi veya biyometrik yüz taraması herkese açık yapay zeka modellerinin eğitiminde kesinlikle kullanılmaz.",
       privacyP3Title: "3. ŞİFRELİ DEPOLAMA VE VERİ İMHA HAKKI",
-      privacyP3Body: "Yüklenen tüm proje dosyaları (CAD, ZIP, MP4, MOV, PDF) şifreli ve yetkilendirilmiş sunucularda saklanır. Müşteriler teslimat sonrasında tüm çalışma dosyalarının kalıcı olarak imha edilmesini talep etme hakkına sahiptir."
+      privacyP3Body: "Yüklenen tüm proje dosyaları (CAD, ZIP, MP4, MOV, PDF) şifreli ve yetkilendirilmiş sunucularda saklanır. Müşteriler teslimat sonrasında tüm çalışma dosyalarının kalıcı olarak imha edilmesini talep etme hakkına sahiptir.",
+      privacyP4Title: "4. GÜVENLİ DOSYA RETENTION VE ERİŞİM",
+      privacyP4Body: "Yüklenen tüm referans medya ve CAD çizimleri şifrelenmiş izole disklerde barındırılır ve üçüncü taraf modellerle kesinlikle paylaşılmaz."
     },
     footer: "© 2026 AI.VIENNE Studio+. Tüm hakları saklıdır."
   }
@@ -1023,11 +1025,11 @@ export default function Home() {
                     <p className="text-neutral-300 text-xs leading-relaxed font-light">{activeCaseStudy.direction}</p>
                   </div>
                   <div className="p-4 rounded-2xl bg-neutral-900/60 border border-neutral-800">
-                    <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">03 · Production Workflow</span>
+                    <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">03 · Production Approach</span>
                     <p className="text-neutral-300 text-xs leading-relaxed font-light">{activeCaseStudy.production}</p>
                   </div>
                   <div className="p-4 rounded-2xl bg-neutral-900/60 border border-neutral-800">
-                    <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">04 · Material Study</span>
+                    <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">04 · Material & Lighting</span>
                     <p className="text-neutral-300 text-xs leading-relaxed font-light">{activeCaseStudy.materialStudy}</p>
                   </div>
                   <div className="p-4 rounded-2xl bg-neutral-900/60 border border-neutral-800">
@@ -1035,7 +1037,7 @@ export default function Home() {
                     <p className="text-neutral-300 text-xs leading-relaxed font-semibold">{activeCaseStudy.deliverables}</p>
                   </div>
                   <div className="p-4 rounded-2xl bg-neutral-900/60 border border-amber-500/30 bg-amber-500/5">
-                    <span className="text-[10px] font-bold text-amber-400 uppercase block mb-1">06 · Behind the Master</span>
+                    <span className="text-[10px] font-bold text-amber-400 uppercase block mb-1">06 · Refinement & Master</span>
                     <p className="text-neutral-300 text-xs leading-relaxed font-light">{activeCaseStudy.productionNotes}</p>
                   </div>
                 </div>
@@ -1189,6 +1191,10 @@ export default function Home() {
                   <h4 className="text-sm font-bold text-amber-300 uppercase tracking-wide mb-2">{t.modals?.privacyP3Title}</h4>
                   <p className="font-light leading-relaxed">{t.modals?.privacyP3Body}</p>
                 </div>
+                <div>
+                  <h4 className="text-sm font-bold text-amber-300 uppercase tracking-wide mb-2">{t.modals?.privacyP4Title}</h4>
+                  <p className="font-light leading-relaxed">{t.modals?.privacyP4Body}</p>
+                </div>
               </div>
             </motion.div>
           </motion.div>
@@ -1235,7 +1241,7 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      {/* HEADER / NAVIGATION (ROBUST STUDIO DROPDOWN) */}
+      {/* HEADER / NAVIGATION */}
       <header className="fixed top-0 left-0 right-0 z-50 w-full border-b border-neutral-800/80 bg-neutral-950/90 backdrop-blur-md">
         <div className="w-full px-4 sm:px-8 md:px-12 h-20 sm:h-24 flex items-center justify-between">
           <button type="button" onClick={scrollToTop} className="flex items-center gap-3 cursor-pointer text-left group shrink-0">
@@ -1268,7 +1274,7 @@ export default function Home() {
               <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-amber-400 transition-all duration-300 group-hover:w-full" />
             </a>
 
-            {/* Robust Studio Dropdown with no hover gap */}
+            {/* Studio Dropdown with solid hover bridge */}
             <div 
               ref={studioMenuRef}
               className="relative py-2" 
@@ -1440,10 +1446,8 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="mt-8 pt-6 border-t border-neutral-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                <div>
-                  <span className="text-[10px] font-mono text-neutral-500 uppercase block">{t.servicesPillars?.leadTimeLabel} {t.servicesPillars?.s1Time}</span>
-                </div>
+              <div className="mt-8 pt-6 border-t border-neutral-800 flex items-center justify-between">
+                <span className="text-[10px] font-mono text-neutral-500 uppercase">{t.servicesPillars?.leadTimeLabel} {t.servicesPillars?.s1Time}</span>
                 <button 
                   type="button"
                   onClick={() => selectServicePillar("sOpt1", "Haute Couture & Seasonal Campaigns")}
@@ -1486,10 +1490,8 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="mt-8 pt-6 border-t border-neutral-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                <div>
-                  <span className="text-[10px] font-mono text-neutral-500 uppercase block">{t.servicesPillars?.leadTimeLabel} {t.servicesPillars?.s2Time}</span>
-                </div>
+              <div className="mt-8 pt-6 border-t border-neutral-800 flex items-center justify-between">
+                <span className="text-[10px] font-mono text-neutral-500 uppercase">{t.servicesPillars?.leadTimeLabel} {t.servicesPillars?.s2Time}</span>
                 <button 
                   type="button"
                   onClick={() => selectServicePillar("sOpt2", "Haute Horlogerie & Fine Jewelry")}
@@ -1532,10 +1534,8 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="mt-8 pt-6 border-t border-neutral-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                <div>
-                  <span className="text-[10px] font-mono text-neutral-500 uppercase block">{t.servicesPillars?.leadTimeLabel} {t.servicesPillars?.s3Time}</span>
-                </div>
+              <div className="mt-8 pt-6 border-t border-neutral-800 flex items-center justify-between">
+                <span className="text-[10px] font-mono text-neutral-500 uppercase">{t.servicesPillars?.leadTimeLabel} {t.servicesPillars?.s3Time}</span>
                 <button 
                   type="button"
                   onClick={() => selectServicePillar("sOpt3", "Persistent Brand Ambassadors")}
@@ -1578,10 +1578,8 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="mt-8 pt-6 border-t border-neutral-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                <div>
-                  <span className="text-[10px] font-mono text-neutral-500 uppercase block">{t.servicesPillars?.leadTimeLabel} {t.servicesPillars?.s4Time}</span>
-                </div>
+              <div className="mt-8 pt-6 border-t border-neutral-800 flex items-center justify-between">
+                <span className="text-[10px] font-mono text-neutral-500 uppercase">{t.servicesPillars?.leadTimeLabel} {t.servicesPillars?.s4Time}</span>
                 <button 
                   type="button"
                   onClick={() => selectServicePillar("sOpt4", "Brand Heritage & Flagship Films")}
@@ -1964,9 +1962,9 @@ export default function Home() {
               <div className="pt-6 border-t border-neutral-800/80 grid grid-cols-2 gap-4 text-left">
                 <div className="p-3 sm:p-3.5 rounded-xl bg-neutral-950/90 border border-neutral-800">
                   <p className="text-[10px] font-bold text-amber-300 uppercase flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3 h-3 text-emerald-400" /> Landmark Alignment
+                    <CheckCircle2 className="w-3 h-3 text-emerald-400" /> Reference Guidance
                   </p>
-                  <p className="text-xs font-semibold text-neutral-200 mt-1">Facial Structure & Proportions</p>
+                  <p className="text-xs font-semibold text-neutral-200 mt-1">Facial Structure Consistency</p>
                 </div>
                 <div className="p-3 sm:p-3.5 rounded-xl bg-neutral-950/90 border border-neutral-800">
                   <p className="text-[10px] font-bold text-amber-300 uppercase flex items-center gap-1.5">
@@ -2024,7 +2022,7 @@ export default function Home() {
             ].map((step, idx) => (
               <div 
                 key={idx} 
-                className="p-6 rounded-2xl bg-neutral-900/40 border border-neutral-800/80 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group relative shadow-lg cursor-pointer"
+                className="p-6 rounded-2xl bg-neutral-900/40 border border-neutral-800/80 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group relative shadow-lg cursor-pointer"
               >
                 <div className="absolute top-4 right-4 text-neutral-700 group-hover:text-amber-400 transition-colors">
                   <step.icon className="w-5 h-5" />
@@ -2481,7 +2479,7 @@ export default function Home() {
                   <option value="bOpt1">{t.contact?.bOpt1}</option> 
                   <option value="bOpt2">{t.contact?.bOpt2}</option> 
                   <option value="bOpt3">{t.contact?.bOpt3}</option> 
-                  <option value="bOpt4">{t.contact?.bOpt4}</option>
+                  <option value="bOpt4">{t.contact?.bOpt4}</option> 
                 </select>
               </div>
             </div>
