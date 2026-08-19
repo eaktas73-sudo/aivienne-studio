@@ -85,19 +85,18 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       desc: "Commissioned visual engagements designed to streamline visual production and elevate brand expression across physical and digital flagships.",
       leadTimeLabel: "Typical Lead Time:",
       leadTimeNote: "Timing varies according to creative scope, asset volume, revision rounds and delivery requirements.",
-      scopeNote: "Campaigns are scoped according to asset volume, creative complexity, revision requirements and delivery formats.",
       btnBrief: "Commission Scope",
       s1Tag: "CAMPAIGNS",
       s1Title: "Haute Couture & Seasonal Campaigns",
       s1Desc: "Seasonal fashion campaigns without the logistical constraints of conventional location shoots.",
-      s1Capabilities: "Concept Direction · Editorial Imagery · Dynamic Fabric Physics · Campaign Systems",
+      s1Capabilities: "Concept Direction · Editorial Imagery · Dynamic Fabric Movement · Campaign Systems",
       s1Deliverables: "Hero Stills · Lookbook Suites · Vertical Social Cuts · Motion Loops",
       s1Time: "7 – 10 Business Days",
       s2Tag: "OBJECT & HOROLOGY",
       s2Title: "Haute Horlogerie & Fine Jewelry",
       s2Desc: "Create high-magnification product campaigns with controlled specular reflection and gemstone light dispersion.",
-      s2Capabilities: "CAD Alignment · Precision Light Control · Gemstone Refraction · Swiss Caliber Motion",
-      s2Deliverables: "Macro Master Stills · Controlled Caustic Motion Loops · Cutout Master Suites",
+      s2Capabilities: "CAD Alignment · Precision Light Control · Gemstone Refraction · Mechanical Movement Visualization",
+      s2Deliverables: "Hero Product Stills · Macro Detail Series · Motion Loops · Cutout / E-Commerce Masters",
       s2Time: "5 – 8 Business Days",
       s3Tag: "DIGITAL CHARACTERS",
       s3Title: "Persistent Brand Ambassadors",
@@ -124,11 +123,11 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
     capabilitiesTech: {
       tag: "TECHNICAL RIGOR",
       title: "AI-Assisted Production Workflow",
-      desc: "Combining state-of-the-art generative tools, advanced compositing, and professional post-production for uncompromising luxury fidelity.",
+      desc: "Combining current generative tools, advanced compositing, and professional post-production for uncompromising luxury fidelity.",
       cap1Title: "8K Master Output", cap1Desc: "High-resolution master stills calibrated for large-format displays, print publications, and global digital flagships.", cap1Tag1: "OUTPUT SPEC", cap1Tag2: "UP TO 8K",
       cap2Title: "Advanced Skin & Material Shading", cap2Desc: "Multi-layered skin shading, micro-texture refinement, and natural translucency for authentic digital character portraits.", cap2Tag1: "SKIN FIDELITY", cap2Tag2: "NATURALISTIC SHADING",
       cap3Title: "Precision Material & Light Simulation", cap3Desc: "Controlled rendering of reflective metals, cut gemstones, and transparent crystals with naturalistic optical refraction.", cap3Tag1: "MATERIAL FIDELITY", cap3Tag2: "CONTROLLED REFRACTION",
-      cap4Title: "Character Consistency Workflow", cap4Desc: "Structural landmark alignment and facial feature locking to maintain model continuity across multi-scene production runs.", cap4Tag1: "CONTINUITY", cap4Tag2: "HIGH-FIDELITY LOCK"
+      cap4Title: "Identity Consistency Workflow", cap4Desc: "Reference-guided facial structure, proportion and styling control across multi-scene production.", cap4Tag1: "CONTINUITY", cap4Tag2: "HIGH-FIDELITY LOCK"
     },
     system: {
       tag: "THE AI.VIENNE WORKFLOW",
@@ -225,7 +224,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
     twinsSection: { 
       tag: "DIGITAL CHARACTERS", 
       title: "Digital Character Showcase", 
-      desc: "Bespoke digital brand faces engineered with character consistency, realistic skin texturing, and refined luxury styling.", 
+      desc: "Bespoke digital brand faces engineered with character consistency, natural skin micro-texture, and refined luxury styling.", 
       identityTitle: "Character Consistency System", 
       identityDesc: "Designed to preserve facial structure, natural proportions, and distinct aesthetic presence across multiple seasonal environments.",
       useCasesTitle: "WHERE DIGITAL CHARACTERS CREATE VALUE",
@@ -300,19 +299,18 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       desc: "Görsel üretim süreçlerini kolaylaştırmak ve fiziksel ile dijital amiral gemilerinde marka ifadesini yükseltmek için tasarlanmış hizmetler.",
       leadTimeLabel: "Ortalama Teslim Süresi:",
       leadTimeNote: "Süreler proje kapsamı, varlık adedi, revizyon döngüleri ve teslimat formatlarına göre değişiklik gösterebilir.",
-      scopeNote: "Projeler varlık adedi, kreatif karmaşıklık, revizyon ihtiyaçları ve teslimat formatlarına göre özel olarak kapsamlandırılır.",
       btnBrief: "Hizmet Talebi Oluştur",
       s1Tag: "KAMPANYALAR",
       s1Title: "Haute Couture & Sezonluk Kampanyalar",
       s1Desc: "Fiziksel mekan ve lojistik kısıtlamaları olmadan üretilen sezonluk moda kampanya görselleri ve editoryal stil anlatıları.",
-      s1Capabilities: "Konsept Yönetimi · Editoryal Görseller · Kumaş Simülasyonu · Çoklu Kampanya Sistemleri",
+      s1Capabilities: "Konsept Yönetimi · Editoryal Görseller · Kumaş Hareketi · Çoklu Kampanya Sistemleri",
       s1Deliverables: "Hero Görseller · Lookbook Paketleri · Dikey Sosyal Medya Kurguları · Video Döngüleri",
       s1Time: "7 – 10 İş Günü",
       s2Tag: "ÜRÜN VE SAATÇİLİK",
       s2Title: "Haute Horlogerie & Lüks Mücevherat",
       s2Desc: "Kontrollü ışık yansımaları, pırlanta kırılımları ve İsviçre mekanizma detaylarıyla makro lüks ürün görselleştirmesi.",
-      s2Capabilities: "CAD Hizalama · Hassas Işık Kontrolü · Değerli Taş Kırılımı · Mekanizma Animasyonu",
-      s2Deliverables: "Makro Master Görseller · Caustics Video Döngüleri · Dekupe Varlık Paketleri",
+      s2Capabilities: "CAD Hizalama · Hassas Işık Kontrolü · Değerli Taş Kırılımı · Mekanik Hareket Görselleştirmesi",
+      s2Deliverables: "Hero Ürün Görselleri · Makro Detay Serileri · Video Döngüleri · Dekupe E-Ticaret Masterları",
       s2Time: "5 – 8 İş Günü",
       s3Tag: "DİJİTAL KARAKTERLER",
       s3Title: "Kalıcı Marka Ambasadorları",
@@ -330,7 +328,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
     capabilitiesSection: {
       tag: "PRODÜKSİYON STANDARTLARI",
       title: "Görsel Üretim Standartları",
-      c1Num: "01", c1Title: "HAUTE COUTURE EDİTORYAL", c1Desc: "Doğal kumaş ağırlığı, akışkan döküm fiziği ve editoryal atmosfer ile tam kapsamlı sezonluk moda görselleri.",
+      c1Num: "01", c1Title: "HAUTE COUTURE EDİTORYAL", c1Desc: "Doğal kumaş ağırlığı, akışkan döküm ve editoryal atmosfer ile tam kapsamlı sezonluk moda görselleri.",
       c2Num: "02", c2Title: "MÜCEVHER VE SAATÇİLİK", c2Desc: "Kontrollü ışık kırılımı, safir cam yansımaları, pırlanta ışıltısı ve mikro-mekanik saat detayları.",
       c3Num: "03", c3Title: "SİNEMATİK MARKA FİLMLERİ", c3Desc: "Lüks amiral mağaza ekranları ve küresel yayınlar için duygu odaklı sinematik video prodüksiyonları.",
       c4Num: "04", c4Title: "TUTARLI DİJİTAL KARAKTERLER", c4Desc: "Farklı çekim ortamlarında yüz kemik yapısını, ifadesini ve marka stilini tavizsiz koruyan karakter altyapısı.",
@@ -339,11 +337,11 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
     capabilitiesTech: {
       tag: "TEKNİK DİSİPLİN",
       title: "Yapay Zeka Destekli Üretim Hattı",
-      desc: "İleri düzey üretici yapay zeka araçları, profesyonel kompozit ve stüdyo post-prodüksiyonunun kusursuz birleşimi.",
+      desc: "Güncel üretici yapay zeka araçları, profesyonel kompozit ve stüdyo post-prodüksiyonunun kusursuz birleşimi.",
       cap1Title: "8K Master Çıktı", cap1Desc: "Baskılı lüks yayınlar, dev açık hava panoları ve dijital amiral gemileri için yüksek çözünürlüklü master üretim.", cap1Tag1: "ÇIKIŞ FORMATI", cap1Tag2: "8K MASTER",
       cap2Title: "İleri Düzey Cilt ve Materyal Gölgelendirme", cap2Desc: "Doğal görünümlü dijital karakterler için çok katmanlı cilt geçirgenliği ve mikro-doku optimizasyonu.", cap2Tag1: "CİLT DOĞALLIĞI", cap2Tag2: "ORGANİK DOKU",
       cap3Title: "Hassas Materyal ve Işık Simülasyonu", cap3Desc: "Değerli metallerde, fasetli pırlantalarda ve cam yüzeylerde doğal optik yansıma ve kırılma modellemesi.", cap3Tag1: "MATERYAL HAKİMİYETİ", cap3Tag2: "KONTROLLÜ KIRILMA",
-      cap4Title: "Karakter Tutarlılık Sistemi", cap4Desc: "Karakter yüz hatlarını ve anatomik oranları sabitleyerek farklı ortamlarda model tutarlılığı sağlayan yapı.", cap4Tag1: "TUTARLILIK", cap4Tag2: "KİMLİK KİLİTLEME"
+      cap4Title: "Karakter Tutarlılık Sistemi", cap4Desc: "Referans kılavuzlu yüz yapısı, oran ve stil kontrolü ile çoklu sahnelerde model tutarlılığı.", cap4Tag1: "TUTARLILIK", cap4Tag2: "KİMLİK KİLİTLEME"
     },
     system: {
       tag: "AI.VIENNE METODOLOJİSİ",
@@ -440,7 +438,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
     twinsSection: { 
       tag: "DİJİTAL KARAKTERLER", 
       title: "Dijital Karakter Vitrini", 
-      desc: "Yüz oranlarını tavizsiz koruyan, doğal cilt dokusuna ve zamansız lüks estetiğe sahip markaya özel dijital modeller.", 
+      desc: "Yüz oranlarını tavizsiz koruyan, doğal cilt mikro-dokusu ve zamansız lüks estetiğe sahip markaya özel dijital modeller.", 
       identityTitle: "Karakter Tutarlılık Sistemi", 
       identityDesc: "Farklı kıyafet, ışık ve ortamlarda yüz anatomisini, doğal oranları ve karakteristik varlığı korumak üzere tasarlanmıştır.",
       useCasesTitle: "DİJİTAL KARAKTERLERİN DEĞER YARATTIĞI ALANLAR",
@@ -550,7 +548,7 @@ const PORTFOLIO_ITEMS: CaseStudyItem[] = [
     id: "1", 
     conceptNum: "CONCEPT / 01",
     title: "Imperial Diamond Showcase", 
-    discipline: "High Jewelry Concept Study",
+    discipline: "High Jewelry Speculative Case Study",
     category: "jewelry", 
     aspect: "16:9",
     type: "video", 
@@ -563,14 +561,14 @@ const PORTFOLIO_ITEMS: CaseStudyItem[] = [
     direction: "Chiaroscuro lighting architecture with deep obsidian contrasting velvety highlights.",
     production: "AI-assisted multi-pass rendering combined with fine caustic raytracing and manual post-color balance.",
     materialStudy: "Platinum specular mapping, dispersion fire calibration, and micro-facet light falloff.",
-    deliverables: "8K Master Still Suite (8192x4320) + 120 FPS Motion Loop.",
+    deliverables: "Hero Product Stills · Macro Detail Series · Motion Loops · Cutout Masters",
     productionNotes: "Behind the Master: Rendered via iterative lighting passes with custom chromatic dispersion curves to eliminate synthetic flare."
   },
   { 
     id: "2", 
     conceptNum: "CONCEPT / 02",
     title: "Haute Couture Vertical Motion", 
-    discipline: "Fashion Runway Concept Study",
+    discipline: "Fashion Runway Speculative Case Study",
     category: "fashion", 
     aspect: "9:16",
     type: "video", 
@@ -581,16 +579,16 @@ const PORTFOLIO_ITEMS: CaseStudyItem[] = [
     desc: "Vertical motion aesthetics engineered for mobile digital flagships and luxury social campaigns.", 
     brief: "Simulating fluid heavy-silk movement and structural pleating without physical runway logistics.",
     direction: "Parisian salon atmosphere with naturalistic diffused rim lighting.",
-    production: "Generative fabric physics combined with high-frame-rate interpolation and textile color grading.",
+    production: "Generative fabric movement combined with high-frame-rate interpolation and textile color grading.",
     materialStudy: "Silk crepe de chine translucency, gold lamé weave texture, and natural gravity draping.",
-    deliverables: "9:16 4K Campaign Reel + High-Resolution Cutdowns.",
+    deliverables: "9:16 4K Campaign Reel · High-Resolution Cutdowns · Editorial Stills",
     productionNotes: "Behind the Master: Multi-stage prompt synthesis and layered compositing to maintain cloth tension and silhouette integrity across frames."
   },
   { 
     id: "3", 
     conceptNum: "CONCEPT / 03",
     title: "Royal Tourbillon Horlogerie", 
-    discipline: "Horology Mechanism Study",
+    discipline: "Horology Mechanism Speculative Case Study",
     category: "watch", 
     aspect: "16:9",
     type: "video", 
@@ -603,14 +601,14 @@ const PORTFOLIO_ITEMS: CaseStudyItem[] = [
     direction: "Precision moody technical lighting emphasizing brushed titanium bevels.",
     production: "3D CAD geometry alignment integrated with AI neural light shaders and kinematic movement.",
     materialStudy: "Blued steel screws, brushed rhodium plates, and anti-reflective optical coatings.",
-    deliverables: "16:9 4K Cinema Loop + High-Resolution Master Stills.",
+    deliverables: "16:9 4K Cinema Loop · High-Resolution Master Stills · Movement Isolations",
     productionNotes: "Behind the Master: CAD-guided structural synthesis ensuring precise gear tooth meshing and realistic optical transparency."
   },
   { 
     id: "4", 
     conceptNum: "CONCEPT / 04",
     title: "Avant-Garde Titanium Optics", 
-    discipline: "Luxury Eyewear Concept Study",
+    discipline: "Luxury Eyewear Speculative Case Study",
     category: "eyewear", 
     aspect: "9:16",
     type: "video", 
@@ -623,14 +621,14 @@ const PORTFOLIO_ITEMS: CaseStudyItem[] = [
     direction: "Minimalist brutalist architectural set with high-contrast sunlight.",
     production: "AI character generation combined with 3D eyewear projection and polarization grading.",
     materialStudy: "Anisotropic brushed titanium, UV400 gradient lens reflections, and natural skin contact.",
-    deliverables: "Vertical Billboard Master + High-Resolution Print Posters.",
+    deliverables: "Vertical Billboard Master · High-Resolution Print Posters · Digital Lookbook",
     productionNotes: "Behind the Master: Precision face-fitting pass ensuring eyewear geometry rests naturally across facial bone landmarks."
   },
   { 
     id: "5", 
     conceptNum: "CONCEPT / 05",
     title: "Haute Parfumerie Crystal Essence", 
-    discipline: "Prestige Fragrance Concept Study",
+    discipline: "Prestige Fragrance Speculative Case Study",
     category: "perfume", 
     aspect: "16:9",
     type: "video", 
@@ -643,14 +641,14 @@ const PORTFOLIO_ITEMS: CaseStudyItem[] = [
     direction: "Warm gilded palace atmosphere with backlit amber translucency.",
     production: "Volumetric light ray simulation paired with fluid motion solvers and high-pass clarity.",
     materialStudy: "Heavy lead crystal refraction, gold foil embossed label, and amber liquid viscosity.",
-    deliverables: "16:9 Cinema Cut + E-Flagship Hero Still Suite.",
+    deliverables: "16:9 Cinema Cut · E-Flagship Hero Still Suite · Social Cutdowns",
     productionNotes: "Behind the Master: Multi-layered photon render to isolate bottle glass thickness from inner liquid movement."
   },
   { 
     id: "6", 
     conceptNum: "CONCEPT / 06",
     title: "Emerald Solitaire Study", 
-    discipline: "Fine Jewelry Concept Study",
+    discipline: "Fine Jewelry Speculative Case Study",
     category: "jewelry", 
     aspect: "9:16",
     type: "video", 
@@ -663,14 +661,14 @@ const PORTFOLIO_ITEMS: CaseStudyItem[] = [
     direction: "Moody emerald velvet staging with targeted fiber-optic spot lighting.",
     production: "Spectral color grading combined with mineral subsurface absorption and pavé reflection tuning.",
     materialStudy: "Natural emerald inclusions, high-polish platinum claws, and round brilliant diamonds.",
-    deliverables: "9:16 Vertical Video Master + Editorial Social Suite.",
+    deliverables: "9:16 Vertical Video Master · Editorial Social Suite · Print Masters",
     productionNotes: "Behind the Master: Customized green absorption shader replicating natural emerald depth under variable studio lux."
   },
   { 
     id: "7", 
     conceptNum: "CONCEPT / 07",
     title: "Sapphire Skeleton Caliber", 
-    discipline: "Horology Master Concept Study",
+    discipline: "Horology Master Speculative Case Study",
     category: "watch", 
     aspect: "16:9",
     type: "video", 
@@ -683,14 +681,14 @@ const PORTFOLIO_ITEMS: CaseStudyItem[] = [
     direction: "Monochrome industrial luxury palette with micro-highlight accents.",
     production: "Kinematic gear solver combined with generative surface reflection passes and 8K upscaling.",
     materialStudy: "Sandblasted matte bridges, mirror-polished anglage, and synthetic sapphire bridges.",
-    deliverables: "16:9 Master Video + 8K Macro Editorial Stills.",
+    deliverables: "16:9 Master Video · 8K Macro Editorial Stills · Detail Cutouts",
     productionNotes: "Behind the Master: Synchronized gear rotation timeline ensuring horological mechanical accuracy throughout camera sweeps."
   },
   { 
     id: "8", 
     conceptNum: "CONCEPT / 08",
     title: "Sovereign Diamond Necklace", 
-    discipline: "Haute Joaillerie Concept Study",
+    discipline: "Haute Joaillerie Speculative Case Study",
     category: "jewelry", 
     aspect: "9:16",
     type: "video", 
@@ -703,7 +701,7 @@ const PORTFOLIO_ITEMS: CaseStudyItem[] = [
     direction: "Evening gala noir lighting with sharp diamond sparkle catchlights.",
     production: "Dynamic model neck-mesh tracking integrated with physical diamond chain articulation solvers.",
     materialStudy: "18k white gold flexible articulation, D-flawless diamond fire, and subtle collarbone contact.",
-    deliverables: "4K Vertical Reel + 8K Print Master Archive.",
+    deliverables: "4K Vertical Reel · 8K Print Master Archive · Campaign Loops",
     productionNotes: "Behind the Master: Frame-by-frame light interaction pass aligning individual diamond flashes with camera velocity."
   }
 ];
@@ -882,7 +880,7 @@ export default function Home() {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
-  // Dynamic Production Estimator Logic (Updated Engine)
+  // Dynamic Production Estimator Logic (Real-time dynamic engine)
   const calculateEstimate = () => {
     let baseMin = 2500;
     let baseMax = 4500;
@@ -1445,7 +1443,6 @@ export default function Home() {
               <div className="mt-8 pt-6 border-t border-neutral-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div>
                   <span className="text-[10px] font-mono text-neutral-500 uppercase block">{t.servicesPillars?.leadTimeLabel} {t.servicesPillars?.s1Time}</span>
-                  <span className="text-[10px] text-neutral-400 font-light italic">{t.servicesPillars?.scopeNote}</span>
                 </div>
                 <button 
                   type="button"
@@ -1492,7 +1489,6 @@ export default function Home() {
               <div className="mt-8 pt-6 border-t border-neutral-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div>
                   <span className="text-[10px] font-mono text-neutral-500 uppercase block">{t.servicesPillars?.leadTimeLabel} {t.servicesPillars?.s2Time}</span>
-                  <span className="text-[10px] text-neutral-400 font-light italic">{t.servicesPillars?.scopeNote}</span>
                 </div>
                 <button 
                   type="button"
@@ -1539,7 +1535,6 @@ export default function Home() {
               <div className="mt-8 pt-6 border-t border-neutral-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div>
                   <span className="text-[10px] font-mono text-neutral-500 uppercase block">{t.servicesPillars?.leadTimeLabel} {t.servicesPillars?.s3Time}</span>
-                  <span className="text-[10px] text-neutral-400 font-light italic">{t.servicesPillars?.scopeNote}</span>
                 </div>
                 <button 
                   type="button"
@@ -1586,7 +1581,6 @@ export default function Home() {
               <div className="mt-8 pt-6 border-t border-neutral-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div>
                   <span className="text-[10px] font-mono text-neutral-500 uppercase block">{t.servicesPillars?.leadTimeLabel} {t.servicesPillars?.s4Time}</span>
-                  <span className="text-[10px] text-neutral-400 font-light italic">{t.servicesPillars?.scopeNote}</span>
                 </div>
                 <button 
                   type="button"
@@ -1755,7 +1749,7 @@ export default function Home() {
                 </div>
                 <div className="mt-8 pt-4 border-t border-neutral-800/60 flex items-center gap-2 text-[10px] font-mono text-amber-400/80 group-hover:text-amber-300 uppercase transition-colors">
                   <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
-                  <span>Production Ready</span>
+                  <span>Production Capability</span>
                 </div>
               </div>
             ))}
@@ -1970,15 +1964,15 @@ export default function Home() {
               <div className="pt-6 border-t border-neutral-800/80 grid grid-cols-2 gap-4 text-left">
                 <div className="p-3 sm:p-3.5 rounded-xl bg-neutral-950/90 border border-neutral-800">
                   <p className="text-[10px] font-bold text-amber-300 uppercase flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3 h-3 text-emerald-400" /> Landmark Locking
+                    <CheckCircle2 className="w-3 h-3 text-emerald-400" /> Landmark Alignment
                   </p>
-                  <p className="text-xs font-semibold text-neutral-200 mt-1">Facial Geometry Consistency</p>
+                  <p className="text-xs font-semibold text-neutral-200 mt-1">Facial Structure & Proportions</p>
                 </div>
                 <div className="p-3 sm:p-3.5 rounded-xl bg-neutral-950/90 border border-neutral-800">
                   <p className="text-[10px] font-bold text-amber-300 uppercase flex items-center gap-1.5">
                     <CheckCircle2 className="w-3 h-3 text-emerald-400" /> Natural Shading
                   </p>
-                  <p className="text-xs font-semibold text-neutral-200 mt-1">Biophysical Skin Micro-Texture</p>
+                  <p className="text-xs font-semibold text-neutral-200 mt-1">Natural Skin Micro-Texture</p>
                 </div>
               </div>
             </div>
