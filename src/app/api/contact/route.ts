@@ -9,10 +9,10 @@ export async function POST(req: Request) {
     const transporter = nodemailer.createTransport({
       host: "mail.aivienne.com",
       port: 465,
-      secure: true, // Port 465 için mutlaka true olmalıdır
+      secure: true,
       auth: {
         user: "info@aivienne.com",
-        pass: "Erd931621...",
+        pass: process.env.SMTP_PASS, // Şifre artık .env.local dosyasından güvenle çekiliyor
       },
       tls: {
         rejectUnauthorized: false,
