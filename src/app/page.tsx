@@ -782,6 +782,7 @@ export default function Home() {
   const [deskMessage, setDeskMessage] = useState("");
 
   const [attachedFiles, setAttachedFiles] = useState<File[]>([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const t = TRANSLATIONS[selectedLang.code] || TRANSLATIONS.EN;
   const isRTL = selectedLang.dir === "rtl";
@@ -855,14 +856,55 @@ export default function Home() {
 
   const removeFile = (index: number) => { setAttachedFiles((prev) => prev.filter((_, i) => i !== index)); };
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const fileNames = attachedFiles.map((f) => f.name).join(", ");
-    const ndaText = formData.requireNDA ? "YES (Mutual NDA Requested)" : "NO";
-    const mailToUrl = `mailto:info@aivienne.com?subject=Project Inquiry - ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(
-      `Contact & Organization: ${formData.name}\nCorporate Email: ${formData.email}\nCompany Website: ${formData.website || "N/A"}\nTarget Launch: ${formData.launchDate || "Flexible"}\nProduction Discipline: ${formData.service}\nEstimated Budget Tier: ${formData.budget}\nNDA Requested: ${ndaText}\nAttached Files: ${fileNames || "None"}\n\nProject Scope & Objectives:\n${formData.message}`
-    )}`;
-    window.location.href = mailToUrl;
+    setIsSubmitting(true);
+
+    try {
+      const data = new FormData();
+      data.append("name", formData.name);
+      data.append("email", formData.email);
+      data.append("website", formData.website);
+      data.append("launchDate", formData.launchDate);
+      data.append("service", formData.service);
+      data.append("budget", formData.budget);
+      data.append("requireNDA", String(formData.requireNDA));
+      data.append("message", formData.message);
+
+      attachedFiles.forEach((file) => {
+        data.append("files", file);
+      });
+
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        body: data,
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "E-posta gönderilemedi.");
+      }
+
+      alert("Proje briefiniz başarıyla iletildi. En kısa sürede dönüş yapacağız.");
+      
+      setFormData({
+        name: "",
+        email: "",
+        website: "",
+        launchDate: "",
+        service: "sOpt1",
+        budget: "bOpt1",
+        requireNDA: true,
+        message: ""
+      });
+      setAttachedFiles([]);
+    } catch (err: unknown) {
+      const errorMsg = err instanceof Error ? err.message : "Bilinmeyen bir hata oluştu";
+      alert("Hata: " + errorMsg);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const scrollToTop = () => { window.scrollTo({ top: 0, behavior: "smooth" }); };
@@ -884,12 +926,10 @@ export default function Home() {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
-  // Dynamic Production Estimator Logic (Real-time dynamic engine)
   const calculateEstimate = () => {
     let baseMin = 2500;
     let baseMax = 4500;
 
-    // 01 Deliverable Base
     if (estType === "still") {
       if (estVolume === "vol1") { baseMin = 2500; baseMax = 4500; }
       else if (estVolume === "vol2") { baseMin = 5000; baseMax = 9500; }
@@ -912,7 +952,6 @@ export default function Home() {
       else { baseMin = 45000; baseMax = 75000; }
     }
 
-    // 03 Complexity Multiplier
     if (estComplexity === "prem") {
       baseMin = Math.round(baseMin * 1.15);
       baseMax = Math.round(baseMax * 1.15);
@@ -921,7 +960,6 @@ export default function Home() {
       baseMax = Math.round(baseMax * 1.35);
     }
 
-    // 04 Timeline Multiplier
     if (estTimeline === "exp") {
       baseMin = Math.round(baseMin * 1.25);
       baseMax = Math.round(baseMax * 1.25);
@@ -956,7 +994,6 @@ export default function Home() {
               onClick={(e) => e.stopPropagation()}
               className="relative w-full max-w-6xl bg-neutral-950 border border-amber-500/40 rounded-3xl overflow-hidden shadow-2xl max-h-[92vh] flex flex-col lg:flex-row"
             >
-              {/* Floating Top Close Button */}
               <button 
                 onClick={() => setActiveCaseStudy(null)} 
                 aria-label="Close Case Study"
@@ -965,7 +1002,6 @@ export default function Home() {
                 <X className="w-5 h-5 stroke-[2.5]" />
               </button>
 
-              {/* Left Column (52% on Desktop): Hero Visual / Video Player */}
               <div className="relative w-full lg:w-[52%] bg-black flex items-center justify-center overflow-hidden shrink-0 min-h-[300px] lg:min-h-[600px] border-b lg:border-b-0 lg:border-r border-neutral-800">
                 {activeCaseStudy.type === "video" ? (
                   <video 
@@ -990,7 +1026,6 @@ export default function Home() {
                 )}
               </div>
 
-              {/* Right Column (48% on Desktop): Editorial Production Breakdown Dossier */}
               <div className="w-full lg:w-[48%] p-6 sm:p-8 bg-neutral-950 overflow-y-auto space-y-6 text-left flex flex-col justify-between">
                 <div>
                   <div className="flex flex-wrap items-center gap-2 mb-2">
@@ -1004,7 +1039,6 @@ export default function Home() {
                   
                   <h3 className="text-xl sm:text-2xl font-extrabold text-neutral-100 mb-4">{activeCaseStudy.title}</h3>
 
-                  {/* Action Buttons */}
                   <div className="flex flex-wrap items-center gap-3 mb-6 pb-6 border-b border-neutral-800">
                     <button 
                       onClick={() => {
@@ -1028,7 +1062,6 @@ export default function Home() {
                     </button>
                   </div>
 
-                  {/* 6-Stage Breakdown Grid */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-xs">
                     <div className="p-3.5 rounded-2xl bg-neutral-900/60 border border-neutral-800">
                       <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">01 · Creative Brief</span>
@@ -1057,7 +1090,6 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Footer Disclaimers */}
                 <div className="pt-4 mt-6 border-t border-neutral-900 flex items-center justify-between text-[10px] text-neutral-500 font-mono">
                   <span>{t.portfolio?.disclaimer}</span>
                 </div>
@@ -1419,7 +1451,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* STRATEGIC PRODUCTION SERVICES (CLEANED - NO COMMISSION SCOPE REPEATS) */}
+      {/* STRATEGIC PRODUCTION SERVICES */}
       <section id="services" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12 sm:mb-16">
@@ -1992,7 +2024,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* WHERE DIGITAL CHARACTERS CREATE VALUE */}
           <div className="p-8 sm:p-10 rounded-3xl bg-neutral-900/30 border border-neutral-800">
             <span className="text-xs font-bold tracking-[0.2em] text-amber-400 uppercase block mb-6 text-center sm:text-left">
               {t.twinsSection?.useCasesTitle}
@@ -2444,7 +2475,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PROJECT INQUIRY & WHAT HAPPENS NEXT (CLEANED - MOODBOARDS & REFERENCE FILES ONLY) */}
+      {/* PROJECT INQUIRY */}
       <section id="contact" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
@@ -2538,7 +2569,9 @@ export default function Home() {
             </div>
 
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6 pt-4">
-              <button type="submit" className="w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 rounded-full text-sm sm:text-base font-bold text-neutral-950 bg-amber-400 hover:bg-amber-300 transition-all flex items-center justify-center gap-3 shadow-[0_0_30px_rgba(251,191,36,0.25)] cursor-pointer"><Send className="w-4 h-4 sm:w-5 sm:h-5" /> {t.contact?.submitBtn}</button>
+              <button type="submit" disabled={isSubmitting} className="w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 rounded-full text-sm sm:text-base font-bold text-neutral-950 bg-amber-400 hover:bg-amber-300 transition-all flex items-center justify-center gap-3 shadow-[0_0_30px_rgba(251,191,36,0.25)] cursor-pointer disabled:opacity-50">
+                <Send className="w-4 h-4 sm:w-5 sm:h-5" /> {isSubmitting ? "Gönderiliyor..." : t.contact?.submitBtn}
+              </button>
               <a href="mailto:info@aivienne.com" className="text-xs sm:text-sm font-semibold text-neutral-300 hover:text-amber-400 transition-colors flex items-center gap-2"><Mail className="w-4 h-4 text-amber-400" /> {t.contact?.directEmail}</a>
             </div>
           </form>
@@ -2570,7 +2603,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FOOTER (CLEAN CIRCULAR EMBLEM) */}
+      {/* FOOTER */}
       <footer className="relative z-10 pt-16 sm:pt-20 pb-12 px-4 sm:px-12 md:px-16">
         <div className="w-full bg-amber-400 text-neutral-950 rounded-[30px] sm:rounded-[40px] p-6 sm:p-10 md:p-20 shadow-[0_0_60px_rgba(251,191,36,0.18)]/20 overflow-hidden">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 pb-12 sm:pb-20 border-b border-neutral-950/20 text-left">
@@ -2604,7 +2637,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Maison Emblem & Brand Header - Pure Circle No Square Artifact */}
           <div className="py-8 sm:py-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 overflow-hidden text-left">
             <div className="flex items-center gap-6 sm:gap-8">
               <div className="relative w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36 rounded-full overflow-hidden shadow-2xl shrink-0 bg-neutral-950 border-2 border-neutral-950">
