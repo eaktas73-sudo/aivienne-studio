@@ -83,9 +83,8 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       tag: "CORE PRODUCTION DISCIPLINES",
       title: "Strategic Production Services",
       desc: "Commissioned visual engagements designed to streamline visual production and elevate brand expression across physical and digital flagships.",
-      leadTimeLabel: "Typical Lead Time:",
+      leadTimeLabel: "Typical Lead Time",
       leadTimeNote: "Timing varies according to creative scope, asset volume, revision rounds and delivery requirements.",
-      btnBrief: "Commission Scope",
       s1Tag: "CAMPAIGNS",
       s1Title: "Haute Couture & Seasonal Campaigns",
       s1Desc: "Seasonal fashion campaigns without the logistical constraints of conventional location shoots.",
@@ -95,7 +94,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       s2Tag: "OBJECT & HOROLOGY",
       s2Title: "Haute Horlogerie & Fine Jewelry",
       s2Desc: "Create high-magnification luxury watch and fine jewelry product campaigns with controlled specular reflection and gemstone light dispersion.",
-      s2Capabilities: "Reference Alignment · Precision Lighting · Gemstone Refraction · Mechanical Movement Visualization",
+      s2Capabilities: "Reference Alignment · Precision Lighting · Gemstone Refraction · Horological Detail Visualization",
       s2Deliverables: "Hero Product Stills · Macro Detail Series · Motion Loops · Cutout / E-Commerce Masters",
       s2Time: "5 – 8 Business Days",
       s3Tag: "DIGITAL CHARACTERS",
@@ -124,7 +123,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       tag: "TECHNICAL RIGOR",
       title: "AI-Assisted Production Workflow",
       desc: "Combining current generative tools, advanced compositing, and professional post-production for uncompromising luxury fidelity.",
-      cap1Title: "8K Master Output", cap1Desc: "High-resolution master stills calibrated for large-format displays, print publications, and global digital flagships.", cap1Tag1: "OUTPUT SPEC", cap1Tag2: "UP TO 8K",
+      cap1Title: "High-Resolution Master Output", cap1Desc: "High-resolution master stills calibrated for large-format displays, print publications, and global digital flagships.", cap1Tag1: "OUTPUT SPEC", cap1Tag2: "UP TO 8K WHERE REQUIRED",
       cap2Title: "Advanced Skin & Material Shading", cap2Desc: "Multi-layered skin shading, micro-texture refinement, and natural translucency for authentic digital character portraits.", cap2Tag1: "SKIN FIDELITY", cap2Tag2: "NATURALISTIC SHADING",
       cap3Title: "Precision Material & Lighting", cap3Desc: "Controlled treatment of reflective metals, gemstones and transparent materials with carefully directed highlights, reflections and optical detail.", cap3Tag1: "MATERIAL FIDELITY", cap3Tag2: "CONTROLLED REFRACTION",
       cap4Title: "Identity Consistency Workflow", cap4Desc: "Reference-guided identity and facial consistency across multi-scene production runs without character distortion.", cap4Tag1: "CONTINUITY", cap4Tag2: "REFERENCE-GUIDED CONSISTENCY"
@@ -142,7 +141,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
     studioSection: {
       tag: "THE HOUSE",
       title: "AI-Native Luxury Visual Production House",
-      desc: "AI.VIENNE Studio+ operates as an independent visual production studio designed for luxury fashion houses, fine jewelers, and horlogerie ateliers worldwide.",
+      desc: "AI.VIENNE Studio+ is an independent creative practice focused on the intersection of luxury art direction, AI-assisted visual production and emerging digital craft.",
       founderName: "E. AKTAŞ",
       founderTitle: "Founder & Creative Director",
       founderBio: "AI.VIENNE was founded to explore how emerging AI-assisted production can expand the creative possibilities of luxury visual storytelling while maintaining the discipline, restraint and detail expected by premium brands.",
@@ -181,7 +180,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       filterAll: "All Concepts", 
       filter169: "16:9 Widescreen Concepts", 
       filter916: "9:16 Vertical Studies", 
-      playVideo: "Inspect Speculative Case Study", 
+      playVideo: "Inspect Speculative Study", 
       requestScope: "REQUEST SCOPE",
       closePreview: "CLOSE PREVIEW",
       disclaimer: "Speculative concept study created independently by AI.VIENNE Studio+. Not commissioned by or affiliated with any brand shown or referenced."
@@ -196,7 +195,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
     },
     estimator: { 
       tag: "PRODUCTION ECONOMICS", 
-      title: "Scope & Deliverable Estimator", 
+      title: "Production Scope Preview", 
       desc: "Configure your project parameters to estimate production investment based on deliverables, volume, and timeline priority.", 
       deliverableType: "01 · Deliverable Type", 
       volumeLabel: "02 · Asset Volume", 
@@ -215,9 +214,9 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       compCamp: "Campaign Grade",
       timeStd: "Standard (7 – 10 Business Days)", 
       timeExp: "Priority Delivery (3 – 5 Business Days)", 
-      rangeTitle: "ESTIMATED PROJECT RANGE", 
-      startingTier: "Projects from $2,500",
-      disclaimer: "Final pricing is confirmed after creative scope review. Customized scopes are available for enterprise seasonal campaigns.", 
+      rangeTitle: "ESTIMATED PRODUCTION RANGE", 
+      startingTier: "From $2,500",
+      disclaimer: "Final investment is confirmed after creative scope review. Customized scopes are available for enterprise seasonal campaigns.", 
       breakdownFactors: "Scope Factors: Asset Volume · Motion Complexity · Material Refinement · Revision Cycles", 
       btnLock: "Request Official Scope Estimate"
     },
@@ -246,7 +245,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       serviceLabel: "Select Production Discipline", 
       sOpt1: "Haute Couture & Seasonal Campaigns", 
       sOpt2: "Haute Horlogerie & Fine Jewelry Visualization (Luxury Watches & Jewelry)", 
-      sOpt3: "Persistent Digital Brand Ambassadors", 
+      sOpt3: "Persistent Brand Ambassadors", 
       sOpt4: "Brand Heritage & Flagship Films", 
       sOpt5: "Haute Parfumerie & Prestige Beauty Campaign", 
       sOpt6: "Luxury Eyewear & Optics Production", 
@@ -278,7 +277,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       termsP3Title: "3. CHROMATIC CALIBRATION & REVISIONS",
       termsP3Body: "Commissions include structured revision rounds covering chromatic balance, material shader tuning, reflection angles, and composition framing to guarantee adherence to the approved brief.",
       termsP4Title: "4. MASTER RESOLUTION STANDARDS",
-      termsP4Body: "Primary campaign deliverables are output at genuine high resolutions (up to 8K master stills: 8192 x 4320 px) or uncompressed high-frame-rate motion files calibrated for high-end digital displays and print media.",
+      termsP4Body: "Primary campaign deliverables are output at genuine high resolutions (up to 8K master stills where required) or uncompressed high-frame-rate motion files calibrated for high-end digital displays and print media.",
       privacyTitle: "Confidentiality & Data Protection Protocol",
       privacyP1Title: "1. CORPORATE DATA INTEGRITY",
       privacyP1Body: "AI.VIENNE Studio+ collects and processes minimal corporate information strictly necessary for commercial correspondence, project brief formulation, and encrypted file transfer, adhering to international privacy standards.",
@@ -299,9 +298,8 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       tag: "TEMEL PRODÜKSİYON DİSİPLİNLERİ",
       title: "Stratejik Prodüksiyon Hizmetleri",
       desc: "Görsel üretim süreçlerini kolaylaştırmak ve fiziksel ile dijital amiral gemilerinde marka ifadesini yükseltmek için tasarlanmış hizmetler.",
-      leadTimeLabel: "Ortalama Teslim Süresi:",
+      leadTimeLabel: "Ortalama Teslim Süresi",
       leadTimeNote: "Süreler proje kapsamı, varlık adedi, revizyon döngüleri ve teslimat formatlarına göre değişiklik gösterebilir.",
-      btnBrief: "Hizmet Talebi Oluştur",
       s1Tag: "KAMPANYALAR",
       s1Title: "Haute Couture & Sezonluk Kampanyalar",
       s1Desc: "Fiziksel mekan ve lojistik kısıtlamaları olmadan üretilen sezonluk moda kampanya görselleri ve editoryal stil anlatıları.",
@@ -311,7 +309,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       s2Tag: "ÜRÜN VE SAATÇİLİK",
       s2Title: "Haute Horlogerie & Lüks Mücevherat",
       s2Desc: "Kontrollü ışık yansımaları, pırlanta kırılımları ve lüks saat mekanizması detaylarıyla makro ürün görselleştirmesi.",
-      s2Capabilities: "Referans Hizalama · Hassas Işık Kontrolü · Değerli Taş Kırılımı · Mekanik Hareket Görselleştirmesi",
+      s2Capabilities: "Referans Hizalama · Hassas Işık Kontrolü · Değerli Taş Kırılımı · Horolojik Detay Görselleştirmesi",
       s2Deliverables: "Hero Ürün Görselleri · Makro Detay Serileri · Video Döngüleri · Dekupe E-Ticaret Masterları",
       s2Time: "5 – 8 İş Günü",
       s3Tag: "DİJİTAL KARAKTERLER",
@@ -340,7 +338,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       tag: "TEKNİK DİSİPLİN",
       title: "Yapay Zeka Destekli Üretim Hattı",
       desc: "Güncel üretici yapay zeka araçları, profesyonel kompozit ve stüdyo post-prodüksiyonunun kusursuz birleşimi.",
-      cap1Title: "8K Master Çıktı", cap1Desc: "Baskılı lüks yayınlar, dev açık hava panoları ve dijital amiral gemileri için yüksek çözünürlüklü master üretim.", cap1Tag1: "ÇIKIŞ FORMATI", cap1Tag2: "8K MASTER",
+      cap1Title: "Yüksek Çözünürlüklü Master Çıktı", cap1Desc: "Baskılı lüks yayınlar, dev açık hava panoları ve dijital amiral gemileri için yüksek çözünürlüklü master üretim.", cap1Tag1: "ÇIKIŞ FORMATI", cap1Tag2: "GEREKTİĞİNDE 8K'YA KADAR",
       cap2Title: "İleri Düzey Cilt ve Materyal Gölgelendirme", cap2Desc: "Doğal görünümlü dijital karakterler için çok katmanlı cilt geçirgenliği ve mikro-doku optimizasyonu.", cap2Tag1: "CİLT DOĞALLIĞI", cap2Tag2: "ORGANİK DOKU",
       cap3Title: "Hassas Materyal ve Işık Kontrolü", cap3Desc: "Yansıtıcı metaller, değerli taşlar ve şeffaf materyallerin dikkatle yönlendirilmiş parlama, yansıma ve optik detaylarla kontrollü işlenmesi.", cap3Tag1: "MATERYAL HAKİMİYETİ", cap3Tag2: "KONTROLLÜ KIRILMA",
       cap4Title: "Karakter Tutarlılık Sistemi", cap4Desc: "Referans kılavuzlu yüz yapısı, oran ve stil kontrolü ile çoklu sahnelerde model tutarlılığı.", cap4Tag1: "TUTARLILIK", cap4Tag2: "REFERANS KILAVUZLU TUTARLILIK"
@@ -358,7 +356,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
     studioSection: {
       tag: "STÜDYO",
       title: "AI-Native Lüks Görsel Prodüksiyon Evi",
-      desc: "AI.VIENNE Studio+, yüksek moda, lüks mücevherat ve saatçilik evleri için çalışan bağımsız bir görsel prodüksiyon stüdyosudur.",
+      desc: "AI.VIENNE Studio+, lüks sanat yönetimi, yapay zeka destekli görsel prodüksiyon ve modern dijital zanaatkarlığın kesişim noktasına odaklanan bağımsız bir yaratıcı pratiktir.",
       founderName: "E. AKTAŞ",
       founderTitle: "Kurucu & Kreatif Direktör",
       founderBio: "AI.VIENNE temel bir ilke üzerine kuruldu: Gelişen yapay zeka destekli üretim teknolojileri, prestijli markaların beklediği titiz estetik disiplinden ve detay hassasiyetinden ödün vermeden kreatif sınırları genişletmelidir.",
@@ -397,7 +395,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       filterAll: "Tüm Konseptler", 
       filter169: "16:9 Geniş Ekran Konseptleri", 
       filter916: "9:16 Dikey Çalışmalar", 
-      playVideo: "Spekülatif Vaka İncelemesi", 
+      playVideo: "Spekülatif Çalışmayı İncele", 
       requestScope: "KAPSAM TALEP ET",
       closePreview: "ÖNİZLEMEYİ KAPAT",
       disclaimer: "AI.VIENNE Studio+ tarafından bağımsız olarak üretilmiş spekülatif konsept çalışmasıdır. Gösterilen veya referans verilen hiçbir üçüncü taraf marka ile bağlantısı veya sponsorluğu bulunmamaktadır."
@@ -412,7 +410,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
     },
     estimator: { 
       tag: "ÜRETİM EKONOMİSİ", 
-      title: "Kapsam ve Çıktı Tahminleyicisi", 
+      title: "Prodüksiyon Kapsam Önizlemesi", 
       desc: "Çıktı türü, varlık adedi, üretim karmaşıklığı ve teslimat önceliğinize göre tahmini proje yatırım aralığınızı hesaplayın.", 
       deliverableType: "01 · Çıktı Türü", 
       volumeLabel: "02 · Varlık Adedi", 
@@ -432,8 +430,8 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       timeStd: "Standart (7 – 10 İş Günü)", 
       timeExp: "Öncelikli Teslimat (3 – 5 İş Günü)", 
       rangeTitle: "TAHMİNİ PROJE YATIRIM ARALIĞI", 
-      startingTier: "Projeler $2,500'den başlayan",
-      disclaimer: "Nihai bütçe, detaylı brief incelemesinin ardından netleştirilir. Kurumsal sezonluk kampanyalar için özel kapsam oluşturulmaktadır.", 
+      startingTier: "Başlangıç: $2,500'den",
+      disclaimer: "Nihai yatırım tutarı, kreatif kapsam incelemesinden sonra netleştirilir. Kurumsal sezonluk kampanyalar için özel kapsamlar oluşturulmaktadır.", 
       breakdownFactors: "Kapsam Parametreleri: Varlık Sayısı · Video Karmaşıklığı · Materyal İşleme · Revizyon Döngüleri", 
       btnLock: "Resmi Kapsam Teklifi Talep Edin"
     },
@@ -494,7 +492,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       termsP3Title: "3. RENK KALİBRASYONU VE REVİZYONLAR",
       termsP3Body: "Prodüksiyon süreçleri; renk dengesi, materyal gölgelendirmesi ve kompozisyon uyumu için onaylı brief'e tam uyumu garanti eden yapılandırılmış revizyon döngülerini içerir.",
       termsP4Title: "4. MASTER ÇÖZÜNÜRLÜK STANDARTLARI",
-      termsP4Body: "Nihai görseller gerçek yüksek çözünürlükte (8K'ya kadar) ve videolar sinematik kare hızında yayın standartlarına uygun olarak teslim edilir.",
+      termsP4Body: "Nihai görseller gerçek yüksek çözünürlükte (gerektiğinde 8K'ya kadar) ve videolar sinematik kare hızında yayın standartlarına uygun olarak teslim edilir.",
       privacyTitle: "Gizlilik ve Veri Koruma Protokolü",
       privacyP1Title: "1. KURUMSAL VERİ GÜVENLİĞİ",
       privacyP1Body: "Yalnızca teklif oluşturma, proje brief iletişimi ve şifreli dosya transferi için gerekli asgari kurumsal veriler uluslararası standartlara uygun olarak işlenir.",
@@ -552,7 +550,7 @@ const PORTFOLIO_ITEMS: CaseStudyItem[] = [
     id: "1", 
     conceptNum: "CONCEPT / 01",
     title: "Imperial Diamond Showcase", 
-    discipline: "High Jewelry Speculative Case Study",
+    discipline: "High Jewelry — Speculative Study",
     category: "jewelry", 
     aspect: "16:9",
     type: "video", 
@@ -572,7 +570,7 @@ const PORTFOLIO_ITEMS: CaseStudyItem[] = [
     id: "2", 
     conceptNum: "CONCEPT / 02",
     title: "Haute Couture Vertical Motion", 
-    discipline: "Fashion Runway Speculative Case Study",
+    discipline: "Fashion Runway — Speculative Study",
     category: "fashion", 
     aspect: "9:16",
     type: "video", 
@@ -592,7 +590,7 @@ const PORTFOLIO_ITEMS: CaseStudyItem[] = [
     id: "3", 
     conceptNum: "CONCEPT / 03",
     title: "Royal Tourbillon Horlogerie", 
-    discipline: "Horology Mechanism Speculative Case Study",
+    discipline: "Horology Mechanism — Speculative Study",
     category: "watch", 
     aspect: "16:9",
     type: "video", 
@@ -612,7 +610,7 @@ const PORTFOLIO_ITEMS: CaseStudyItem[] = [
     id: "4", 
     conceptNum: "CONCEPT / 04",
     title: "Avant-Garde Titanium Optics", 
-    discipline: "Luxury Eyewear Speculative Case Study",
+    discipline: "Luxury Eyewear — Speculative Study",
     category: "eyewear", 
     aspect: "9:16",
     type: "video", 
@@ -632,7 +630,7 @@ const PORTFOLIO_ITEMS: CaseStudyItem[] = [
     id: "5", 
     conceptNum: "CONCEPT / 05",
     title: "Haute Parfumerie Crystal Essence", 
-    discipline: "Prestige Fragrance Speculative Case Study",
+    discipline: "Prestige Fragrance — Speculative Study",
     category: "perfume", 
     aspect: "16:9",
     type: "video", 
@@ -652,7 +650,7 @@ const PORTFOLIO_ITEMS: CaseStudyItem[] = [
     id: "6", 
     conceptNum: "CONCEPT / 06",
     title: "Emerald Solitaire Study", 
-    discipline: "Fine Jewelry Speculative Case Study",
+    discipline: "Fine Jewelry — Speculative Study",
     category: "jewelry", 
     aspect: "9:16",
     type: "video", 
@@ -672,11 +670,11 @@ const PORTFOLIO_ITEMS: CaseStudyItem[] = [
     id: "7", 
     conceptNum: "CONCEPT / 07",
     title: "Sapphire Skeleton Caliber", 
-    discipline: "Horology Master Speculative Case Study",
+    discipline: "Horology Master — Speculative Study",
     category: "watch", 
     aspect: "16:9",
     type: "video", 
-    badge: "16:9 TIMEPIECE MASTER", 
+    badge: "9:16 TIMEPIECE MASTER", 
     icon: Watch, 
     poster: "/vienne-portrait.jpg",
     videoUrl: "/watch-promo.mp4", 
@@ -692,7 +690,7 @@ const PORTFOLIO_ITEMS: CaseStudyItem[] = [
     id: "8", 
     conceptNum: "CONCEPT / 08",
     title: "Sovereign Diamond Necklace", 
-    discipline: "Haute Joaillerie Speculative Case Study",
+    discipline: "Haute Joaillerie — Speculative Study",
     category: "jewelry", 
     aspect: "9:16",
     type: "video", 
@@ -738,21 +736,18 @@ export default function Home() {
   const [isLangOpen, setIsLangOpen] = useState(false);
   const [activeFilter, setActiveFilter] = useState("all");
   
-  // Studio Menu Dropdown State & Ref
   const [isStudioOpen, setIsStudioOpen] = useState(false);
   const studioMenuRef = useRef<HTMLDivElement | null>(null);
 
-  // Dynamic Estimator States (01 Deliverable, 02 Volume, 03 Complexity, 04 Timeline)
   const [estType, setEstType] = useState<"still" | "motion" | "char" | "full">("still");
   const [estVolume, setEstVolume] = useState<"vol1" | "vol2" | "vol3" | "vol4">("vol1");
   const [estComplexity, setEstComplexity] = useState<"std" | "prem" | "camp">("std");
   const [estTimeline, setEstTimeline] = useState<"std" | "exp">("std");
 
   const [sliderPos, setSliderPos] = useState<number>(50);
-
   const [mousePos, setMousePos] = useState({ x: -100, y: -100 });
+  
   const [activeModal, setActiveModal] = useState<"terms" | "privacy" | null>(null);
-
   const [activeArticle, setActiveArticle] = useState<ArticleItem | null>(null);
   const [activeCaseStudy, setActiveCaseStudy] = useState<CaseStudyItem | null>(null);
 
@@ -773,6 +768,7 @@ export default function Home() {
     message: ""
   });
 
+  const [formStatus, setFormStatus] = useState<{ success?: string; error?: string } | null>(null);
   const [briefLighting, setBriefLighting] = useState("Dramatic Studio Gold");
   const [briefSegment, setBriefSegment] = useState("Swiss Horlogerie Timepiece");
   const [briefAtmosphere, setBriefAtmosphere] = useState("Parisian Palace Runway");
@@ -787,6 +783,17 @@ export default function Home() {
   const t = TRANSLATIONS[selectedLang.code] || TRANSLATIONS.EN;
   const isRTL = selectedLang.dir === "rtl";
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const hash = window.location.hash;
+      if (hash === "#terms" || hash === "#terms-of-engagement") {
+        setActiveModal("terms");
+      } else if (hash === "#privacy" || hash === "#privacy-policy") {
+        setActiveModal("privacy");
+      }
+    }
+  }, []);
+
   const filteredItems = PORTFOLIO_ITEMS.filter((item) => {
     if (activeFilter === "all") return true;
     if (activeFilter === "169") return item.aspect === "16:9";
@@ -800,7 +807,6 @@ export default function Home() {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  // Close Studio menu on outside click
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (studioMenuRef.current && !studioMenuRef.current.contains(e.target as Node)) {
@@ -811,7 +817,6 @@ export default function Home() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Close modals on ESC key
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -850,7 +855,11 @@ export default function Home() {
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
     if (files) {
-      setAttachedFiles((prev) => [...prev, ...Array.from(files)]);
+      const validFiles = Array.from(files).filter(file => file.size <= 25 * 1024 * 1024);
+      if (validFiles.length !== files.length) {
+        alert("Bazı dosyalar 25MB limitini aştığı için eklenmedi.");
+      }
+      setAttachedFiles((prev) => [...prev, ...validFiles]);
     }
   };
 
@@ -859,6 +868,7 @@ export default function Home() {
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setFormStatus(null);
 
     try {
       const data = new FormData();
@@ -886,8 +896,7 @@ export default function Home() {
         throw new Error(result.error || "E-posta gönderilemedi.");
       }
 
-      alert("Proje briefiniz başarıyla iletildi. En kısa sürede dönüş yapacağız.");
-      
+      setFormStatus({ success: "Proje briefiniz başarıyla iletildi. 24 saat içinde dönüş yapılacaktır." });
       setFormData({
         name: "",
         email: "",
@@ -901,7 +910,7 @@ export default function Home() {
       setAttachedFiles([]);
     } catch (err: unknown) {
       const errorMsg = err instanceof Error ? err.message : "Bilinmeyen bir hata oluştu";
-      alert("Hata: " + errorMsg);
+      setFormStatus({ error: "Gönderim Hatası: " + errorMsg });
     } finally {
       setIsSubmitting(false);
     }
@@ -927,57 +936,17 @@ export default function Home() {
   };
 
   const calculateEstimate = () => {
-    let baseMin = 2500;
-    let baseMax = 4500;
-
-    if (estType === "still") {
-      if (estVolume === "vol1") { baseMin = 2500; baseMax = 4500; }
-      else if (estVolume === "vol2") { baseMin = 5000; baseMax = 9500; }
-      else if (estVolume === "vol3") { baseMin = 9500; baseMax = 16000; }
-      else { baseMin = 18000; baseMax = 32000; }
-    } else if (estType === "motion") {
-      if (estVolume === "vol1") { baseMin = 3500; baseMax = 6500; }
-      else if (estVolume === "vol2") { baseMin = 7500; baseMax = 14000; }
-      else if (estVolume === "vol3") { baseMin = 14000; baseMax = 24000; }
-      else { baseMin = 28000; baseMax = 45000; }
-    } else if (estType === "char") {
-      if (estVolume === "vol1") { baseMin = 4500; baseMax = 8000; }
-      else if (estVolume === "vol2") { baseMin = 9000; baseMax = 16000; }
-      else if (estVolume === "vol3") { baseMin = 16000; baseMax = 28000; }
-      else { baseMin = 30000; baseMax = 50000; }
-    } else {
-      if (estVolume === "vol1") { baseMin = 6500; baseMax = 11000; }
-      else if (estVolume === "vol2") { baseMin = 13000; baseMax = 24000; }
-      else if (estVolume === "vol3") { baseMin = 24000; baseMax = 42000; }
-      else { baseMin = 45000; baseMax = 75000; }
-    }
-
-    if (estComplexity === "prem") {
-      baseMin = Math.round(baseMin * 1.15);
-      baseMax = Math.round(baseMax * 1.15);
-    } else if (estComplexity === "camp") {
-      baseMin = Math.round(baseMin * 1.35);
-      baseMax = Math.round(baseMax * 1.35);
-    }
-
-    if (estTimeline === "exp") {
-      baseMin = Math.round(baseMin * 1.25);
-      baseMax = Math.round(baseMax * 1.25);
-    }
-
-    return `$${baseMin.toLocaleString()} – $${baseMax.toLocaleString()}`;
+    return `$2,500+`;
   };
 
   return (
     <main dir={selectedLang.dir} className={`min-h-screen w-full max-w-full overflow-x-hidden bg-neutral-950 text-neutral-100 selection:bg-amber-500/20 selection:text-amber-200 relative pt-20 sm:pt-24 ${isRTL ? "font-serif" : ""}`}>
-      {/* Custom Precision Cursor */}
       <div className="fixed pointer-events-none z-50 w-8 h-8 rounded-full border border-amber-400/80 -translate-x-1/2 -translate-y-1/2 transition-transform duration-75 hidden md:block" style={{ left: `${mousePos.x}px`, top: `${mousePos.y}px` }} />
       <div className="fixed pointer-events-none z-50 w-1.5 h-1.5 rounded-full bg-amber-400 -translate-x-1/2 -translate-y-1/2 hidden md:block" style={{ left: `${mousePos.x}px`, top: `${mousePos.y}px` }} />
 
       <div className="fixed inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(217,119,6,0.12),rgba(255,255,255,0))]" />
       <div className="fixed inset-0 pointer-events-none opacity-20 bg-[radial-gradient(#d97706_1px,transparent_1px)] [background-size:32px_32px]" />
 
-      {/* SPECULATIVE CASE STUDY INSPECTOR LIGHTBOX (EDITORIAL SPLIT-VIEW ON DESKTOP) */}
       <AnimatePresence>
         {activeCaseStudy && (
           <motion.div 
@@ -995,8 +964,9 @@ export default function Home() {
               className="relative w-full max-w-6xl bg-neutral-950 border border-amber-500/40 rounded-3xl overflow-hidden shadow-2xl max-h-[92vh] flex flex-col lg:flex-row"
             >
               <button 
+                type="button"
                 onClick={() => setActiveCaseStudy(null)} 
-                aria-label="Close Case Study"
+                aria-label="Close Study"
                 className="absolute top-4 right-4 z-40 p-2.5 rounded-full bg-neutral-900/90 border border-amber-400/60 text-amber-300 hover:text-neutral-950 hover:bg-amber-400 transition-all cursor-pointer shadow-2xl"
               >
                 <X className="w-5 h-5 stroke-[2.5]" />
@@ -1016,13 +986,15 @@ export default function Home() {
                     <source src={activeCaseStudy.videoUrl} type="video/mp4" />
                   </video>
                 ) : (
-                  <Image 
-                    src={activeCaseStudy.poster} 
-                    alt={activeCaseStudy.title} 
-                    fill 
-                    sizes="(max-width: 1200px) 100vw, 800px" 
-                    className="object-contain bg-black" 
-                  />
+                  <div className="relative w-full h-full min-h-[300px] lg:min-h-[600px]">
+                    <Image 
+                      src={activeCaseStudy.poster} 
+                      alt={activeCaseStudy.title} 
+                      fill 
+                      sizes="(max-width: 1200px) 100vw, 800px" 
+                      className="object-contain bg-black" 
+                    />
+                  </div>
                 )}
               </div>
 
@@ -1041,10 +1013,11 @@ export default function Home() {
 
                   <div className="flex flex-wrap items-center gap-3 mb-6 pb-6 border-b border-neutral-800">
                     <button 
+                      type="button"
                       onClick={() => {
                         setFormData(prev => ({ 
                           ...prev, 
-                          message: `[CASE STUDY INQUIRY: ${activeCaseStudy.title}]\nReferenced Study: ${activeCaseStudy.conceptNum} (${activeCaseStudy.discipline})\nDeliverable Focus: ${activeCaseStudy.deliverables}\n\nWe would like to request an official project proposal based on these specifications.` 
+                          message: `[STUDY INQUIRY: ${activeCaseStudy.title}]\nReferenced Study: ${activeCaseStudy.conceptNum} (${activeCaseStudy.discipline})\nDeliverable Focus: ${activeCaseStudy.deliverables}\n\nWe would like to request an official project proposal based on these specifications.` 
                         }));
                         setActiveCaseStudy(null);
                         document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
@@ -1055,6 +1028,7 @@ export default function Home() {
                       <ArrowRight className="w-3.5 h-3.5" />
                     </button>
                     <button 
+                      type="button"
                       onClick={() => setActiveCaseStudy(null)}
                       className="px-5 py-2.5 rounded-full bg-neutral-900 border border-neutral-700 text-neutral-300 hover:text-white hover:border-amber-400 font-bold text-xs uppercase tracking-wider transition-all cursor-pointer"
                     >
@@ -1099,7 +1073,6 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      {/* ARTICLE MONOGRAPH PUBLICATION MODAL */}
       <AnimatePresence>
         {activeArticle && (
           <motion.div 
@@ -1116,7 +1089,7 @@ export default function Home() {
               onClick={(e) => e.stopPropagation()}
               className="relative w-full max-w-3xl bg-neutral-900 border border-amber-500/30 rounded-3xl p-6 md:p-10 shadow-2xl text-left max-h-[85vh] overflow-y-auto"
             >
-              <button onClick={() => setActiveArticle(null)} aria-label="Close Article" className="absolute top-6 right-6 text-neutral-400 hover:text-white cursor-pointer"><X className="w-6 h-6" /></button>
+              <button type="button" onClick={() => setActiveArticle(null)} aria-label="Close Article" className="absolute top-6 right-6 text-neutral-400 hover:text-white cursor-pointer"><X className="w-6 h-6" /></button>
               
               <div className="flex flex-wrap items-center gap-3 mb-4">
                 <span className="text-[10px] font-extrabold tracking-widest text-amber-300 bg-amber-400/10 border border-amber-400/30 px-3.5 py-1 rounded-full uppercase">
@@ -1153,6 +1126,7 @@ export default function Home() {
               <div className="mt-8 pt-6 border-t border-neutral-800/80 flex items-center justify-between">
                 <span className="text-xs font-mono text-neutral-400">AI.VIENNE Research & Monograph</span>
                 <button 
+                  type="button"
                   onClick={() => { setActiveArticle(null); document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }); }}
                   className="px-6 py-2.5 rounded-full bg-amber-400 text-neutral-950 font-bold text-xs uppercase tracking-wider hover:bg-amber-300 transition-all flex items-center gap-2 cursor-pointer"
                 >
@@ -1165,7 +1139,6 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      {/* Terms & Conditions Modal */}
       <AnimatePresence>
         {activeModal === "terms" && (
           <motion.div 
@@ -1182,7 +1155,7 @@ export default function Home() {
               onClick={(e) => e.stopPropagation()}
               className="relative w-full max-w-3xl bg-neutral-900 border border-amber-500/30 rounded-3xl p-6 md:p-8 shadow-2xl text-left max-h-[85vh] overflow-y-auto"
             >
-              <button onClick={() => setActiveModal(null)} aria-label="Close Terms" className="absolute top-6 right-6 text-neutral-400 hover:text-white cursor-pointer"><X className="w-6 h-6" /></button>
+              <button type="button" onClick={() => setActiveModal(null)} aria-label="Close Terms" className="absolute top-6 right-6 text-neutral-400 hover:text-white cursor-pointer"><X className="w-6 h-6" /></button>
               <h3 className="text-2xl font-bold text-neutral-100 mb-6 flex items-center gap-3"><FileText className="w-6 h-6 text-amber-400" /> {t.modals?.termsTitle}</h3>
               <div className="space-y-6 text-xs text-neutral-300 leading-relaxed border-t border-neutral-800 pt-6">
                 <div>
@@ -1207,7 +1180,6 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      {/* Privacy Policy Modal */}
       <AnimatePresence>
         {activeModal === "privacy" && (
           <motion.div 
@@ -1224,7 +1196,7 @@ export default function Home() {
               onClick={(e) => e.stopPropagation()}
               className="relative w-full max-w-3xl bg-neutral-900 border border-amber-500/30 rounded-3xl p-6 md:p-8 shadow-2xl text-left max-h-[85vh] overflow-y-auto"
             >
-              <button onClick={() => setActiveModal(null)} aria-label="Close Privacy" className="absolute top-6 right-6 text-neutral-400 hover:text-white cursor-pointer"><X className="w-6 h-6" /></button>
+              <button type="button" onClick={() => setActiveModal(null)} aria-label="Close Privacy" className="absolute top-6 right-6 text-neutral-400 hover:text-white cursor-pointer"><X className="w-6 h-6" /></button>
               <h3 className="text-2xl font-bold text-neutral-100 mb-6 flex items-center gap-3"><ShieldCheck className="w-6 h-6 text-amber-400" /> {t.modals?.privacyTitle}</h3>
               <div className="space-y-6 text-xs text-neutral-300 leading-relaxed border-t border-neutral-800 pt-6">
                 <div>
@@ -1249,9 +1221,9 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      {/* Floating Confidential Consultation Console */}
       <div className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50">
         <button 
+          type="button"
           onClick={() => setIsDeskOpen(!isDeskOpen)} 
           aria-label="Open Confidential Inquiry Desk" 
           className="relative w-12 h-12 rounded-full bg-amber-400/90 hover:bg-amber-400 text-neutral-950 flex items-center justify-center shadow-[0_0_25px_rgba(251,191,36,0.35)] hover:shadow-[0_0_40px_rgba(251,191,36,0.6)] hover:scale-110 transition-all duration-300 backdrop-blur-xl border border-amber-300/60 cursor-pointer group"
@@ -1272,7 +1244,7 @@ export default function Home() {
                   <p className="text-[10px] text-amber-300">{t.chatConsole?.sub}</p>
                 </div>
               </div>
-              <button onClick={() => setIsDeskOpen(false)} aria-label="Close Console" className="text-neutral-400 hover:text-white cursor-pointer"><X className="w-4 h-4" /></button>
+              <button type="button" onClick={() => setIsDeskOpen(false)} aria-label="Close Console" className="text-neutral-400 hover:text-white cursor-pointer"><X className="w-4 h-4" /></button>
             </div>
             <div className="py-6 space-y-3 text-xs">
               <div className="p-3.5 rounded-2xl bg-neutral-950 border border-neutral-800 text-neutral-300 leading-relaxed font-light">
@@ -1289,7 +1261,6 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      {/* HEADER / NAVIGATION */}
       <header className="fixed top-0 left-0 right-0 z-50 w-full border-b border-neutral-800/80 bg-neutral-950/90 backdrop-blur-md">
         <div className="w-full px-4 sm:px-8 md:px-12 h-20 sm:h-24 flex items-center justify-between">
           <button type="button" onClick={scrollToTop} className="flex items-center gap-3 cursor-pointer text-left group shrink-0">
@@ -1322,7 +1293,6 @@ export default function Home() {
               <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-amber-400 transition-all duration-300 group-hover:w-full" />
             </a>
 
-            {/* Studio Dropdown with solid hover bridge */}
             <div 
               ref={studioMenuRef}
               className="relative py-2" 
@@ -1419,7 +1389,6 @@ export default function Home() {
         </div>
       </header>
 
-      {/* HERO SECTION */}
       <section className="relative z-10 w-full px-4 sm:px-8 md:px-16 pt-12 sm:pt-20 pb-14 sm:pb-18 text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
           <span className="inline-flex items-center gap-2.5 px-4 sm:px-6 py-2 rounded-full border border-amber-500/30 bg-amber-500/10 text-xs sm:text-sm font-semibold text-amber-300 mb-6 sm:mb-8">
@@ -1442,7 +1411,6 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* MANIFESTO */}
       <section className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-14 sm:py-18 border-y border-neutral-800/80 bg-gradient-to-b from-neutral-950 via-neutral-900/40 to-neutral-950 text-center">
         <div className="max-w-6xl mx-auto">
           <span className="text-xs font-bold tracking-[0.3em] text-amber-400 uppercase mb-3 block">{t.manifesto?.sub}</span>
@@ -1451,7 +1419,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* STRATEGIC PRODUCTION SERVICES */}
       <section id="services" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12 sm:mb-16">
@@ -1463,7 +1430,6 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10">
-            {/* Pillar 1 */}
             <div className="p-8 sm:p-10 rounded-3xl border border-neutral-800 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 flex flex-col justify-between group shadow-xl relative overflow-hidden">
               <div className="absolute top-0 right-0 p-8 opacity-5 text-amber-400 pointer-events-none"><Sparkles className="w-32 h-32" /></div>
               <div>
@@ -1495,19 +1461,18 @@ export default function Home() {
               </div>
 
               <div className="mt-8 pt-6 border-t border-neutral-800 flex items-center justify-between">
-                <span className="text-[10px] font-mono text-neutral-500 uppercase">{t.servicesPillars?.leadTimeLabel} {t.servicesPillars?.s1Time}</span>
+                <span className="text-[10px] font-mono text-neutral-400 uppercase tracking-wider">{t.servicesPillars?.leadTimeLabel} · {t.servicesPillars?.s1Time}</span>
                 <button 
                   type="button"
                   onClick={() => selectServicePillar("sOpt1", "Haute Couture & Seasonal Campaigns")}
                   className="px-6 py-2.5 rounded-full bg-neutral-900 border border-amber-500/40 text-amber-300 group-hover:bg-amber-400 group-hover:text-neutral-950 font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer shrink-0"
                 >
-                  <span>{t.servicesPillars?.btnBrief}</span>
+                  <span>Request Scope</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
             </div>
 
-            {/* Pillar 2 */}
             <div className="p-8 sm:p-10 rounded-3xl border border-neutral-800 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 flex flex-col justify-between group shadow-xl relative overflow-hidden">
               <div className="absolute top-0 right-0 p-8 opacity-5 text-amber-400 pointer-events-none"><Gem className="w-32 h-32" /></div>
               <div>
@@ -1539,19 +1504,18 @@ export default function Home() {
               </div>
 
               <div className="mt-8 pt-6 border-t border-neutral-800 flex items-center justify-between">
-                <span className="text-[10px] font-mono text-neutral-500 uppercase">{t.servicesPillars?.leadTimeLabel} {t.servicesPillars?.s2Time}</span>
+                <span className="text-[10px] font-mono text-neutral-400 uppercase tracking-wider">{t.servicesPillars?.leadTimeLabel} · {t.servicesPillars?.s2Time}</span>
                 <button 
                   type="button"
                   onClick={() => selectServicePillar("sOpt2", "Haute Horlogerie & Fine Jewelry")}
                   className="px-6 py-2.5 rounded-full bg-neutral-900 border border-amber-500/40 text-amber-300 group-hover:bg-amber-400 group-hover:text-neutral-950 font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer shrink-0"
                 >
-                  <span>{t.servicesPillars?.btnBrief}</span>
+                  <span>Request Scope</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
             </div>
 
-            {/* Pillar 3 */}
             <div className="p-8 sm:p-10 rounded-3xl border border-neutral-800 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 flex flex-col justify-between group shadow-xl relative overflow-hidden">
               <div className="absolute top-0 right-0 p-8 opacity-5 text-amber-400 pointer-events-none"><UserCheck className="w-32 h-32" /></div>
               <div>
@@ -1583,19 +1547,18 @@ export default function Home() {
               </div>
 
               <div className="mt-8 pt-6 border-t border-neutral-800 flex items-center justify-between">
-                <span className="text-[10px] font-mono text-neutral-500 uppercase">{t.servicesPillars?.leadTimeLabel} {t.servicesPillars?.s3Time}</span>
+                <span className="text-[10px] font-mono text-neutral-400 uppercase tracking-wider">{t.servicesPillars?.leadTimeLabel} · {t.servicesPillars?.s3Time}</span>
                 <button 
                   type="button"
                   onClick={() => selectServicePillar("sOpt3", "Persistent Brand Ambassadors")}
                   className="px-6 py-2.5 rounded-full bg-neutral-900 border border-amber-500/40 text-amber-300 group-hover:bg-amber-400 group-hover:text-neutral-950 font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer shrink-0"
                 >
-                  <span>{t.servicesPillars?.btnBrief}</span>
+                  <span>Request Scope</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
             </div>
 
-            {/* Pillar 4 */}
             <div className="p-8 sm:p-10 rounded-3xl border border-neutral-800 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 flex flex-col justify-between group shadow-xl relative overflow-hidden">
               <div className="absolute top-0 right-0 p-8 opacity-5 text-amber-400 pointer-events-none"><Film className="w-32 h-32" /></div>
               <div>
@@ -1627,13 +1590,13 @@ export default function Home() {
               </div>
 
               <div className="mt-8 pt-6 border-t border-neutral-800 flex items-center justify-between">
-                <span className="text-[10px] font-mono text-neutral-500 uppercase">{t.servicesPillars?.leadTimeLabel} {t.servicesPillars?.s4Time}</span>
+                <span className="text-[10px] font-mono text-neutral-400 uppercase tracking-wider">{t.servicesPillars?.leadTimeLabel} · {t.servicesPillars?.s4Time}</span>
                 <button 
                   type="button"
                   onClick={() => selectServicePillar("sOpt4", "Brand Heritage & Flagship Films")}
                   className="px-6 py-2.5 rounded-full bg-neutral-900 border border-amber-500/40 text-amber-300 group-hover:bg-amber-400 group-hover:text-neutral-950 font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer shrink-0"
                 >
-                  <span>{t.servicesPillars?.btnBrief}</span>
+                  <span>Request Scope</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
@@ -1646,7 +1609,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* AI.VIENNE CONCEPT ARCHIVE */}
       <section id="portfolio" className="relative z-10 w-full py-16 sm:py-24 border-t border-neutral-800/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-12 w-full">
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-8 sm:mb-12 gap-6">
@@ -1663,11 +1625,10 @@ export default function Home() {
               { id: "169", label: t.portfolio?.filter169 },
               { id: "916", label: t.portfolio?.filter916 }
             ].map((btn) => (
-              <button key={btn.id} onClick={() => setActiveFilter(btn.id)} className={`px-5 sm:px-6 py-2 sm:py-2.5 rounded-full text-[11px] font-bold uppercase tracking-wider transition-all cursor-pointer ${activeFilter === btn.id ? "bg-amber-400 text-neutral-950 shadow-[0_0_20px_rgba(251,191,36,0.35)]" : "bg-neutral-900/80 text-neutral-300 border border-neutral-800 hover:border-neutral-700"}`}>{btn.label}</button>
+              <button key={btn.id} type="button" onClick={() => setActiveFilter(btn.id)} className={`px-5 sm:px-6 py-2 sm:py-2.5 rounded-full text-[11px] font-bold uppercase tracking-wider transition-all cursor-pointer ${activeFilter === btn.id ? "bg-amber-400 text-neutral-950 shadow-[0_0_20px_rgba(251,191,36,0.35)]" : "bg-neutral-900/80 text-neutral-300 border border-neutral-800 hover:border-neutral-700"}`}>{btn.label}</button>
             ))}
           </div>
 
-          {/* 16:9 SECTION */}
           {(activeFilter === "all" || activeFilter === "169") && (
             <div className="mb-14 sm:mb-20">
               <div className="flex items-center gap-2.5 mb-6">
@@ -1687,7 +1648,9 @@ export default function Home() {
                           <source src={item.videoUrl} type="video/mp4" />
                         </video>
                       ) : (
-                        <Image src={item.poster} alt={item.title} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw" className="object-contain bg-black group-hover:scale-105 transition-transform duration-500 ease-out" />
+                        <div className="relative w-full h-full">
+                          <Image src={item.poster} alt={item.title} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw" className="object-contain bg-black group-hover:scale-105 transition-transform duration-500 ease-out" />
+                        </div>
                       )}
                       <div className="absolute inset-0 bg-neutral-950/20 group-hover:bg-neutral-950/60 backdrop-blur-[1px] transition-all duration-300 flex flex-col items-center justify-center p-3 text-center opacity-0 group-hover:opacity-100">
                         <div className="w-10 h-10 rounded-full bg-amber-400 text-neutral-950 flex items-center justify-center shadow-[0_0_15px_rgba(251,191,36,0.5)] scale-90 group-hover:scale-100 transition-all z-10">
@@ -1715,7 +1678,6 @@ export default function Home() {
             </div>
           )}
 
-          {/* 9:16 SECTION */}
           {(activeFilter === "all" || activeFilter === "916") && (
             <div>
               <div className="flex items-center gap-2.5 mb-6">
@@ -1735,7 +1697,9 @@ export default function Home() {
                           <source src={item.videoUrl} type="video/mp4" />
                         </video>
                       ) : (
-                        <Image src={item.poster} alt={item.title} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw" className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out" />
+                        <div className="relative w-full h-full">
+                          <Image src={item.poster} alt={item.title} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw" className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out" />
+                        </div>
                       )}
                       <div className="absolute inset-0 bg-neutral-950/20 group-hover:bg-neutral-950/60 backdrop-blur-[1px] transition-all duration-300 flex flex-col items-center justify-center p-3 text-center opacity-0 group-hover:opacity-100">
                         <div className="w-10 h-10 rounded-full bg-amber-400 text-neutral-950 flex items-center justify-center shadow-[0_0_15px_rgba(251,191,36,0.5)] scale-90 group-hover:scale-100 transition-all z-10">
@@ -1765,7 +1729,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CAPABILITIES SECTION */}
       <section id="capabilities" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50">
         <div className="max-w-7xl mx-auto">
           <div className="mb-12 sm:mb-16">
@@ -1803,7 +1766,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ENTERPRISE WORKFLOW */}
       <section className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50 bg-neutral-900/10">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12 sm:mb-16">
@@ -1874,7 +1836,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* DIGITAL CHARACTERS & VALUE USE CASES */}
       <section id="twins" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12 sm:mb-16">
@@ -1915,7 +1876,9 @@ export default function Home() {
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-1000 ease-out opacity-90"
                   >
                     <source src={selectedTwin.video} type="video/mp4" />
-                    <Image src={selectedTwin.poster} alt={selectedTwin.name} fill priority sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
+                    <div className="relative w-full h-full">
+                      <Image src={selectedTwin.poster} alt={selectedTwin.name} fill priority sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
+                    </div>
                   </video>
                   
                   <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/20 to-transparent z-10 pointer-events-none" />
@@ -1956,6 +1919,7 @@ export default function Home() {
                 {DIGITAL_TWINS.map((twin) => (
                   <button
                     key={twin.id}
+                    type="button"
                     onClick={() => setSelectedTwin(twin)}
                     className={`px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl text-xs font-bold uppercase transition-all cursor-pointer ${
                       selectedTwin.id === twin.id
@@ -2050,7 +2014,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PRODUCTION PROTOCOL (5 STEPS) */}
       <section id="system" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50 bg-neutral-950">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
@@ -2089,7 +2052,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* THE STUDIO & FOUNDER */}
       <section id="studio" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50 bg-neutral-900/10">
         <div className="max-w-5xl mx-auto bg-neutral-900/50 border border-amber-500/30 p-6 sm:p-10 md:p-16 rounded-3xl backdrop-blur-md shadow-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-8 md:gap-12">
           <div className="space-y-6 max-w-2xl text-left">
@@ -2144,7 +2106,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FROM CONCEPT TO MASTER (TRANSFORMATION) */}
       <section id="transformation" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50 bg-neutral-900/15">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
@@ -2155,13 +2116,15 @@ export default function Home() {
 
           <div className="relative w-full aspect-[16/9] max-h-[580px] rounded-3xl border border-amber-500/40 overflow-hidden shadow-[0_0_50px_rgba(217,119,6,0.15)] bg-neutral-950 select-none">
             <div className="absolute inset-0 bg-neutral-950 flex items-center justify-center">
-              <Image 
-                src="/vienne-portrait.jpg" 
-                alt="AI.VIENNE Finished Master Render" 
-                fill 
-                sizes="(max-width: 1200px) 100vw, 1200px" 
-                className="object-cover object-center" 
-              />
+              <div className="relative w-full h-full">
+                <Image 
+                  src="/vienne-portrait.jpg" 
+                  alt="AI.VIENNE Finished Master Render" 
+                  fill 
+                  sizes="(max-width: 1200px) 100vw, 1200px" 
+                  className="object-cover object-center" 
+                />
+              </div>
               <div className="absolute bottom-4 sm:bottom-6 right-4 sm:right-6 px-3 sm:px-4 py-1.5 sm:py-2 rounded-2xl bg-amber-500/10 border border-amber-400/40 text-[9px] sm:text-[10px] font-extrabold text-amber-300 uppercase tracking-widest backdrop-blur-md z-10 shadow-lg">
                 ✨ {t.transformation?.afterLabel}
               </div>
@@ -2169,13 +2132,15 @@ export default function Home() {
 
             <div className="absolute inset-0 bg-neutral-900 overflow-hidden border-r-2 border-amber-400 z-10" style={{ width: `${sliderPos}%` }}>
               <div className="absolute inset-0 h-full w-full" style={{ width: '100vw', maxWidth: '1200px' }}>
-                <Image 
-                  src="/traditional-raw.jpg" 
-                  alt="Initial Concept Direction" 
-                  fill 
-                  sizes="(max-width: 1200px) 100vw, 1200px" 
-                  className="object-cover object-center filter grayscale contrast-75 brightness-75" 
-                />
+                <div className="relative w-full h-full">
+                  <Image 
+                    src="/traditional-raw.jpg" 
+                    alt="Initial Concept Direction" 
+                    fill 
+                    sizes="(max-width: 1200px) 100vw, 1200px" 
+                    className="object-cover object-center filter grayscale contrast-75 brightness-75" 
+                  />
+                </div>
               </div>
               <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 px-3 sm:px-4 py-1.5 sm:py-2 rounded-2xl bg-neutral-950/90 border border-neutral-800 text-[9px] sm:text-[10px] font-bold text-neutral-300 uppercase tracking-widest backdrop-blur-md z-20 shadow-lg">
                 📁 {t.transformation?.beforeLabel}
@@ -2216,7 +2181,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* DYNAMIC PRODUCTION ECONOMICS & SCOPE ESTIMATOR */}
       <section id="estimator" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50 bg-neutral-900/20">
         <div className="max-w-6xl mx-auto bg-neutral-900/60 border border-amber-500/30 p-6 sm:p-10 md:p-16 rounded-3xl backdrop-blur-md shadow-2xl">
           <div className="flex items-center gap-4 mb-6">
@@ -2227,7 +2191,6 @@ export default function Home() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10">
             <div className="space-y-5 text-left">
-              {/* 01 Deliverable Focus */}
               <div>
                 <label className="block text-xs font-bold text-neutral-300 uppercase mb-2.5">{t.estimator?.deliverableType}</label>
                 <div className="grid grid-cols-2 gap-2">
@@ -2237,14 +2200,13 @@ export default function Home() {
                     { id: "char", label: t.estimator?.optChar },
                     { id: "full", label: t.estimator?.optFull }
                   ].map((item) => (
-                    <button key={item.id} onClick={() => setEstType(item.id as "still" | "motion" | "char" | "full")} className={`p-3 rounded-2xl border text-xs font-semibold text-left transition-all cursor-pointer ${estType === item.id ? "bg-amber-400/10 border-amber-400 text-amber-300" : "bg-neutral-950/60 border-neutral-800 text-neutral-300"}`}>
+                    <button key={item.id} type="button" onClick={() => setEstType(item.id as "still" | "motion" | "char" | "full")} className={`p-3 rounded-2xl border text-xs font-semibold text-left transition-all cursor-pointer ${estType === item.id ? "bg-amber-400/10 border-amber-400 text-amber-300" : "bg-neutral-950/60 border-neutral-800 text-neutral-300"}`}>
                       {item.label}
                     </button>
                   ))}
                 </div>
               </div>
 
-              {/* 02 Volume */}
               <div>
                 <label className="block text-xs font-bold text-neutral-300 uppercase mb-2.5">{t.estimator?.volumeLabel}</label>
                 <div className="grid grid-cols-4 gap-2">
@@ -2254,14 +2216,13 @@ export default function Home() {
                     { id: "vol3", label: t.estimator?.vol3 },
                     { id: "vol4", label: t.estimator?.vol4 }
                   ].map((item) => (
-                    <button key={item.id} onClick={() => setEstVolume(item.id as "vol1" | "vol2" | "vol3" | "vol4")} className={`p-2.5 rounded-xl border text-xs font-semibold text-center transition-all cursor-pointer ${estVolume === item.id ? "bg-amber-400/10 border-amber-400 text-amber-300" : "bg-neutral-950/60 border-neutral-800 text-neutral-300"}`}>
+                    <button key={item.id} type="button" onClick={() => setEstVolume(item.id as "vol1" | "vol2" | "vol3" | "vol4")} className={`p-2.5 rounded-xl border text-xs font-semibold text-center transition-all cursor-pointer ${estVolume === item.id ? "bg-amber-400/10 border-amber-400 text-amber-300" : "bg-neutral-950/60 border-neutral-800 text-neutral-300"}`}>
                       {item.label}
                     </button>
                   ))}
                 </div>
               </div>
 
-              {/* 03 Complexity */}
               <div>
                 <label className="block text-xs font-bold text-neutral-300 uppercase mb-2.5">{t.estimator?.complexityLabel}</label>
                 <div className="grid grid-cols-3 gap-2">
@@ -2270,14 +2231,13 @@ export default function Home() {
                     { id: "prem", label: t.estimator?.compPrem },
                     { id: "camp", label: t.estimator?.compCamp }
                   ].map((item) => (
-                    <button key={item.id} onClick={() => setEstComplexity(item.id as "std" | "prem" | "camp")} className={`p-2.5 rounded-xl border text-xs font-semibold text-center transition-all cursor-pointer ${estComplexity === item.id ? "bg-amber-400/10 border-amber-400 text-amber-300" : "bg-neutral-950/60 border-neutral-800 text-neutral-300"}`}>
+                    <button key={item.id} type="button" onClick={() => setEstComplexity(item.id as "std" | "prem" | "camp")} className={`p-2.5 rounded-xl border text-xs font-semibold text-center transition-all cursor-pointer ${estComplexity === item.id ? "bg-amber-400/10 border-amber-400 text-amber-300" : "bg-neutral-950/60 border-neutral-800 text-neutral-300"}`}>
                       {item.label}
                     </button>
                   ))}
                 </div>
               </div>
 
-              {/* 04 Timeline */}
               <div>
                 <label className="block text-xs font-bold text-neutral-300 uppercase mb-2.5">{t.estimator?.timelineLabel}</label>
                 <div className="grid grid-cols-2 gap-2">
@@ -2285,7 +2245,7 @@ export default function Home() {
                     { id: "std", label: t.estimator?.timeStd },
                     { id: "exp", label: t.estimator?.timeExp }
                   ].map((item) => (
-                    <button key={item.id} onClick={() => setEstTimeline(item.id as "std" | "exp")} className={`p-3 rounded-2xl border text-xs font-semibold text-left transition-all cursor-pointer ${estTimeline === item.id ? "bg-amber-400/10 border-amber-400 text-amber-300" : "bg-neutral-950/60 border-neutral-800 text-neutral-300"}`}>
+                    <button key={item.id} type="button" onClick={() => setEstTimeline(item.id as "std" | "exp")} className={`p-3 rounded-2xl border text-xs font-semibold text-left transition-all cursor-pointer ${estTimeline === item.id ? "bg-amber-400/10 border-amber-400 text-amber-300" : "bg-neutral-950/60 border-neutral-800 text-neutral-300"}`}>
                       {item.label}
                     </button>
                   ))}
@@ -2325,6 +2285,7 @@ export default function Home() {
               </div>
 
               <button 
+                type="button"
                 onClick={() => {
                   setFormData(prev => ({
                     ...prev,
@@ -2341,7 +2302,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* AI.VIENNE INSIGHTS */}
       <section id="insights" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50 bg-neutral-900/10">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12 sm:mb-16">
@@ -2434,7 +2394,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* BRIEF ARCHITECT */}
       <section id="architect" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50 bg-neutral-900/20">
         <div className="max-w-5xl mx-auto bg-neutral-900/80 border border-amber-500/30 p-6 sm:p-10 md:p-16 rounded-3xl backdrop-blur-md shadow-2xl text-left">
           <div className="flex items-center gap-4 mb-6">
@@ -2447,7 +2406,7 @@ export default function Home() {
               <label className="block text-xs font-bold text-amber-400 uppercase mb-3">{t.briefSection?.s1}</label>
               <div className="space-y-2">
                 {["Dramatic Studio Gold", "Natural Parisian Sunlight", "Surreal Cyber Neon Caustics"].map((opt) => (
-                  <button key={opt} onClick={() => setBriefLighting(opt)} className={`w-full text-left p-3 sm:p-3.5 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${briefLighting === opt ? "bg-amber-400 text-neutral-950 border-amber-400" : "bg-neutral-950 border-neutral-800 text-neutral-300"}`}>{opt}</button>
+                  <button key={opt} type="button" onClick={() => setBriefLighting(opt)} className={`w-full text-left p-3 sm:p-3.5 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${briefLighting === opt ? "bg-amber-400 text-neutral-950 border-amber-400" : "bg-neutral-950 border-neutral-800 text-neutral-300"}`}>{opt}</button>
                 ))}
               </div>
             </div>
@@ -2455,7 +2414,7 @@ export default function Home() {
               <label className="block text-xs font-bold text-amber-400 uppercase mb-3">{t.briefSection?.s2}</label>
               <div className="space-y-2">
                 {["High Jewelry & Gems", "Haute Couture Runway", "Swiss Horlogerie Timepiece"].map((opt) => (
-                  <button key={opt} onClick={() => setBriefSegment(opt)} className={`w-full text-left p-3 sm:p-3.5 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${briefSegment === opt ? "bg-amber-400 text-neutral-950 border-amber-400" : "bg-neutral-950 border-neutral-800 text-neutral-300"}`}>{opt}</button>
+                  <button key={opt} type="button" onClick={() => setBriefSegment(opt)} className={`w-full text-left p-3 sm:p-3.5 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${briefSegment === opt ? "bg-amber-400 text-neutral-950 border-amber-400" : "bg-neutral-950 border-neutral-800 text-neutral-300"}`}>{opt}</button>
                 ))}
               </div>
             </div>
@@ -2463,19 +2422,18 @@ export default function Home() {
               <label className="block text-xs font-bold text-amber-400 uppercase mb-3">{t.briefSection?.s3}</label>
               <div className="space-y-2">
                 {["Parisian Palace Runway", "Futuristic Architectural Stage", "Exotic Desert Dunes"].map((opt) => (
-                  <button key={opt} onClick={() => setBriefAtmosphere(opt)} className={`w-full text-left p-3 sm:p-3.5 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${briefAtmosphere === opt ? "bg-amber-400 text-neutral-950 border-amber-400" : "bg-neutral-950 border-neutral-800 text-neutral-300"}`}>{opt}</button>
+                  <button key={opt} type="button" onClick={() => setBriefAtmosphere(opt)} className={`w-full text-left p-3 sm:p-3.5 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${briefAtmosphere === opt ? "bg-amber-400 text-neutral-950 border-amber-400" : "bg-neutral-950 border-neutral-800 text-neutral-300"}`}>{opt}</button>
                 ))}
               </div>
             </div>
           </div>
           <div className="p-4 sm:p-6 rounded-2xl bg-neutral-950 border border-neutral-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6">
             <div><p className="text-xs font-bold text-neutral-400 uppercase">{t.briefSection?.configLabel}</p><p className="text-xs sm:text-sm font-semibold text-amber-300 mt-1">{briefLighting} • {briefSegment} • {briefAtmosphere}</p></div>
-            <button onClick={applyBriefToForm} className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-3.5 rounded-full text-xs font-bold text-neutral-950 bg-amber-400 hover:bg-amber-300 transition-all flex items-center justify-center gap-2 uppercase shrink-0 cursor-pointer"><Layers className="w-4 h-4" /> {t.briefSection?.applyBtn}</button>
+            <button type="button" onClick={applyBriefToForm} className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-3.5 rounded-full text-xs font-bold text-neutral-950 bg-amber-400 hover:bg-amber-300 transition-all flex items-center justify-center gap-2 uppercase shrink-0 cursor-pointer"><Layers className="w-4 h-4" /> {t.briefSection?.applyBtn}</button>
           </div>
         </div>
       </section>
 
-      {/* PROJECT INQUIRY */}
       <section id="contact" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
@@ -2485,6 +2443,17 @@ export default function Home() {
           </div>
 
           <form onSubmit={handleFormSubmit} className="space-y-6 sm:space-y-8 bg-neutral-900/30 border border-neutral-800 p-6 sm:p-10 md:p-14 rounded-3xl backdrop-blur-sm shadow-2xl text-left">
+            {formStatus?.success && (
+              <div className="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs sm:text-sm font-medium">
+                {formStatus.success}
+              </div>
+            )}
+            {formStatus?.error && (
+              <div className="p-4 rounded-2xl bg-red-500/10 border border-red-500/30 text-red-300 text-xs sm:text-sm font-medium">
+                {formStatus.error}
+              </div>
+            )}
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
               <div>
                 <label htmlFor="client-name" className="block text-xs font-bold text-neutral-300 uppercase mb-3">{t.contact?.namePlaceholder}</label>
@@ -2531,13 +2500,13 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Mutual NDA Protocol Toggle */}
             <div className="p-4 rounded-2xl bg-neutral-950/80 border border-amber-500/30 flex items-center justify-between gap-4">
-              <div className="flex items-center gap-3">
+              <label htmlFor="nda-checkbox" className="flex items-center gap-3 cursor-pointer">
                 <Lock className="w-5 h-5 text-amber-400 shrink-0" />
                 <span className="text-xs sm:text-sm text-neutral-200 font-medium">{t.contact?.ndaLabel}</span>
-              </div>
+              </label>
               <input 
+                id="nda-checkbox"
                 type="checkbox" 
                 checked={formData.requireNDA} 
                 onChange={(e) => setFormData({ ...formData, requireNDA: e.target.checked })} 
@@ -2576,7 +2545,6 @@ export default function Home() {
             </div>
           </form>
 
-          {/* WHAT HAPPENS NEXT */}
           <div className="mt-14 p-8 sm:p-10 rounded-3xl bg-neutral-900/20 border border-neutral-800 text-left">
             <span className="text-xs font-bold tracking-[0.2em] text-amber-400 uppercase block mb-6 text-center sm:text-left">
               {t.contact?.nextStepsTitle}
@@ -2603,7 +2571,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FOOTER */}
       <footer className="relative z-10 pt-16 sm:pt-20 pb-12 px-4 sm:px-12 md:px-16">
         <div className="w-full bg-amber-400 text-neutral-950 rounded-[30px] sm:rounded-[40px] p-6 sm:p-10 md:p-20 shadow-[0_0_60px_rgba(251,191,36,0.18)]/20 overflow-hidden">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 pb-12 sm:pb-20 border-b border-neutral-950/20 text-left">
@@ -2650,9 +2617,9 @@ export default function Home() {
               </div>
               <div>
                 <span className="text-xs sm:text-sm font-mono font-extrabold tracking-[0.3em] uppercase text-neutral-950/70 block">Haute Visual Production</span>
-                <h1 className="text-4xl sm:text-7xl md:text-8xl font-black tracking-tighter text-neutral-950 select-none leading-none">
+                <span className="text-4xl sm:text-7xl md:text-8xl font-black tracking-tighter text-neutral-950 select-none leading-none block">
                   AI.VIENNE<br /><span className="font-light">STUDIO+</span>
-                </h1>
+                </span>
               </div>
             </div>
           </div>
