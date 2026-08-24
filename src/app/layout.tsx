@@ -38,6 +38,34 @@ export const metadata: Metadata = {
   },
 };
 
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "AI.VIENNE Studio+",
+  alternateName: "AI.VIENNE",
+  url: "https://aivienne.com",
+  logo: "https://aivienne.com/logo.png",
+  description:
+    "AI-native luxury visual production studio specializing in high fashion, fine jewelry, horology, and digital character campaigns.",
+  founder: {
+    "@type": "Person",
+    name: "E. Aktaş",
+    jobTitle: "Founder & Creative Director",
+  },
+  sameAs: [
+    "https://instagram.com/ai.vienne",
+    "https://linkedin.com/in/e-aktas-aivienne",
+  ],
+  email: "info@aivienne.com",
+  knowsAbout: [
+    "AI-Assisted Visual Production",
+    "Luxury Fashion Campaigns",
+    "Fine Jewelry Visualization",
+    "Horology Product Visualization",
+    "Digital Character Design",
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -45,7 +73,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        {children}
+      </body>
     </html>
   );
 }

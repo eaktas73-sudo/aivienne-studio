@@ -136,7 +136,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       s2Num: "02", s2Title: "DIRECT", s2Detail: "Art direction, lighting architecture, cinematic framing, visual language, and moodboard alignment.",
       s3Num: "03", s3Title: "PRODUCE", s3Detail: "AI-assisted visual generation, material synthesis, lighting direction, and high-resolution refinement.",
       s4Num: "04", s4Title: "REFINE", s4Detail: "Haute retouching, material refinement, chromatic calibration, gemstone clarity, and quality control.",
-      s5Num: "05", s5Title: "DELIVER", s5Detail: "Campaign-ready masters optimized for print, digital flagships, and platform-specific motion formats."
+      s5Num: "05", s5Title: "DELIVER", s5Sub: "MASTER DEPLOYMENT", s5Detail: "Campaign-ready masters optimized for print, digital flagships, and platform-specific motion formats."
     },
     studioSection: {
       tag: "THE HOUSE",
@@ -215,7 +215,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       timeStd: "Standard (7 – 10 Business Days)", 
       timeExp: "Priority Delivery (3 – 5 Business Days)", 
       rangeTitle: "ESTIMATED PRODUCTION RANGE", 
-      startingTier: "From $2,500",
+      startingTier: "Estimated Investment Range",
       disclaimer: "Final investment is confirmed after creative scope review. Customized scopes are available for enterprise seasonal campaigns.", 
       breakdownFactors: "Scope Factors: Asset Volume · Motion Complexity · Material Refinement · Revision Cycles", 
       btnLock: "Request Official Scope Estimate"
@@ -256,9 +256,9 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       bOpt3: "Full Motion & Character Ecosystem: $15,000 – $35,000+", 
       bOpt4: "Custom Production / Scoped to Requirements", 
       ndaLabel: "Require Mutual Non-Disclosure Agreement (NDA) prior to asset disclosure", 
-      uploadTitle: "Upload Moodboards or Reference Files", 
-      uploadHint: "Drag and drop or select reference files (PNG, JPG, MP4, MOV, PDF, ZIP)", 
-      messagePlaceholder: "Outline your campaign goals, deliverables, aesthetic requirements, and timeline...", 
+      uploadTitle: "Upload Reference Files (Max 25MB)", 
+      uploadHint: "Drag and drop reference files (PNG, JPG, PDF, ZIP). For larger video assets, please paste a Frame.io, Google Drive, Dropbox, or WeTransfer link in your message below.", 
+      messagePlaceholder: "Outline your campaign goals, deliverables, aesthetic requirements, and timeline (include Cloud/WeTransfer video links here if applicable)...", 
       submitBtn: "Submit Confidential Brief", 
       directEmail: "Project Desk: info@aivienne.com",
       nextStepsTitle: "WHAT HAPPENS NEXT",
@@ -351,7 +351,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       s2Num: "02", s2Title: "YÖNETİM (DIRECT)", s2Detail: "Sanat yönetimi, ışıklandırma mimarisi, sinematik kadrajlama, görsel dil ve moodboard hizalanması.",
       s3Num: "03", s3Title: "ÜRETİM (PRODUCE)", s3Detail: "Yapay zeka destekli görsel üretimi, materyal sentezi, ışık yönlendirmesi ve yüksek çözünürlüklü iyileştirme.",
       s4Num: "04", s4Title: "İŞLEME (REFINE)", s4Detail: "Haute retouching, materyal iyileştirmesi, renk kalibrasyonu, mücevher ışıltısı ve kalite kontrol.",
-      s5Num: "05", s5Title: "TESLİMAT (DELIVER)", s5Detail: "Baskıya, dijital amiral gemilerine ve platforma özel video kurgularına hazır master teslimatı."
+      s5Num: "05", s5Title: "TESLİMAT", s5Detail: "Baskıya, dijital amiral gemilerine ve platforma özel video kurgularına hazır master teslimatı."
     },
     studioSection: {
       tag: "STÜDYO",
@@ -430,7 +430,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       timeStd: "Standart (7 – 10 İş Günü)", 
       timeExp: "Öncelikli Teslimat (3 – 5 İş Günü)", 
       rangeTitle: "TAHMİNİ PROJE YATIRIM ARALIĞI", 
-      startingTier: "Başlangıç: $2,500'den",
+      startingTier: "Tahmini Yatırım Aralığı",
       disclaimer: "Nihai yatırım tutarı, kreatif kapsam incelemesinden sonra netleştirilir. Kurumsal sezonluk kampanyalar için özel kapsamlar oluşturulmaktadır.", 
       breakdownFactors: "Kapsam Parametreleri: Varlık Sayısı · Video Karmaşıklığı · Materyal İşleme · Revizyon Döngüleri", 
       btnLock: "Resmi Kapsam Teklifi Talep Edin"
@@ -471,11 +471,11 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       bOpt3: "Tam Video ve Karakter Ekosistemi: $15,000 – $35,000+", 
       bOpt4: "Özel Kapsam / İhtiyaca Göre Belirlenen", 
       ndaLabel: "Materyal paylaşımı öncesi Karşılıklı Gizlilik Sözleşmesi (NDA) talep ediyorum", 
-      uploadTitle: "Moodboard veya Referans Dosyası Yükleyin", 
-      uploadHint: "Dosyaları sürükleyin veya seçin (PNG, JPG, MP4, MOV, PDF, ZIP)", 
-      messagePlaceholder: "Kampanya hedefleriniz, teslimat takviminiz, estetik beklentileriniz hakkında bilgi verin...", 
+      uploadTitle: "Referans Dosya Yükleme (Maks 25MB)", 
+      uploadHint: "Referans dosyalarınızı sürükleyin (PNG, JPG, PDF, ZIP). Büyük video dosyaları için lütfen aşağıda mesaj bölümüne Frame.io, Google Drive, Dropbox veya WeTransfer bağlantısı ekleyin.", 
+      messagePlaceholder: "Kampanya hedefleriniz, teslimat takviminiz, estetik beklentileriniz hakkında bilgi verin (varsa Cloud/WeTransfer video linklerini buraya ekleyebilirsiniz)...", 
       submitBtn: "Gizli Brief'i Gönder", 
-      directEmail: "Proje Masası: info@aivienne.com",
+      directEmail: "Project Desk: info@aivienne.com",
       nextStepsTitle: "SONRAKİ ADIMLAR",
       ns1Title: "01 · İNCELEME", ns1Desc: "Briefinizi, estetik yöneliminizi ve referans materyallerinizi inceliyoruz.",
       ns2Title: "02 · KAPSAM", ns2Desc: "Nihai teslimat formatlarını, takvim adımlarını ve üretim gereksinimlerini belirliyoruz.",
@@ -936,7 +936,27 @@ export default function Home() {
   };
 
   const calculateEstimate = () => {
-    return `$2,500+`;
+    let base = 2500;
+    if (estType === "motion") base = 4500;
+    if (estType === "char") base = 6000;
+    if (estType === "full") base = 12000;
+
+    let multiplier = 1;
+    if (estVolume === "vol2") multiplier = 2.2;
+    if (estVolume === "vol3") multiplier = 4;
+    if (estVolume === "vol4") multiplier = 8.5;
+
+    let compMultiplier = 1;
+    if (estComplexity === "prem") compMultiplier = 1.35;
+    if (estComplexity === "camp") compMultiplier = 1.8;
+
+    let timelineMultiplier = 1;
+    if (estTimeline === "exp") timelineMultiplier = 1.25;
+
+    const low = Math.round(base * multiplier * compMultiplier * timelineMultiplier);
+    const high = Math.round(low * 1.6);
+
+    return `$${low.toLocaleString()} – $${high.toLocaleString()}`;
   };
 
   return (
@@ -1742,7 +1762,7 @@ export default function Home() {
               { num: t.capabilitiesSection?.c2Num, title: t.capabilitiesSection?.c2Title, desc: t.capabilitiesSection?.c2Desc, icon: Box },
               { num: t.capabilitiesSection?.c3Num, title: t.capabilitiesSection?.c3Title, desc: t.capabilitiesSection?.c3Desc, icon: Film },
               { num: t.capabilitiesSection?.c4Num, title: t.capabilitiesSection?.c4Title, desc: t.capabilitiesSection?.c4Desc, icon: UserCheck },
-              { num: t.capabilitiesSection?.c5Num, title: t.capabilitiesSection?.c5Desc, icon: LayoutGrid }
+              { num: t.capabilitiesSection?.c5Num, title: t.capabilitiesSection?.c5Title, desc: t.capabilitiesSection?.c5Desc, icon: LayoutGrid }
             ].map((cap, idx) => (
               <div 
                 key={idx} 
@@ -2028,7 +2048,7 @@ export default function Home() {
               { num: t.system?.s2Num, title: t.system?.s2Title, desc: t.system?.s2Detail, icon: Sliders },
               { num: t.system?.s3Num, title: t.system?.s3Title, desc: t.system?.s3Detail, icon: Cpu },
               { num: t.system?.s4Num, title: t.system?.s4Title, desc: t.system?.s4Detail, icon: Sparkles },
-              { num: t.system?.s5Num, title: t.system?.s5Detail, icon: CheckSquare }
+              { num: t.system?.s5Num, title: t.system?.s5Title, desc: t.system?.s5Detail, icon: CheckSquare }
             ].map((step, idx) => (
               <div 
                 key={idx} 
@@ -2075,13 +2095,13 @@ export default function Home() {
 
               <div className="flex items-center gap-2">
                 <a 
-                  href="https://linkedin.com/company/aivienne" 
+                  href="https://linkedin.com/in/e-aktas-aivienne" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="px-4 py-1.5 rounded-full bg-neutral-950 border border-neutral-800 text-xs text-neutral-300 hover:text-amber-300 hover:border-amber-400/40 transition-colors flex items-center gap-1.5"
                 >
-                  <span>Studio Profile</span>
-                  <ExternalLink className="w-3 h-3 text-amber-400" />
+                  <Globe className="w-3.5 h-3.5 text-amber-400" />
+                  <span>LinkedIn Profile</span>
                 </a>
               </div>
             </div>
@@ -2520,7 +2540,7 @@ export default function Home() {
                 <input type="file" multiple onChange={handleFileUpload} accept="image/*,video/*,.pdf,.zip" className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10" />
                 <div className="flex flex-col items-center justify-center gap-3">
                   <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform"><UploadCloud className="w-6 h-6" /></div>
-                  <p className="text-xs sm:text-sm font-medium text-neutral-200 max-w-md leading-relaxed">{t.contact?.uploadHint}</p>
+                  <p className="text-xs sm:text-sm font-medium text-neutral-200 max-w-xl leading-relaxed mx-auto">{t.contact?.uploadHint}</p>
                 </div>
               </div>
               {attachedFiles.length > 0 && (
@@ -2599,7 +2619,7 @@ export default function Home() {
               <span className="inline-block bg-neutral-950 text-amber-400 text-xs font-extrabold tracking-widest px-4 py-1.5 rounded-full uppercase mb-6 sm:mb-8">{t.footerSection?.netTitle}</span>
               <ul className="space-y-3 sm:space-y-4 text-sm sm:text-base font-semibold">
                 <li><a href="https://instagram.com/ai.vienne" target="_blank" rel="noopener noreferrer" className="hover:opacity-75 block">Instagram</a></li>
-                <li><a href="https://linkedin.com/company/aivienne" target="_blank" rel="noopener noreferrer" className="hover:opacity-75 block">LinkedIn</a></li>
+                <li><a href="https://linkedin.com/in/e-aktas-aivienne" target="_blank" rel="noopener noreferrer" className="hover:opacity-75 flex items-center gap-2"><span>LinkedIn Profile</span></a></li>
               </ul>
             </div>
           </div>
