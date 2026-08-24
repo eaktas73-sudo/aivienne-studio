@@ -3,10 +3,11 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://aivienne.com"),
-  title: "AI.VIENNE Studio+ | AI-Powered Luxury Content Studio",
+  title: "AI.VIENNE Studio+ | AI-Native Luxury Visual Production House",
   description:
-    "Cinematic campaigns, high jewelry imagery, haute couture films, and digital character worlds for luxury brands.",
+    "AI.VIENNE Studio+ is an AI-native luxury visual production house creating campaign imagery, cinematic motion, luxury product visualization and consistent digital characters for fashion, jewelry, horology and beauty brands.",
   keywords: [
+    "AI-Native Luxury Visual Production House",
     "Luxury AI Studio",
     "AI Fashion Campaigns",
     "High Jewelry Rendering",
@@ -21,13 +22,19 @@ export const metadata: Metadata = {
     apple: "/apple-icon.png",
   },
   openGraph: {
-    title: "AI.VIENNE Studio+ | AI-Powered Luxury Content Studio",
+    title: "AI.VIENNE Studio+ | AI-Native Luxury Visual Production House",
     description:
-      "Cinematic campaigns and high-end visual productions for luxury brands.",
+      "AI.VIENNE Studio+ is an AI-native luxury visual production house creating campaign imagery, cinematic motion, luxury product visualization and consistent digital characters for fashion, jewelry, horology and beauty brands.",
     url: "https://aivienne.com",
     siteName: "AI.VIENNE Studio+",
     locale: "en_US",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AI.VIENNE Studio+ | AI-Native Luxury Visual Production House",
+    description:
+      "AI.VIENNE Studio+ is an AI-native luxury visual production house creating campaign imagery, cinematic motion, luxury product visualization and consistent digital characters for fashion, jewelry, horology and beauty brands.",
   },
 };
 

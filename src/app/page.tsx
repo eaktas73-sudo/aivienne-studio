@@ -95,20 +95,20 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       s2Tag: "OBJECT & HOROLOGY",
       s2Title: "Haute Horlogerie & Fine Jewelry",
       s2Desc: "Create high-magnification luxury watch and fine jewelry product campaigns with controlled specular reflection and gemstone light dispersion.",
-      s2Capabilities: "CAD Alignment · Precision Light Control · Gemstone Refraction · Mechanical Movement Visualization",
+      s2Capabilities: "Reference Alignment · Precision Lighting · Gemstone Refraction · Mechanical Movement Visualization",
       s2Deliverables: "Hero Product Stills · Macro Detail Series · Motion Loops · Cutout / E-Commerce Masters",
       s2Time: "5 – 8 Business Days",
       s3Tag: "DIGITAL CHARACTERS",
       s3Title: "Persistent Brand Ambassadors",
       s3Desc: "Bespoke digital brand faces engineered for consistent identity, facial geometry, and styling continuity across multiple campaigns.",
-      s3Capabilities: "Identity Consistency · Layered Skin Calibration · Multi-Scene Wardrobe Adaptation · Pose Rigging",
+      s3Capabilities: "Identity Consistency · Layered Skin Calibration · Multi-Scene Wardrobe Adaptation · Pose & Motion Continuity",
       s3Deliverables: "Dedicated Brand Model Library · Multi-Environment Asset Suite · 4K Motion Loops",
       s3Time: "10 – 14 Business Days",
       s4Tag: "CINEMATIC MOTION",
       s4Title: "Brand Heritage & Flagship Films",
       s4Desc: "High-fidelity motion narratives engineered for digital flagships, large-format displays, and international digital campaign media.",
       s4Capabilities: "Cinematic Storyboarding · Volumetric Atmosphere · Multi-Aspect Formatting (16:9, 9:16, 32:9)",
-      s4Deliverables: "24 / 30 / 60 FPS Masters (Up to 120 FPS) · Platform Cutdowns · Custom Color-Graded Cinema Cuts",
+      s4Deliverables: "24 / 30 / 60 FPS Masters · Platform-Specific Cutdowns · Custom Color-Graded Cinema Cuts",
       s4Time: "8 – 12 Business Days"
     },
     capabilitiesSection: {
@@ -126,7 +126,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       desc: "Combining current generative tools, advanced compositing, and professional post-production for uncompromising luxury fidelity.",
       cap1Title: "8K Master Output", cap1Desc: "High-resolution master stills calibrated for large-format displays, print publications, and global digital flagships.", cap1Tag1: "OUTPUT SPEC", cap1Tag2: "UP TO 8K",
       cap2Title: "Advanced Skin & Material Shading", cap2Desc: "Multi-layered skin shading, micro-texture refinement, and natural translucency for authentic digital character portraits.", cap2Tag1: "SKIN FIDELITY", cap2Tag2: "NATURALISTIC SHADING",
-      cap3Title: "Precision Material & Light Simulation", cap3Desc: "Controlled rendering of reflective metals, cut gemstones, and transparent crystals with naturalistic optical refraction.", cap3Tag1: "MATERIAL FIDELITY", cap3Tag2: "CONTROLLED REFRACTION",
+      cap3Title: "Precision Material & Lighting", cap3Desc: "Controlled treatment of reflective metals, gemstones and transparent materials with carefully directed highlights, reflections and optical detail.", cap3Tag1: "MATERIAL FIDELITY", cap3Tag2: "CONTROLLED REFRACTION",
       cap4Title: "Identity Consistency Workflow", cap4Desc: "Reference-guided identity and facial consistency across multi-scene production runs without character distortion.", cap4Tag1: "CONTINUITY", cap4Tag2: "REFERENCE-GUIDED CONSISTENCY"
     },
     system: {
@@ -135,7 +135,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       sub: "DISCOVER · DIRECT · PRODUCE · REFINE · DELIVER",
       s1Num: "01", s1Title: "DISCOVER", s1Detail: "Brand identity, campaign objectives, product references, textile samples, and creative requirements.",
       s2Num: "02", s2Title: "DIRECT", s2Detail: "Art direction, lighting architecture, cinematic framing, visual language, and moodboard alignment.",
-      s3Num: "03", s3Title: "PRODUCE", s3Detail: "AI-assisted visual generation, multi-pass material synthesis, light simulation, and high-resolution upscaling.",
+      s3Num: "03", s3Title: "PRODUCE", s3Detail: "AI-assisted visual generation, material synthesis, lighting direction, and high-resolution refinement.",
       s4Num: "04", s4Title: "REFINE", s4Detail: "Haute retouching, material refinement, chromatic calibration, gemstone clarity, and quality control.",
       s5Num: "05", s5Title: "DELIVER", s5Detail: "Campaign-ready masters optimized for print, digital flagships, and platform-specific motion formats."
     },
@@ -184,7 +184,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       playVideo: "Inspect Speculative Case Study", 
       requestScope: "REQUEST SCOPE",
       closePreview: "CLOSE PREVIEW",
-      disclaimer: "Speculative concept study created independently by AI.VIENNE Studio+. Not commissioned by or affiliated with any third-party brand shown or referenced."
+      disclaimer: "Speculative concept study created independently by AI.VIENNE Studio+. Not commissioned by or affiliated with any brand shown or referenced."
     },
     transformation: { 
       tag: "FROM CONCEPT TO MASTER", 
@@ -311,20 +311,20 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       s2Tag: "ÜRÜN VE SAATÇİLİK",
       s2Title: "Haute Horlogerie & Lüks Mücevherat",
       s2Desc: "Kontrollü ışık yansımaları, pırlanta kırılımları ve lüks saat mekanizması detaylarıyla makro ürün görselleştirmesi.",
-      s2Capabilities: "CAD Hizalama · Hassas Işık Kontrolü · Değerli Taş Kırılımı · Mekanik Hareket Görselleştirmesi",
+      s2Capabilities: "Referans Hizalama · Hassas Işık Kontrolü · Değerli Taş Kırılımı · Mekanik Hareket Görselleştirmesi",
       s2Deliverables: "Hero Ürün Görselleri · Makro Detay Serileri · Video Döngüleri · Dekupe E-Ticaret Masterları",
       s2Time: "5 – 8 İş Günü",
       s3Tag: "DİJİTAL KARAKTERLER",
       s3Title: "Kalıcı Marka Ambasadorları",
       s3Desc: "Sezonlar boyunca yüz oranlarını, cilt dokusunu ve stil tutarlılığını koruyan markaya özel dijital model üretimi.",
-      s3Capabilities: "Kimlik Tutarlılığı · Çok Katmanlı Cilt Kalibrasyonu · Gardırop Uyarlaması · Poz Kurgusu",
+      s3Capabilities: "Kimlik Tutarlılığı · Çok Katmanlı Cilt Kalibrasyonu · Gardırop Uyarlaması · Poz ve Hareket Sürekliliği",
       s3Deliverables: "Markaya Özel Model Arşivi · Çok Ortamlı Görsel Kütüphane · 4K Video Döngüleri",
       s3Time: "10 – 14 İş Günü",
       s4Tag: "SİNEMATİK VİDEO",
       s4Title: "Marka Mirası & Flagship Filmleri",
       s4Desc: "Dijital amiral gemileri, dev ekranlar ve küresel dijital kanallar için hazırlanan yüksek kare hızlı marka filmleri.",
       s4Capabilities: "Sinematik Hikaye Kurgusu · Hacimsel Atmosfer · Çok Formatlı Uyarlama (16:9, 9:16, 32:9)",
-      s4Deliverables: "24 / 30 / 60 FPS Master Dosyalar (120 FPS'ye Kadar) · Sosyal Medya Kurguları · Sinema Standardında Renk Paketi",
+      s4Deliverables: "24 / 30 / 60 FPS Master Dosyalar · Platforma Özel Kurgular · Sinema Standardında Renk Paketi",
       s4Time: "8 – 12 İş Günü"
     },
     capabilitiesSection: {
@@ -342,7 +342,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       desc: "Güncel üretici yapay zeka araçları, profesyonel kompozit ve stüdyo post-prodüksiyonunun kusursuz birleşimi.",
       cap1Title: "8K Master Çıktı", cap1Desc: "Baskılı lüks yayınlar, dev açık hava panoları ve dijital amiral gemileri için yüksek çözünürlüklü master üretim.", cap1Tag1: "ÇIKIŞ FORMATI", cap1Tag2: "8K MASTER",
       cap2Title: "İleri Düzey Cilt ve Materyal Gölgelendirme", cap2Desc: "Doğal görünümlü dijital karakterler için çok katmanlı cilt geçirgenliği ve mikro-doku optimizasyonu.", cap2Tag1: "CİLT DOĞALLIĞI", cap2Tag2: "ORGANİK DOKU",
-      cap3Title: "Hassas Materyal ve Işık Simülasyonu", cap3Desc: "Değerli metallerde, fasetli pırlantalarda ve cam yüzeylerde doğal optik yansıma ve kırılma modellemesi.", cap3Tag1: "MATERYAL HAKİMİYETİ", cap3Tag2: "KONTROLLÜ KIRILMA",
+      cap3Title: "Hassas Materyal ve Işık Kontrolü", cap3Desc: "Yansıtıcı metaller, değerli taşlar ve şeffaf materyallerin dikkatle yönlendirilmiş parlama, yansıma ve optik detaylarla kontrollü işlenmesi.", cap3Tag1: "MATERYAL HAKİMİYETİ", cap3Tag2: "KONTROLLÜ KIRILMA",
       cap4Title: "Karakter Tutarlılık Sistemi", cap4Desc: "Referans kılavuzlu yüz yapısı, oran ve stil kontrolü ile çoklu sahnelerde model tutarlılığı.", cap4Tag1: "TUTARLILIK", cap4Tag2: "REFERANS KILAVUZLU TUTARLILIK"
     },
     system: {
@@ -351,7 +351,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       sub: "KEŞİF · YÖNETİM · ÜRETİM · İŞLEME · TESLİMAT",
       s1Num: "01", s1Title: "KEŞİF (DISCOVER)", s1Detail: "Marka kimliği, kampanya hedefleri, kumaş numuneleri ve görsel gereksinimlerin analizi.",
       s2Num: "02", s2Title: "YÖNETİM (DIRECT)", s2Detail: "Sanat yönetimi, ışıklandırma mimarisi, sinematik kadrajlama, görsel dil ve moodboard hizalanması.",
-      s3Num: "03", s3Title: "ÜRETİM (PRODUCE)", s3Detail: "Yapay zeka destekli görsel üretimi, çok katmanlı materyal sentezi ve yüksek çözünürlüklü işleme.",
+      s3Num: "03", s3Title: "ÜRETİM (PRODUCE)", s3Detail: "Yapay zeka destekli görsel üretimi, materyal sentezi, ışık yönlendirmesi ve yüksek çözünürlüklü iyileştirme.",
       s4Num: "04", s4Title: "İŞLEME (REFINE)", s4Detail: "Haute retouching, materyal iyileştirmesi, renk kalibrasyonu, mücevher ışıltısı ve kalite kontrol.",
       s5Num: "05", s5Title: "TESLİMAT (DELIVER)", s5Detail: "Baskıya, dijital amiral gemilerine ve platforma özel video kurgularına hazır master teslimatı."
     },
