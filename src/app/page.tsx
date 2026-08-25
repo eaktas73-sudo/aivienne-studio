@@ -40,7 +40,6 @@ import {
   Lock,
   Briefcase,
   Clock,
-  ExternalLink,
   Info,
   Calendar,
   User,
@@ -49,6 +48,22 @@ import {
   VolumeX,
   LucideIcon
 } from "lucide-react";
+
+// Botların e-posta kazımasını (scraping) önleyen güvenli e-posta bileşeni
+function SafeEmailLink({ className = "" }: { className?: string }) {
+  const [email, setEmail] = useState("");
+  useEffect(() => {
+    setEmail("info" + "@" + "aivienne.com");
+  }, []);
+
+  if (!email) return <span className={className}>info [at] aivienne.com</span>;
+
+  return (
+    <a href={`mailto:${email}`} className={className}>
+      {email}
+    </a>
+  );
+}
 
 type TranslationRecord = Record<string, string>;
 
@@ -251,7 +266,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       sOpt6: "Luxury Eyewear & Optics Production", 
       sOpt7: "Custom Multi-Channel Campaign Scope", 
       budgetLabel: "Estimated Production Budget (USD)", 
-      bOpt1: "Starting Project Range: From $2,500", 
+      bOpt1: "Starting Project Range: From $5,000", 
       bOpt2: "Seasonal Campaign Suite: $5,000 – $15,000", 
       bOpt3: "Full Motion & Character Ecosystem: $15,000 – $35,000+", 
       bOpt4: "Custom Production / Scoped to Requirements", 
@@ -260,7 +275,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       uploadHint: "Drag and drop reference files (PNG, JPG, PDF, ZIP). For larger video assets, please paste a Frame.io, Google Drive, Dropbox, or WeTransfer link in your message below.", 
       messagePlaceholder: "Outline your campaign goals, deliverables, aesthetic requirements, and timeline (include Cloud/WeTransfer video links here if applicable)...", 
       submitBtn: "Submit Confidential Brief", 
-      directEmail: "Project Desk: info@aivienne.com",
+      directEmail: "Project Desk:",
       nextStepsTitle: "WHAT HAPPENS NEXT",
       ns1Title: "01 · REVIEW", ns1Desc: "We review your brief, aesthetic direction, and reference materials.",
       ns2Title: "02 · SCOPE", ns2Desc: "We define exact deliverables, schedule milestones, and production requirements.",
@@ -288,7 +303,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       privacyP4Title: "4. SECURE FILE RETENTION & RESTRICTED ACCESS",
       privacyP4Body: "All uploaded project assets and reference media are isolated on encrypted volumes and never shared with third-party networks or aggregators."
     },
-    footer: "© 2026 AI.VIENNE Studio+. All rights reserved."
+    footer: `© ${new Date().getFullYear()} AI.VIENNE Studio+. All rights reserved.`
   },
   TR: {
     nav: { portfolio: "Konsept Arşivi", capabilities: "Yetkinlikler", services: "Hizmetler", avatar: "Dijital Karakterler", studio: "Stüdyo", system: "Süreç", theStudio: "Stüdyomuz", transformation: "Dönüşüm", roi: "Üretim Ekonomisi", journal: "İçgörüler", contact: "Talep", cta: "PROJE BAŞLAT" },
@@ -466,7 +481,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       sOpt6: "Lüks Gözlük ve Optik Prodüksiyonu", 
       sOpt7: "Özel Çok Kanallı Kampanya Ekosistemi", 
       budgetLabel: "Tahmini Prodüksiyon Bütçesi (USD)", 
-      bOpt1: "Başlangıç Kapsamı: $2,500'den başlayan", 
+      bOpt1: "Başlangıç Kapsamı: $5,000'den başlayan", 
       bOpt2: "Sezonluk Kampanya Paketi: $5,000 – $15,000", 
       bOpt3: "Tam Video ve Karakter Ekosistemi: $15,000 – $35,000+", 
       bOpt4: "Özel Kapsam / İhtiyaca Göre Belirlenen", 
@@ -475,7 +490,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       uploadHint: "Referans dosyalarınızı sürükleyin (PNG, JPG, PDF, ZIP). Büyük video dosyaları için lütfen aşağıda mesaj bölümüne Frame.io, Google Drive, Dropbox veya WeTransfer bağlantısı ekleyin.", 
       messagePlaceholder: "Kampanya hedefleriniz, teslimat takviminiz, estetik beklentileriniz hakkında bilgi verin (varsa Cloud/WeTransfer video linklerini buraya ekleyebilirsiniz)...", 
       submitBtn: "Gizli Brief'i Gönder", 
-      directEmail: "Project Desk: info@aivienne.com",
+      directEmail: "Project Desk:",
       nextStepsTitle: "SONRAKİ ADIMLAR",
       ns1Title: "01 · İNCELEME", ns1Desc: "Briefinizi, estetik yöneliminizi ve referans materyallerinizi inceliyoruz.",
       ns2Title: "02 · KAPSAM", ns2Desc: "Nihai teslimat formatlarını, takvim adımlarını ve üretim gereksinimlerini belirliyoruz.",
@@ -503,7 +518,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       privacyP4Title: "4. GÜVENLİ DOSYA RETENTION VE ERİŞİM",
       privacyP4Body: "Yüklenen tüm referans medya şifrelenmiş izole disklerde barındırılır ve üçüncü taraf modellerle kesinlikle paylaşılmaz."
     },
-    footer: "© 2026 AI.VIENNE Studio+. Tüm hakları saklıdır."
+    footer: `© ${new Date().getFullYear()} AI.VIENNE Studio+. Tüm hakları saklıdır.`
   }
 };
 
@@ -765,7 +780,8 @@ export default function Home() {
     service: "sOpt1",
     budget: "bOpt1",
     requireNDA: true,
-    message: ""
+    message: "",
+    hp_website_check: ""
   });
 
   const [formStatus, setFormStatus] = useState<{ success?: string; error?: string } | null>(null);
@@ -895,6 +911,7 @@ export default function Home() {
       data.append("budget", formData.budget);
       data.append("requireNDA", String(formData.requireNDA));
       data.append("message", formData.message);
+      data.append("hp_website_check", formData.hp_website_check);
 
       attachedFiles.forEach((file) => {
         data.append("files", file);
@@ -920,7 +937,8 @@ export default function Home() {
         service: "sOpt1",
         budget: "bOpt1",
         requireNDA: true,
-        message: ""
+        message: "",
+        hp_website_check: ""
       });
       setAttachedFiles([]);
     } catch (err: unknown) {
@@ -951,15 +969,15 @@ export default function Home() {
   };
 
   const calculateEstimate = () => {
-    let base = 2500;
-    if (estType === "motion") base = 4500;
-    if (estType === "char") base = 6000;
-    if (estType === "full") base = 12000;
+    let base = 5000;
+    if (estType === "motion") base = 7500;
+    if (estType === "char") base = 9000;
+    if (estType === "full") base = 15000;
 
     let multiplier = 1;
-    if (estVolume === "vol2") multiplier = 2.2;
-    if (estVolume === "vol3") multiplier = 4;
-    if (estVolume === "vol4") multiplier = 8.5;
+    if (estVolume === "vol2") multiplier = 2.0;
+    if (estVolume === "vol3") multiplier = 3.5;
+    if (estVolume === "vol4") multiplier = 7.0;
 
     let compMultiplier = 1;
     if (estComplexity === "prem") compMultiplier = 1.35;
@@ -969,7 +987,7 @@ export default function Home() {
     if (estTimeline === "exp") timelineMultiplier = 1.25;
 
     const low = Math.round(base * multiplier * compMultiplier * timelineMultiplier);
-    const high = Math.round(low * 1.6);
+    const high = Math.round(low * 1.5);
 
     return `$${low.toLocaleString()} – $${high.toLocaleString()}`;
   };
@@ -1439,9 +1457,10 @@ export default function Home() {
             <a href="#portfolio" className="w-full sm:w-auto px-8 sm:px-10 py-4 rounded-full text-sm sm:text-base font-bold tracking-wide text-neutral-950 bg-amber-400 hover:bg-amber-300 transition-all flex items-center justify-center gap-3 shadow-[0_0_40px_rgba(251,191,36,0.3)]">
               {t.hero?.btnPrimary} <ArrowRight className="w-5 h-5" />
             </a>
-            <a href="mailto:info@aivienne.com" className="w-full sm:w-auto px-8 sm:px-10 py-4 rounded-full text-sm sm:text-base font-bold tracking-wide text-neutral-200 border border-neutral-800 hover:border-neutral-700 bg-neutral-900/50 hover:bg-neutral-900 transition-all flex items-center justify-center gap-3">
-              <Mail className="w-5 h-5 text-amber-400" /> {t.hero?.btnSecondary}
-            </a>
+            <div className="w-full sm:w-auto px-8 sm:px-10 py-4 rounded-full text-sm sm:text-base font-bold tracking-wide text-neutral-200 border border-neutral-800 bg-neutral-900/50 flex items-center justify-center gap-3">
+              <Mail className="w-5 h-5 text-amber-400" /> 
+              <span>Direct Access:</span> <SafeEmailLink className="text-amber-400 underline underline-offset-4" />
+            </div>
           </div>
         </motion.div>
       </section>
@@ -2489,6 +2508,19 @@ export default function Home() {
               </div>
             )}
 
+            <div style={{ display: 'none', visibility: 'hidden', opacity: 0, position: 'absolute', left: '-9999px', height: 0, overflow: 'hidden' }} aria-hidden="true">
+              <label htmlFor="hp_website_check">If you are human, leave this blank:</label>
+              <input 
+                type="text" 
+                id="hp_website_check" 
+                name="hp_website_check" 
+                tabIndex={-1} 
+                autoComplete="off"
+                value={formData.hp_website_check}
+                onChange={(e) => setFormData({ ...formData, hp_website_check: e.target.value })}
+              />
+            </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
               <div>
                 <label htmlFor="client-name" className="block text-xs font-bold text-neutral-300 uppercase mb-3">{t.contact?.namePlaceholder}</label>
@@ -2576,7 +2608,10 @@ export default function Home() {
               <button type="submit" disabled={isSubmitting} className="w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 rounded-full text-sm sm:text-base font-bold text-neutral-950 bg-amber-400 hover:bg-amber-300 transition-all flex items-center justify-center gap-3 shadow-[0_0_30px_rgba(251,191,36,0.25)] cursor-pointer disabled:opacity-50">
                 <Send className="w-4 h-4 sm:w-5 sm:h-5" /> {isSubmitting ? "Gönderiliyor..." : t.contact?.submitBtn}
               </button>
-              <a href="mailto:info@aivienne.com" className="text-xs sm:text-sm font-semibold text-neutral-300 hover:text-amber-400 transition-colors flex items-center gap-2"><Mail className="w-4 h-4 text-amber-400" /> {t.contact?.directEmail}</a>
+              <div className="text-xs sm:text-sm font-semibold text-neutral-300 flex items-center gap-2">
+                <Mail className="w-4 h-4 text-amber-400" /> 
+                <span>{t.contact?.directEmail}</span> <SafeEmailLink className="text-amber-400 underline underline-offset-4" />
+              </div>
             </div>
           </form>
 

@@ -18,6 +18,13 @@ export async function POST(req: Request) {
     const resend = new Resend(process.env.RESEND_API_KEY);
     const formData = await req.formData();
 
+    // Honeypot (Bal Küpü) Bot Koruması Kontrolü
+    const hpField = formData.get("hp_website_check") as string;
+    if (hpField && hpField.trim() !== "") {
+      // Bot tespit edildi, spam isteği sessizce reddediyoruz
+      return NextResponse.json({ success: true, message: "Processed" }, { status: 200 });
+    }
+
     const name = formData.get("name") as string;
     const email = formData.get("email") as string;
     const website = formData.get("website") as string;
