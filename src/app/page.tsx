@@ -780,6 +780,8 @@ export default function Home() {
   const [attachedFiles, setAttachedFiles] = useState<File[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  const emailContainerRef = useRef<HTMLSpanElement | null>(null);
+
   const t = TRANSLATIONS[selectedLang.code] || TRANSLATIONS.EN;
   const isRTL = selectedLang.dir === "rtl";
 
@@ -791,6 +793,19 @@ export default function Home() {
       } else if (hash === "#privacy" || hash === "#privacy-policy") {
         setActiveModal("privacy");
       }
+    }
+  }, []);
+
+  useEffect(() => {
+    if (emailContainerRef.current) {
+      emailContainerRef.current.innerHTML = "";
+      const user = "info";
+      const domain = "aivienne.com";
+      const link = document.createElement("a");
+      link.href = "mailto:" + user + "@" + domain;
+      link.className = "text-base sm:text-lg font-bold underline underline-offset-4 hover:opacity-75 block text-neutral-950";
+      link.innerText = user + "@" + domain;
+      emailContainerRef.current.appendChild(link);
     }
   }, []);
 
@@ -1669,7 +1684,7 @@ export default function Home() {
                         </video>
                       ) : (
                         <div className="relative w-full h-full">
-                          <Image src={item.poster} alt={item.title} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw" className="object-contain bg-black group-hover:scale-105 transition-transform duration-500 ease-out" />
+                          <Image src={item.poster} alt={item.title} fill loading="lazy" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw" className="object-contain bg-black group-hover:scale-105 transition-transform duration-500 ease-out" />
                         </div>
                       )}
                       <div className="absolute inset-0 bg-neutral-950/20 group-hover:bg-neutral-950/60 backdrop-blur-[1px] transition-all duration-300 flex flex-col items-center justify-center p-3 text-center opacity-0 group-hover:opacity-100">
@@ -1718,7 +1733,7 @@ export default function Home() {
                         </video>
                       ) : (
                         <div className="relative w-full h-full">
-                          <Image src={item.poster} alt={item.title} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw" className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out" />
+                          <Image src={item.poster} alt={item.title} fill loading="lazy" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw" className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out" />
                         </div>
                       )}
                       <div className="absolute inset-0 bg-neutral-950/20 group-hover:bg-neutral-950/60 backdrop-blur-[1px] transition-all duration-300 flex flex-col items-center justify-center p-3 text-center opacity-0 group-hover:opacity-100">
@@ -2611,7 +2626,7 @@ export default function Home() {
             <div>
               <span className="inline-block bg-neutral-950 text-amber-400 text-xs font-extrabold tracking-widest px-4 py-1.5 rounded-full uppercase mb-6 sm:mb-8">{t.footerSection?.dirTitle}</span>
               <div className="space-y-4 sm:space-y-5 text-sm sm:text-base font-semibold">
-                <a href="mailto:info@aivienne.com" className="text-base sm:text-lg font-bold underline underline-offset-4 hover:opacity-75 block">info@aivienne.com</a>
+                <span ref={emailContainerRef} className="block"></span>
                 <p className="text-xs sm:text-sm font-medium leading-relaxed opacity-90">{t.footerSection?.location}</p>
               </div>
             </div>
