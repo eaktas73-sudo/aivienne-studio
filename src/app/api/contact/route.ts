@@ -14,6 +14,12 @@ const MAX_FILE_SIZE = 25 * 1024 * 1024; // Tek dosya için max 25MB
 const MAX_TOTAL_FILES = 5;               // En fazla 5 dosya
 const MAX_TOTAL_SIZE = 30 * 1024 * 1024; // Toplamda max 30MB
 
+// İzin verilen kaynaklar — sadece kendi sitenden gelen isteklere izin ver
+const ALLOWED_ORIGINS = [
+  "https://aivienne.com",
+  "https://www.aivienne.com",
+];
+
 // Basit IP Bazlı In-Memory Rate Limiter (Dakikada max 5 istek)
 const ipRequestCounts = new Map<string, { count: number; timestamp: number }>();
 const RATE_LIMIT_WINDOW = 60 * 1000; // 1 dakika
@@ -36,6 +42,21 @@ function checkRateLimit(ip: string): boolean {
   return true;
 }
 
+// İsteğin gerçekten kendi sitenden geldiğini doğrula (Origin/Referer kontrolü)
+function isAllowedOrigin(req: Request): boolean {
+  const origin = req.headers.get("origin");
+  if (origin) {
+    return ALLOWED_ORIGINS.includes(origin);
+  }
+  // Bazı tarayıcılar/istemciler Origin göndermeyebilir, Referer'a bak
+  const referer = req.headers.get("referer");
+  if (referer) {
+    return ALLOWED_ORIGINS.some((allowed) => referer.startsWith(allowed));
+  }
+  // Ne Origin ne Referer varsa (ör. doğrudan script ile atılan istek), reddet
+  return false;
+}
+
 // HTML Injection / Email Injection Karşı Koruma (Escape Function)
 function escapeHtml(value: string): string {
   return value
@@ -48,6 +69,14 @@ function escapeHtml(value: string): string {
 
 export async function POST(req: Request) {
   try {
+    // Origin/Referer Kontrolü — başka bir siteden gelen form gönderimlerini reddet
+    if (!isAllowedOrigin(req)) {
+      return NextResponse.json(
+        { error: "Bu istek geçerli bir kaynaktan gelmiyor." },
+        { status: 403 }
+      );
+    }
+
     // IP Tespiti (Vercel / Cloudflare / Standart Headers)
     const forwardedFor = req.headers.get("x-forwarded-for");
     const clientIp = forwardedFor ? forwardedFor.split(",")[0].trim() : "127.0.0.1";
@@ -187,8 +216,8 @@ export async function POST(req: Request) {
     const { data, error } = await resend.emails.send({
       from: "AI.VIENNE Studio+ <contact@aivienne.com>",
       to: process.env.CONTACT_EMAIL || "info@aivienne.com",
-      replyTo: emailRaw, // Ham e-posta yanıt için kullanılabilir
-      subject: `[Yeni Brief Talebi] ${nameRaw} — ${serviceRaw}`,
+      replyTo: emailRaw, // Ham e-posta yanıt için kullanılabilir (regex ile doğrulandı)
+      subject: `[Yeni Brief Talebi] ${name} — ${service}`,
       html: emailHtml,
       attachments: attachments.length > 0 ? attachments : undefined,
     });
