@@ -50,18 +50,11 @@ import {
   LucideIcon
 } from "lucide-react";
 
-// Botların e-posta kazımasını (scraping) önleyen güvenli e-posta bileşeni
+// Güvenli e-posta bileşeni
 function SafeEmailLink({ className = "" }: { className?: string }) {
-  const [email, setEmail] = useState("");
-  useEffect(() => {
-    setEmail("info" + "@" + "aivienne.com");
-  }, []);
-
-  if (!email) return <span className={className}>info [at] aivienne.com</span>;
-
   return (
-    <a href={`mailto:${email}`} className={className}>
-      {email}
+    <a href="mailto:info@aivienne.com" className={className}>
+      info@aivienne.com
     </a>
   );
 }
@@ -799,23 +792,8 @@ export default function ClientHome() {
   const [attachedFiles, setAttachedFiles] = useState<File[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const emailContainerRef = useRef<HTMLSpanElement | null>(null);
-
   const t = TRANSLATIONS[selectedLang.code] || TRANSLATIONS.EN;
   const isRTL = selectedLang.dir === "rtl";
-
-  useEffect(() => {
-    if (emailContainerRef.current) {
-      emailContainerRef.current.innerHTML = "";
-      const user = "info";
-      const domain = "aivienne.com";
-      const link = document.createElement("a");
-      link.href = "mailto:" + user + "@" + domain;
-      link.className = "text-base sm:text-lg font-bold underline underline-offset-4 hover:opacity-75 block text-neutral-950";
-      link.innerText = user + "@" + domain;
-      emailContainerRef.current.appendChild(link);
-    }
-  }, []);
 
   const filteredItems = PORTFOLIO_ITEMS.filter((item) => {
     if (activeFilter === "all") return true;
@@ -2588,7 +2566,7 @@ export default function ClientHome() {
             <div>
               <span className="inline-block bg-neutral-950 text-amber-400 text-xs font-extrabold tracking-widest px-4 py-1.5 rounded-full uppercase mb-6 sm:mb-8">{t.footerSection?.dirTitle}</span>
               <div className="space-y-4 sm:space-y-5 text-sm sm:text-base font-semibold">
-                <span ref={emailContainerRef} className="block"></span>
+                <SafeEmailLink className="text-base sm:text-lg font-bold underline underline-offset-4 hover:opacity-75 block text-neutral-950" />
                 <p className="text-xs sm:text-sm font-medium leading-relaxed opacity-90">{t.footerSection?.location}</p>
               </div>
             </div>
