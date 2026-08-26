@@ -1,64 +1,60 @@
 import type { NextConfig } from "next";
 
+// Content Security Policy (Sitenin hiçbir özelliğini, görselini veya videosunu bozmayacak şekilde ayarlandı)
 const cspHeader = `
   default-src 'self';
-  script-src 'self' 'unsafe-inline' 'unsafe-eval';
+  script-src 'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com;
   style-src 'self' 'unsafe-inline';
-  img-src 'self' data: https://flagcdn.com;
-  media-src 'self';
+  img-src 'self' blob: data: https://flagcdn.com;
   font-src 'self' data:;
-  connect-src 'self';
+  media-src 'self' blob: data:;
+  connect-src 'self' https://vitals.vercel-insights.com https://va.vercel-scripts.com;
   frame-ancestors 'none';
   base-uri 'self';
   form-action 'self';
-`.replace(/\n/g, " ").trim();
+  object-src 'none';
+  upgrade-insecure-requests;
+`.replace(/\s{2,}/g, " ").trim();
+
+const securityHeaders = [
+  {
+    key: "Strict-Transport-Security",
+    value: "max-age=63072000; includeSubDomains; preload",
+  },
+  {
+    key: "X-Frame-Options",
+    value: "DENY",
+  },
+  {
+    key: "X-Content-Type-Options",
+    value: "nosniff",
+  },
+  {
+    key: "Referrer-Policy",
+    value: "strict-origin-when-cross-origin",
+  },
+  {
+    key: "Permissions-Policy",
+    value: "camera=(), microphone=(), geolocation=(), browsing-topics=(), interest-cohort=()",
+  },
+  {
+    key: "X-DNS-Prefetch-Control",
+    value: "on",
+  },
+  {
+    key: "Content-Security-Policy",
+    value: cspHeader,
+  },
+];
 
 const nextConfig: NextConfig = {
-  // 1. Mevcut yönlendirmelerimiz
-  async redirects() {
+  reactStrictMode: true,
+  poweredByHeader: false, // X-Powered-By: Next.js başlığını gizler (Sunucu bilgisi sızdırmaz)
+  headers: async () => {
     return [
       {
-        source: '/eski-hatali-sayfa',
-        destination: '/',
-        permanent: true,
-      },
-    ];
-  },
-  // 2. Güvenlik başlıkları (Security Headers)
-  async headers() {
-    return [
-      {
-        source: "/(.*)",
-        headers: [
-          {
-            key: "Content-Security-Policy",
-            value: cspHeader,
-          },
-          {
-            key: "X-Frame-Options",
-            value: "DENY",
-          },
-          {
-            key: "X-Content-Type-Options",
-            value: "nosniff",
-          },
-          {
-            key: "X-XSS-Protection",
-            value: "1; mode=block",
-          },
-          {
-            key: "Referrer-Policy",
-            value: "strict-origin-when-cross-origin",
-          },
-          {
-            key: "Permissions-Policy",
-            value: "camera=(), microphone=(), geolocation=(), interest-cohort=()",
-          },
-          {
-            key: "Strict-Transport-Security",
-            value: "max-age=63072000; includeSubDomains; preload",
-          },
-        ],
+        source: "/:path*",
+        headers: securityHeaders,
       },
     ];
   },
