@@ -769,6 +769,9 @@ export default function Home() {
   const [isVideoMuted, setIsVideoMuted] = useState<boolean>(true);
   const twinVideoRef = useRef<HTMLVideoElement | null>(null);
 
+  const [isRightVideoMuted, setIsRightVideoMuted] = useState<boolean>(true);
+  const rightVideoRef = useRef<HTMLVideoElement | null>(null);
+
   const [causticsPosLeft, setCausticsPosLeft] = useState({ x: 50, y: 50 });
   const [causticsPosRight, setCausticsPosRight] = useState({ x: 50, y: 50 });
 
@@ -2001,9 +2004,10 @@ export default function Home() {
               <div>
                 <div className="relative h-64 sm:h-72 w-full rounded-2xl bg-neutral-950 border border-amber-500/30 overflow-hidden mb-8 shadow-2xl group">
                   <video
+                    ref={rightVideoRef}
                     autoPlay
                     loop
-                    muted
+                    muted={isRightVideoMuted}
                     playsInline
                     preload="auto"
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-1000 ease-out opacity-85"
@@ -2019,6 +2023,21 @@ export default function Home() {
                       <Activity className="w-3 h-3 text-amber-400" /> IDENTITY RETENTION
                     </span>
                   </div>
+
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      if (rightVideoRef.current) {
+                        rightVideoRef.current.muted = !isRightVideoMuted;
+                        setIsRightVideoMuted(!isRightVideoMuted);
+                      }
+                    }}
+                    aria-label={isRightVideoMuted ? "Unmute Video" : "Mute Video"}
+                    className="absolute bottom-4 right-4 z-20 p-2.5 rounded-full bg-neutral-950/80 border border-amber-400/50 text-amber-300 hover:bg-amber-400 hover:text-neutral-950 transition-all backdrop-blur-md shadow-lg cursor-pointer"
+                  >
+                    {isRightVideoMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4 animate-pulse" />}
+                  </button>
                 </div>
 
                 <h3 className="text-xl sm:text-2xl font-bold text-neutral-100 mb-3">{t.twinsSection?.identityTitle}</h3>
