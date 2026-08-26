@@ -486,10 +486,10 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       submitBtn: "Gizli Brief'i Gönder", 
       directEmail: "Project Desk:",
       nextStepsTitle: "SONRAKİ ADIMLAR",
-      ns1Title: "01 · İNCELEME", ns1Desc: "Briefinizi, estetik yöneliminizi ve referans materyallerinizi inceliyoruz.",
-      ns2Title: "02 · KAPSAM", ns2Desc: "Nihai teslimat formatlarını, takvim adımlarını ve üretim gereksinimlerini belirliyoruz.",
-      ns3Title: "03 · TEKLİF", ns3Desc: "NDA kapsamında size özel hazırlanmış proje kapsamını ve teklifi iletiyoruz.",
-      ns4Title: "04 · PRODÜKSİYON", ns4Desc: "Karşılıklı mutabakatın ardından sanat yönetimi ve görsel üretim başlıyor."
+      ns1Title: "01 · İNCELEME", ns1Desc: "We review your brief, aesthetic direction, and reference materials.",
+      ns2Title: "02 · SCOPE", ns2Desc: "We define exact deliverables, schedule milestones, and production requirements.",
+      ns3Title: "03 · PROPOSAL", ns3Desc: "You receive a tailored project scope and investment proposal under NDA.",
+      ns4Title: "04 · PRODUCTION", ns4Desc: "Creative direction and visual production begin following mutual sign-off."
     },
     footerSection: { navTitle: "01 / NAVİGASYON", dirTitle: "02 / DİREKTÖRİK", netTitle: "03 / AĞLARIMIZ", studio: "Stüdyomuz", works: "Konsept Arşivi", initiate: "Proje Başlat", location: "Bağımsız Stüdyo · Global / Uzaktan Erişim", terms: "HİZMET VE KULLANIM ŞARTLARI", privacy: "GİZLİLİK VE VERİ KORUMA PROTOKOLÜ" },
     modals: {
