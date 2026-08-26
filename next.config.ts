@@ -1,9 +1,13 @@
 import type { NextConfig } from "next";
 
-// Content Security Policy (Sitenin hiçbir özelliğini, görselini veya videosunu bozmayacak şekilde ayarlandı)
+// Projenin lokalde (npm run dev) mi yoksa canlıda (production) mı çalıştığını tespit eder.
+const isDev = process.env.NODE_ENV !== "production";
+
+// Geliştirme (dev) ortamında React HMR için 'unsafe-eval' izni verilir (kırmızı uyarıyı engeller).
+// Production (canlı) ortamda ise 'unsafe-eval' OTOMATİK OLARAK TAMAMEN KALDIRILIR!
 const cspHeader = `
   default-src 'self';
-  script-src 'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com;
+  script-src 'self' 'unsafe-inline' ${isDev ? "'unsafe-eval'" : ""} https://va.vercel-scripts.com;
   style-src 'self' 'unsafe-inline';
   img-src 'self' blob: data: https://flagcdn.com;
   font-src 'self' data:;
@@ -49,7 +53,7 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-  poweredByHeader: false, // X-Powered-By: Next.js başlığını gizler (Sunucu bilgisi sızdırmaz)
+  poweredByHeader: false,
   headers: async () => {
     return [
       {

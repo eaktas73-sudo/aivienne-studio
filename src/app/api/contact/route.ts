@@ -20,6 +20,9 @@ const ALLOWED_MIME_TYPES = new Set([
 
 const ALLOWED_EXTENSIONS = new Set(["png", "jpg", "jpeg", "pdf", "zip"]);
 
+/**
+ * Dosya Magic Byte (Binary İmza) Doğrulaması
+ */
 function validateMagicBytes(buffer: Buffer, declaredType: string, extension: string): boolean {
   if (buffer.length < 4) return false;
 
@@ -53,6 +56,9 @@ function validateMagicBytes(buffer: Buffer, declaredType: string, extension: str
   return false;
 }
 
+/**
+ * HTML Escaping
+ */
 function escapeHtml(str: string): string {
   if (!str) return "";
   return str
@@ -63,11 +69,17 @@ function escapeHtml(str: string): string {
     .replace(/'/g, "&#039;");
 }
 
+/**
+ * Header CRLF Sanitization
+ */
 function sanitizeHeader(str: string): string {
   if (!str) return "";
   return str.replace(/[\r\n\t]/g, " ").trim();
 }
 
+/**
+ * Path Traversal & Filename Sanitization
+ */
 function sanitizeFilename(filename: string): string {
   const baseName = filename.replace(/^.*[\\/]/, "");
   return baseName.replace(/[^a-zA-Z0-9._-]/g, "_").substring(0, 100);
@@ -87,12 +99,40 @@ const inquirySchema = z.object({
 
 export async function POST(req: NextRequest) {
   try {
+    // 1. STRICT EXACT ORIGIN VALIDATION (Bypass Engelleme)
     const origin = req.headers.get("origin");
     const host = req.headers.get("host");
-    if (origin && host) {
-      const allowedDomain = "aivienne.com";
-      const originHost = new URL(origin).host;
-      if (originHost !== host && !originHost.endsWith(allowedDomain) && originHost !== "localhost:3000") {
+
+    if (origin) {
+      let originHost = "";
+      try {
+        originHost = new URL(origin).host;
+      } catch {
+        return NextResponse.json(
+          { error: "Invalid origin header." },
+          { status: 403 }
+        );
+      }
+
+      // İzin verilen tam alan adları (Strict Allowlist)
+      const allowedHosts = new Set([
+        "aivienne.com",
+        "www.aivienne.com",
+      ]);
+
+      // Sadece geliştirme ortamında localhost ve 127.0.0.1 kabul edilir
+      if (process.env.NODE_ENV !== "production") {
+        allowedHosts.add("localhost:3000");
+        allowedHosts.add("127.0.0.1:3000");
+      }
+
+      // Sunucu host başlığı ile eşleşmeyi de ekle (Vercel preview URL'leri için)
+      if (host) {
+        allowedHosts.add(host);
+      }
+
+      // Tam eşleşme kontrolü (evil-aivienne.com kesinlikle engellenir)
+      if (!allowedHosts.has(originHost)) {
         return NextResponse.json(
           { error: "Unauthorized cross-origin request." },
           { status: 403 }
@@ -100,6 +140,7 @@ export async function POST(req: NextRequest) {
       }
     }
 
+    // 2. Content-Type Kontrolü
     const contentType = req.headers.get("content-type") || "";
     if (!contentType.includes("multipart/form-data")) {
       return NextResponse.json(
@@ -110,11 +151,13 @@ export async function POST(req: NextRequest) {
 
     const formData = await req.formData();
 
+    // 3. Honeypot Koruması
     const honeypot = formData.get("hp_website_check")?.toString() || "";
     if (honeypot.trim().length > 0) {
       return NextResponse.json({ success: true }, { status: 200 });
     }
 
+    // 4. Form Verilerini Doğrulama
     const rawData = {
       name: formData.get("name")?.toString() || "",
       email: formData.get("email")?.toString() || "",
@@ -137,6 +180,7 @@ export async function POST(req: NextRequest) {
 
     const validData = parsed.data;
 
+    // 5. Dosya Kontrolleri
     const files = formData.getAll("files") as File[];
     if (files.length > MAX_FILES) {
       return NextResponse.json(
@@ -198,6 +242,7 @@ export async function POST(req: NextRequest) {
       });
     }
 
+    // 6. Resend E-posta Gönderimi
     const resendApiKey = process.env.RESEND_API_KEY;
     if (!resendApiKey) {
       console.error("[SECURITY/INTERNAL] RESEND_API_KEY is not configured.");
