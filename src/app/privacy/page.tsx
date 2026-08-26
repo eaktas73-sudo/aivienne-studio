@@ -1,3 +1,29 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Confidentiality & Privacy Policy | AI.VIENNE Studio+",
+  description:
+    "Data protection, confidentiality, and privacy protocols for client information and project assets at AI.VIENNE Studio+.",
+  alternates: {
+    canonical: "https://aivienne.com/privacy",
+  },
+  openGraph: {
+    title: "Confidentiality & Privacy Policy | AI.VIENNE Studio+",
+    description:
+      "Data protection, confidentiality, and privacy protocols for client information and project assets at AI.VIENNE Studio+.",
+    url: "https://aivienne.com/privacy",
+    siteName: "AI.VIENNE Studio+",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Confidentiality & Privacy Policy | AI.VIENNE Studio+",
+    description:
+      "Data protection, confidentiality, and privacy protocols for client information and project assets at AI.VIENNE Studio+.",
+  },
+};
+
 export default function PrivacyPage() {
   return (
     <main className="min-h-screen bg-neutral-950 text-neutral-100 px-6 sm:px-12 md:px-24 py-24">
