@@ -9,6 +9,24 @@ const MAX_FILES = 5;
 const MAX_FILE_SIZE = 25 * 1024 * 1024; // 25 MB
 const MAX_TOTAL_SIZE = 30 * 1024 * 1024; // 30 MB
 
+// Form Seçenek Kodlarını Anlamlı Metinlere Çeviren Sözlükler
+const SERVICE_LABELS: Record<string, string> = {
+  sOpt1: "Haute Couture & Seasonal Campaigns",
+  sOpt2: "Haute Horlogerie & Fine Jewelry Visualization (Luxury Watches & Jewelry)",
+  sOpt3: "Persistent Brand Ambassadors (Digital Characters)",
+  sOpt4: "Brand Heritage & Flagship Films",
+  sOpt5: "Haute Parfumerie & Prestige Beauty Campaign",
+  sOpt6: "Luxury Eyewear & Optics Production",
+  sOpt7: "Custom Multi-Channel Campaign Scope",
+};
+
+const BUDGET_LABELS: Record<string, string> = {
+  bOpt1: "Starting Project Range: From $5,000",
+  bOpt2: "Seasonal Campaign Suite: $5,000 – $15,000",
+  bOpt3: "Full Motion & Character Ecosystem: $15,000 – $35,000+",
+  bOpt4: "Custom Production / Scoped to Requirements",
+};
+
 const ALLOWED_MIME_TYPES = new Set([
   "image/png",
   "image/jpeg",
@@ -99,7 +117,7 @@ const inquirySchema = z.object({
 
 export async function POST(req: NextRequest) {
   try {
-    // 1. STRICT EXACT ORIGIN VALIDATION (Bypass Engelleme)
+    // 1. STRICT EXACT ORIGIN VALIDATION
     const origin = req.headers.get("origin");
     const host = req.headers.get("host");
 
@@ -114,24 +132,20 @@ export async function POST(req: NextRequest) {
         );
       }
 
-      // İzin verilen tam alan adları (Strict Allowlist)
       const allowedHosts = new Set([
         "aivienne.com",
         "www.aivienne.com",
       ]);
 
-      // Sadece geliştirme ortamında localhost ve 127.0.0.1 kabul edilir
       if (process.env.NODE_ENV !== "production") {
         allowedHosts.add("localhost:3000");
         allowedHosts.add("127.0.0.1:3000");
       }
 
-      // Sunucu host başlığı ile eşleşmeyi de ekle (Vercel preview URL'leri için)
       if (host) {
         allowedHosts.add(host);
       }
 
-      // Tam eşleşme kontrolü (evil-aivienne.com kesinlikle engellenir)
       if (!allowedHosts.has(originHost)) {
         return NextResponse.json(
           { error: "Unauthorized cross-origin request." },
@@ -252,17 +266,21 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    // Kodları açık metinlere eşle (sOpt4 -> Brand Heritage..., bOpt1 -> Starting Project...)
+    const resolvedService = SERVICE_LABELS[validData.service] || validData.service;
+    const resolvedBudget = BUDGET_LABELS[validData.budget] || validData.budget;
+
     const safeName = escapeHtml(validData.name);
     const safeEmail = escapeHtml(validData.email);
     const safeWebsite = validData.website ? escapeHtml(validData.website) : "Belirtilmedi";
     const safeLaunchDate = validData.launchDate ? escapeHtml(validData.launchDate) : "Belirtilmedi";
-    const safeService = escapeHtml(validData.service);
-    const safeBudget = escapeHtml(validData.budget);
+    const safeService = escapeHtml(resolvedService);
+    const safeBudget = escapeHtml(resolvedBudget);
     const safeNDA = validData.requireNDA ? "Evet (Karşılıklı NDA Talep Edildi)" : "Hayır";
     const safeMessage = escapeHtml(validData.message).replace(/\n/g, "<br/>");
 
     const headerSafeName = sanitizeHeader(validData.name);
-    const headerSafeService = sanitizeHeader(validData.service);
+    const headerSafeService = sanitizeHeader(resolvedService);
     const emailSubject = `[AI.VIENNE Brief] ${headerSafeName} — ${headerSafeService}`;
 
     const emailHtml = `
