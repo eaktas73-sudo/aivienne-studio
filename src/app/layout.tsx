@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import AIChatConcierge from "@/components/AIChatConcierge";
+import AIChatConcierge from "./components/AIChatConcierge";
 import "./globals.css";
 
 export const metadata: Metadata = {
