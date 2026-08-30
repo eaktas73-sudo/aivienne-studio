@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import AIChatConcierge from "@/components/AIChatConcierge";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -108,6 +109,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
         {children}
+        <AIChatConcierge />
       </body>
     </html>
   );
