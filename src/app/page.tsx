@@ -4,6 +4,8 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import FAQ from "./components/FAQ";
+import Testimonials from "./components/Testimonials";
 import {
   Sparkles,
   ArrowRight,
@@ -92,7 +94,7 @@ interface TranslationContent {
 
 const TRANSLATIONS: Record<string, TranslationContent> = {
   EN: {
-    nav: { portfolio: "Concept Archive", capabilities: "Capabilities", services: "Services", avatar: "Digital Characters", studio: "Studio", system: "Process", theStudio: "The Studio", transformation: "Refinement", roi: "Production Economics", journal: "Insights", contact: "Inquire", cta: "START A PROJECT" },
+    nav: { portfolio: "Concept Archive", capabilities: "Capabilities", services: "Services", avatar: "Digital Characters", studio: "Studio", system: "Process", theStudio: "The Studio", transformation: "Refinement", roi: "Production Economics", journal: "Insights", faq: "FAQ", contact: "Inquire", cta: "START A PROJECT" },
     hero: { badge: "AI-Native Luxury Visual Production House", titleStart: "Elevating High Fashion, Fine Jewelry & Horlogerie Through", titleGradient: "Neural Craftsmanship", desc: "AI-assisted campaign imagery, cinematic motion, luxury product visualization and consistent digital characters — directed for brands that demand precision.", btnPrimary: "Explore Concept Archive", btnSecondary: "Direct Access: info@aivienne.com" },
     manifesto: { sub: "OUR CREATIVE CODEX", line1: "We do not adapt to fleeting digital trends.", line2: "WE ARCHITECT TIMELESS LUXURY UNIVERSES." },
     servicesPillars: {
@@ -307,7 +309,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
     footer: `© ${new Date().getFullYear()} AI.VIENNE Studio+. All rights reserved.`
   },
   TR: {
-    nav: { portfolio: "Konsept Arşivi", capabilities: "Yetkinlikler", services: "Hizmetler", avatar: "Dijital Karakterler", studio: "Stüdyo", system: "Süreç", theStudio: "Stüdyomuz", transformation: "Dönüşüm", roi: "Üretim Ekonomisi", journal: "İçgörüler", contact: "Talep", cta: "PROJE BAŞLAT" },
+    nav: { portfolio: "Konsept Arşivi", capabilities: "Yetkinlikler", services: "Hizmetler", avatar: "Dijital Karakterler", studio: "Stüdyo", system: "Süreç", theStudio: "Stüdyomuz", transformation: "Dönüşüm", roi: "Üretim Ekonomisi", journal: "İçgörüler", faq: "SSS", contact: "Talep", cta: "PROJE BAŞLAT" },
     hero: { badge: "Yapay Zeka Destekli Lüks Görsel Prodüksiyon Evi", titleStart: "Yüksek Moda, Mücevher ve Saatçilikte", titleGradient: "Neural Zanaatkarlık", desc: "Hassasiyet ve mükemmellik talep eden markalar için yapay zeka destekli kampanya görselleri, sinematik videolar, lüks ürün görselleştirmeleri ve tutarlı dijital karakterler.", btnPrimary: "Konsept Arşivini İncele", btnSecondary: "Doğrudan İletişim: info@aivienne.com" },
     manifesto: { sub: "KREATİF KODUMUZ", line1: "Geçici dijital trendlere uyum sağlamıyoruz.", line2: "ZAMANSIZ LÜKS EVRENLER İNŞA EDİYORUZ." },
     servicesPillars: {
@@ -747,7 +749,7 @@ const DIGITAL_TWINS = [
   }
 ];
 
-export default function ClientHome() {
+export default function Home() {
   const [selectedLang, setSelectedLang] = useState(LANGUAGES[0]);
   const [isLangOpen, setIsLangOpen] = useState(false);
   const [activeFilter, setActiveFilter] = useState("all");
@@ -997,20 +999,20 @@ export default function ClientHome() {
             initial={{ opacity: 0 }} 
             animate={{ opacity: 1 }} 
             exit={{ opacity: 0 }} 
-            onClick={() => setActiveCaseStudy(null)}
+            onClick={() => setActiveCaseStudy(null)} 
             className="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl flex items-center justify-center p-3 sm:p-6 lg:p-10"
           >
             <motion.div 
               initial={{ scale: 0.95, opacity: 0 }} 
               animate={{ scale: 1, opacity: 1 }} 
               exit={{ scale: 0.95, opacity: 0 }} 
-              onClick={(e) => e.stopPropagation()}
+              onClick={(e) => e.stopPropagation()} 
               className="relative w-full max-w-6xl bg-neutral-950 border border-amber-500/40 rounded-3xl overflow-hidden shadow-2xl max-h-[92vh] flex flex-col lg:flex-row"
             >
               <button 
-                type="button"
+                type="button" 
                 onClick={() => setActiveCaseStudy(null)} 
-                aria-label="Close Study"
+                aria-label="Close Study" 
                 className="absolute top-4 right-4 z-40 p-2.5 rounded-full bg-neutral-900/90 border border-amber-400/60 text-amber-300 hover:text-neutral-950 hover:bg-amber-400 transition-all cursor-pointer shadow-2xl"
               >
                 <X className="w-5 h-5 stroke-[2.5]" />
@@ -1025,7 +1027,7 @@ export default function ClientHome() {
                     preload="auto" 
                     controls 
                     playsInline 
-                    poster={activeCaseStudy.poster}
+                    poster={activeCaseStudy.poster} 
                     className="w-full h-full object-contain bg-black max-h-[48vh] lg:max-h-[85vh]"
                   >
                     <source src={activeCaseStudy.videoUrl} type="video/mp4" />
@@ -1058,7 +1060,7 @@ export default function ClientHome() {
 
                   <div className="flex flex-wrap items-center gap-3 mb-6 pb-6 border-b border-neutral-800">
                     <button 
-                      type="button"
+                      type="button" 
                       onClick={() => {
                         setFormData(prev => ({ 
                           ...prev, 
@@ -1066,15 +1068,15 @@ export default function ClientHome() {
                         }));
                         setActiveCaseStudy(null);
                         document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-                      }}
+                      }} 
                       className="px-6 py-2.5 rounded-full bg-amber-400 text-neutral-950 font-bold text-xs uppercase tracking-wider hover:bg-amber-300 transition-all cursor-pointer flex items-center gap-2 shadow-lg"
                     >
                       <span>{t.portfolio?.requestScope || "REQUEST SCOPE"}</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </button>
                     <button 
-                      type="button"
-                      onClick={() => setActiveCaseStudy(null)}
+                      type="button" 
+                      onClick={() => setActiveCaseStudy(null)} 
                       className="px-5 py-2.5 rounded-full bg-neutral-900 border border-neutral-700 text-neutral-300 hover:text-white hover:border-amber-400 font-bold text-xs uppercase tracking-wider transition-all cursor-pointer"
                     >
                       {t.portfolio?.closePreview || "CLOSE PREVIEW"}
@@ -1124,14 +1126,14 @@ export default function ClientHome() {
             initial={{ opacity: 0 }} 
             animate={{ opacity: 1 }} 
             exit={{ opacity: 0 }} 
-            onClick={() => setActiveArticle(null)}
+            onClick={() => setActiveArticle(null)} 
             className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex items-center justify-center p-4"
           >
             <motion.div 
               initial={{ scale: 0.95 }} 
               animate={{ scale: 1 }} 
               exit={{ scale: 0.95 }} 
-              onClick={(e) => e.stopPropagation()}
+              onClick={(e) => e.stopPropagation()} 
               className="relative w-full max-w-3xl bg-neutral-900 border border-amber-500/30 rounded-3xl p-6 md:p-10 shadow-2xl text-left max-h-[85vh] overflow-y-auto"
             >
               <button type="button" onClick={() => setActiveArticle(null)} aria-label="Close Article" className="absolute top-6 right-6 text-neutral-400 hover:text-white cursor-pointer"><X className="w-6 h-6" /></button>
@@ -1171,8 +1173,8 @@ export default function ClientHome() {
               <div className="mt-8 pt-6 border-t border-neutral-800/80 flex items-center justify-between">
                 <span className="text-xs font-mono text-neutral-400">AI.VIENNE Research & Monograph</span>
                 <button 
-                  type="button"
-                  onClick={() => { setActiveArticle(null); document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }); }}
+                  type="button" 
+                  onClick={() => { setActiveArticle(null); document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }); }} 
                   className="px-6 py-2.5 rounded-full bg-amber-400 text-neutral-950 font-bold text-xs uppercase tracking-wider hover:bg-amber-300 transition-all flex items-center gap-2 cursor-pointer"
                 >
                   <span>Request Full Perspective</span>
@@ -1186,7 +1188,7 @@ export default function ClientHome() {
 
       <div className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50">
         <button 
-          type="button"
+          type="button" 
           onClick={() => setIsDeskOpen(!isDeskOpen)} 
           aria-label="Open Confidential Inquiry Desk" 
           className="relative w-12 h-12 rounded-full bg-amber-400/90 hover:bg-amber-400 text-neutral-950 flex items-center justify-center shadow-[0_0_25px_rgba(251,191,36,0.35)] hover:shadow-[0_0_40px_rgba(251,191,36,0.6)] hover:scale-110 transition-all duration-300 backdrop-blur-xl border border-amber-300/60 cursor-pointer group"
@@ -1263,7 +1265,7 @@ export default function ClientHome() {
               onMouseLeave={() => setIsStudioOpen(false)}
             >
               <button 
-                type="button"
+                type="button" 
                 onClick={() => setIsStudioOpen(!isStudioOpen)}
                 className="flex items-center gap-1.5 hover:text-amber-400 transition-colors cursor-pointer whitespace-nowrap"
               >
@@ -1316,6 +1318,10 @@ export default function ClientHome() {
 
             <a href="#insights" className="hover:text-amber-400 transition-colors py-2 relative group whitespace-nowrap">
               {t.nav?.journal}
+              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-amber-400 transition-all duration-300 group-hover:w-full" />
+            </a>
+            <a href="#faq" className="hover:text-amber-400 transition-colors py-2 relative group whitespace-nowrap">
+              {t.nav?.faq}
               <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-amber-400 transition-all duration-300 group-hover:w-full" />
             </a>
             <a href="#contact" className="hover:text-amber-400 transition-colors py-2 relative group whitespace-nowrap">
@@ -1427,7 +1433,7 @@ export default function ClientHome() {
               <div className="mt-8 pt-6 border-t border-neutral-800 flex items-center justify-between">
                 <span className="text-[10px] font-mono text-neutral-400 uppercase tracking-wider">{t.servicesPillars?.leadTimeLabel} · {t.servicesPillars?.s1Time}</span>
                 <button 
-                  type="button"
+                  type="button" 
                   onClick={() => selectServicePillar("sOpt1", "Haute Couture & Seasonal Campaigns")}
                   className="px-6 py-2.5 rounded-full bg-neutral-900 border border-amber-500/40 text-amber-300 group-hover:bg-amber-400 group-hover:text-neutral-950 font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer shrink-0"
                 >
@@ -1470,7 +1476,7 @@ export default function ClientHome() {
               <div className="mt-8 pt-6 border-t border-neutral-800 flex items-center justify-between">
                 <span className="text-[10px] font-mono text-neutral-400 uppercase tracking-wider">{t.servicesPillars?.leadTimeLabel} · {t.servicesPillars?.s2Time}</span>
                 <button 
-                  type="button"
+                  type="button" 
                   onClick={() => selectServicePillar("sOpt2", "Haute Horlogerie & Fine Jewelry")}
                   className="px-6 py-2.5 rounded-full bg-neutral-900 border border-amber-500/40 text-amber-300 group-hover:bg-amber-400 group-hover:text-neutral-950 font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer shrink-0"
                 >
@@ -1513,7 +1519,7 @@ export default function ClientHome() {
               <div className="mt-8 pt-6 border-t border-neutral-800 flex items-center justify-between">
                 <span className="text-[10px] font-mono text-neutral-400 uppercase tracking-wider">{t.servicesPillars?.leadTimeLabel} · {t.servicesPillars?.s3Time}</span>
                 <button 
-                  type="button"
+                  type="button" 
                   onClick={() => selectServicePillar("sOpt3", "Persistent Brand Ambassadors")}
                   className="px-6 py-2.5 rounded-full bg-neutral-900 border border-amber-500/40 text-amber-300 group-hover:bg-amber-400 group-hover:text-neutral-950 font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer shrink-0"
                 >
@@ -1556,7 +1562,7 @@ export default function ClientHome() {
               <div className="mt-8 pt-6 border-t border-neutral-800 flex items-center justify-between">
                 <span className="text-[10px] font-mono text-neutral-400 uppercase tracking-wider">{t.servicesPillars?.leadTimeLabel} · {t.servicesPillars?.s4Time}</span>
                 <button 
-                  type="button"
+                  type="button" 
                   onClick={() => selectServicePillar("sOpt4", "Brand Heritage & Flagship Films")}
                   className="px-6 py-2.5 rounded-full bg-neutral-900 border border-amber-500/40 text-amber-300 group-hover:bg-amber-400 group-hover:text-neutral-950 font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer shrink-0"
                 >
@@ -2266,7 +2272,7 @@ export default function ClientHome() {
               </div>
 
               <button 
-                type="button"
+                type="button" 
                 onClick={() => {
                   setFormData(prev => ({
                     ...prev,
@@ -2301,7 +2307,7 @@ export default function ClientHome() {
                 <p className="text-xs text-neutral-300 leading-relaxed mb-6 font-light group-hover:text-neutral-100 transition-colors">{t.insights?.article1Desc}</p>
               </div>
               <button 
-                type="button"
+                type="button" 
                 onClick={() => setActiveArticle({
                   tag: t.insights?.article1Tag,
                   title: t.insights?.article1Title,
@@ -2327,7 +2333,7 @@ export default function ClientHome() {
                 <p className="text-xs text-neutral-300 leading-relaxed mb-6 font-light group-hover:text-neutral-100 transition-colors">{t.insights?.article2Desc}</p>
               </div>
               <button 
-                type="button"
+                type="button" 
                 onClick={() => setActiveArticle({
                   tag: t.insights?.article2Tag,
                   title: t.insights?.article2Title,
@@ -2353,7 +2359,7 @@ export default function ClientHome() {
                 <p className="text-xs text-neutral-300 leading-relaxed mb-6 font-light group-hover:text-neutral-100 transition-colors">{t.insights?.article3Desc}</p>
               </div>
               <button 
-                type="button"
+                type="button" 
                 onClick={() => setActiveArticle({
                   tag: t.insights?.article3Tag,
                   title: t.insights?.article3Title,
@@ -2414,6 +2420,10 @@ export default function ClientHome() {
           </div>
         </div>
       </section>
+{/* Müşteri Deneyimleri & Referanslar */}
+      <Testimonials lang={selectedLang.code} />
+      {/* Sıkça Sorulan Sorular (FAQ) Bölümü */}
+      <FAQ lang={selectedLang.code} />
 
       <section id="contact" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50">
         <div className="max-w-5xl mx-auto">
@@ -2582,6 +2592,7 @@ export default function ClientHome() {
                 <li><a href="#transformation" className="hover:opacity-75 block">{t.nav?.transformation}</a></li>
                 <li><a href="#estimator" className="hover:opacity-75 block">{t.nav?.roi}</a></li>
                 <li><a href="#insights" className="hover:opacity-75 block">{t.nav?.journal}</a></li>
+                <li><a href="#faq" className="hover:opacity-75 block">FAQ</a></li>
                 <li><a href="#contact" className="hover:opacity-75 block">{t.footerSection?.initiate}</a></li>
               </ul>
             </div>
