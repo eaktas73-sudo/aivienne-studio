@@ -16,7 +16,6 @@ import {
   X,
   Send,
   ArrowUp,
-  FileText,
   ShieldCheck,
   Glasses,
   Sparkle,
@@ -49,7 +48,7 @@ import {
   BookOpen,
   Volume2,
   VolumeX,
-  LucideIcon
+  type LucideIcon
 } from "lucide-react";
 
 // Botların e-posta kazımasını (scraping) önleyen güvenli e-posta bileşeni
@@ -1333,16 +1332,21 @@ export default function Home() {
           <div className="flex items-center gap-3 sm:gap-5 shrink-0">
             <div className="relative">
               <button type="button" onClick={() => setIsLangOpen(!isLangOpen)} className="flex items-center gap-2 text-xs font-semibold text-neutral-200 border border-neutral-800 bg-neutral-900/80 rounded-full h-10 sm:h-11 px-3 sm:px-4 transition-all cursor-pointer hover:border-neutral-700">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={selectedLang.flag} alt={selectedLang.name} loading="lazy" decoding="async" className="w-4 h-3 object-cover rounded-sm" /> <span>{selectedLang.code}</span> <ChevronDown className={`w-3 h-3 text-neutral-400 transition-transform ${isLangOpen ? "rotate-180" : ""}`} />
+                <div className="relative w-4 h-3">
+                  <Image src={selectedLang.flag} alt={selectedLang.name} fill sizes="16px" className="object-cover rounded-sm" />
+                </div>
+                <span>{selectedLang.code}</span>
+                <ChevronDown className={`w-3 h-3 text-neutral-400 transition-transform ${isLangOpen ? "rotate-180" : ""}`} />
               </button>
               {isLangOpen && (
                 <div className="absolute right-0 mt-3 w-36 max-h-72 overflow-y-auto rounded-2xl border border-neutral-800 bg-neutral-900/95 backdrop-blur-lg shadow-2xl p-2 z-50">
                   {LANGUAGES.map((lang) => (
                     <button key={lang.code} type="button" onClick={() => { setSelectedLang(lang); setIsLangOpen(false); }} className={`w-full text-left px-3.5 py-2.5 rounded-xl text-xs font-semibold flex items-center justify-between cursor-pointer ${selectedLang.code === lang.code ? "bg-amber-400/10 text-amber-400" : "text-neutral-300 hover:bg-neutral-800/60"}`}>
                       <div className="flex items-center gap-2.5">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={lang.flag} alt={lang.name} loading="lazy" decoding="async" className="w-4 h-3 object-cover rounded-sm" /> <span>{lang.name}</span>
+                        <div className="relative w-4 h-3">
+                          <Image src={lang.flag} alt={lang.name} fill sizes="16px" className="object-cover rounded-sm" />
+                        </div>
+                        <span>{lang.name}</span>
                       </div>
                       <span className="text-[10px] text-neutral-400">{lang.code}</span>
                     </button>
@@ -2420,9 +2424,8 @@ export default function Home() {
           </div>
         </div>
       </section>
-{/* Müşteri Deneyimleri & Referanslar */}
+
       <Testimonials lang={selectedLang.code} />
-      {/* Sıkça Sorulan Sorular (FAQ) Bölümü */}
       <FAQ lang={selectedLang.code} />
 
       <section id="contact" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50">
