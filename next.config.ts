@@ -118,6 +118,32 @@ const nextConfig: NextConfig = {
         destination: '/',
         permanent: true,
       },
+      // Google'da 404 veren eski statik rota kalıntıları
+      {
+        source: '/design',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/careers',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/home-3',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/portfolio',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/contact',
+        destination: '/',
+        permanent: true,
+      },
       // Eski ürün ve kategori uzantılarını yakalamak için genel yönlendirmeler
       {
         source: '/urun/:path*',
