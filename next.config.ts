@@ -70,6 +70,72 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      // Eski WordPress ve test sayfaları için 301 kalıcı yönlendirmeleri
+      {
+        source: '/en/hello-world',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/en/magaza',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/magaza',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/fiyatlandirma',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/en/fiyatlandirma',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/iletisim',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/en/iletisim',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/hizmetler',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/en/hizmetler',
+        destination: '/',
+        permanent: true,
+      },
+      // Eski ürün ve kategori uzantılarını yakalamak için genel yönlendirmeler
+      {
+        source: '/urun/:path*',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/urun-kategori/:path*',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/en/product/:path*',
+        destination: '/',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
