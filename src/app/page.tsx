@@ -1362,6 +1362,7 @@ export default function Home() {
         </div>
       </header>
 
+      {/* HERO SECTION */}
       <section className="relative z-10 w-full px-4 sm:px-8 md:px-16 pt-12 sm:pt-20 pb-14 sm:pb-18 text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
           <span className="inline-flex items-center gap-2.5 px-4 sm:px-6 py-2 rounded-full border border-amber-500/30 bg-amber-500/10 text-xs sm:text-sm font-semibold text-amber-300 mb-6 sm:mb-8">
@@ -1373,10 +1374,20 @@ export default function Home() {
           <p className="mt-6 sm:mt-8 text-sm sm:text-lg md:text-xl text-neutral-300 max-w-3xl mx-auto font-light leading-relaxed">
             {t.hero?.desc}
           </p>
-          <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+          <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 sm:gap-6">
             <a href="#portfolio" className="w-full sm:w-auto px-8 sm:px-10 py-4 rounded-full text-sm sm:text-base font-bold tracking-wide text-neutral-950 bg-amber-400 hover:bg-amber-300 transition-all flex items-center justify-center gap-3 shadow-[0_0_40px_rgba(251,191,36,0.3)]">
               {t.hero?.btnPrimary} <ArrowRight className="w-5 h-5" />
             </a>
+
+            {/* LEMON SQUEEZY OVERLAY HERO REZERVASYON BUTONU */}
+            <a
+              href="https://aivienne.lemonsqueezy.com/checkout/buy/32ab7590-f5fb-419d-b25b-53c8be818d8d?embed=1"
+              className="lemonsqueezy-button w-full sm:w-auto px-8 sm:px-10 py-4 rounded-full text-sm sm:text-base font-bold tracking-wide text-neutral-950 bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 hover:from-amber-200 hover:to-amber-400 transition-all flex items-center justify-center gap-3 shadow-[0_0_35px_rgba(251,191,36,0.35)] cursor-pointer"
+            >
+              <ShieldCheck className="w-5 h-5 text-neutral-950" />
+              <span>Reserve Slot ($1,500)</span>
+            </a>
+
             <div className="w-full sm:w-auto px-8 sm:px-10 py-4 rounded-full text-sm sm:text-base font-bold tracking-wide text-neutral-200 border border-neutral-800 bg-neutral-900/50 flex items-center justify-center gap-3">
               <Mail className="w-5 h-5 text-amber-400" /> 
               <span>Direct Access:</span> <SafeEmailLink className="text-amber-400 underline underline-offset-4" />
@@ -2428,12 +2439,31 @@ export default function Home() {
       <Testimonials lang={selectedLang.code} />
       <FAQ lang={selectedLang.code} />
 
+      {/* CONTACT / BOOKING SECTION */}
       <section id="contact" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
             <span className="text-sm font-bold tracking-widest text-amber-400 uppercase">{t.contact?.tag}</span>
             <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight text-neutral-100 mt-3">{t.contact?.title}</h2>
             <p className="mt-4 text-neutral-300 text-sm sm:text-base max-w-2xl mx-auto font-light">{t.contact?.desc}</p>
+          </div>
+
+          {/* LEMON SQUEEZY DIRECT FAST-TRACK RESERVATION CARD */}
+          <div className="mb-10 sm:mb-12 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-amber-500/10 via-neutral-900/60 to-amber-500/10 border border-amber-500/40 shadow-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6 text-left">
+            <div className="space-y-1.5 max-w-xl">
+              <span className="text-[10px] font-mono font-extrabold uppercase tracking-widest text-amber-400 block">Fast-Track Production Slot</span>
+              <h3 className="text-xl sm:text-2xl font-extrabold text-neutral-100">Lock Your Campaign Production Dates</h3>
+              <p className="text-xs sm:text-sm text-neutral-300 font-light leading-relaxed">
+                Directly secure priority creative direction & immediate schedule allocation with a $1,500 initial deposit (fully credited toward your campaign scope).
+              </p>
+            </div>
+            <a
+              href="https://aivienne.lemonsqueezy.com/checkout/buy/32ab7590-f5fb-419d-b25b-53c8be818d8d?embed=1"
+              className="lemonsqueezy-button w-full md:w-auto px-8 py-4 rounded-full bg-amber-400 text-neutral-950 font-extrabold text-xs uppercase tracking-wider hover:bg-amber-300 transition-all flex items-center justify-center gap-2.5 shadow-[0_0_25px_rgba(251,191,36,0.35)] shrink-0 cursor-pointer"
+            >
+              <ShieldCheck className="w-4 h-4 text-neutral-950" />
+              <span>Reserve Production Slot ($1,500)</span>
+            </a>
           </div>
 
           <form onSubmit={handleFormSubmit} className="space-y-6 sm:space-y-8 bg-neutral-900/30 border border-neutral-800 p-6 sm:p-10 md:p-14 rounded-3xl backdrop-blur-sm shadow-2xl text-left">

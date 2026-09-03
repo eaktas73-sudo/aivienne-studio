@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import AIChatConcierge from "./components/AIChatConcierge";
 import "./globals.css";
 
@@ -110,6 +111,10 @@ export default function RootLayout({
         />
         {children}
         <AIChatConcierge />
+        <Script
+          src="https://assets.lemonsqueezy.com/lemon.js"
+          strategy="lazyOnload"
+        />
       </body>
     </html>
   );
