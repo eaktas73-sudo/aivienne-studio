@@ -960,6 +960,17 @@ export default function Home() {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
+  // Concierge Rezervasyon Tıklama Yönlendiricisi
+  const handleReserveSlotClick = () => {
+    setFormData(prev => ({
+      ...prev,
+      service: "sOpt1",
+      budget: "bOpt1",
+      message: `[PRODUCTION SLOT RESERVATION INQUIRY]\nScope: $1,500 Calendar Reservation Deposit\n\nWe would like to lock our campaign production dates and request the official booking reservation invoice and USD wire transfer details.`
+    }));
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   const calculateEstimate = () => {
     let base = 5000;
     if (estType === "motion") base = 7500;
@@ -1379,14 +1390,15 @@ export default function Home() {
               {t.hero?.btnPrimary} <ArrowRight className="w-5 h-5" />
             </a>
 
-            {/* LEMON SQUEEZY OVERLAY HERO REZERVASYON BUTONU */}
-            <a
-              href="https://aivienne.lemonsqueezy.com/checkout/buy/32ab7590-f5fb-419d-b25b-53c8be818d8d?embed=1"
-              className="lemonsqueezy-button w-full sm:w-auto px-8 sm:px-10 py-4 rounded-full text-sm sm:text-base font-bold tracking-wide text-neutral-950 bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 hover:from-amber-200 hover:to-amber-400 transition-all flex items-center justify-center gap-3 shadow-[0_0_35px_rgba(251,191,36,0.35)] cursor-pointer"
+            {/* PRIVATE CONCIERGE HERO REZERVASYON BUTONU */}
+            <button
+              type="button"
+              onClick={handleReserveSlotClick}
+              className="w-full sm:w-auto px-8 sm:px-10 py-4 rounded-full text-sm sm:text-base font-bold tracking-wide text-neutral-950 bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 hover:from-amber-200 hover:to-amber-400 transition-all flex items-center justify-center gap-3 shadow-[0_0_35px_rgba(251,191,36,0.35)] cursor-pointer"
             >
               <ShieldCheck className="w-5 h-5 text-neutral-950" />
               <span>Reserve Slot ($1,500)</span>
-            </a>
+            </button>
 
             <div className="w-full sm:w-auto px-8 sm:px-10 py-4 rounded-full text-sm sm:text-base font-bold tracking-wide text-neutral-200 border border-neutral-800 bg-neutral-900/50 flex items-center justify-center gap-3">
               <Mail className="w-5 h-5 text-amber-400" /> 
@@ -2448,22 +2460,23 @@ export default function Home() {
             <p className="mt-4 text-neutral-300 text-sm sm:text-base max-w-2xl mx-auto font-light">{t.contact?.desc}</p>
           </div>
 
-          {/* LEMON SQUEEZY DIRECT FAST-TRACK RESERVATION CARD */}
+          {/* PRIVATE CLIENT CONCIERGE FAST-TRACK RESERVATION CARD */}
           <div className="mb-10 sm:mb-12 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-amber-500/10 via-neutral-900/60 to-amber-500/10 border border-amber-500/40 shadow-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6 text-left">
             <div className="space-y-1.5 max-w-xl">
               <span className="text-[10px] font-mono font-extrabold uppercase tracking-widest text-amber-400 block">Fast-Track Production Slot</span>
               <h3 className="text-xl sm:text-2xl font-extrabold text-neutral-100">Lock Your Campaign Production Dates</h3>
               <p className="text-xs sm:text-sm text-neutral-300 font-light leading-relaxed">
-                Directly secure priority creative direction & immediate schedule allocation with a $1,500 initial deposit (fully credited toward your campaign scope).
+                Directly secure priority creative direction & schedule allocation via concierge booking. Your $1,500 reservation deposit is fully credited toward your final campaign scope.
               </p>
             </div>
-            <a
-              href="https://aivienne.lemonsqueezy.com/checkout/buy/32ab7590-f5fb-419d-b25b-53c8be818d8d?embed=1"
-              className="lemonsqueezy-button w-full md:w-auto px-8 py-4 rounded-full bg-amber-400 text-neutral-950 font-extrabold text-xs uppercase tracking-wider hover:bg-amber-300 transition-all flex items-center justify-center gap-2.5 shadow-[0_0_25px_rgba(251,191,36,0.35)] shrink-0 cursor-pointer"
+            <button
+              type="button"
+              onClick={handleReserveSlotClick}
+              className="w-full md:w-auto px-8 py-4 rounded-full bg-amber-400 text-neutral-950 font-extrabold text-xs uppercase tracking-wider hover:bg-amber-300 transition-all flex items-center justify-center gap-2.5 shadow-[0_0_25px_rgba(251,191,36,0.35)] shrink-0 cursor-pointer"
             >
               <ShieldCheck className="w-4 h-4 text-neutral-950" />
               <span>Reserve Production Slot ($1,500)</span>
-            </a>
+            </button>
           </div>
 
           <form onSubmit={handleFormSubmit} className="space-y-6 sm:space-y-8 bg-neutral-900/30 border border-neutral-800 p-6 sm:p-10 md:p-14 rounded-3xl backdrop-blur-sm shadow-2xl text-left">
