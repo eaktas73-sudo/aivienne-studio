@@ -1,32 +1,31 @@
-import type { Metadata } from "next";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Confidentiality & Privacy Policy | AI.VIENNE Studio+",
-  description:
-    "Data protection, confidentiality, and privacy protocols for client information and project assets at AI.VIENNE Studio+.",
-  alternates: {
-    canonical: "https://aivienne.com/privacy",
-  },
-  openGraph: {
-    title: "Confidentiality & Privacy Policy | AI.VIENNE Studio+",
-    description:
-      "Data protection, confidentiality, and privacy protocols for client information and project assets at AI.VIENNE Studio+.",
-    url: "https://aivienne.com/privacy",
-    siteName: "AI.VIENNE Studio+",
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Confidentiality & Privacy Policy | AI.VIENNE Studio+",
-    description:
-      "Data protection, confidentiality, and privacy protocols for client information and project assets at AI.VIENNE Studio+.",
-  },
-};
+import { useRouter } from "next/navigation";
+import { X } from "lucide-react";
 
 export default function PrivacyPage() {
+  const router = useRouter();
+
+  const handleClose = () => {
+    if (window.history.length > 1) {
+      router.back();
+    } else {
+      router.push("/");
+    }
+  };
+
   return (
-    <main className="min-h-screen bg-neutral-950 text-neutral-100 px-6 sm:px-12 md:px-24 py-24">
+    <main className="min-h-screen bg-neutral-950 text-neutral-100 px-6 sm:px-12 md:px-24 py-24 relative">
+      {/* SAĞ ÜST SABİT ÇIKIŞ (X) BUTONU - Kaldığı yere geri döndürür */}
+      <button
+        type="button"
+        onClick={handleClose}
+        aria-label="Close and return"
+        className="fixed top-5 right-5 sm:top-8 sm:right-8 z-50 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-neutral-900/90 border border-amber-500/40 text-amber-300 hover:text-neutral-950 hover:bg-amber-400 transition-all flex items-center justify-center shadow-2xl backdrop-blur-xl group cursor-pointer"
+      >
+        <X className="w-5 h-5 sm:w-6 sm:h-6 stroke-[2.5] group-hover:scale-110 transition-transform" />
+      </button>
+
       <div className="max-w-4xl mx-auto space-y-8">
         <h1 className="text-3xl sm:text-4xl font-extrabold text-amber-400">Confidentiality & Data Protection Protocol</h1>
         <p className="text-xs text-neutral-400 font-mono">AI.VIENNE Studio+ · Data Security & Corporate Privacy</p>
@@ -51,9 +50,13 @@ export default function PrivacyPage() {
         </div>
 
         <div className="pt-8 border-t border-neutral-800">
-          <a href="/" className="inline-block px-6 py-3 rounded-full bg-amber-400 text-neutral-950 font-bold text-xs uppercase tracking-wider hover:bg-amber-300 transition-all">
-            ← Back to Home
-          </a>
+          <button 
+            type="button" 
+            onClick={handleClose} 
+            className="inline-block px-6 py-3 rounded-full bg-amber-400 text-neutral-950 font-bold text-xs uppercase tracking-wider hover:bg-amber-300 transition-all cursor-pointer"
+          >
+            ← Back
+          </button>
         </div>
       </div>
     </main>

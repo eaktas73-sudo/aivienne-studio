@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Quote, Star } from 'lucide-react';
+import { Quote } from 'lucide-react'; // Sahte referans hissi veren Star ikonu kaldırıldı
 
 interface TestimonialsProps {
   lang?: string;
@@ -16,37 +16,37 @@ interface TestimonialItem {
 
 const TESTIMONIALS_DATA: Record<string, { tag: string; title: string; items: TestimonialItem[] }> = {
   EN: {
-    tag: "CLIENT VOICES & RECOGNITION",
-    title: "Endorsements & Industry Trust",
+    tag: "SELECTED PROJECT NOTES",
+    title: "Creative Validation",
     items: [
       {
-        quote: "AI.VIENNE eliminated weeks of location permits and heavy studio overhead for our seasonal fine jewelry campaign. The caustic gemstone dispersion and specular platinum control matched the highest luxury standards.",
-        author: "H. von Berg",
-        role: "Head of Brand Strategy",
+        quote: "By eliminating weeks of location logistics and heavy studio overhead, seasonal fine jewelry campaigns are radically accelerated. Caustic gemstone dispersion and specular platinum control are calibrated to match the highest luxury standards.",
+        author: "Production Protocol",
+        role: "Internal Standard",
         category: "Haute Horlogerie & High Jewelry"
       },
       {
-        quote: "Maintaining character consistency across high-fashion lookbooks used to be an AI limitation until we collaborated with AI.VIENNE. Our digital ambassador maintained flawless facial geometry in every editorial setting.",
-        author: "M. Laurent",
-        role: "Creative Director",
+        quote: "Maintaining character consistency across high-fashion lookbooks is our primary technical priority. Digital ambassadors are engineered to maintain flawless facial geometry and identity retention in every editorial setting.",
+        author: "Production Protocol",
+        role: "Internal Standard",
         category: "Luxury Ready-To-Wear & Couture"
       }
     ]
   },
   TR: {
-    tag: "GÜVEN & VİZYON",
-    title: "Müşteri Deneyimleri & Referanslar",
+    tag: "SEÇİLİ PROJE NOTLARI",
+    title: "Kreatif Doğrulama",
     items: [
       {
-        quote: "Geleneksel stüdyo çekimlerinin haftalar süren mekan ve lojistik maliyetini ortadan kaldırarak lüks mücevher koleksiyonumuz için büyüleyici bir sinematik dünya yarattılar. Değerli taş yansımaları kusursuzdu.",
-        author: "H. von Berg",
-        role: "Marka Stratejisi Direktörü",
+        quote: "Geleneksel stüdyo çekimlerinin haftalar süren mekan ve lojistik maliyetlerini ortadan kaldırarak kampanya süreçlerini hızlandırıyoruz. Değerli taş kırılımları ve platin yansımaları, en üst düzey lüks standartlarına göre kalibre ediliyor.",
+        author: "Üretim Protokolü",
+        role: "İç Standart",
         category: "Haute Horlogerie & Lüks Mücevherat"
       },
       {
-        quote: "Farklı editoryal kurgularda model yüz tutarlılığını korumak yapay zekanın en büyük sorunuydu; ta ki AI.VIENNE ile çalışana kadar. Dijital modelimiz tüm sezon kampanyası boyunca anatomik kusursuzluğunu korudu.",
-        author: "M. Laurent",
-        role: "Kreatif Direktör",
+        quote: "Farklı editoryal kurgularda model yüz tutarlılığını korumak en temel teknik önceliğimizdir. Dijital ambasadorlarımız, her kampanya ortamında anatomik kusursuzluğunu ve kimliğini korumak üzere tasarlanır.",
+        author: "Üretim Protokolü",
+        role: "İç Standart",
         category: "Haute Couture & Lüks Moda"
       }
     ]
@@ -78,12 +78,7 @@ export default function Testimonials({ lang = 'EN' }: TestimonialsProps) {
               <Quote className="w-10 h-10 text-amber-400/20 absolute top-8 right-8 group-hover:text-amber-400/40 transition-colors" />
 
               <div>
-                <div className="flex items-center gap-1 text-amber-400 mb-6">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-amber-400 stroke-none" />
-                  ))}
-                </div>
-
+                {/* 5 Yıldız (Star) componenti kaldırıldı. Yalnızca temiz, profesyonel vizyon metni bırakıldı. */}
                 <p className="text-neutral-300 text-sm sm:text-base leading-relaxed font-light italic mb-8">
                   “{item.quote}”
                 </p>
