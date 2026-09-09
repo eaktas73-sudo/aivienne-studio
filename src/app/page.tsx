@@ -1447,7 +1447,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* MOBIL AÇILIR MENÜ PANELİ (DOĞRU HEDEFLERE YÖNLENDİRME İÇİN GÜNCELLENDİ) */}
+        {/* MOBIL AÇILIR MENÜ PANELİ (GÜNCELLENMİŞ SCROLL FONKSİYONU İLE) */}
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
@@ -1457,17 +1457,51 @@ export default function Home() {
               className="xl:hidden bg-neutral-950/98 border-b border-neutral-800/80 backdrop-blur-2xl px-6 py-6 overflow-hidden"
             >
               <div className="flex flex-col space-y-4 text-sm font-semibold tracking-wider text-neutral-300">
-                <a href="#services" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-amber-400 py-1 border-b border-neutral-900">{t.nav?.services}</a>
-                <a href="#portfolio" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-amber-400 py-1 border-b border-neutral-900">{t.nav?.portfolio}</a>
-                <a href="#capabilities" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-amber-400 py-1 border-b border-neutral-900">{t.nav?.capabilities}</a>
-                <a href="#twins" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-amber-400 py-1 border-b border-neutral-900">{t.nav?.avatar}</a>
-                <a href="#system" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-amber-400 py-1 border-b border-neutral-900">{t.nav?.system}</a>
-                <a href="#studio" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-amber-400 py-1 border-b border-neutral-900">{t.nav?.theStudio}</a>
-                <a href="#transformation" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-amber-400 py-1 border-b border-neutral-900">{t.nav?.transformation}</a>
-                <a href="#estimator" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-amber-400 py-1 border-b border-neutral-900">{t.nav?.roi}</a>
-                <a href="#insights" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-amber-400 py-1 border-b border-neutral-900">{t.nav?.journal}</a>
-                <a href="#faq" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-amber-400 py-1 border-b border-neutral-900">{t.nav?.faq}</a>
-                <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="w-full py-3.5 rounded-full text-xs font-bold text-center tracking-widest text-neutral-950 bg-amber-400 hover:bg-amber-300 transition-all uppercase mt-2">{t.nav?.cta}</a>
+                {[
+                  { href: "#services", label: t.nav?.services },
+                  { href: "#portfolio", label: t.nav?.portfolio },
+                  { href: "#capabilities", label: t.nav?.capabilities },
+                  { href: "#twins", label: t.nav?.avatar },
+                  { href: "#system", label: t.nav?.system },
+                  { href: "#studio", label: t.nav?.theStudio },
+                  { href: "#transformation", label: t.nav?.transformation },
+                  { href: "#estimator", label: t.nav?.roi },
+                  { href: "#insights", label: t.nav?.journal },
+                  { href: "#faq", label: t.nav?.faq },
+                  { href: "#contact", label: t.nav?.contact },
+                ].map((item) => (
+                  <button
+                    key={item.href}
+                    type="button"
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      const element = document.querySelector(item.href);
+                      if (element) {
+                        setTimeout(() => {
+                          element.scrollIntoView({ behavior: "smooth" });
+                        }, 100);
+                      }
+                    }}
+                    className="text-left hover:text-amber-400 py-1 border-b border-neutral-900 cursor-pointer"
+                  >
+                    {item.label}
+                  </button>
+                ))}
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    const element = document.querySelector("#contact");
+                    if (element) {
+                      setTimeout(() => {
+                        element.scrollIntoView({ behavior: "smooth" });
+                      }, 100);
+                    }
+                  }}
+                  className="w-full py-3.5 rounded-full text-xs font-bold text-center tracking-widest text-neutral-950 bg-amber-400 hover:bg-amber-300 transition-all uppercase mt-2 cursor-pointer"
+                >
+                  {t.nav?.cta}
+                </button>
               </div>
             </motion.div>
           )}
