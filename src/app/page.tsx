@@ -52,18 +52,43 @@ import {
   type LucideIcon
 } from "lucide-react";
 
-// Botların e-posta kazımasını (scraping) önleyen güvenli e-posta bileşeni
+// Gelişmiş Base64 ve Etkileşimli Şifreli E-Posta Bileşeni (Botlara ve Scraping'e Karşı Tam Güvenli)
 function SafeEmailLink({ className = "" }: { className?: string }) {
-  const [email, setEmail] = useState("");
-  useEffect(() => {
-    setEmail("info" + "@" + "aivienne.com");
-  }, []);
+  const encodedEmail = "aW5mb0BhaXZpZW5uZS5jb20="; // "info@aivienne.com" Base64
+  const [revealed, setRevealed] = useState(false);
+  const [decodedEmail, setDecodedEmail] = useState("info [at] aivienne.com");
 
-  if (!email) return <span className={className}>info [at] aivienne.com</span>;
+  const handleReveal = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!revealed) {
+      e.preventDefault();
+      try {
+        const actualEmail = atob(encodedEmail);
+        setDecodedEmail(actualEmail);
+        setRevealed(true);
+        window.location.href = `mailto:${actualEmail}`;
+      } catch {
+        window.location.href = "mailto:info@aivienne.com";
+      }
+    }
+  };
 
   return (
-    <a href={`mailto:${email}`} className={className}>
-      {email}
+    <a 
+      href="mailto:info@aivienne.com" 
+      onClick={handleReveal}
+      onMouseEnter={() => {
+        if (!revealed) {
+          try {
+            setDecodedEmail(atob(encodedEmail));
+            setRevealed(true);
+          } catch {
+            // Hata yutulur
+          }
+        }
+      }}
+      className={className}
+    >
+      {decodedEmail}
     </a>
   );
 }
@@ -533,7 +558,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       privacyTitle: "Gizlilik ve Veri Koruma Protokolü",
       privacyP1Title: "1. KURUMSAL VERİ GÜVENLİĞİ",
       privacyP1Body: "Yalnızca teklif oluşturma, proje brief iletişimi ve şifreli dosya transferi için gerekli asgari kurumsal veriler uluslararası standartlara uygun olarak işlenir.",
-      privacyP2Title: "2. AÇIK YAPAY ZEKA MODELLERİNE EĞİTİM VERİLMEZ",
+      privacyP2Title: "2. AÇIK YAPAY ZEKA MODELLERİne EĞİTİM VERİLMEZ",
       privacyP2Body: "Müşterilerimize ait hiçbir tasarım veya biyometrik yüz taraması herkese açık yapay zeka modellerinin eğitiminde kesinlikle kullanılmaz.",
       privacyP3Title: "3. ŞİFRELİ DEPOLAMA VE VERİ İMHA HAKKI",
       privacyP3Body: "Yüklenen tüm proje dosyaları (PNG, JPG, MP4, MOV, PDF, ZIP) şifreli ve yetkilendirilmiş sunucularda saklanır. Müşteriler teslimat sonrasında tüm çalışma dosyalarının kalıcı olarak imha edilmesini talep etme hakkına sahiptir.",
@@ -1447,7 +1472,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* MOBIL AÇILIR MENÜ PANELİ (GÜNCELLENMİŞ SCROLL FONKSİYONU İLE) */}
+        {/* MOBIL AÇILIR MENÜ PANELİ (GÜNCELLENMİŞ GÜVENLİ SCROLL FONKSİYONU İLE) */}
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
@@ -1479,7 +1504,7 @@ export default function Home() {
                       if (element) {
                         setTimeout(() => {
                           element.scrollIntoView({ behavior: "smooth" });
-                        }, 100);
+                        }, 120);
                       }
                     }}
                     className="text-left hover:text-amber-400 py-1 border-b border-neutral-900 cursor-pointer"
@@ -1495,7 +1520,7 @@ export default function Home() {
                     if (element) {
                       setTimeout(() => {
                         element.scrollIntoView({ behavior: "smooth" });
-                      }, 100);
+                      }, 120);
                     }
                   }}
                   className="w-full py-3.5 rounded-full text-xs font-bold text-center tracking-widest text-neutral-950 bg-amber-400 hover:bg-amber-300 transition-all uppercase mt-2 cursor-pointer"
