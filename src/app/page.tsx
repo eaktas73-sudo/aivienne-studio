@@ -74,6 +74,7 @@ interface TranslationContent {
   nav: TranslationRecord;
   hero: TranslationRecord;
   manifesto: TranslationRecord;
+  whyVienne: TranslationRecord;
   servicesPillars: TranslationRecord;
   capabilitiesSection: TranslationRecord;
   capabilitiesTech: TranslationRecord;
@@ -97,6 +98,15 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
     nav: { portfolio: "Concept Archive", capabilities: "Capabilities", services: "Services", avatar: "Digital Characters", studio: "Studio", system: "Process", theStudio: "The Studio", transformation: "Refinement", roi: "Production Economics", journal: "Insights", faq: "FAQ", contact: "Inquire", cta: "START A PROJECT" },
     hero: { badge: "AI-Native Luxury Visual Production House", titleStart: "Elevating High Fashion, Fine Jewelry & Horlogerie Through", titleGradient: "Neural Craftsmanship", desc: "AI-assisted campaign imagery, cinematic motion, luxury product visualization and consistent digital characters — directed for brands that demand precision.", btnPrimary: "Explore Concept Archive", btnSecondary: "Direct Access: info@aivienne.com" },
     manifesto: { sub: "OUR CREATIVE CODEX", line1: "We do not adapt to fleeting digital trends.", line2: "WE ARCHITECT TIMELESS LUXURY UNIVERSES." },
+    whyVienne: {
+      tag: "THE AI.VIENNE ADVANTAGE",
+      title: "Why Luxury Brands Partner With AI.VIENNE",
+      desc: "Transcending traditional production limits through proprietary neural workflows and uncompromising aesthetic restraint.",
+      c1Title: "CREATIVE CONTROL", c1Desc: "Concept, art direction, synthesis, and final master refinement executed under a singular unified creative system.",
+      c2Title: "PRODUCTION VELOCITY", c2Desc: "Eliminating extensive physical logistics, location scouting, and multi-country sampling delays.",
+      c3Title: "VISUAL CONSISTENCY", c3Desc: "Uncompromising continuity across model identity, gemstone refraction, fabric physics, and brand color grading.",
+      c4Title: "LUXURY-LEVEL REFINEMENT", c4Desc: "Rigorous post-synthesis haute retouching and micro-detail calibration tailored to high-end standards."
+    },
     servicesPillars: {
       tag: "CORE PRODUCTION DISCIPLINES",
       title: "Strategic Production Services",
@@ -312,6 +322,15 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
     nav: { portfolio: "Konsept Arşivi", capabilities: "Yetkinlikler", services: "Hizmetler", avatar: "Dijital Karakterler", studio: "Stüdyo", system: "Süreç", theStudio: "Stüdyomuz", transformation: "Dönüşüm", roi: "Üretim Ekonomisi", journal: "İçgörüler", faq: "SSS", contact: "Talep", cta: "PROJE BAŞLAT" },
     hero: { badge: "Yapay Zeka Destekli Lüks Görsel Prodüksiyon Evi", titleStart: "Yüksek Moda, Mücevher ve Saatçilikte", titleGradient: "Neural Zanaatkarlık", desc: "Hassasiyet ve mükemmellik talep eden markalar için yapay zeka destekli kampanya görselleri, sinematik videolar, lüks ürün görselleştirmeleri ve tutarlı dijital karakterler.", btnPrimary: "Konsept Arşivini İncele", btnSecondary: "Doğrudan İletişim: info@aivienne.com" },
     manifesto: { sub: "KREATİF KODUMUZ", line1: "Geçici dijital trendlere uyum sağlamıyoruz.", line2: "ZAMANSIZ LÜKS EVRENLER İNŞA EDİYORUZ." },
+    whyVienne: {
+      tag: "AI.VIENNE AVANTAJI",
+      title: "Lüks Markalar Neden AI.VIENNE ile Çalışır?",
+      desc: "Tescilli neural üretim hatları ve tavizsiz estetik disiplinle geleneksel prodüksiyon sınırlarını aşıyoruz.",
+      c1Title: "KREATİF KONTROL", c1Desc: "Konsept, sanat yönetimi, sentez ve final master iyileştirmesi tek bir entegre yaratıcı sistem altında yürütülür.",
+      c2Title: "ÜRETİM HIZI", c2Desc: "Karmaşık fiziksel lojistik, mekan arama ve çok ülkeli numune tedariki gecikmelerini ortadan kaldırır.",
+      c3Title: "GÖRSEL SÜREKLİLİK", c3Desc: "Karakter kimliği, değerli taş kırılmaları, kumaş fiziği ve renk paletinde tavizsiz kampanya uyumu.",
+      c4Title: "LÜKS SEVİYESİNDE RÖTUŞ", c4Desc: "Yüksek kaliteli lüks standartlara göre uyarlanmış titiz post-prodüksiyon ve mikro detay kalibrasyonu."
+    },
     servicesPillars: {
       tag: "TEMEL PRODÜKSİYON DİSİPLİNLERİ",
       title: "Stratejik Prodüksiyon Hizmetleri",
@@ -577,12 +596,12 @@ const PORTFOLIO_ITEMS: CaseStudyItem[] = [
     poster: "/vienne-portrait.jpg",
     videoUrl: "/obsidian-necklace.mp4", 
     desc: "Controlled gemstone light refraction and multi-faceted diamond brilliance under studio lighting.", 
-    brief: "Visualizing a multi-layered diamond necklace in dynamic motion without specular distortion.",
-    direction: "Chiaroscuro lighting architecture with deep obsidian contrasting velvety highlights.",
-    production: "AI-assisted multi-pass rendering combined with fine caustic raytracing and manual post-color balance.",
-    materialStudy: "Platinum specular mapping, dispersion fire calibration, and micro-facet light falloff.",
-    deliverables: "Hero Product Stills · Macro Detail Series · Motion Loops · Cutout Masters",
-    productionNotes: "Behind the Master: Rendered via iterative lighting passes with custom chromatic dispersion curves to eliminate synthetic flare."
+    brief: "Visualizing a multi-layered high jewelry diamond necklace in dynamic motion without specular flare distortion.",
+    direction: "Chiaroscuro lighting architecture utilizing deep obsidian shadows contrasting velvety golden highlights.",
+    production: "AI-assisted multi-pass neural rendering combined with precise caustic raytracing and manual chromatic post-balance.",
+    materialStudy: "Platinum specular mapping, dispersion fire calibration, and micro-facet optical light falloff.",
+    deliverables: "Hero Product Stills · Macro Detail Series · Motion Loops · E-Commerce Cutout Masters",
+    productionNotes: "Behind the Master: Rendered via iterative lighting passes with custom chromatic dispersion curves to eliminate synthetic digital flare."
   },
   { 
     id: "2", 
@@ -597,11 +616,11 @@ const PORTFOLIO_ITEMS: CaseStudyItem[] = [
     poster: "/traditional-raw.jpg",
     videoUrl: "/2.mp4", 
     desc: "Vertical motion aesthetics engineered for mobile digital flagships and luxury social campaigns.", 
-    brief: "Simulating fluid heavy-silk movement and structural pleating without physical runway logistics.",
-    direction: "Parisian salon atmosphere with naturalistic diffused rim lighting.",
+    brief: "Simulating fluid heavy-silk crepe de chine movement and structural pleating without physical runway logistics.",
+    direction: "Parisian salon atmosphere with naturalistic diffused rim lighting and soft ambient glow.",
     production: "Generative fabric movement combined with high-frame-rate interpolation and textile color grading.",
-    materialStudy: "Silk crepe de chine translucency, gold lamé weave texture, and natural gravity draping.",
-    deliverables: "9:16 4K Campaign Reel · High-Resolution Cutdowns · Editorial Stills",
+    materialStudy: "Silk translucency, gold lamé weave texture, and natural gravity draping physics.",
+    deliverables: "9:16 4K Campaign Reel · High-Resolution Cutdowns · Editorial Lookbook Stills",
     productionNotes: "Behind the Master: Multi-stage prompt synthesis and layered compositing to maintain cloth tension and silhouette integrity across frames."
   },
   { 
@@ -618,7 +637,7 @@ const PORTFOLIO_ITEMS: CaseStudyItem[] = [
     videoUrl: "/aurelia-campaign-loop.mp4", 
     desc: "Swiss timepiece complication visualization with sapphire glass reflection control.", 
     brief: "Showcasing internal skeleton escapement motion through anti-reflective curved sapphire crystal.",
-    direction: "Precision moody technical lighting emphasizing brushed titanium bevels.",
+    direction: "Precision moody technical lighting emphasizing brushed titanium bevels and mirror-polished anglage.",
     production: "Reference-aligned geometry integrated with neural light shaders and kinematic movement.",
     materialStudy: "Blued steel screws, brushed rhodium plates, and anti-reflective optical coatings.",
     deliverables: "16:9 4K Cinema Loop · High-Resolution Master Stills · Movement Isolations",
@@ -957,7 +976,7 @@ export default function Home() {
     setFormData(prev => ({
       ...prev,
       service: mappedService,
-      message: `[BRIEF ARCHITECT CONFIGURATION]\n- Lighting: ${briefLighting}\n- Industry Focus: ${briefSegment}\n- Atmosphere: ${briefAtmosphere}\n\nPlease prepare an official scope and production proposal based on these parameters.`
+      message: `[BRIEF ARCHITECT CONFIGURATION]\n----------------------------------------\n• Lighting Architecture: ${briefLighting}\n• Industry Discipline: ${briefSegment}\n• Spatial Atmosphere: ${briefAtmosphere}\n----------------------------------------\nPlease review these pre-configured aesthetic parameters and prepare an official production proposal.`
     }));
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -993,7 +1012,7 @@ export default function Home() {
       ...prev,
       service: mappedService,
       budget: mappedBudget,
-      message: `[PROJECT ESTIMATE REQUEST]\nCalculated Range: ${rangeStr}\nParameters: Deliverable: ${estType} | Volume: ${estVolume} | Complexity: ${estComplexity} | Schedule: ${estTimeline}`
+      message: `[PROJECT ESTIMATE REQUEST]\n----------------------------------------\n• Calculated Range: ${rangeStr}\n• Deliverable Type: ${estType}\n• Asset Volume: ${estVolume}\n• Complexity Grade: ${estComplexity}\n• Schedule Priority: ${estTimeline}\n----------------------------------------\nPlease review these estimated parameters and provide an official proposal.`
     }));
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -1428,7 +1447,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* MOBIL AÇILIR MENÜ PANELİ */}
+        {/* MOBIL AÇILIR MENÜ PANELİ (DOĞRU HEDEFLERE YÖNLENDİRME İÇİN GÜNCELLENDİ) */}
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
@@ -1495,6 +1514,77 @@ export default function Home() {
           <span className="text-xs font-bold tracking-[0.3em] text-amber-400 uppercase mb-3 block">{t.manifesto?.sub}</span>
           <h2 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-light text-neutral-300 tracking-wide mb-2">{t.manifesto?.line1}</h2>
           <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-neutral-100 bg-gradient-to-r from-amber-200 via-amber-400 to-amber-500 bg-clip-text text-transparent">{t.manifesto?.line2}</h2>
+        </div>
+      </section>
+
+      {/* WHY AI.VIENNE? SECTION */}
+      <section className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50 bg-neutral-900/20">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12 sm:mb-16">
+            <div>
+              <span className="text-xs font-bold tracking-[0.3em] text-amber-400 uppercase block mb-3">{t.whyVienne?.tag}</span>
+              <h2 className="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight bg-gradient-to-r from-amber-200 via-amber-400 to-amber-500 bg-clip-text text-transparent">{t.whyVienne?.title}</h2>
+            </div>
+            <p className="text-neutral-300 text-xs sm:text-sm max-w-lg mt-4 sm:mt-6 md:mt-0 leading-relaxed font-light">{t.whyVienne?.desc}</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            <div className="p-6 sm:p-8 rounded-3xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group cursor-pointer">
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 transition-transform">
+                  <Sliders className="w-6 h-6" />
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold text-neutral-100 mb-3 group-hover:text-amber-300 transition-colors">{t.whyVienne?.c1Title}</h3>
+                <p className="text-xs text-neutral-300 leading-relaxed font-light group-hover:text-neutral-100 transition-colors">{t.whyVienne?.c1Desc}</p>
+              </div>
+              <div className="pt-6 mt-6 border-t border-neutral-800/80 flex items-center gap-2 text-[10px] font-mono text-amber-400 uppercase">
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                <span>Unified Ecosystem</span>
+              </div>
+            </div>
+
+            <div className="p-6 sm:p-8 rounded-3xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group cursor-pointer">
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 transition-transform">
+                  <Zap className="w-6 h-6" />
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold text-neutral-100 mb-3 group-hover:text-amber-300 transition-colors">{t.whyVienne?.c2Title}</h3>
+                <p className="text-xs text-neutral-300 leading-relaxed font-light group-hover:text-neutral-100 transition-colors">{t.whyVienne?.c2Desc}</p>
+              </div>
+              <div className="pt-6 mt-6 border-t border-neutral-800/80 flex items-center gap-2 text-[10px] font-mono text-amber-400 uppercase">
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                <span>AI-Native Workflow</span>
+              </div>
+            </div>
+
+            <div className="p-6 sm:p-8 rounded-3xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group cursor-pointer">
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 transition-transform">
+                  <Activity className="w-6 h-6" />
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold text-neutral-100 mb-3 group-hover:text-amber-300 transition-colors">{t.whyVienne?.c3Title}</h3>
+                <p className="text-xs text-neutral-300 leading-relaxed font-light group-hover:text-neutral-100 transition-colors">{t.whyVienne?.c3Desc}</p>
+              </div>
+              <div className="pt-6 mt-6 border-t border-neutral-800/80 flex items-center gap-2 text-[10px] font-mono text-amber-400 uppercase">
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                <span>Reference Guidance</span>
+              </div>
+            </div>
+
+            <div className="p-6 sm:p-8 rounded-3xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group cursor-pointer">
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 transition-transform">
+                  <ShieldCheck className="w-6 h-6" />
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold text-neutral-100 mb-3 group-hover:text-amber-300 transition-colors">{t.whyVienne?.c4Title}</h3>
+                <p className="text-xs text-neutral-300 leading-relaxed font-light group-hover:text-neutral-100 transition-colors">{t.whyVienne?.c4Desc}</p>
+              </div>
+              <div className="pt-6 mt-6 border-t border-neutral-800/80 flex items-center gap-2 text-[10px] font-mono text-amber-400 uppercase">
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                <span>Haute Refinement</span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -2171,13 +2261,13 @@ export default function Home() {
 
               <div className="flex items-center gap-2">
                 <a 
-                  href="https://linkedin.com/in/e-aktas-aivienne" 
+                  href="https://www.linkedin.com/company/aivienne" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="px-4 py-1.5 rounded-full bg-neutral-950 border border-neutral-800 text-xs text-neutral-300 hover:text-amber-300 hover:border-amber-400/40 transition-colors flex items-center gap-1.5"
                 >
-                  <Globe className="w-3.5 h-3.5 text-amber-400" />
-                  <span>LinkedIn Profile</span>
+                  <svg className="w-3.5 h-3.5 shrink-0 fill-current text-amber-400" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                  <span>LinkedIn Company Page</span>
                 </a>
               </div>
             </div>
@@ -2728,8 +2818,18 @@ export default function Home() {
             <div>
               <span className="inline-block bg-neutral-950 text-amber-400 text-xs font-extrabold tracking-widest px-4 py-1.5 rounded-full uppercase mb-6 sm:mb-8">{t.footerSection?.netTitle}</span>
               <ul className="space-y-3 sm:space-y-4 text-sm sm:text-base font-semibold">
-                <li><a href="https://instagram.com/ai.vienne" target="_blank" rel="noopener noreferrer" className="hover:opacity-75 block">Instagram</a></li>
-                <li><a href="https://linkedin.com/in/e-aktas-aivienne" target="_blank" rel="noopener noreferrer" className="hover:opacity-75 flex items-center gap-2"><span>LinkedIn Profile</span></a></li>
+                <li>
+                  <a href="https://instagram.com/ai.vienne" target="_blank" rel="noopener noreferrer" className="hover:opacity-75 flex items-center gap-2.5">
+                    <svg className="w-4 h-4 shrink-0 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    <span>Instagram</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/company/aivienne" target="_blank" rel="noopener noreferrer" className="hover:opacity-75 flex items-center gap-2.5">
+                    <svg className="w-4 h-4 shrink-0 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    <span>LinkedIn Company Page</span>
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
