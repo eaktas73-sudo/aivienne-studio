@@ -352,6 +352,7 @@ export default function Home() {
     service: "sOpt1",
     budget: "bOpt1",
     requireNDA: true,
+    priorityTrack: false,
     message: "",
     hp_website_check: ""
   });
@@ -475,6 +476,7 @@ export default function Home() {
       data.append("service", formData.service);
       data.append("budget", formData.budget);
       data.append("requireNDA", String(formData.requireNDA));
+      data.append("priorityTrack", String(formData.priorityTrack));
       data.append("message", formData.message);
       data.append("hp_website_check", formData.hp_website_check);
 
@@ -502,6 +504,7 @@ export default function Home() {
         service: "sOpt1",
         budget: "bOpt1",
         requireNDA: true,
+        priorityTrack: false,
         message: "",
         hp_website_check: ""
       });
@@ -515,6 +518,17 @@ export default function Home() {
   };
 
   const scrollToTop = () => { window.scrollTo({ top: 0, behavior: "smooth" }); };
+
+  const handleReserveSlotClick = () => {
+    setFormData(prev => ({
+      ...prev,
+      priorityTrack: true,
+      service: "sOpt1",
+      budget: "bOpt1",
+      message: `[PRIORITY PRODUCTION TRACK & RESERVATION INQUIRY]\nScope: $1,500 Calendar Reservation Deposit\n\nWe would like to lock our campaign production dates and request the official booking reservation invoice and USD wire transfer details.`
+    }));
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  };
 
   const applyBriefToForm = () => {
     let mappedService = "sOpt7"; 
@@ -573,16 +587,6 @@ export default function Home() {
       ...prev,
       service: serviceKey,
       message: `[SERVICE COMMISSION INQUIRY: ${serviceName}]\nWe would like to request an official project scope discussion for ${serviceName}.`
-    }));
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  const handleReserveSlotClick = () => {
-    setFormData(prev => ({
-      ...prev,
-      service: "sOpt1",
-      budget: "bOpt1",
-      message: `[PRODUCTION SLOT RESERVATION INQUIRY]\nScope: $1,500 Calendar Reservation Deposit\n\nWe would like to lock our campaign production dates and request the official booking reservation invoice and USD wire transfer details.`
     }));
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -697,7 +701,7 @@ export default function Home() {
                       }} 
                       className="px-6 py-2.5 rounded-full bg-amber-400 text-neutral-950 font-bold text-xs uppercase tracking-wider hover:bg-amber-300 transition-all cursor-pointer flex items-center gap-2 shadow-lg"
                     >
-                      <span>{t.portfolio?.requestScope || "REQUEST SCOPE"}</span>
+                      <span>REQUEST SCOPE</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </button>
                     <button 
@@ -705,7 +709,7 @@ export default function Home() {
                       onClick={() => setActiveCaseStudy(null)} 
                       className="px-5 py-2.5 rounded-full bg-neutral-900 border border-neutral-700 text-neutral-300 hover:text-white hover:border-amber-400 font-bold text-xs uppercase tracking-wider transition-all cursor-pointer"
                     >
-                      {t.portfolio?.closePreview || "CLOSE PREVIEW"}
+                      CLOSE PREVIEW
                     </button>
                   </div>
 
@@ -982,7 +986,6 @@ export default function Home() {
               )}
             </div>
 
-            {/* MOBIL HAMBURGER MENÜ BUTONU */}
             <button
               type="button"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -998,7 +1001,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* MOBIL AÇILIR MENÜ PANELİ (GÜNCELLENMİŞ GÜVENLİ SCROLL FONKSİYONU İLE) */}
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
@@ -1059,7 +1061,7 @@ export default function Home() {
         </AnimatePresence>
       </header>
 
-      {/* HERO SECTION */}
+      {/* HERO SECTION - $1.500 Butonu Kaldırıldı */}
       <section className="relative z-10 w-full px-4 sm:px-8 md:px-16 pt-8 sm:pt-20 pb-12 sm:pb-18 text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
           <span className="inline-flex items-center gap-2 px-3.5 sm:px-6 py-1.5 sm:py-2 rounded-full border border-amber-500/30 bg-amber-500/10 text-[11px] sm:text-sm font-semibold text-amber-300 mb-4 sm:mb-8">
@@ -1075,16 +1077,6 @@ export default function Home() {
             <a href="#portfolio" className="w-full sm:w-auto px-7 sm:px-10 py-3.5 sm:py-4 rounded-full text-sm sm:text-base font-bold tracking-wide text-neutral-950 bg-amber-400 hover:bg-amber-300 transition-all flex items-center justify-center gap-2.5 shadow-[0_0_40px_rgba(251,191,36,0.3)]">
               {t.hero?.btnPrimary} <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </a>
-
-            {/* PRIVATE CONCIERGE HERO REZERVASYON BUTONU */}
-            <button
-              type="button"
-              onClick={handleReserveSlotClick}
-              className="w-full sm:w-auto px-7 sm:px-10 py-3.5 sm:py-4 rounded-full text-sm sm:text-base font-bold tracking-wide text-neutral-950 bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 hover:from-amber-200 hover:to-amber-400 transition-all flex items-center justify-center gap-2.5 shadow-[0_0_35px_rgba(251,191,36,0.35)] cursor-pointer"
-            >
-              <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 text-neutral-950" />
-              <span>Reserve Slot ($1,500)</span>
-            </button>
 
             <div className="w-full sm:w-auto px-6 sm:px-10 py-3.5 sm:py-4 rounded-full text-xs sm:text-base font-bold tracking-wide text-neutral-200 border border-neutral-800 bg-neutral-900/50 flex items-center justify-center gap-2.5">
               <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400" /> 
@@ -1647,7 +1639,7 @@ export default function Home() {
                   <button
                     type="button"
                     onClick={toggleTwinVideoMute}
-                    aria-label={isVideoMuted ? "Unmute Video" : "Mute Video"}
+                    aria-label="Toggle Video Audio"
                     className="absolute bottom-4 right-4 z-20 p-2.5 rounded-full bg-neutral-950/80 border border-amber-400/50 text-amber-300 hover:bg-amber-400 hover:text-neutral-950 transition-all backdrop-blur-md shadow-lg cursor-pointer"
                   >
                     {isVideoMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4 animate-pulse" />}
@@ -1731,7 +1723,7 @@ export default function Home() {
                         setIsRightVideoMuted(!isRightVideoMuted);
                       }
                     }}
-                    aria-label={isRightVideoMuted ? "Unmute Video" : "Mute Video"}
+                    aria-label="Toggle Video Audio"
                     className="absolute bottom-4 right-4 z-20 p-2.5 rounded-full bg-neutral-950/80 border border-amber-400/50 text-amber-300 hover:bg-amber-400 hover:text-neutral-950 transition-all backdrop-blur-md shadow-lg cursor-pointer"
                   >
                     {isRightVideoMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4 animate-pulse" />}
@@ -2170,7 +2162,7 @@ export default function Home() {
             <div>
               <label className="block text-xs font-bold text-amber-400 uppercase mb-3">{t.briefSection?.s1}</label>
               <div className="space-y-2">
-                {["Dramatic Studio Gold", "Natural Parisian Sunlight", "Surreal Cyber Neon Caustics"].map((opt) => (
+                {[t.briefOptions?.lighting1 || "Dramatic Studio Gold", t.briefOptions?.lighting2 || "Natural Parisian Sunlight", t.briefOptions?.lighting3 || "Surreal Cyber Neon Caustics"].map((opt) => (
                   <button key={opt} type="button" onClick={() => setBriefLighting(opt)} className={`w-full text-left p-3 sm:p-3.5 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${briefLighting === opt ? "bg-amber-400 text-neutral-950 border-amber-400" : "bg-neutral-950 border-neutral-800 text-neutral-300"}`}>{opt}</button>
                 ))}
               </div>
@@ -2178,7 +2170,7 @@ export default function Home() {
             <div>
               <label className="block text-xs font-bold text-amber-400 uppercase mb-3">{t.briefSection?.s2}</label>
               <div className="space-y-2">
-                {["High Jewelry & Gems", "Haute Couture Runway", "Swiss Horlogerie Timepiece"].map((opt) => (
+                {[t.briefOptions?.segment1 || "High Jewelry & Gems", t.briefOptions?.segment2 || "Haute Couture Runway", t.briefOptions?.segment3 || "Swiss Horlogerie Timepiece"].map((opt) => (
                   <button key={opt} type="button" onClick={() => setBriefSegment(opt)} className={`w-full text-left p-3 sm:p-3.5 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${briefSegment === opt ? "bg-amber-400 text-neutral-950 border-amber-400" : "bg-neutral-950 border-neutral-800 text-neutral-300"}`}>{opt}</button>
                 ))}
               </div>
@@ -2186,7 +2178,7 @@ export default function Home() {
             <div>
               <label className="block text-xs font-bold text-amber-400 uppercase mb-3">{t.briefSection?.s3}</label>
               <div className="space-y-2">
-                {["Parisian Palace Runway", "Futuristic Architectural Stage", "Exotic Desert Dunes"].map((opt) => (
+                {[t.briefOptions?.atmosphere1 || "Parisian Palace Runway", t.briefOptions?.atmosphere2 || "Futuristic Architectural Stage", t.briefOptions?.atmosphere3 || "Exotic Desert Dunes"].map((opt) => (
                   <button key={opt} type="button" onClick={() => setBriefAtmosphere(opt)} className={`w-full text-left p-3 sm:p-3.5 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${briefAtmosphere === opt ? "bg-amber-400 text-neutral-950 border-amber-400" : "bg-neutral-950 border-neutral-800 text-neutral-300"}`}>{opt}</button>
                 ))}
               </div>
@@ -2299,6 +2291,23 @@ export default function Home() {
                   <option value="bOpt4">{t.contact?.bOpt4}</option> 
                 </select>
               </div>
+            </div>
+
+            {/* Öncelikli Prodüksiyon ve Faturalı Rezervasyon Tercihi */}
+            <div className="p-4 rounded-2xl bg-neutral-950/80 border border-amber-500/30 flex items-center justify-between gap-4">
+              <label htmlFor="priority-track-checkbox" className="flex items-center gap-3 cursor-pointer">
+                <Zap className="w-5 h-5 text-amber-400 shrink-0" />
+                <span className="text-xs sm:text-sm text-neutral-200 font-medium">
+                  Request Priority Production Track (Fast-Track Concierge Scheduling & Invoiced Deposit)
+                </span>
+              </label>
+              <input 
+                id="priority-track-checkbox"
+                type="checkbox" 
+                checked={formData.priorityTrack} 
+                onChange={(e) => setFormData({ ...formData, priorityTrack: e.target.checked })} 
+                className="w-5 h-5 accent-amber-400 rounded cursor-pointer" 
+              />
             </div>
 
             <div className="p-4 rounded-2xl bg-neutral-950/80 border border-amber-500/30 flex items-center justify-between gap-4">
