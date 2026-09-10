@@ -64,6 +64,32 @@ const FAQ_DATA: Record<string, { tag: string; title: string; items: FAQItem[] }>
         answer: "Fiziksel set kurulumu, seyahat ve lojistik maliyetlerini ortadan kaldırırken; hayal edilen lüks atmosferi ve sinematik ışığı günler içinde hayata geçirme esnekliği sağlar."
       }
     ]
+  },
+  AR: {
+    tag: "الاستفسارات والبروتوكولات",
+    title: "الأسئلة الشائعة",
+    items: [
+      {
+        question: "من يمتلك حقوق الاستخدام التجاري للأصول المرئية المولدة بالذكاء الاصطناعي؟",
+        answer: "عند التسوية الكاملة للفواتير، تنتقل جميع أصول الماستر البصرية النهائية، ملفات الحركة، والأصول الرقمية المخصصة حصريًا إلى العميل. تحصل على حقوق استخدام تجاري عالمي غير مقيدة عبر المتاجر الرقمية، البث، والمطبوعات مع صفر مطالبات بحقوق الملكية الأبدية."
+      },
+      {
+        question: "ما هي أوقات تسليم الإنتاج القياسية؟",
+        answer: "عادة ما يتم تسليم مجموعات الصور التحريرية ومفاهيم الحملات في غضون 3-5 أيام عمل. يتم إكمال حلقات الحركة السينمائية المعقدة خطوط الشخصيات الرقمية المخصصة في غضون 7-14 يوم عمل حسب النطاق."
+      },
+      {
+        question: "كيف تعمل عملية المراجعة والتنقيح؟",
+        answer: "تتضمن كل مهمة جولات مراجعة منظمة تغطي محاذاة التوجيه الفني، المعايرة اللونية، فيزياء ثني الأقمشة، تعديلات الإضاءة، وانكسار الأحجار الكريمة لضمان دقة الفخامة بلا تنازلات."
+      },
+      {
+        question: "هل يمكنك إنشاء شخصية رقمية مخصصة وثابتة لعلامتنا التجارية؟",
+        answer: "نعم. نحن نبتكر وجوهًا تجارية رقمية مملوكة بهندسة عظام متسقة، معالم وجه، ونسخ دقيقة للبشرة تظل متطابقة عبر الحملات الموسمية متعددة المشاهد، دفاتر المظهر، ووسائط واجهات العرض."
+      },
+      {
+        question: "كيف يقارن الإنتاج الأصلي بالذكاء الاصطناعي بجلسات التصوير الفوتوغرافي/الفيديو التقليدية؟",
+        answer: "إنه يلغي تصاريح المواقع الفيزيائية، السفر عبر المحيطات، بناء المجموعات المادية، لوجستيات العينات، بينما يمكن المديرين الإبداعيين من تحقيق أجواء سينمائية فائقة التنقيح وإضاءة في غضون أيام بدلاً من أشهر."
+      }
+    ]
   }
 };
 
@@ -71,6 +97,7 @@ export default function FAQ({ lang = 'EN' }: FAQProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const currentLang = FAQ_DATA[lang] ? lang : 'EN';
   const content = FAQ_DATA[currentLang];
+  const isRTL = currentLang === 'AR';
 
   const toggleFAQ = (index: number) => {
     setOpenIndex((prev) => (prev === index ? null : index));
@@ -90,7 +117,7 @@ export default function FAQ({ lang = 'EN' }: FAQProps) {
   };
 
   return (
-    <section id="faq" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50 bg-neutral-950">
+    <section id="faq" dir={isRTL ? 'rtl' : 'ltr'} className={`relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50 bg-neutral-950 ${isRTL ? 'font-serif text-right' : 'text-left'}`}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
@@ -117,10 +144,10 @@ export default function FAQ({ lang = 'EN' }: FAQProps) {
                 <button
                   type="button"
                   onClick={() => toggleFAQ(index)}
-                  className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 cursor-pointer select-none focus:outline-none"
+                  className={`w-full px-6 py-5 flex items-center justify-between gap-4 cursor-pointer select-none focus:outline-none ${isRTL ? 'text-right flex-row-reverse' : 'text-left'}`}
                   aria-expanded={isOpen}
                 >
-                  <span className="text-sm sm:text-base font-medium text-neutral-100 pr-2">
+                  <span className="text-sm sm:text-base font-medium text-neutral-100">
                     {faq.question}
                   </span>
                   <div className={`p-1.5 rounded-full border border-amber-400/30 bg-amber-400/10 text-amber-400 transition-transform duration-300 shrink-0 ${isOpen ? 'rotate-180 bg-amber-400 text-neutral-950' : ''}`}>
@@ -128,7 +155,7 @@ export default function FAQ({ lang = 'EN' }: FAQProps) {
                   </div>
                 </button>
                 {isOpen && (
-                  <div className="px-6 pb-6 pt-2 text-xs sm:text-sm text-neutral-300 leading-relaxed border-t border-neutral-800/60 font-light">
+                  <div className={`px-6 pb-6 pt-2 text-xs sm:text-sm text-neutral-300 leading-relaxed border-t border-neutral-800/60 font-light ${isRTL ? 'text-right' : 'text-left'}`}>
                     {faq.answer}
                   </div>
                 )}

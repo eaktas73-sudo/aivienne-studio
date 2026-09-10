@@ -191,7 +191,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark scroll-smooth">
+    <html lang="en" suppressHydrationWarning className="dark scroll-smooth">
       <head>
         <script
           type="application/ld+json"
@@ -204,6 +204,25 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+        {/* Tarayıcı yüklendiğinde localStorage'dan dil ve yön tercihini anında uygulayan script (Hydration hatasını sıfırlar) */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var savedLang = localStorage.getItem("aivienne_lang");
+                  if (savedLang === "AR") {
+                    document.documentElement.setAttribute("dir", "rtl");
+                    document.documentElement.setAttribute("lang", "ar");
+                  } else if (savedLang === "TR") {
+                    document.documentElement.setAttribute("dir", "ltr");
+                    document.documentElement.setAttribute("lang", "tr");
+                  }
+                } catch (e) {}
+              })();
+            `,
+          }}
         />
       </head>
       <body className="bg-neutral-950 text-neutral-100 antialiased selection:bg-amber-500/20 selection:text-amber-200">

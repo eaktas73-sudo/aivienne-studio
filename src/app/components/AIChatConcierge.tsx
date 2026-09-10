@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { TRANSLATIONS, LANGUAGES } from "@/data/translations";
 
 interface Message {
   role: "user" | "assistant";
@@ -8,6 +9,7 @@ interface Message {
 }
 
 export default function AIChatConcierge() {
+  const [selectedLang, setSelectedLang] = useState(LANGUAGES[0]);
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -19,6 +21,24 @@ export default function AIChatConcierge() {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const checkLang = () => {
+      const savedLangCode = localStorage.getItem("aivienne_lang");
+      if (savedLangCode) {
+        const found = LANGUAGES.find(l => l.code === savedLangCode);
+        if (found) {
+          setSelectedLang(found);
+        }
+      }
+    };
+
+    checkLang();
+    const interval = setInterval(checkLang, 200);
+    return () => clearInterval(interval);
+  }, []);
+
+  const t = TRANSLATIONS[selectedLang.code] || TRANSLATIONS.EN;
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -76,7 +96,7 @@ export default function AIChatConcierge() {
         >
           <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
           <span className="text-xs uppercase tracking-widest font-medium text-amber-200/90">
-            AI Concierge
+            {t.ui?.aiConcierge || "AI CONCIERGE"}
           </span>
           <svg className="w-4 h-4 text-amber-400 group-hover:rotate-12 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
@@ -94,7 +114,7 @@ export default function AIChatConcierge() {
               </div>
               <div>
                 <h3 className="text-xs font-semibold tracking-widest text-amber-200 uppercase">
-                  AI.VIENNE Concierge
+                  {t.ui?.aiConcierge || "AI.VIENNE Concierge"}
                 </h3>
                 <p className="text-[10px] text-neutral-400 tracking-wider">
                   CONFIDENTIAL STUDIO ASSISTANT

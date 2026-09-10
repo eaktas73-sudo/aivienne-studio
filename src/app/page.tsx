@@ -97,8 +97,8 @@ function SafeEmailLink({ className = "" }: { className?: string }) {
 interface CaseStudyItem {
   id: string;
   conceptNum: string;
-  title: string;
-  discipline: string;
+  titleKey: string;
+  disciplineKey: string;
   category: "jewelry" | "fashion" | "watch" | "eyewear" | "perfume";
   aspect: "16:9" | "9:16";
   type: "video" | "image";
@@ -106,13 +106,13 @@ interface CaseStudyItem {
   icon: LucideIcon;
   poster: string;
   videoUrl: string;
-  desc: string;
-  brief: string;
-  direction: string;
-  production: string;
-  materialStudy: string;
-  deliverables: string;
-  productionNotes: string;
+  descKey: string;
+  briefKey: string;
+  directionKey: string;
+  productionKey: string;
+  materialStudyKey: string;
+  deliverablesKey: string;
+  productionNotesKey: string;
 }
 
 interface ArticleItem {
@@ -131,8 +131,8 @@ const PORTFOLIO_ITEMS: CaseStudyItem[] = [
   { 
     id: "1", 
     conceptNum: "CONCEPT / 01",
-    title: "Imperial Diamond Showcase", 
-    discipline: "High Jewelry — Speculative Study",
+    titleKey: "p1Title",
+    disciplineKey: "p1Disc",
     category: "jewelry", 
     aspect: "16:9",
     type: "video", 
@@ -140,19 +140,19 @@ const PORTFOLIO_ITEMS: CaseStudyItem[] = [
     icon: Gem, 
     poster: "/vienne-portrait.jpg",
     videoUrl: "/obsidian-necklace.mp4", 
-    desc: "Controlled gemstone light refraction and multi-faceted diamond brilliance under studio lighting.", 
-    brief: "Visualizing a multi-layered high jewelry diamond necklace in dynamic motion without specular flare distortion.",
-    direction: "Chiaroscuro lighting architecture utilizing deep obsidian shadows contrasting velvety golden highlights.",
-    production: "AI-assisted multi-pass neural rendering combined with precise caustic raytracing and manual chromatic post-balance.",
-    materialStudy: "Platinum specular mapping, dispersion fire calibration, and micro-facet optical light falloff.",
-    deliverables: "Hero Product Stills · Macro Detail Series · Motion Loops · E-Commerce Cutout Masters",
-    productionNotes: "Behind the Master: Rendered via iterative lighting passes with custom chromatic dispersion curves to eliminate synthetic digital flare."
+    descKey: "p1Desc", 
+    briefKey: "p1Brief",
+    directionKey: "p1Dir",
+    productionKey: "p1Prod",
+    materialStudyKey: "p1Mat",
+    deliverablesKey: "p1Deliv",
+    productionNotesKey: "p1Notes"
   },
   { 
     id: "2", 
     conceptNum: "CONCEPT / 02",
-    title: "Haute Couture Vertical Motion", 
-    discipline: "Fashion Runway — Speculative Study",
+    titleKey: "p2Title",
+    disciplineKey: "p2Disc",
     category: "fashion", 
     aspect: "9:16",
     type: "video", 
@@ -160,19 +160,19 @@ const PORTFOLIO_ITEMS: CaseStudyItem[] = [
     icon: Sparkle, 
     poster: "/traditional-raw.jpg",
     videoUrl: "/2.mp4", 
-    desc: "Vertical motion aesthetics engineered for mobile digital flagships and luxury social campaigns.", 
-    brief: "Simulating fluid heavy-silk crepe de chine movement and structural pleating without physical runway logistics.",
-    direction: "Parisian salon atmosphere with naturalistic diffused rim lighting and soft ambient glow.",
-    production: "Generative fabric movement combined with high-frame-rate interpolation and textile color grading.",
-    materialStudy: "Silk translucency, gold lamé weave texture, and natural gravity draping physics.",
-    deliverables: "9:16 4K Campaign Reel · High-Resolution Cutdowns · Editorial Lookbook Stills",
-    productionNotes: "Behind the Master: Multi-stage prompt synthesis and layered compositing to maintain cloth tension and silhouette integrity across frames."
+    descKey: "p2Desc", 
+    briefKey: "p2Brief",
+    directionKey: "p2Dir",
+    productionKey: "p2Prod",
+    materialStudyKey: "p2Mat",
+    deliverablesKey: "p2Deliv",
+    productionNotesKey: "p2Notes"
   },
   { 
     id: "3", 
     conceptNum: "CONCEPT / 03",
-    title: "Royal Tourbillon Horlogerie", 
-    discipline: "Horology Mechanism — Speculative Study",
+    titleKey: "p3Title",
+    disciplineKey: "p3Disc",
     category: "watch", 
     aspect: "16:9",
     type: "video", 
@@ -180,19 +180,19 @@ const PORTFOLIO_ITEMS: CaseStudyItem[] = [
     icon: Watch, 
     poster: "/vienne-portrait.jpg",
     videoUrl: "/aurelia-campaign-loop.mp4", 
-    desc: "Swiss timepiece complication visualization with sapphire glass reflection control.", 
-    brief: "Showcasing internal skeleton escapement motion through anti-reflective curved sapphire crystal.",
-    direction: "Precision moody technical lighting emphasizing brushed titanium bevels and mirror-polished anglage.",
-    production: "Reference-aligned geometry integrated with neural light shaders and kinematic movement.",
-    materialStudy: "Blued steel screws, brushed rhodium plates, and anti-reflective optical coatings.",
-    deliverables: "16:9 4K Cinema Loop · High-Resolution Master Stills · Movement Isolations",
-    productionNotes: "Behind the Master: Reference-guided structural synthesis ensuring precise gear tooth meshing and realistic optical transparency."
+    descKey: "p3Desc", 
+    briefKey: "p3Brief",
+    directionKey: "p3Dir",
+    productionKey: "p3Prod",
+    materialStudyKey: "p3Mat",
+    deliverablesKey: "p3Deliv",
+    productionNotesKey: "p3Notes"
   },
   { 
     id: "4", 
     conceptNum: "CONCEPT / 04",
-    title: "Avant-Garde Titanium Optics", 
-    discipline: "Luxury Eyewear — Speculative Study",
+    titleKey: "p4Title",
+    disciplineKey: "p4Disc",
     category: "eyewear", 
     aspect: "9:16",
     type: "video", 
@@ -200,19 +200,19 @@ const PORTFOLIO_ITEMS: CaseStudyItem[] = [
     icon: Glasses, 
     poster: "/traditional-raw.jpg",
     videoUrl: "/titanium-eyewear.mp4", 
-    desc: "Brushed titanium frames and polarized gradient lens reflections in vertical fashion format.", 
-    brief: "Creating high-fashion eyewear campaign assets balancing metal textures with gradient lenses.",
-    direction: "Minimalist brutalist architectural set with high-contrast sunlight.",
-    production: "AI character generation combined with optical lens shading and polarization grading.",
-    materialStudy: "Anisotropic brushed titanium, UV400 gradient lens reflections, and natural skin contact.",
-    deliverables: "Vertical Billboard Master · High-Resolution Print Posters · Digital Lookbook",
-    productionNotes: "Behind the Master: Precision face-fitting pass ensuring eyewear geometry rests naturally across facial bone landmarks."
+    descKey: "p4Desc", 
+    briefKey: "p4Brief",
+    directionKey: "p4Dir",
+    productionKey: "p4Prod",
+    materialStudyKey: "p4Mat",
+    deliverablesKey: "p4Deliv",
+    productionNotesKey: "p4Notes"
   },
   { 
     id: "5", 
     conceptNum: "CONCEPT / 05",
-    title: "Haute Parfumerie Crystal Essence", 
-    discipline: "Prestige Fragrance — Speculative Study",
+    titleKey: "p5Title",
+    disciplineKey: "p5Disc",
     category: "perfume", 
     aspect: "16:9",
     type: "video", 
@@ -220,19 +220,19 @@ const PORTFOLIO_ITEMS: CaseStudyItem[] = [
     icon: Sparkles, 
     poster: "/vienne-portrait.jpg",
     videoUrl: "/crystal-perfume.mp4", 
-    desc: "Hand-cut crystal flacon and golden fluid dynamics rendered in dramatic studio chiaroscuro.", 
-    brief: "Visualizing luxury perfume flacon refraction with internal golden liquid interaction.",
-    direction: "Warm gilded palace atmosphere with backlit amber translucency.",
-    production: "Volumetric light ray simulation paired with fluid motion solvers and high-pass clarity.",
-    materialStudy: "Heavy lead crystal refraction, gold foil embossed label, and amber liquid viscosity.",
-    deliverables: "16:9 Cinema Cut · E-Flagship Hero Still Suite · Social Cutdowns",
-    productionNotes: "Behind the Master: Multi-layered photon render to isolate bottle glass thickness from inner liquid movement."
+    descKey: "p5Desc", 
+    briefKey: "p5Brief",
+    directionKey: "p5Dir",
+    productionKey: "p5Prod",
+    materialStudyKey: "p5Mat",
+    deliverablesKey: "p5Deliv",
+    productionNotesKey: "p5Notes"
   },
   { 
     id: "6", 
     conceptNum: "CONCEPT / 06",
-    title: "Emerald Solitaire Study", 
-    discipline: "Fine Jewelry — Speculative Study",
+    titleKey: "p6Title",
+    disciplineKey: "p6Disc",
     category: "jewelry", 
     aspect: "9:16",
     type: "video", 
@@ -240,19 +240,19 @@ const PORTFOLIO_ITEMS: CaseStudyItem[] = [
     icon: Gem, 
     poster: "/traditional-raw.jpg",
     videoUrl: "/emerald-ring.mp4", 
-    desc: "Deep emerald green mineral dispersion and micro-pavé brilliance tailored for vertical screens.", 
-    brief: "Capturing authentic Colombian emerald jardin inclusions without synthetic artificiality.",
-    direction: "Moody emerald velvet staging with targeted fiber-optic spot lighting.",
-    production: "Spectral color grading combined with mineral subsurface absorption and pavé reflection tuning.",
-    materialStudy: "Natural emerald inclusions, high-polish platinum claws, and round brilliant diamonds.",
-    deliverables: "9:16 Vertical Video Master · Editorial Social Suite · Print Masters",
-    productionNotes: "Behind the Master: Customized green absorption shader replicating natural emerald depth under variable studio lux."
+    descKey: "p6Desc", 
+    briefKey: "p6Brief",
+    directionKey: "p6Dir",
+    productionKey: "p6Prod",
+    materialStudyKey: "p6Mat",
+    deliverablesKey: "p6Deliv",
+    productionNotesKey: "p6Notes"
   },
   { 
     id: "7", 
     conceptNum: "CONCEPT / 07",
-    title: "Sapphire Skeleton Caliber", 
-    discipline: "Horology Master — Speculative Study",
+    titleKey: "p7Title",
+    disciplineKey: "p7Disc",
     category: "watch", 
     aspect: "16:9",
     type: "video", 
@@ -260,19 +260,19 @@ const PORTFOLIO_ITEMS: CaseStudyItem[] = [
     icon: Watch, 
     poster: "/vienne-portrait.jpg",
     videoUrl: "/watch-promo.mp4", 
-    desc: "Swiss perpetual skeleton movement and raytraced case architecture in 16:9 widescreen.", 
-    brief: "Visualizing complex multi-axis mechanical gear assemblies in dynamic exploded motion.",
-    direction: "Monochrome industrial luxury palette with micro-highlight accents.",
-    production: "Kinematic gear solver combined with generative surface reflection passes and 8K upscaling.",
-    materialStudy: "Sandblasted matte bridges, mirror-polished anglage, and synthetic sapphire bridges.",
-    deliverables: "16:9 Master Video · 8K Macro Editorial Stills · Detail Cutouts",
-    productionNotes: "Behind the Master: Synchronized gear rotation timeline ensuring horological mechanical accuracy throughout camera sweeps."
+    descKey: "p7Desc", 
+    briefKey: "p7Brief",
+    directionKey: "p7Dir",
+    productionKey: "p7Prod",
+    materialStudyKey: "p7Mat",
+    deliverablesKey: "p7Deliv",
+    productionNotesKey: "p7Notes"
   },
   { 
     id: "8", 
     conceptNum: "CONCEPT / 08",
-    title: "Sovereign Diamond Necklace", 
-    discipline: "Haute Joaillerie — Speculative Study",
+    titleKey: "p8Title",
+    disciplineKey: "p8Disc",
     category: "jewelry", 
     aspect: "9:16",
     type: "video", 
@@ -280,33 +280,33 @@ const PORTFOLIO_ITEMS: CaseStudyItem[] = [
     icon: Gem, 
     poster: "/traditional-raw.jpg",
     videoUrl: "/jewelry-reel.mp4", 
-    desc: "Cascading brilliant-cut necklace with fluid articulation and prismatic caustics in 9:16 vertical.", 
-    brief: "Creating fluid body motion for a high jewelry diamond necklace on a digital model silhouette.",
-    direction: "Evening gala noir lighting with sharp diamond sparkle catchlights.",
-    production: "Dynamic model neck-mesh tracking integrated with physical diamond chain articulation solvers.",
-    materialStudy: "18k white gold flexible articulation, D-flawless diamond fire, and subtle collarbone contact.",
-    deliverables: "4K Vertical Reel · 8K Print Master Archive · Campaign Loops",
-    productionNotes: "Behind the Master: Frame-by-frame light interaction pass aligning individual diamond flashes with camera velocity."
+    descKey: "p8Desc", 
+    briefKey: "p8Brief",
+    directionKey: "p8Dir",
+    productionKey: "p8Prod",
+    materialStudyKey: "p8Mat",
+    deliverablesKey: "p8Deliv",
+    productionNotesKey: "p8Notes"
   }
 ];
 
 const DIGITAL_TWINS = [
   { 
     id: "vienne", 
-    name: "Vienne — Digital Character", 
-    role: "Haute Couture & High Jewelry Model", 
-    lighting: "Chiaroscuro Gold Studio", 
-    outfit: "Silk Evening Gown & Emerald Pavé", 
+    nameKey: "twin1Name", 
+    roleKey: "twin1Role", 
+    lightingKey: "twin1Lighting", 
+    outfitKey: "twin1Outfit", 
     bg: "from-amber-900/40 via-neutral-950 to-neutral-950",
     poster: "/vienne-portrait.jpg",
     video: "/vienne-campaign-loop.mp4"
   },
   { 
     id: "aurelia", 
-    name: "Aurelia — Avant-Garde Face", 
-    role: "Horology & Precision Optics Model", 
-    lighting: "Controlled Studio Reflections", 
-    outfit: "Titanium Armor & Sapphire Lens", 
+    nameKey: "twin2Name", 
+    roleKey: "twin2Role", 
+    lightingKey: "twin2Lighting", 
+    outfitKey: "twin2Outfit", 
     bg: "from-blue-900/40 via-neutral-950 to-neutral-950",
     poster: "/vienne-portrait.jpg",
     video: "/aurelia-avatar.mp4"
@@ -315,6 +315,8 @@ const DIGITAL_TWINS = [
 
 export default function Home() {
   const [selectedLang, setSelectedLang] = useState(LANGUAGES[0]);
+  const [isMounted, setIsMounted] = useState(false);
+
   const [isLangOpen, setIsLangOpen] = useState(false);
   const langMenuRef = useRef<HTMLDivElement | null>(null);
 
@@ -333,7 +335,7 @@ export default function Home() {
   const [mousePos, setMousePos] = useState({ x: -100, y: -100 });
   
   const [activeArticle, setActiveArticle] = useState<ArticleItem | null>(null);
-  const [activeCaseStudy, setActiveCaseStudy] = useState<CaseStudyItem | null>(null);
+  const [activeCaseStudy, setActiveCaseStudy] = useState<any | null>(null);
 
   const [isVideoMuted, setIsVideoMuted] = useState<boolean>(true);
   const twinVideoRef = useRef<HTMLVideoElement | null>(null);
@@ -370,6 +372,17 @@ export default function Home() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const emailContainerRef = useRef<HTMLSpanElement | null>(null);
+
+  useEffect(() => {
+    setIsMounted(true);
+    const savedLangCode = localStorage.getItem("aivienne_lang");
+    if (savedLangCode) {
+      const found = LANGUAGES.find(l => l.code === savedLangCode);
+      if (found) {
+        setSelectedLang(found);
+      }
+    }
+  }, []);
 
   const t = TRANSLATIONS[selectedLang.code] || TRANSLATIONS.EN;
   const isRTL = selectedLang.dir === "rtl";
@@ -454,7 +467,7 @@ export default function Home() {
     if (files) {
       const validFiles = Array.from(files).filter(file => file.size <= 25 * 1024 * 1024);
       if (validFiles.length !== files.length) {
-        alert("Bazı dosyalar 25MB limitini aştığı için eklenmedi.");
+        alert(t.ui?.uploadLimitError || "Some files were not added because they exceed the 25MB limit.");
       }
       setAttachedFiles((prev) => [...prev, ...validFiles]);
     }
@@ -492,10 +505,10 @@ export default function Home() {
       const result = await response.json();
 
       if (!response.ok) {
-        throw new Error(result.error || "E-posta gönderilemedi.");
+        throw new Error(result.error || t.ui?.emailError || "Unable to send the email.");
       }
 
-      setFormStatus({ success: "Proje briefiniz başarıyla iletildi. 24 saat içinde dönüş yapılacaktır." });
+      setFormStatus({ success: t.ui?.success || "Your project brief has been submitted successfully. We will respond within 24 hours." });
       setFormData({
         name: "",
         email: "",
@@ -510,8 +523,8 @@ export default function Home() {
       });
       setAttachedFiles([]);
     } catch (err: unknown) {
-      const errorMsg = err instanceof Error ? err.message : "Bilinmeyen bir hata oluştu";
-      setFormStatus({ error: "Gönderim Hatası: " + errorMsg });
+      const errorMsg = err instanceof Error ? err.message : (t.ui?.unknownError || "An unknown error occurred");
+      setFormStatus({ error: (t.ui?.submissionError || "Submission Error: ") + errorMsg });
     } finally {
       setIsSubmitting(false);
     }
@@ -615,6 +628,10 @@ export default function Home() {
     return `$${low.toLocaleString()} – $${high.toLocaleString()}`;
   };
 
+  if (!isMounted) {
+    return <main className="min-h-screen bg-neutral-950" />;
+  }
+
   return (
     <main dir={selectedLang.dir} className={`min-h-screen w-full max-w-full overflow-x-hidden bg-neutral-950 text-neutral-100 selection:bg-amber-500/20 selection:text-amber-200 relative pt-16 sm:pt-24 ${isRTL ? "font-serif" : ""}`}>
       <div className="fixed pointer-events-none z-50 w-8 h-8 rounded-full border border-amber-400/80 -translate-x-1/2 -translate-y-1/2 transition-transform duration-75 hidden md:block" style={{ left: `${mousePos.x}px`, top: `${mousePos.y}px` }} />
@@ -642,7 +659,7 @@ export default function Home() {
               <button 
                 type="button" 
                 onClick={() => setActiveCaseStudy(null)} 
-                aria-label="Close Study" 
+                aria-label={t.portfolio?.closeModal || "Close Master Player"} 
                 className="absolute top-4 right-4 z-40 p-2.5 rounded-full bg-neutral-900/90 border border-amber-400/60 text-amber-300 hover:text-neutral-950 hover:bg-amber-400 transition-all cursor-pointer shadow-2xl"
               >
                 <X className="w-5 h-5 stroke-[2.5]" />
@@ -701,7 +718,7 @@ export default function Home() {
                       }} 
                       className="px-6 py-2.5 rounded-full bg-amber-400 text-neutral-950 font-bold text-xs uppercase tracking-wider hover:bg-amber-300 transition-all cursor-pointer flex items-center gap-2 shadow-lg"
                     >
-                      <span>REQUEST SCOPE</span>
+                      <span>{t.portfolio?.requestScope || "REQUEST SCOPE"}</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </button>
                     <button 
@@ -709,33 +726,33 @@ export default function Home() {
                       onClick={() => setActiveCaseStudy(null)} 
                       className="px-5 py-2.5 rounded-full bg-neutral-900 border border-neutral-700 text-neutral-300 hover:text-white hover:border-amber-400 font-bold text-xs uppercase tracking-wider transition-all cursor-pointer"
                     >
-                      CLOSE PREVIEW
+                      {t.portfolio?.closePreview || "CLOSE PREVIEW"}
                     </button>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-xs">
                     <div className="p-3.5 rounded-2xl bg-neutral-900/60 border border-neutral-800">
-                      <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">01 · Creative Brief</span>
+                      <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">01 · {t.ui?.creativeBrief || "Creative Brief"}</span>
                       <p className="text-neutral-300 text-[11px] leading-relaxed font-light">{activeCaseStudy.brief}</p>
                     </div>
                     <div className="p-3.5 rounded-2xl bg-neutral-900/60 border border-neutral-800">
-                      <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">02 · Creative Direction</span>
+                      <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">02 · {t.ui?.creativeDirection || "Creative Direction"}</span>
                       <p className="text-neutral-300 text-[11px] leading-relaxed font-light">{activeCaseStudy.direction}</p>
                     </div>
                     <div className="p-3.5 rounded-2xl bg-neutral-900/60 border border-neutral-800">
-                      <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">03 · Production Approach</span>
+                      <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">03 · {t.ui?.productionApproach || "Production Approach"}</span>
                       <p className="text-neutral-300 text-[11px] leading-relaxed font-light">{activeCaseStudy.production}</p>
                     </div>
                     <div className="p-3.5 rounded-2xl bg-neutral-900/60 border border-neutral-800">
-                      <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">04 · Material & Lighting</span>
+                      <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">04 · {t.ui?.materialLighting || "Material & Lighting"}</span>
                       <p className="text-neutral-300 text-[11px] leading-relaxed font-light">{activeCaseStudy.materialStudy}</p>
                     </div>
                     <div className="p-3.5 rounded-2xl bg-neutral-900/60 border border-neutral-800">
-                      <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">05 · Deliverables</span>
+                      <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">05 · {t.ui?.deliverables || "Deliverables"}</span>
                       <p className="text-neutral-300 text-[11px] leading-relaxed font-semibold">{activeCaseStudy.deliverables}</p>
                     </div>
                     <div className="p-3.5 rounded-2xl bg-neutral-900/60 border border-amber-500/30 bg-amber-500/5">
-                      <span className="text-[10px] font-bold text-amber-400 uppercase block mb-1">06 · Refinement & Master</span>
+                      <span className="text-[10px] font-bold text-amber-400 uppercase block mb-1">06 · {t.ui?.refinementMaster || "Refinement & Master"}</span>
                       <p className="text-neutral-300 text-[11px] leading-relaxed font-light">{activeCaseStudy.productionNotes}</p>
                     </div>
                   </div>
@@ -766,7 +783,7 @@ export default function Home() {
               onClick={(e) => e.stopPropagation()} 
               className="relative w-full max-w-3xl bg-neutral-900 border border-amber-500/30 rounded-3xl p-6 md:p-10 shadow-2xl text-left max-h-[85vh] overflow-y-auto"
             >
-              <button type="button" onClick={() => setActiveArticle(null)} aria-label="Close Article" className="absolute top-6 right-6 text-neutral-400 hover:text-white cursor-pointer"><X className="w-6 h-6" /></button>
+              <button type="button" onClick={() => setActiveArticle(null)} aria-label={t.ui?.closeArticle || "Close Article"} className="absolute top-6 right-6 text-neutral-400 hover:text-white cursor-pointer"><X className="w-6 h-6" /></button>
               
               <div className="flex flex-wrap items-center gap-3 mb-4">
                 <span className="text-[10px] font-extrabold tracking-widest text-amber-300 bg-amber-400/10 border border-amber-400/30 px-3.5 py-1 rounded-full uppercase">
@@ -794,20 +811,20 @@ export default function Home() {
 
               {activeArticle.faqQ1 && (
                 <div className="mt-8 p-5 rounded-2xl bg-neutral-950 border border-neutral-800 text-xs">
-                  <span className="text-[10px] font-bold text-amber-400 uppercase tracking-widest block mb-1">Frequently Asked Inquiry</span>
+                  <span className="text-[10px] font-bold text-amber-400 uppercase tracking-widest block mb-1">{t.ui?.frequentlyAsked || "Frequently Asked Inquiry"}</span>
                   <p className="font-bold text-neutral-200 mb-1">{activeArticle.faqQ1}</p>
                   <p className="text-neutral-400 font-light leading-relaxed">{activeArticle.faqA1}</p>
                 </div>
               )}
 
               <div className="mt-8 pt-6 border-t border-neutral-800/80 flex items-center justify-between">
-                <span className="text-xs font-mono text-neutral-400">AI.VIENNE Research & Monograph</span>
+                <span className="text-xs font-mono text-neutral-400">{t.ui?.researchMonograph || "AI.VIENNE Research & Monograph"}</span>
                 <button 
                   type="button" 
                   onClick={() => { setActiveArticle(null); document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }); }} 
                   className="px-6 py-2.5 rounded-full bg-amber-400 text-neutral-950 font-bold text-xs uppercase tracking-wider hover:bg-amber-300 transition-all flex items-center gap-2 cursor-pointer"
                 >
-                  <span>Request Full Perspective</span>
+                  <span>{t.ui?.requestPerspective || "Request Full Perspective"}</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
@@ -816,11 +833,18 @@ export default function Home() {
         )}
       </AnimatePresence>
 
+      <div className="fixed bottom-6 left-6 md:bottom-8 md:left-8 z-50 flex items-center gap-3 bg-neutral-900/90 border border-amber-500/40 px-4 py-2.5 rounded-full backdrop-blur-xl shadow-2xl">
+        <div className="w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping" />
+        <span className="text-xs font-bold tracking-wider text-amber-300">
+          {t.ui?.aiConcierge || "AI CONCIERGE"}
+        </span>
+      </div>
+
       <div className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50">
         <button 
           type="button" 
           onClick={() => setIsDeskOpen(!isDeskOpen)} 
-          aria-label="Open Confidential Inquiry Desk" 
+          aria-label={t.ui?.openInquiryDesk || "Open Confidential Inquiry Desk"} 
           className="relative w-12 h-12 rounded-full bg-amber-400/90 hover:bg-amber-400 text-neutral-950 flex items-center justify-center shadow-[0_0_25px_rgba(251,191,36,0.35)] hover:shadow-[0_0_40px_rgba(251,191,36,0.6)] hover:scale-110 transition-all duration-300 backdrop-blur-xl border border-amber-300/60 cursor-pointer group"
         >
           <div className="absolute inset-0 rounded-full bg-amber-400/20 animate-ping pointer-events-none" />
@@ -839,7 +863,7 @@ export default function Home() {
                   <p className="text-[10px] text-amber-300">{t.chatConsole?.sub}</p>
                 </div>
               </div>
-              <button type="button" onClick={() => setIsDeskOpen(false)} aria-label="Close Console" className="text-neutral-400 hover:text-white cursor-pointer"><X className="w-4 h-4" /></button>
+              <button type="button" onClick={() => setIsDeskOpen(false)} aria-label={t.ui?.closeConsole || "Close Console"} className="text-neutral-400 hover:text-white cursor-pointer"><X className="w-4 h-4" /></button>
             </div>
             <div className="py-6 space-y-3 text-xs">
               <div className="p-3.5 rounded-2xl bg-neutral-950 border border-neutral-800 text-neutral-300 leading-relaxed font-light">
@@ -972,7 +996,16 @@ export default function Home() {
               {isLangOpen && (
                 <div className="absolute right-0 mt-3 w-36 max-h-72 overflow-y-auto rounded-2xl border border-neutral-800 bg-neutral-900/95 backdrop-blur-lg shadow-2xl p-2 z-50">
                   {LANGUAGES.map((lang) => (
-                    <button key={lang.code} type="button" onClick={() => { setSelectedLang(lang); setIsLangOpen(false); }} className={`w-full text-left px-3.5 py-2.5 rounded-xl text-xs font-semibold flex items-center justify-between cursor-pointer ${selectedLang.code === lang.code ? "bg-amber-400/10 text-amber-400" : "text-neutral-300 hover:bg-neutral-800/60"}`}>
+                    <button 
+                      key={lang.code} 
+                      type="button" 
+                      onClick={() => { 
+                        setSelectedLang(lang); 
+                        localStorage.setItem("aivienne_lang", lang.code);
+                        setIsLangOpen(false); 
+                      }} 
+                      className={`w-full text-left px-3.5 py-2.5 rounded-xl text-xs font-semibold flex items-center justify-between cursor-pointer ${selectedLang.code === lang.code ? "bg-amber-400/10 text-amber-400" : "text-neutral-300 hover:bg-neutral-800/60"}`}
+                    >
                       <div className="flex items-center gap-2.5">
                         <div className="relative w-4 h-3">
                           <Image src={lang.flag} alt={lang.name} fill sizes="16px" className="object-cover rounded-sm" />
@@ -989,7 +1022,7 @@ export default function Home() {
             <button
               type="button"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label="Toggle Mobile Menu"
+              aria-label={t.ui?.toggleMobileMenu || "Toggle Mobile Menu"}
               className="xl:hidden flex items-center justify-center w-9 h-9 rounded-full border border-neutral-800 bg-neutral-900/80 text-neutral-300 hover:text-amber-400 transition-colors cursor-pointer"
             >
               {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -1061,7 +1094,7 @@ export default function Home() {
         </AnimatePresence>
       </header>
 
-      {/* HERO SECTION - $1.500 Butonu Kaldırıldı */}
+      {/* HERO SECTION */}
       <section className="relative z-10 w-full px-4 sm:px-8 md:px-16 pt-8 sm:pt-20 pb-12 sm:pb-18 text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
           <span className="inline-flex items-center gap-2 px-3.5 sm:px-6 py-1.5 sm:py-2 rounded-full border border-amber-500/30 bg-amber-500/10 text-[11px] sm:text-sm font-semibold text-amber-300 mb-4 sm:mb-8">
@@ -1080,7 +1113,7 @@ export default function Home() {
 
             <div className="w-full sm:w-auto px-6 sm:px-10 py-3.5 sm:py-4 rounded-full text-xs sm:text-base font-bold tracking-wide text-neutral-200 border border-neutral-800 bg-neutral-900/50 flex items-center justify-center gap-2.5">
               <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400" /> 
-              <span>Direct Access:</span> <SafeEmailLink className="text-amber-400 underline underline-offset-4" />
+              <span>{t.ui?.directAccess || "Direct Access:"}</span> <SafeEmailLink className="text-amber-400 underline underline-offset-4" />
             </div>
           </div>
         </motion.div>
@@ -1116,7 +1149,7 @@ export default function Home() {
               </div>
               <div className="pt-6 mt-6 border-t border-neutral-800/80 flex items-center gap-2 text-[10px] font-mono text-amber-400 uppercase">
                 <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
-                <span>Unified Ecosystem</span>
+                <span>{t.ui?.unifiedEcosystem || "Unified Ecosystem"}</span>
               </div>
             </div>
 
@@ -1130,7 +1163,7 @@ export default function Home() {
               </div>
               <div className="pt-6 mt-6 border-t border-neutral-800/80 flex items-center gap-2 text-[10px] font-mono text-amber-400 uppercase">
                 <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
-                <span>AI-Native Workflow</span>
+                <span>{t.ui?.aiNativeWorkflow || "AI-Native Workflow"}</span>
               </div>
             </div>
 
@@ -1144,7 +1177,7 @@ export default function Home() {
               </div>
               <div className="pt-6 mt-6 border-t border-neutral-800/80 flex items-center gap-2 text-[10px] font-mono text-amber-400 uppercase">
                 <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
-                <span>Reference Guidance</span>
+                <span>{t.ui?.referenceGuidance || "Reference Guidance"}</span>
               </div>
             </div>
 
@@ -1158,7 +1191,7 @@ export default function Home() {
               </div>
               <div className="pt-6 mt-6 border-t border-neutral-800/80 flex items-center gap-2 text-[10px] font-mono text-amber-400 uppercase">
                 <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
-                <span>Haute Refinement</span>
+                <span>{t.ui?.hauteRefinement || "Haute Refinement"}</span>
               </div>
             </div>
           </div>
@@ -1192,11 +1225,11 @@ export default function Home() {
                 
                 <div className="space-y-3 pt-6 border-t border-neutral-800/80 text-xs">
                   <div>
-                    <span className="text-[10px] font-bold text-neutral-400 uppercase block mb-1">Capabilities</span>
+                    <span className="text-[10px] font-bold text-neutral-400 uppercase block mb-1">{t.ui?.capabilities || "Capabilities"}</span>
                     <p className="text-neutral-200 font-light">{t.servicesPillars?.s1Capabilities}</p>
                   </div>
                   <div className="pt-2">
-                    <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">Deliverables</span>
+                    <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">{t.ui?.deliverables || "Deliverables"}</span>
                     <div className="flex flex-wrap gap-2 mt-1.5">
                       {t.servicesPillars?.s1Deliverables.split(" · ").map((item: string, idx: number) => (
                         <span key={idx} className="px-2.5 py-1 rounded-md bg-neutral-950 border border-neutral-800 text-[11px] text-neutral-200 font-medium">{item}</span>
@@ -1213,7 +1246,7 @@ export default function Home() {
                   onClick={() => selectServicePillar("sOpt1", "Haute Couture & Seasonal Campaigns")}
                   className="px-6 py-2.5 rounded-full bg-neutral-900 border border-amber-500/40 text-amber-300 group-hover:bg-amber-400 group-hover:text-neutral-950 font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer shrink-0"
                 >
-                  <span>Request Scope</span>
+                  <span>{t.ui?.requestScope || "Request Scope"}</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
@@ -1235,11 +1268,11 @@ export default function Home() {
                 
                 <div className="space-y-3 pt-6 border-t border-neutral-800/80 text-xs">
                   <div>
-                    <span className="text-[10px] font-bold text-neutral-400 uppercase block mb-1">Capabilities</span>
+                    <span className="text-[10px] font-bold text-neutral-400 uppercase block mb-1">{t.ui?.capabilities || "Capabilities"}</span>
                     <p className="text-neutral-200 font-light">{t.servicesPillars?.s2Capabilities}</p>
                   </div>
                   <div className="pt-2">
-                    <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">Deliverables</span>
+                    <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">{t.ui?.deliverables || "Deliverables"}</span>
                     <div className="flex flex-wrap gap-2 mt-1.5">
                       {t.servicesPillars?.s2Deliverables.split(" · ").map((item: string, idx: number) => (
                         <span key={idx} className="px-2.5 py-1 rounded-md bg-neutral-950 border border-neutral-800 text-[11px] text-neutral-200 font-medium">{item}</span>
@@ -1256,7 +1289,7 @@ export default function Home() {
                   onClick={() => selectServicePillar("sOpt2", "Haute Horlogerie & Fine Jewelry")}
                   className="px-6 py-2.5 rounded-full bg-neutral-900 border border-amber-500/40 text-amber-300 group-hover:bg-amber-400 group-hover:text-neutral-950 font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer shrink-0"
                 >
-                  <span>Request Scope</span>
+                  <span>{t.ui?.requestScope || "Request Scope"}</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
@@ -1278,11 +1311,11 @@ export default function Home() {
                 
                 <div className="space-y-3 pt-6 border-t border-neutral-800/80 text-xs">
                   <div>
-                    <span className="text-[10px] font-bold text-neutral-400 uppercase block mb-1">Capabilities</span>
+                    <span className="text-[10px] font-bold text-neutral-400 uppercase block mb-1">{t.ui?.capabilities || "Capabilities"}</span>
                     <p className="text-neutral-200 font-light">{t.servicesPillars?.s3Capabilities}</p>
                   </div>
                   <div className="pt-2">
-                    <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">Deliverables</span>
+                    <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">{t.ui?.deliverables || "Deliverables"}</span>
                     <div className="flex flex-wrap gap-2 mt-1.5">
                       {t.servicesPillars?.s3Deliverables.split(" · ").map((item: string, idx: number) => (
                         <span key={idx} className="px-2.5 py-1 rounded-md bg-neutral-950 border border-neutral-800 text-[11px] text-neutral-200 font-medium">{item}</span>
@@ -1299,7 +1332,7 @@ export default function Home() {
                   onClick={() => selectServicePillar("sOpt3", "Persistent Brand Ambassadors")}
                   className="px-6 py-2.5 rounded-full bg-neutral-900 border border-amber-500/40 text-amber-300 group-hover:bg-amber-400 group-hover:text-neutral-950 font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer shrink-0"
                 >
-                  <span>Request Scope</span>
+                  <span>{t.ui?.requestScope || "Request Scope"}</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
@@ -1321,11 +1354,11 @@ export default function Home() {
                 
                 <div className="space-y-3 pt-6 border-t border-neutral-800/80 text-xs">
                   <div>
-                    <span className="text-[10px] font-bold text-neutral-400 uppercase block mb-1">Capabilities</span>
+                    <span className="text-[10px] font-bold text-neutral-400 uppercase block mb-1">{t.ui?.capabilities || "Capabilities"}</span>
                     <p className="text-neutral-200 font-light">{t.servicesPillars?.s4Capabilities}</p>
                   </div>
                   <div className="pt-2">
-                    <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">Deliverables</span>
+                    <span className="text-[10px] font-bold text-amber-300 uppercase block mb-1">{t.ui?.deliverables || "Deliverables"}</span>
                     <div className="flex flex-wrap gap-2 mt-1.5">
                       {t.servicesPillars?.s4Deliverables.split(" · ").map((item: string, idx: number) => (
                         <span key={idx} className="px-2.5 py-1 rounded-md bg-neutral-950 border border-neutral-800 text-[11px] text-neutral-200 font-medium">{item}</span>
@@ -1342,7 +1375,7 @@ export default function Home() {
                   onClick={() => selectServicePillar("sOpt4", "Brand Heritage & Flagship Films")}
                   className="px-6 py-2.5 rounded-full bg-neutral-900 border border-amber-500/40 text-amber-300 group-hover:bg-amber-400 group-hover:text-neutral-950 font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer shrink-0"
                 >
-                  <span>Request Scope</span>
+                  <span>{t.ui?.requestScope || "Request Scope"}</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
@@ -1379,47 +1412,63 @@ export default function Home() {
             <div className="mb-14 sm:mb-20">
               <div className="flex items-center gap-2.5 mb-6">
                 <Tv className="w-4 h-4 text-amber-400" />
-                <h3 className="text-sm sm:text-base font-extrabold text-neutral-100 tracking-wider uppercase">16:9 Widescreen Studies</h3>
+                <h3 className="text-sm sm:text-base font-extrabold text-neutral-100 tracking-wider uppercase">{t.ui?.widescreenStudies || "16:9 Widescreen Studies"}</h3>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
-                {filteredItems.filter(item => item.aspect === "16:9").map((item) => (
-                  <div 
-                    key={item.id} 
-                    onClick={() => setActiveCaseStudy(item)}
-                    className="group relative rounded-2xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 p-3 sm:p-4 transition-all duration-300 ease-out hover:scale-[1.02] hover:z-20 hover:shadow-[0_10px_30px_rgba(251,191,36,0.12)] flex flex-col justify-between overflow-hidden cursor-pointer"
-                  >
-                    <div className="relative aspect-[16/9] w-full rounded-xl bg-neutral-950 border border-neutral-800 flex items-center justify-center overflow-hidden mb-3.5 shadow-md">
-                      {item.type === "video" ? (
-                        <video autoPlay loop muted playsInline preload="none" poster={item.poster} className="w-full h-full object-contain bg-black group-hover:scale-105 transition-transform duration-500 ease-out">
-                          <source src={item.videoUrl} type="video/mp4" />
-                        </video>
-                      ) : (
-                        <div className="relative w-full h-full">
-                          <Image src={item.poster} alt={item.title} fill loading="lazy" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw" className="object-contain bg-black group-hover:scale-105 transition-transform duration-500 ease-out" />
+                {filteredItems.filter(item => item.aspect === "16:9").map((item) => {
+                  const resolvedTitle = t.portfolioItems?.[item.titleKey] || item.titleKey;
+                  const resolvedDisc = t.portfolioItems?.[item.disciplineKey] || item.disciplineKey;
+                  const resolvedDesc = t.portfolioItems?.[item.descKey] || item.descKey;
+                  return (
+                    <div 
+                      key={item.id} 
+                      onClick={() => setActiveCaseStudy({
+                        ...item,
+                        title: resolvedTitle,
+                        discipline: resolvedDisc,
+                        desc: resolvedDesc,
+                        brief: t.portfolioItems?.[item.briefKey] || item.briefKey,
+                        direction: t.portfolioItems?.[item.directionKey] || item.directionKey,
+                        production: t.portfolioItems?.[item.productionKey] || item.productionKey,
+                        materialStudy: t.portfolioItems?.[item.materialStudyKey] || item.materialStudyKey,
+                        deliverables: t.portfolioItems?.[item.deliverablesKey] || item.deliverablesKey,
+                        productionNotes: t.portfolioItems?.[item.productionNotesKey] || item.productionNotesKey,
+                      })}
+                      className="group relative rounded-2xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 p-3 sm:p-4 transition-all duration-300 ease-out hover:scale-[1.02] hover:z-20 hover:shadow-[0_10px_30px_rgba(251,191,36,0.12)] flex flex-col justify-between overflow-hidden cursor-pointer"
+                    >
+                      <div className="relative aspect-[16/9] w-full rounded-xl bg-neutral-950 border border-neutral-800 flex items-center justify-center overflow-hidden mb-3.5 shadow-md">
+                        {item.type === "video" ? (
+                          <video autoPlay loop muted playsInline preload="none" poster={item.poster} className="w-full h-full object-contain bg-black group-hover:scale-105 transition-transform duration-500 ease-out">
+                            <source src={item.videoUrl} type="video/mp4" />
+                          </video>
+                        ) : (
+                          <div className="relative w-full h-full">
+                            <Image src={item.poster} alt={resolvedTitle} fill loading="lazy" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw" className="object-contain bg-black group-hover:scale-105 transition-transform duration-500 ease-out" />
+                          </div>
+                        )}
+                        <div className="absolute inset-0 bg-neutral-950/20 group-hover:bg-neutral-950/60 backdrop-blur-[1px] transition-all duration-300 flex flex-col items-center justify-center p-3 text-center opacity-0 group-hover:opacity-100">
+                          <div className="w-10 h-10 rounded-full bg-amber-400 text-neutral-950 flex items-center justify-center shadow-[0_0_15px_rgba(251,191,36,0.5)] scale-90 group-hover:scale-100 transition-all z-10">
+                            <Play className="w-4 h-4 ml-0.5 fill-neutral-950" />
+                          </div>
                         </div>
-                      )}
-                      <div className="absolute inset-0 bg-neutral-950/20 group-hover:bg-neutral-950/60 backdrop-blur-[1px] transition-all duration-300 flex flex-col items-center justify-center p-3 text-center opacity-0 group-hover:opacity-100">
-                        <div className="w-10 h-10 rounded-full bg-amber-400 text-neutral-950 flex items-center justify-center shadow-[0_0_15px_rgba(251,191,36,0.5)] scale-90 group-hover:scale-100 transition-all z-10">
-                          <Play className="w-4 h-4 ml-0.5 fill-neutral-950" />
+                        <span className="absolute top-2 left-2 text-[8px] font-mono font-bold uppercase text-amber-300 bg-neutral-950/90 border border-amber-500/40 px-2 py-0.5 rounded-full z-30 shadow-sm">
+                          {item.conceptNum}
+                        </span>
+                      </div>
+                      <div className="mb-3 px-1 flex-1 flex flex-col justify-between">
+                        <div>
+                          <span className="text-[9px] font-mono text-amber-400 uppercase tracking-widest block mb-0.5">{resolvedDisc}</span>
+                          <h3 className="text-xs sm:text-sm font-bold text-neutral-100 mb-1 group-hover:text-amber-300 transition-colors line-clamp-1">{resolvedTitle}</h3>
+                          <p className="text-[10px] sm:text-[11px] text-neutral-400 leading-tight font-light line-clamp-2 group-hover:text-neutral-200 transition-colors">{resolvedDesc}</p>
                         </div>
                       </div>
-                      <span className="absolute top-2 left-2 text-[8px] font-mono font-bold uppercase text-amber-300 bg-neutral-950/90 border border-amber-500/40 px-2 py-0.5 rounded-full z-30 shadow-sm">
-                        {item.conceptNum}
-                      </span>
+                      
+                      <button type="button" onClick={(e) => { e.stopPropagation(); setActiveCaseStudy({ ...item, title: resolvedTitle, discipline: resolvedDisc, desc: resolvedDesc, brief: t.portfolioItems?.[item.briefKey] || item.briefKey, direction: t.portfolioItems?.[item.directionKey] || item.directionKey, production: t.portfolioItems?.[item.productionKey] || item.productionKey, materialStudy: t.portfolioItems?.[item.materialStudyKey] || item.materialStudyKey, deliverables: t.portfolioItems?.[item.deliverablesKey] || item.deliverablesKey, productionNotes: t.portfolioItems?.[item.productionNotesKey] || item.productionNotesKey }); }} className="w-full py-2 rounded-xl border border-neutral-800 bg-neutral-950 group-hover:bg-amber-400 group-hover:text-neutral-950 text-[10px] font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 shadow-sm cursor-pointer">
+                        <Briefcase className="w-3 h-3" /> {t.portfolio?.playVideo}
+                      </button>
                     </div>
-                    <div className="mb-3 px-1 flex-1 flex flex-col justify-between">
-                      <div>
-                        <span className="text-[9px] font-mono text-amber-400 uppercase tracking-widest block mb-0.5">{item.discipline}</span>
-                        <h3 className="text-xs sm:text-sm font-bold text-neutral-100 mb-1 group-hover:text-amber-300 transition-colors line-clamp-1">{item.title}</h3>
-                        <p className="text-[10px] sm:text-[11px] text-neutral-400 leading-tight font-light line-clamp-2 group-hover:text-neutral-200 transition-colors">{item.desc}</p>
-                      </div>
-                    </div>
-                    
-                    <button type="button" onClick={(e) => { e.stopPropagation(); setActiveCaseStudy(item); }} className="w-full py-2 rounded-xl border border-neutral-800 bg-neutral-950 group-hover:bg-amber-400 group-hover:text-neutral-950 text-[10px] font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 shadow-sm cursor-pointer">
-                      <Briefcase className="w-3 h-3" /> {t.portfolio?.playVideo}
-                    </button>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           )}
@@ -1428,47 +1477,63 @@ export default function Home() {
             <div>
               <div className="flex items-center gap-2.5 mb-6">
                 <Smartphone className="w-4 h-4 text-amber-400" />
-                <h3 className="text-sm sm:text-base font-extrabold text-neutral-100 tracking-wider uppercase">9:16 Vertical Studies</h3>
+                <h3 className="text-sm sm:text-base font-extrabold text-neutral-100 tracking-wider uppercase">{t.ui?.verticalStudies || "9:16 Vertical Studies"}</h3>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
-                {filteredItems.filter(item => item.aspect === "9:16").map((item) => (
-                  <div 
-                    key={item.id} 
-                    onClick={() => setActiveCaseStudy(item)}
-                    className="group relative rounded-2xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 p-3 sm:p-4 transition-all duration-300 ease-out hover:scale-[1.02] hover:z-20 hover:shadow-[0_10px_30px_rgba(251,191,36,0.12)] flex flex-col justify-between overflow-hidden cursor-pointer"
-                  >
-                    <div className="relative aspect-[9/16] w-full rounded-xl bg-neutral-950 border border-neutral-800 flex items-center justify-center overflow-hidden mb-3.5 shadow-md mx-auto">
-                      {item.type === "video" ? (
-                        <video autoPlay loop muted playsInline preload="none" poster={item.poster} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out">
-                          <source src={item.videoUrl} type="video/mp4" />
-                        </video>
-                      ) : (
-                        <div className="relative w-full h-full">
-                          <Image src={item.poster} alt={item.title} fill loading="lazy" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw" className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out" />
+                {filteredItems.filter(item => item.aspect === "9:16").map((item) => {
+                  const resolvedTitle = t.portfolioItems?.[item.titleKey] || item.titleKey;
+                  const resolvedDisc = t.portfolioItems?.[item.disciplineKey] || item.disciplineKey;
+                  const resolvedDesc = t.portfolioItems?.[item.descKey] || item.descKey;
+                  return (
+                    <div 
+                      key={item.id} 
+                      onClick={() => setActiveCaseStudy({
+                        ...item,
+                        title: resolvedTitle,
+                        discipline: resolvedDisc,
+                        desc: resolvedDesc,
+                        brief: t.portfolioItems?.[item.briefKey] || item.briefKey,
+                        direction: t.portfolioItems?.[item.directionKey] || item.directionKey,
+                        production: t.portfolioItems?.[item.productionKey] || item.productionKey,
+                        materialStudy: t.portfolioItems?.[item.materialStudyKey] || item.materialStudyKey,
+                        deliverables: t.portfolioItems?.[item.deliverablesKey] || item.deliverablesKey,
+                        productionNotes: t.portfolioItems?.[item.productionNotesKey] || item.productionNotesKey,
+                      })}
+                      className="group relative rounded-2xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 p-3 sm:p-4 transition-all duration-300 ease-out hover:scale-[1.02] hover:z-20 hover:shadow-[0_10px_30px_rgba(251,191,36,0.12)] flex flex-col justify-between overflow-hidden cursor-pointer"
+                    >
+                      <div className="relative aspect-[9/16] w-full rounded-xl bg-neutral-950 border border-neutral-800 flex items-center justify-center overflow-hidden mb-3.5 shadow-md mx-auto">
+                        {item.type === "video" ? (
+                          <video autoPlay loop muted playsInline preload="none" poster={item.poster} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out">
+                            <source src={item.videoUrl} type="video/mp4" />
+                          </video>
+                        ) : (
+                          <div className="relative w-full h-full">
+                            <Image src={item.poster} alt={resolvedTitle} fill loading="lazy" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw" className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out" />
+                          </div>
+                        )}
+                        <div className="absolute inset-0 bg-neutral-950/20 group-hover:bg-neutral-950/60 backdrop-blur-[1px] transition-all duration-300 flex flex-col items-center justify-center p-3 text-center opacity-0 group-hover:opacity-100">
+                          <div className="w-10 h-10 rounded-full bg-amber-400 text-neutral-950 flex items-center justify-center shadow-[0_0_15px_rgba(251,191,36,0.5)] scale-90 group-hover:scale-100 transition-all z-10">
+                            <Play className="w-4 h-4 ml-0.5 fill-neutral-950" />
+                          </div>
                         </div>
-                      )}
-                      <div className="absolute inset-0 bg-neutral-950/20 group-hover:bg-neutral-950/60 backdrop-blur-[1px] transition-all duration-300 flex flex-col items-center justify-center p-3 text-center opacity-0 group-hover:opacity-100">
-                        <div className="w-10 h-10 rounded-full bg-amber-400 text-neutral-950 flex items-center justify-center shadow-[0_0_15px_rgba(251,191,36,0.5)] scale-90 group-hover:scale-100 transition-all z-10">
-                          <Play className="w-4 h-4 ml-0.5 fill-neutral-950" />
+                        <span className="absolute top-2 left-2 text-[8px] font-mono font-bold uppercase text-amber-300 bg-neutral-950/90 border border-amber-500/40 px-2 py-0.5 rounded-full z-30 shadow-sm">
+                          {item.conceptNum}
+                        </span>
+                      </div>
+                      <div className="mb-3 px-1 flex-1 flex flex-col justify-between">
+                        <div>
+                          <span className="text-[9px] font-mono text-amber-400 uppercase tracking-widest block mb-0.5">{resolvedDisc}</span>
+                          <h3 className="text-xs sm:text-sm font-bold text-neutral-100 mb-1 group-hover:text-amber-300 transition-colors line-clamp-1">{resolvedTitle}</h3>
+                          <p className="text-[10px] sm:text-[11px] text-neutral-400 leading-tight font-light line-clamp-2 group-hover:text-neutral-200 transition-colors">{resolvedDesc}</p>
                         </div>
                       </div>
-                      <span className="absolute top-2 left-2 text-[8px] font-mono font-bold uppercase text-amber-300 bg-neutral-950/90 border border-amber-500/40 px-2 py-0.5 rounded-full z-30 shadow-sm">
-                        {item.conceptNum}
-                      </span>
+                      
+                      <button type="button" onClick={(e) => { e.stopPropagation(); setActiveCaseStudy({ ...item, title: resolvedTitle, discipline: resolvedDisc, desc: resolvedDesc, brief: t.portfolioItems?.[item.briefKey] || item.briefKey, direction: t.portfolioItems?.[item.directionKey] || item.directionKey, production: t.portfolioItems?.[item.productionKey] || item.productionKey, materialStudy: t.portfolioItems?.[item.materialStudyKey] || item.materialStudyKey, deliverables: t.portfolioItems?.[item.deliverablesKey] || item.deliverablesKey, productionNotes: t.portfolioItems?.[item.productionNotesKey] || item.productionNotesKey }); }} className="w-full py-2 rounded-xl border border-neutral-800 bg-neutral-950 group-hover:bg-amber-400 group-hover:text-neutral-950 text-[10px] font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 shadow-sm cursor-pointer">
+                        <Briefcase className="w-3 h-3" /> {t.portfolio?.playVideo}
+                      </button>
                     </div>
-                    <div className="mb-3 px-1 flex-1 flex flex-col justify-between">
-                      <div>
-                        <span className="text-[9px] font-mono text-amber-400 uppercase tracking-widest block mb-0.5">{item.discipline}</span>
-                        <h3 className="text-xs sm:text-sm font-bold text-neutral-100 mb-1 group-hover:text-amber-300 transition-colors line-clamp-1">{item.title}</h3>
-                        <p className="text-[10px] sm:text-[11px] text-neutral-400 leading-tight font-light line-clamp-2 group-hover:text-neutral-200 transition-colors">{item.desc}</p>
-                      </div>
-                    </div>
-                    
-                    <button type="button" onClick={(e) => { e.stopPropagation(); setActiveCaseStudy(item); }} className="w-full py-2 rounded-xl border border-neutral-800 bg-neutral-950 group-hover:bg-amber-400 group-hover:text-neutral-950 text-[10px] font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 shadow-sm cursor-pointer">
-                      <Briefcase className="w-3 h-3" /> {t.portfolio?.playVideo}
-                    </button>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           )}
@@ -1504,7 +1569,7 @@ export default function Home() {
                 </div>
                 <div className="mt-8 pt-4 border-t border-neutral-800/60 flex items-center gap-2 text-[10px] font-mono text-amber-400/80 group-hover:text-amber-300 uppercase transition-colors">
                   <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
-                  <span>Production Capability</span>
+                  <span>{t.ui?.productionCapability || "Production Capability"}</span>
                 </div>
               </div>
             ))}
@@ -1605,7 +1670,7 @@ export default function Home() {
               />
 
               <div className="absolute top-6 right-6 px-4 py-1.5 rounded-full bg-neutral-950/80 border border-amber-400/40 text-[9px] sm:text-[10px] font-extrabold text-amber-300 uppercase tracking-widest backdrop-blur-md z-20">
-                CHARACTER STUDY
+                {t.ui?.characterStudy || "Character Study"}
               </div>
 
               <div>
@@ -1623,7 +1688,7 @@ export default function Home() {
                   >
                     <source src={selectedTwin.video} type="video/mp4" />
                     <div className="relative w-full h-full">
-                      <Image src={selectedTwin.poster} alt={selectedTwin.name} fill priority sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
+                      <Image src={selectedTwin.poster} alt={t.twinsSection?.[selectedTwin.nameKey] || "Character"} fill priority sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
                     </div>
                   </video>
                   
@@ -1632,7 +1697,7 @@ export default function Home() {
                   <div className="absolute top-4 left-4 z-20 px-3.5 py-1.5 rounded-full bg-neutral-950/80 border border-amber-400/40 backdrop-blur-md flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
                     <span className="text-[9px] sm:text-[10px] font-extrabold text-amber-300 uppercase tracking-widest">
-                      {selectedTwin.name.split(" ")[0].toUpperCase()} · REFERENCE-GUIDED IDENTITY RETENTION
+                      {((t.twinsSection?.[selectedTwin.nameKey] || "Character").split(" ")[0]).toUpperCase()} · {t.ui?.referenceIdentity || "Reference-Guided Identity Retention"}
                     </span>
                   </div>
 
@@ -1646,36 +1711,39 @@ export default function Home() {
                   </button>
                 </div>
 
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-neutral-100 mb-2">{selectedTwin.name}</h3>
-                <p className="text-xs sm:text-sm font-semibold text-amber-300 uppercase tracking-wider mb-6 sm:mb-8">{selectedTwin.role}</p>
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-neutral-100 mb-2">{t.twinsSection?.[selectedTwin.nameKey] || "Character"}</h3>
+                <p className="text-xs sm:text-sm font-semibold text-amber-300 uppercase tracking-wider mb-6 sm:mb-8">{t.twinsSection?.[selectedTwin.roleKey] || "Role"}</p>
 
                 <div className="space-y-4 border-t border-neutral-800/80 pt-6">
                   <div className="flex justify-between text-xs">
-                    <span className="text-neutral-400 uppercase font-bold">Lighting Context:</span>
-                    <span className="text-neutral-200 font-semibold">{selectedTwin.lighting}</span>
+                    <span className="text-neutral-400 uppercase font-bold">{t.ui?.lightingContext || "Lighting Context:"}</span>
+                    <span className="text-neutral-200 font-semibold">{t.twinsSection?.[selectedTwin.lightingKey] || "Lighting"}</span>
                   </div>
                   <div className="flex justify-between text-xs">
-                    <span className="text-neutral-400 uppercase font-bold">Styling & Textile:</span>
-                    <span className="text-neutral-200 font-semibold">{selectedTwin.outfit}</span>
+                    <span className="text-neutral-400 uppercase font-bold">{t.ui?.stylingTextile || "Styling & Textile:"}</span>
+                    <span className="text-neutral-200 font-semibold">{t.twinsSection?.[selectedTwin.outfitKey] || "Outfit"}</span>
                   </div>
                 </div>
               </div>
 
               <div className="mt-8 flex gap-4">
-                {DIGITAL_TWINS.map((twin) => (
-                  <button
-                    key={twin.id}
-                    type="button"
-                    onClick={() => setSelectedTwin(twin)}
-                    className={`px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl text-xs font-bold uppercase transition-all cursor-pointer ${
-                      selectedTwin.id === twin.id
-                        ? "bg-amber-400 text-neutral-950 shadow-[0_0_20px_rgba(251,191,36,0.3)]"
-                        : "bg-neutral-900 text-neutral-300 border border-neutral-800 hover:border-neutral-700"
-                    }`}
-                  >
-                    Select {twin.name.split(" ")[0]}
-                  </button>
-                ))}
+                {DIGITAL_TWINS.map((twin) => {
+                  const twinNameResolved = t.twinsSection?.[twin.nameKey] || twin.id;
+                  return (
+                    <button
+                      key={twin.id}
+                      type="button"
+                      onClick={() => setSelectedTwin(twin)}
+                      className={`px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl text-xs font-bold uppercase transition-all cursor-pointer ${
+                        selectedTwin.id === twin.id
+                          ? "bg-amber-400 text-neutral-950 shadow-[0_0_20px_rgba(251,191,36,0.3)]"
+                          : "bg-neutral-900 text-neutral-300 border border-neutral-800 hover:border-neutral-700"
+                      }`}
+                    >
+                      {selectedLang.code === 'AR' ? `اختيار ${twinNameResolved.split(" ")[0]}` : `Select ${twinNameResolved.split(" ")[0]}`}
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
@@ -1710,7 +1778,7 @@ export default function Home() {
                   <div className="absolute top-4 left-4 z-20 px-3.5 py-1.5 rounded-full bg-neutral-950/80 border border-amber-400/40 backdrop-blur-md flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
                     <span className="text-[9px] sm:text-[10px] font-extrabold text-amber-300 uppercase tracking-widest flex items-center gap-1.5">
-                      <Activity className="w-3 h-3 text-amber-400" /> IDENTITY RETENTION
+                      <Activity className="w-3 h-3 text-amber-400" /> {t.ui?.protocol || "PROTOCOL"}
                     </span>
                   </div>
 
@@ -1737,15 +1805,15 @@ export default function Home() {
               <div className="pt-6 border-t border-neutral-800/80 grid grid-cols-2 gap-4 text-left">
                 <div className="p-3 sm:p-3.5 rounded-xl bg-neutral-950/90 border border-neutral-800">
                   <p className="text-[10px] font-bold text-amber-300 uppercase flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3 h-3 text-emerald-400" /> Reference Guidance
+                    <CheckCircle2 className="w-3 h-3 text-emerald-400" /> {t.ui?.referenceGuidance || "Reference Guidance"}
                   </p>
-                  <p className="text-xs font-semibold text-neutral-200 mt-1">Facial Structure Consistency</p>
+                  <p className="text-xs font-semibold text-neutral-200 mt-1">{t.ui?.facialConsistency || "Facial Structure Consistency"}</p>
                 </div>
                 <div className="p-3 sm:p-3.5 rounded-xl bg-neutral-950/90 border border-neutral-800">
                   <p className="text-[10px] font-bold text-amber-300 uppercase flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3 h-3 text-emerald-400" /> Natural Shading
+                    <CheckCircle2 className="w-3 h-3 text-emerald-400" /> {t.ui?.hauteRefinement || "Haute Refinement"}
                   </p>
-                  <p className="text-xs font-semibold text-neutral-200 mt-1">Natural Skin Micro-Texture</p>
+                  <p className="text-xs font-semibold text-neutral-200 mt-1">{t.ui?.skinTexture || "Natural Skin Micro-Texture"}</p>
                 </div>
               </div>
             </div>
@@ -1807,7 +1875,7 @@ export default function Home() {
                 </div>
                 <div className="mt-6 pt-4 border-t border-neutral-800/60 flex items-center gap-1.5 text-[10px] font-mono text-amber-400/80 group-hover:text-amber-300 uppercase transition-colors">
                   <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
-                  <span>Protocol {step.num}</span>
+                  <span>{t.ui?.protocol || "Protocol"} {step.num}</span>
                 </div>
               </div>
             ))}
@@ -1844,7 +1912,7 @@ export default function Home() {
                   className="px-4 py-1.5 rounded-full bg-neutral-950 border border-neutral-800 text-xs text-neutral-300 hover:text-amber-300 hover:border-amber-400/40 transition-colors flex items-center gap-1.5"
                 >
                   <svg className="w-3.5 h-3.5 shrink-0 fill-current text-amber-400" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                  <span>LinkedIn Company Page</span>
+                  <span>{t.ui?.linkedin || "LinkedIn Company Page"}</span>
                 </a>
               </div>
             </div>
@@ -1916,7 +1984,7 @@ export default function Home() {
               max="100" 
               value={sliderPos} 
               onChange={(e) => setSliderPos(Number(e.target.value))} 
-              aria-label="Transformation Comparison Slider"
+              aria-label={t.ui?.transformationSlider || "Transformation Comparison Slider"}
               className="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-40" 
             />
 
@@ -1929,16 +1997,16 @@ export default function Home() {
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6 text-left">
             <div className="p-3 rounded-xl bg-neutral-900/40 border border-neutral-800 text-[11px] font-mono text-neutral-300">
-              <span className="text-amber-400 block font-bold">{t.transformation?.s1}</span> Initial Concept & Palette
+              <span className="text-amber-400 block font-bold">{t.transformation?.s1}</span>
             </div>
             <div className="p-3 rounded-xl bg-neutral-900/40 border border-neutral-800 text-[11px] font-mono text-neutral-300">
-              <span className="text-amber-400 block font-bold">{t.transformation?.s2}</span> AI Synthesis & Lighting
+              <span className="text-amber-400 block font-bold">{t.transformation?.s2}</span>
             </div>
             <div className="p-3 rounded-xl bg-neutral-900/40 border border-neutral-800 text-[11px] font-mono text-neutral-300">
-              <span className="text-amber-400 block font-bold">{t.transformation?.s3}</span> Texture & Caustic Tuning
+              <span className="text-amber-400 block font-bold">{t.transformation?.s3}</span>
             </div>
             <div className="p-3 rounded-xl bg-neutral-900/40 border border-neutral-800 text-[11px] font-mono text-neutral-300">
-              <span className="text-amber-400 block font-bold">{t.transformation?.s4}</span> Haute Retouch & Color Grade
+              <span className="text-amber-400 block font-bold">{t.transformation?.s4}</span>
             </div>
           </div>
         </div>
@@ -2032,7 +2100,7 @@ export default function Home() {
                       {calculateEstimate()}
                     </p>
                     <span className="text-[10px] text-neutral-400 uppercase font-mono block mt-1">
-                      Estimated Production Range (USD)
+                      {t.ui?.estimatedProductionRange || "Estimated Production Range (USD)"}
                     </span>
                   </div>
 
@@ -2206,10 +2274,10 @@ export default function Home() {
           {/* PRIVATE CLIENT CONCIERGE FAST-TRACK RESERVATION CARD */}
           <div className="mb-10 sm:mb-12 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-amber-500/10 via-neutral-900/60 to-amber-500/10 border border-amber-500/40 shadow-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6 text-left">
             <div className="space-y-1.5 max-w-xl">
-              <span className="text-[10px] font-mono font-extrabold uppercase tracking-widest text-amber-400 block">Fast-Track Production Slot</span>
-              <h3 className="text-xl sm:text-2xl font-extrabold text-neutral-100">Lock Your Campaign Production Dates</h3>
+              <span className="text-[10px] font-mono font-extrabold uppercase tracking-widest text-amber-400 block">{t.reservation?.tag || "Fast-Track Production Slot"}</span>
+              <h3 className="text-xl sm:text-2xl font-extrabold text-neutral-100">{t.reservation?.title || "Lock Your Campaign Production Dates"}</h3>
               <p className="text-xs sm:text-sm text-neutral-300 font-light leading-relaxed">
-                Directly secure priority creative direction & schedule allocation via concierge booking. Your $1,500 reservation deposit is fully credited toward your final campaign scope.
+                {t.reservation?.desc || "Secure priority creative direction and schedule allocation via B2B proforma invoicing. The $1,500 reservation deposit is fully credited toward your final campaign scope."}
               </p>
             </div>
             <button
@@ -2218,7 +2286,7 @@ export default function Home() {
               className="w-full md:w-auto px-8 py-4 rounded-full bg-amber-400 text-neutral-950 font-extrabold text-xs uppercase tracking-wider hover:bg-amber-300 transition-all flex items-center justify-center gap-2.5 shadow-[0_0_25px_rgba(251,191,36,0.35)] shrink-0 cursor-pointer"
             >
               <ShieldCheck className="w-4 h-4 text-neutral-950" />
-              <span>Reserve Production Slot ($1,500)</span>
+              <span>{t.ui?.reserveProduction || "Invoiced Deposit Request ($1,500)"}</span>
             </button>
           </div>
 
@@ -2235,7 +2303,7 @@ export default function Home() {
             )}
 
             <div style={{ display: 'none', visibility: 'hidden', opacity: 0, position: 'absolute', left: '-9999px', height: 0, overflow: 'hidden' }} aria-hidden="true">
-              <label htmlFor="hp_website_check">If you are human, leave this blank:</label>
+              <label htmlFor="hp_website_check">{t.ui?.humanCheck || "If you are human, leave this blank:"}</label>
               <input 
                 type="text" 
                 id="hp_website_check" 
@@ -2298,7 +2366,7 @@ export default function Home() {
               <label htmlFor="priority-track-checkbox" className="flex items-center gap-3 cursor-pointer">
                 <Zap className="w-5 h-5 text-amber-400 shrink-0" />
                 <span className="text-xs sm:text-sm text-neutral-200 font-medium">
-                  Request Priority Production Track (Fast-Track Concierge Scheduling & Invoiced Deposit)
+                  {t.ui?.lockDates || "Request Invoiced Deposit & Priority Schedule"}
                 </span>
               </label>
               <input 
@@ -2349,7 +2417,7 @@ export default function Home() {
 
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6 pt-4">
               <button type="submit" disabled={isSubmitting} className="w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 rounded-full text-sm sm:text-base font-bold text-neutral-950 bg-amber-400 hover:bg-amber-300 transition-all flex items-center justify-center gap-3 shadow-[0_0_30px_rgba(251,191,36,0.25)] cursor-pointer disabled:opacity-50">
-                <Send className="w-4 h-4 sm:w-5 sm:h-5" /> {isSubmitting ? "Gönderiliyor..." : t.contact?.submitBtn}
+                <Send className="w-4 h-4 sm:w-5 sm:h-5" /> {isSubmitting ? (t.ui?.sending || "Sending...") : t.contact?.submitBtn}
               </button>
               <div className="text-xs sm:text-sm font-semibold text-neutral-300 flex items-center gap-2">
                 <Mail className="w-4 h-4 text-amber-400" /> 
@@ -2398,7 +2466,7 @@ export default function Home() {
                 <li><a href="#transformation" className="hover:opacity-75 block">{t.nav?.transformation}</a></li>
                 <li><a href="#estimator" className="hover:opacity-75 block">{t.nav?.roi}</a></li>
                 <li><a href="#insights" className="hover:opacity-75 block">{t.nav?.journal}</a></li>
-                <li><a href="#faq" className="hover:opacity-75 block">FAQ</a></li>
+                <li><a href="#faq" className="hover:opacity-75 block">{t.nav?.faq}</a></li>
                 <li><a href="#contact" className="hover:opacity-75 block">{t.footerSection?.initiate}</a></li>
               </ul>
             </div>
@@ -2415,13 +2483,13 @@ export default function Home() {
                 <li>
                   <a href="https://instagram.com/ai.vienne" target="_blank" rel="noopener noreferrer" className="hover:opacity-75 flex items-center gap-2.5">
                     <svg className="w-4 h-4 shrink-0 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                    <span>Instagram</span>
+                    <span>{t.ui?.instagram || "Instagram"}</span>
                   </a>
                 </li>
                 <li>
                   <a href="https://www.linkedin.com/company/aivienne" target="_blank" rel="noopener noreferrer" className="hover:opacity-75 flex items-center gap-2.5">
                     <svg className="w-4 h-4 shrink-0 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                    <span>LinkedIn Company Page</span>
+                    <span>{t.ui?.linkedin || "LinkedIn Company Page"}</span>
                   </a>
                 </li>
               </ul>
@@ -2440,7 +2508,7 @@ export default function Home() {
                 />
               </div>
               <div>
-                <span className="text-xs sm:text-sm font-mono font-extrabold tracking-[0.3em] uppercase text-neutral-950/70 block">Haute Visual Production</span>
+                <span className="text-xs sm:text-sm font-mono font-extrabold tracking-[0.3em] uppercase text-neutral-950/70 block">{t.ui?.hauteVisualProduction || "Haute Visual Production"}</span>
                 <span className="text-4xl sm:text-7xl md:text-8xl font-black tracking-tighter text-neutral-950 select-none leading-none block">
                   AI.VIENNE<br /><span className="font-light">STUDIO+</span>
                 </span>
@@ -2456,7 +2524,7 @@ export default function Home() {
             </div>
             <div className="flex items-center gap-4">
               <span className="tracking-widest">AI.VIENNE STUDIO+</span>
-              <button type="button" onClick={scrollToTop} aria-label="Scroll to top" className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-neutral-950 text-amber-400 flex items-center justify-center hover:scale-110 transition-transform cursor-pointer"><ArrowUp className="w-4 h-4 sm:w-5 sm:h-5" /></button>
+              <button type="button" onClick={scrollToTop} aria-label={t.ui?.scrollToTop || "Scroll to top"} className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-neutral-950 text-amber-400 flex items-center justify-center hover:scale-110 transition-transform cursor-pointer"><ArrowUp className="w-4 h-4 sm:w-5 sm:h-5" /></button>
             </div>
           </div>
         </div>

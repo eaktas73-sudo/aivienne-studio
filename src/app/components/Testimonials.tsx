@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Quote } from 'lucide-react'; // Sahte referans hissi veren Star ikonu kaldırıldı
+import { Quote } from 'lucide-react';
 
 interface TestimonialsProps {
   lang?: string;
@@ -50,15 +50,34 @@ const TESTIMONIALS_DATA: Record<string, { tag: string; title: string; items: Tes
         category: "Haute Couture & Lüks Moda"
       }
     ]
+  },
+  AR: {
+    tag: "ملاحظات المشروع المحددة",
+    title: "التحقق الإبداعي",
+    items: [
+      {
+        quote: "من خلال القضاء على أسابيع من لوجستيات المواقع والنفقات العامة للاستوديو الثقيل، يتم تسريع حملات المجوهرات الفاخرة الموسمية بشكل جذري. يتم معايرة تشتت الأحجار الكريمة الكاوية والتحكم في البلاتين المرآوي لتتطابق مع أعلى معايير الفخامة.",
+        author: "بروتوكول الإنتاج",
+        role: "معيار داخلي",
+        category: "الساعات الراقية والمجوهرات الفاخرة"
+      },
+      {
+        quote: "الحفاظ على اتساق الشخصيات عبر كتب المظهر للأزياء الراقية هو أولويتنا التقنية الأساسية. تم هندسة السفراء الرقميين للحفاظ على هندسة الوجه الخالية من العيوب والاحتفاظ بالهوية في كل إعداد تحريري.",
+        author: "بروتوكول الإنتاج",
+        role: "معيار داخلي",
+        category: "الأزياء الفاخرة الجاهزة والتفصيل"
+      }
+    ]
   }
 };
 
 export default function Testimonials({ lang = 'EN' }: TestimonialsProps) {
   const currentLang = TESTIMONIALS_DATA[lang] ? lang : 'EN';
   const content = TESTIMONIALS_DATA[currentLang];
+  const isRTL = currentLang === 'AR';
 
   return (
-    <section id="testimonials" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50 bg-neutral-900/10">
+    <section id="testimonials" dir={isRTL ? 'rtl' : 'ltr'} className={`relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50 bg-neutral-900/10 ${isRTL ? 'font-serif text-right' : 'text-left'}`}>
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12 sm:mb-16">
           <span className="text-xs font-bold tracking-[0.3em] text-amber-400 uppercase block mb-3">
@@ -73,12 +92,11 @@ export default function Testimonials({ lang = 'EN' }: TestimonialsProps) {
           {content.items.map((item, index) => (
             <div
               key={index}
-              className="p-8 sm:p-10 rounded-3xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/60 transition-all duration-500 flex flex-col justify-between relative shadow-xl text-left group"
+              className={`p-8 sm:p-10 rounded-3xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/60 transition-all duration-500 flex flex-col justify-between relative shadow-xl group ${isRTL ? 'text-right' : 'text-left'}`}
             >
-              <Quote className="w-10 h-10 text-amber-400/20 absolute top-8 right-8 group-hover:text-amber-400/40 transition-colors" />
+              <Quote className={`w-10 h-10 text-amber-400/20 absolute top-8 group-hover:text-amber-400/40 transition-colors ${isRTL ? 'left-8 scale-x-[-1]' : 'right-8'}`} />
 
               <div>
-                {/* 5 Yıldız (Star) componenti kaldırıldı. Yalnızca temiz, profesyonel vizyon metni bırakıldı. */}
                 <p className="text-neutral-300 text-sm sm:text-base leading-relaxed font-light italic mb-8">
                   “{item.quote}”
                 </p>
