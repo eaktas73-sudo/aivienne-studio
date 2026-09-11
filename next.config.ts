@@ -1,18 +1,15 @@
 import type { NextConfig } from "next";
 
-// Projenin lokalde (npm run dev) mi yoksa canlıda (production) mı çalıştığını tespit eder.
-const isDev = process.env.NODE_ENV !== "production";
+const isDev = process.env.NODE_ENV === "development";
 
-// Geliştirme (dev) ortamında React HMR için 'unsafe-eval' izni verilir (kırmızı uyarıyı engeller).
-// Production (canlı) ortamda ise 'unsafe-eval' OTOMATİK OLARAK TAMAMEN KALDIRILIR!
 const cspHeader = `
   default-src 'self';
   script-src 'self' 'unsafe-inline' ${isDev ? "'unsafe-eval'" : ""} https://va.vercel-scripts.com;
   style-src 'self' 'unsafe-inline';
-  img-src 'self' blob: data: https://flagcdn.com;
+  img-src 'self' blob: data: https://flagcdn.com https://aivienne.com https://*.aivienne.com;
   font-src 'self' data:;
-  media-src 'self' blob: data:;
-  connect-src 'self' https://vitals.vercel-insights.com https://va.vercel-scripts.com;
+  media-src 'self' blob: data: https://aivienne.com https://*.aivienne.com;
+  connect-src 'self' https://vitals.vercel-insights.com https://va.vercel-insights.com https://*.vercel-analytics.com;
   frame-ancestors 'none';
   base-uri 'self';
   form-action 'self';
@@ -55,10 +52,19 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   images: {
+    formats: ["image/avif", "image/webp"],
     remotePatterns: [
       {
         protocol: "https",
         hostname: "flagcdn.com",
+      },
+      {
+        protocol: "https",
+        hostname: "aivienne.com",
+      },
+      {
+        protocol: "https",
+        hostname: "**.aivienne.com",
       },
     ],
   },
@@ -73,93 +79,24 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       // Eski WordPress ve test sayfaları için 301 kalıcı yönlendirmeleri
-      {
-        source: '/en/hello-world',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/en/magaza',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/magaza',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/fiyatlandirma',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/en/fiyatlandirma',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/iletisim',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/en/iletisim',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/hizmetler',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/en/hizmetler',
-        destination: '/',
-        permanent: true,
-      },
-      // Google'da 404 veren eski statik rota kalıntıları
-      {
-        source: '/design',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/careers',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/home-3',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/portfolio',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/contact',
-        destination: '/',
-        permanent: true,
-      },
-      // Eski ürün ve kategori uzantılarını yakalamak için genel yönlendirmeler
-      {
-        source: '/urun/:path*',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/urun-kategori/:path*',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/en/product/:path*',
-        destination: '/',
-        permanent: true,
-      },
+      { source: "/en/hello-world", destination: "/", permanent: true },
+      { source: "/en/magaza", destination: "/", permanent: true },
+      { source: "/magaza", destination: "/", permanent: true },
+      { source: "/fiyatlandirma", destination: "/", permanent: true },
+      { source: "/en/fiyatlandirma", destination: "/", permanent: true },
+      { source: "/iletisim", destination: "/", permanent: true },
+      { source: "/en/iletisim", destination: "/", permanent: true },
+      { source: "/hizmetler", destination: "/", permanent: true },
+      { source: "/en/hizmetler", destination: "/", permanent: true },
+      { source: "/design", destination: "/", permanent: true },
+      { source: "/careers", destination: "/", permanent: true },
+      { source: "/home-3", destination: "/", permanent: true },
+      { source: "/portfolio", destination: "/", permanent: true },
+      { source: "/contact", destination: "/", permanent: true },
+      // Kategori ve ürün parametrik yönlendirmeleri
+      { source: "/urun/:path*", destination: "/", permanent: true },
+      { source: "/urun-kategori/:path*", destination: "/", permanent: true },
+      { source: "/en/product/:path*", destination: "/", permanent: true },
     ];
   },
 };

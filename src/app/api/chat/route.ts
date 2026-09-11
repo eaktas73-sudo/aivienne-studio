@@ -4,6 +4,44 @@ export const runtime = "nodejs";
 
 export async function POST(req: NextRequest) {
   try {
+    // 1. STRICT EXACT ORIGIN VALIDATION (CORS / Anti-Abuse)
+    const origin = req.headers.get("origin");
+    const host = req.headers.get("host");
+
+    if (origin) {
+      let originHost = "";
+      try {
+        originHost = new URL(origin).host;
+      } catch {
+        return NextResponse.json(
+          { error: "Invalid origin header." },
+          { status: 403 }
+        );
+      }
+
+      const allowedHosts = new Set([
+        "aivienne.com",
+        "www.aivienne.com",
+      ]);
+
+      if (process.env.NODE_ENV !== "production") {
+        allowedHosts.add("localhost:3000");
+        allowedHosts.add("127.0.0.1:3000");
+      }
+
+      if (host) {
+        allowedHosts.add(host);
+      }
+
+      if (!allowedHosts.has(originHost)) {
+        return NextResponse.json(
+          { error: "Unauthorized cross-origin request." },
+          { status: 403 }
+        );
+      }
+    }
+
+    // 2. Mesajın Alınması
     const { message } = await req.json();
 
     if (!message) {
@@ -15,8 +53,9 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "API anahtarı eksik." }, { status: 500 });
     }
 
+    // 3. Gemini API Çağrısı
     const geminiRes = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=${apiKey}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
       {
         method: "POST",
         headers: {

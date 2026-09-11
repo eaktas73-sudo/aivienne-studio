@@ -18,24 +18,24 @@ const FAQ_DATA: Record<string, { tag: string; title: string; items: FAQItem[] }>
     title: "Frequently Asked Questions",
     items: [
       {
-        question: "Who owns the commercial usage rights for AI-generated visual assets?",
-        answer: "Upon full settlement of invoices, all delivered final master visual assets, motion files, and customized digital assets transition exclusively to the Client. You receive unrestricted worldwide commercial usage rights across digital flagships, broadcast, and print with zero perpetual royalty claims."
+        question: "Who owns the commercial usage rights for visual assets?",
+        answer: "Upon full settlement of production invoices, all delivered final master visual assets, motion files, and customized digital characters transition exclusively to the Client. You receive unrestricted worldwide commercial usage rights across digital flagships, broadcast, and print."
       },
       {
         question: "What are the standard production lead times?",
-        answer: "Curated editorial image suites and campaign concepts are typically delivered within 3–5 business days. Complex cinematic motion loops and bespoke digital character pipelines are completed within 7–14 business days depending on scope."
+        answer: "Curated editorial image suites and campaign concepts are typically delivered within 3–5 business days. Cinematic motion loops and bespoke digital character pipelines are completed within 7–14 business days, depending on scope and complexity."
       },
       {
         question: "How does the revision and refinement process work?",
-        answer: "Every commission includes structured revision rounds covering art direction alignment, chromatic calibration, fabric drape physics, lighting adjustments, and macro gemstone refraction to ensure uncompromising luxury fidelity."
+        answer: "Every commission includes structured revision rounds covering art direction alignment, chromatic calibration, material physics, lighting adjustments, and asset refinement to ensure uncompromising luxury fidelity."
       },
       {
-        question: "Can you create a bespoke persistent digital character for our brand?",
-        answer: "Yes. We engineer proprietary digital brand faces with consistent bone geometry, facial landmarks, and skin micro-textures that remain identical across multi-scene seasonal campaigns, lookbooks, and flagship media."
+        question: "Can you create a persistent digital character for our brand?",
+        answer: "Yes. We engineer bespoke digital brand faces with consistent facial proportions, micro-textures, and styling continuity that remain reliable across multi-scene seasonal campaigns, lookbooks, and flagship media."
       },
       {
-        question: "How does AI-native production compare to traditional photo/video shoots?",
-        answer: "It eliminates physical location permits, transatlantic travel, physical set building, and sample logistics while enabling creative directors to realize hyper-refined cinematic atmospheres and lighting within days rather than months."
+        question: "How does this production process compare to traditional shoots?",
+        answer: "It streamlines physical location permits, transatlantic travel, set building, and sample logistics while enabling creative directors to realize hyper-refined cinematic atmospheres and lighting within days rather than months."
       }
     ]
   },
@@ -44,24 +44,24 @@ const FAQ_DATA: Record<string, { tag: string; title: string; items: FAQItem[] }>
     title: "Sıkça Sorulan Sorular",
     items: [
       {
-        question: "AI ile üretilen kampanya görselleri ve videoların ticari telif hakları kime ait?",
-        answer: "Teslim edilen tüm nihai görsel, video ve dijital varlıkların ticari kullanım ve lisans hakları tamamen müşterimize aittir. Çalışmalarımız ticari kullanıma uygun, yüksek çözünürlüklü ve tescilsiz olarak devredilir."
+        question: "Üretilen kampanya görselleri ve videoların ticari hakları kime ait?",
+        answer: "Prodüksiyon faturalarının tam olarak ödenmesinin ardından, teslim edilen tüm nihai görsel, video ve dijital varlıkların ticari kullanım hakları tamamen müşterimize aittir. Çalışmalar dünya çapında kısıtlamasız ticari kullanıma uygun olarak devredilir."
       },
       {
         question: "Görsel ve video prodüksiyon teslim süreleri ne kadardır?",
-        answer: "Görsel setleri ve kampanya konseptleri 3–5 iş günü içinde; kompleks AI video ve dijital karakter projeleri ise proje kapsamına bağlı olarak 7–14 iş günü içinde tamamlanarak teslim edilir."
+        answer: "Editoryal görsel setleri ve kampanya konseptleri genellikle 3–5 iş günü içinde; sinematik video projeleri ve dijital karakter üretimleri ise proje kapsamına bağlı olarak 7–14 iş günü içinde tamamlanarak teslim edilir."
       },
       {
         question: "Projelerde revizyon süreci nasıl işliyor?",
-        answer: "Her projede sanat yönetimi, renk kalibrasyonu, materyal dokusu, ışık açıları ve kompozisyon uyumunu garanti eden yapılandırılmış revizyon döngüleri sunulmaktadır."
+        answer: "Her projede sanat yönetimi uyumu, renk kalibrasyonu, materyal dokusu, ışık açıları ve nihai düzenlemeleri kapsayan yapılandırılmış revizyon döngüleri sunulmaktadır."
       },
       {
-        question: "Markamıza özel bir dijital model (Digital Character) üretebilir misiniz?",
-        answer: "Evet. Markanıza özel tutarlı yüz anatomisi, cilt mikro-dokusu ve stil özelliklerine sahip tescilli dijital modeller geliştirerek tüm sezon kampanyalarınızda aynı kimliği korumanızı sağlıyoruz."
+        question: "Markamıza özel bir dijital elçi (Karakter) üretebilir misiniz?",
+        answer: "Evet. Markanıza özel, tutarlı yüz oranlarına ve detaylarına sahip, farklı kampanya sahnelerinde ve koleksiyonlarda aynı estetik kimliği koruyan dijital marka yüzleri tasarlıyoruz."
       },
       {
-        question: "Geleneksel prodüksiyona kıyasla AI stüdyo süreci ne gibi avantajlar sunar?",
-        answer: "Fiziksel set kurulumu, seyahat ve lojistik maliyetlerini ortadan kaldırırken; hayal edilen lüks atmosferi ve sinematik ışığı günler içinde hayata geçirme esnekliği sağlar."
+        question: "Bu prodüksiyon sürecinin geleneksel çekimlere kıyasla farkı nedir?",
+        answer: "Fiziksel set kurulumu, çok ülkeli seyahat ve numune lojistiği gibi operasyonel engelleri ortadan kaldırırken; hayal edilen lüks atmosferi ve sinematik ışığı aylar yerine günler içinde hayata geçirme esnekliği sağlar."
       }
     ]
   },
@@ -70,28 +70,31 @@ const FAQ_DATA: Record<string, { tag: string; title: string; items: FAQItem[] }>
     title: "الأسئلة الشائعة",
     items: [
       {
-        question: "من يمتلك حقوق الاستخدام التجاري للأصول المرئية المولدة بالذكاء الاصطناعي؟",
-        answer: "عند التسوية الكاملة للفواتير، تنتقل جميع أصول الماستر البصرية النهائية، ملفات الحركة، والأصول الرقمية المخصصة حصريًا إلى العميل. تحصل على حقوق استخدام تجاري عالمي غير مقيدة عبر المتاجر الرقمية، البث، والمطبوعات مع صفر مطالبات بحقوق الملكية الأبدية."
+        question: "من يمتلك حقوق الاستخدام التجاري للأصول المرئية؟",
+        answer: "عند التسوية الكاملة لفواتير الإنتاج، تنتقل جميع أصول الماستر البصرية النهائية وملفات الحركة والشخصيات الرقمية المخصصة حصريًا إلى العميل. ستحصل على حقوق استخدام تجاري عالمية غير مقيدة."
       },
       {
         question: "ما هي أوقات تسليم الإنتاج القياسية؟",
-        answer: "عادة ما يتم تسليم مجموعات الصور التحريرية ومفاهيم الحملات في غضون 3-5 أيام عمل. يتم إكمال حلقات الحركة السينمائية المعقدة خطوط الشخصيات الرقمية المخصصة في غضون 7-14 يوم عمل حسب النطاق."
+        answer: "عادةً ما يتم تسليم مجموعات الصور التحريرية ومفاهيم الحملات في غضون 3-5 أيام عمل. يتم إكمال حلقات الحركة السينمائية والشخصيات الرقمية المخصصة في غضون 7-14 يوم عمل، وفقًا لنطاق العمل."
       },
       {
-        question: "كيف تعمل عملية المراجعة والتنقيح؟",
-        answer: "تتضمن كل مهمة جولات مراجعة منظمة تغطي محاذاة التوجيه الفني، المعايرة اللونية، فيزياء ثني الأقمشة، تعديلات الإضاءة، وانكسار الأحجار الكريمة لضمان دقة الفخامة بلا تنازلات."
+        question: "كيف تتم عملية المراجعة والتنقيح؟",
+        answer: "تتضمن كل مهمة جولات مراجعة هيكلية تغطي محاذاة التوجيه الفني، المعايرة اللونية، فيزياء المواد، وتعديلات الإضاءة لضمان دقة إنتاج راقية لا تشوبها شائبة."
       },
       {
-        question: "هل يمكنك إنشاء شخصية رقمية مخصصة وثابتة لعلامتنا التجارية؟",
-        answer: "نعم. نحن نبتكر وجوهًا تجارية رقمية مملوكة بهندسة عظام متسقة، معالم وجه، ونسخ دقيقة للبشرة تظل متطابقة عبر الحملات الموسمية متعددة المشاهد، دفاتر المظهر، ووسائط واجهات العرض."
+        question: "هل يمكنك إنشاء شخصية رقمية ثابتة لعلامتنا التجارية؟",
+        answer: "نعم. نحن نصمم وجوهًا رقمية مخصصة للعلامة التجارية مع نسب وجه متسقة وملمس دقيق واستمرارية في التصميم تظل موثوقة عبر حملات المواسم ووسائط العرض."
       },
       {
-        question: "كيف يقارن الإنتاج الأصلي بالذكاء الاصطناعي بجلسات التصوير الفوتوغرافي/الفيديو التقليدية؟",
-        answer: "إنه يلغي تصاريح المواقع الفيزيائية، السفر عبر المحيطات، بناء المجموعات المادية، لوجستيات العينات، بينما يمكن المديرين الإبداعيين من تحقيق أجواء سينمائية فائقة التنقيح وإضاءة في غضون أيام بدلاً من أشهر."
+        question: "كيف تقارن عملية الإنتاج هذه بجلسات التصوير التقليدية؟",
+        answer: "إنها تعمل على تبسيط تصاريح المواقع، والسفر الدولي، وبناء المجموعات الفعالة، مما يمكن المديرين الفنيين من تحقيق أجواء سينمائية دقيقة في غضون أيام بدلاً من أشهر."
       }
     ]
   }
 };
+
+const sanitizeJsonLd = (data: unknown) =>
+  JSON.stringify(data).replace(/</g, "\\u003c");
 
 export default function FAQ({ lang = 'EN' }: FAQProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -117,10 +120,10 @@ export default function FAQ({ lang = 'EN' }: FAQProps) {
   };
 
   return (
-    <section id="faq" dir={isRTL ? 'rtl' : 'ltr'} className={`relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50 bg-neutral-950 ${isRTL ? 'font-serif text-right' : 'text-left'}`}>
+    <section id="faq" dir={isRTL ? 'rtl' : 'ltr'} className={`relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50 bg-neutral-950 ${isRTL ? 'font-serif' : ''}`}>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: sanitizeJsonLd(faqSchema) }}
       />
 
       <div className="max-w-4xl mx-auto">
@@ -144,18 +147,18 @@ export default function FAQ({ lang = 'EN' }: FAQProps) {
                 <button
                   type="button"
                   onClick={() => toggleFAQ(index)}
-                  className={`w-full px-6 py-5 flex items-center justify-between gap-4 cursor-pointer select-none focus:outline-none ${isRTL ? 'text-right flex-row-reverse' : 'text-left'}`}
+                  className="w-full px-6 py-5 flex items-center justify-between gap-4 cursor-pointer select-none focus:outline-none text-start"
                   aria-expanded={isOpen}
                 >
                   <span className="text-sm sm:text-base font-medium text-neutral-100">
                     {faq.question}
                   </span>
                   <div className={`p-1.5 rounded-full border border-amber-400/30 bg-amber-400/10 text-amber-400 transition-transform duration-300 shrink-0 ${isOpen ? 'rotate-180 bg-amber-400 text-neutral-950' : ''}`}>
-                    <ChevronDown className="w-4 h-4" />
+                    <ChevronDown className="w-4 h-4"/>
                   </div>
                 </button>
                 {isOpen && (
-                  <div className={`px-6 pb-6 pt-2 text-xs sm:text-sm text-neutral-300 leading-relaxed border-t border-neutral-800/60 font-light ${isRTL ? 'text-right' : 'text-left'}`}>
+                  <div className="px-6 pb-6 pt-2 text-xs sm:text-sm text-neutral-300 leading-relaxed border-t border-neutral-800/60 font-light text-start">
                     {faq.answer}
                   </div>
                 )}

@@ -20,13 +20,13 @@ const TESTIMONIALS_DATA: Record<string, { tag: string; title: string; items: Tes
     title: "Creative Validation",
     items: [
       {
-        quote: "By eliminating weeks of location logistics and heavy studio overhead, seasonal fine jewelry campaigns are radically accelerated. Caustic gemstone dispersion and specular platinum control are calibrated to match the highest luxury standards.",
+        quote: "By streamlining weeks of location logistics and heavy studio overhead, seasonal fine jewelry campaigns are radically accelerated. Material dispersion and specular platinum reflections are calibrated to match the highest luxury standards.",
         author: "Production Protocol",
         role: "Internal Standard",
         category: "Haute Horlogerie & High Jewelry"
       },
       {
-        quote: "Maintaining character consistency across high-fashion lookbooks is our primary technical priority. Digital ambassadors are engineered to maintain flawless facial geometry and identity retention in every editorial setting.",
+        quote: "Maintaining character consistency across high-fashion lookbooks is our primary technical priority. Digital ambassadors are engineered to maintain reliable facial proportions and identity retention in every editorial setting.",
         author: "Production Protocol",
         role: "Internal Standard",
         category: "Luxury Ready-To-Wear & Couture"
@@ -38,13 +38,13 @@ const TESTIMONIALS_DATA: Record<string, { tag: string; title: string; items: Tes
     title: "Kreatif Doğrulama",
     items: [
       {
-        quote: "Geleneksel stüdyo çekimlerinin haftalar süren mekan ve lojistik maliyetlerini ortadan kaldırarak kampanya süreçlerini hızlandırıyoruz. Değerli taş kırılımları ve platin yansımaları, en üst düzey lüks standartlarına göre kalibre ediliyor.",
+        quote: "Geleneksel stüdyo çekimlerinin haftalar süren mekan ve lojistik süreçlerini optimize ederek kampanya üretimini hızlandırıyoruz. Materyal kırılımları ve platin yansımaları, en üst düzey lüks standartlarına göre kalibre ediliyor.",
         author: "Üretim Protokolü",
         role: "İç Standart",
         category: "Haute Horlogerie & Lüks Mücevherat"
       },
       {
-        quote: "Farklı editoryal kurgularda model yüz tutarlılığını korumak en temel teknik önceliğimizdir. Dijital ambasadorlarımız, her kampanya ortamında anatomik kusursuzluğunu ve kimliğini korumak üzere tasarlanır.",
+        quote: "Farklı editoryal kurgularda model yüz tutarlılığını korumak en temel teknik önceliğimizdir. Dijital marka yüzlerimiz, her kampanya ortamında anatomik orantılarını ve kimliğini güvenilir şekilde korumak üzere tasarlanır.",
         author: "Üretim Protokolü",
         role: "İç Standart",
         category: "Haute Couture & Lüks Moda"
@@ -56,13 +56,13 @@ const TESTIMONIALS_DATA: Record<string, { tag: string; title: string; items: Tes
     title: "التحقق الإبداعي",
     items: [
       {
-        quote: "من خلال القضاء على أسابيع من لوجستيات المواقع والنفقات العامة للاستوديو الثقيل، يتم تسريع حملات المجوهرات الفاخرة الموسمية بشكل جذري. يتم معايرة تشتت الأحجار الكريمة الكاوية والتحكم في البلاتين المرآوي لتتطابق مع أعلى معايير الفخامة.",
+        quote: "من خلال تبسيط أسابيع من لوجستيات المواقع والنفقات العامة للاستوديو الثقيل، يتم تسريع حملات المجوهرات الفاخرة الموسمية بشكل جذري. يتم معايرة تشتت المواد وانعكاسات البلاتين لتتطابق مع أعلى معايير الفخامة.",
         author: "بروتوكول الإنتاج",
         role: "معيار داخلي",
         category: "الساعات الراقية والمجوهرات الفاخرة"
       },
       {
-        quote: "الحفاظ على اتساق الشخصيات عبر كتب المظهر للأزياء الراقية هو أولويتنا التقنية الأساسية. تم هندسة السفراء الرقميين للحفاظ على هندسة الوجه الخالية من العيوب والاحتفاظ بالهوية في كل إعداد تحريري.",
+        quote: "الحفاظ على اتساق الشخصيات عبر كتب المظهر للأزياء الراقية هو أولويتنا التقنية الأساسية. تم هندسة السفراء الرقميين للحفاظ على نسب وجه موثوقة والاحتفاظ بالهوية في كل إعداد تحريري.",
         author: "بروتوكول الإنتاج",
         role: "معيار داخلي",
         category: "الأزياء الفاخرة الجاهزة والتفصيل"
@@ -77,7 +77,7 @@ export default function Testimonials({ lang = 'EN' }: TestimonialsProps) {
   const isRTL = currentLang === 'AR';
 
   return (
-    <section id="testimonials" dir={isRTL ? 'rtl' : 'ltr'} className={`relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50 bg-neutral-900/10 ${isRTL ? 'font-serif text-right' : 'text-left'}`}>
+    <section id="testimonials" dir={isRTL ? 'rtl' : 'ltr'} className={`relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50 bg-neutral-900/10 ${isRTL ? 'font-serif' : ''}`}>
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12 sm:mb-16">
           <span className="text-xs font-bold tracking-[0.3em] text-amber-400 uppercase block mb-3">
@@ -92,9 +92,9 @@ export default function Testimonials({ lang = 'EN' }: TestimonialsProps) {
           {content.items.map((item, index) => (
             <div
               key={index}
-              className={`p-8 sm:p-10 rounded-3xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/60 transition-all duration-500 flex flex-col justify-between relative shadow-xl group ${isRTL ? 'text-right' : 'text-left'}`}
+              className="p-8 sm:p-10 rounded-3xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/60 transition-all duration-500 flex flex-col justify-between relative shadow-xl group text-start"
             >
-              <Quote className={`w-10 h-10 text-amber-400/20 absolute top-8 group-hover:text-amber-400/40 transition-colors ${isRTL ? 'left-8 scale-x-[-1]' : 'right-8'}`} />
+              <Quote className={`w-10 h-10 text-amber-400/20 absolute top-8 end-8 group-hover:text-amber-400/40 transition-colors ${isRTL ? 'rtl:-scale-x-100' : ''}`} />
 
               <div>
                 <p className="text-neutral-300 text-sm sm:text-base leading-relaxed font-light italic mb-8">

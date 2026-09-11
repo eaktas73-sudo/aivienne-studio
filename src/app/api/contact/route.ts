@@ -18,6 +18,7 @@ const SERVICE_LABELS: Record<string, string> = {
   sOpt5: "Haute Parfumerie & Prestige Beauty Campaign",
   sOpt6: "Luxury Eyewear & Optics Production",
   sOpt7: "Custom Multi-Channel Campaign Scope",
+  sOpt8: "Full Digital Runway & Campaign Production",
 };
 
 const BUDGET_LABELS: Record<string, string> = {
@@ -111,6 +112,7 @@ const inquirySchema = z.object({
   service: z.string().trim().max(120, "Hizmet seçimi geçersiz."),
   budget: z.string().trim().max(100, "Bütçe seçimi geçersiz."),
   requireNDA: z.preprocess((val) => val === true || val === "true" || val === "on", z.boolean()),
+  priorityTrack: z.preprocess((val) => val === true || val === "true" || val === "on", z.boolean()).optional(),
   message: z.string().trim().min(5, "Mesaj en az 5 karakter olmalıdır.").max(5000, "Mesaj 5000 karakteri geçemez."),
   hp_website_check: z.string().optional().or(z.literal("")),
 });
@@ -180,6 +182,7 @@ export async function POST(req: NextRequest) {
       service: formData.get("service")?.toString() || "",
       budget: formData.get("budget")?.toString() || "",
       requireNDA: formData.get("requireNDA"),
+      priorityTrack: formData.get("priorityTrack"),
       message: formData.get("message")?.toString() || "",
       hp_website_check: honeypot,
     };
@@ -266,7 +269,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Kodları açık metinlere eşle (sOpt4 -> Brand Heritage..., bOpt1 -> Starting Project...)
+    // Kodları açık metinlere eşle
     const resolvedService = SERVICE_LABELS[validData.service] || validData.service;
     const resolvedBudget = BUDGET_LABELS[validData.budget] || validData.budget;
 
@@ -277,11 +280,14 @@ export async function POST(req: NextRequest) {
     const safeService = escapeHtml(resolvedService);
     const safeBudget = escapeHtml(resolvedBudget);
     const safeNDA = validData.requireNDA ? "Evet (Karşılıklı NDA Talep Edildi)" : "Hayır";
+    const safePriority = validData.priorityTrack ? "EVET ($1,500 Depozito/Fatura Talebi)" : "Hayır (Standart Akış)";
     const safeMessage = escapeHtml(validData.message).replace(/\n/g, "<br/>");
 
     const headerSafeName = sanitizeHeader(validData.name);
     const headerSafeService = sanitizeHeader(resolvedService);
-    const emailSubject = `[AI.VIENNE Brief] ${headerSafeName} — ${headerSafeService}`;
+    const emailSubject = validData.priorityTrack 
+      ? `[URGENT: FAST-TRACK RESERVATION] ${headerSafeName}` 
+      : `[AI.VIENNE Brief] ${headerSafeName} — ${headerSafeService}`;
 
     const emailHtml = `
       <!DOCTYPE html>
@@ -298,6 +304,7 @@ export async function POST(req: NextRequest) {
             .value { color: #ffffff; font-size: 14px; font-weight: 500; }
             .message-box { background: #0a0a0a; border: 1px solid #262626; border-radius: 12px; padding: 16px; margin-top: 20px; }
             .footer { margin-top: 32px; font-size: 11px; color: #737373; border-top: 1px solid #262626; padding-top: 16px; text-align: center; }
+            .urgent { color: #ef4444; font-weight: bold; border: 1px solid #ef4444; padding: 4px 8px; border-radius: 4px; display: inline-block; margin-bottom: 16px; }
           </style>
         </head>
         <body>
@@ -305,6 +312,8 @@ export async function POST(req: NextRequest) {
             <div class="header">
               <h1 class="title">AI.VIENNE Studio+ — Yeni Proje Talebi</h1>
             </div>
+            
+            ${validData.priorityTrack ? '<div class="urgent">⚡ ÖNCELİKLİ ÜRETİM VE FATURA TALEBİ ($1,500)</div>' : ''}
             
             <div class="field">
               <div class="label">Müşteri / Kurum Adı</div>
@@ -334,6 +343,11 @@ export async function POST(req: NextRequest) {
             <div class="field">
               <div class="label">Tahmini Bütçe</div>
               <div class="value">${safeBudget}</div>
+            </div>
+
+            <div class="field">
+              <div class="label">Öncelikli Takvim Talebi</div>
+              <div class="value" style="color: ${validData.priorityTrack ? '#fbbf24' : '#ffffff'};">${safePriority}</div>
             </div>
 
             <div class="field">

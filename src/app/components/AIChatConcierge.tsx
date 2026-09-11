@@ -11,24 +11,39 @@ interface Message {
 export default function AIChatConcierge() {
   const [selectedLang, setSelectedLang] = useState(LANGUAGES[0]);
   const [isOpen, setIsOpen] = useState(false);
+  const [input, setInput] = useState("");
+  const [loading, setLoading] = useState(false);
+  
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+  
+  // Dil tabanlı ilk karşılama mesajını güvene alıyoruz.
+  const getWelcomeMessage = (code: string) => {
+    if (code === "TR") return "Merhaba. AI.VIENNE Studio+ dijital asistana hoş geldiniz. Haute Couture kampanyalarından dijital marka elçilerine kadar size nasıl yardımcı olabilirim?";
+    if (code === "AR") return "مرحباً بكم. أنا المساعد الرقمي لـ AI.VIENNE Studio+. كيف يمكنني مساعدتك اليوم في حملات الأزياء الراقية أو سفراء العلامات التجارية الرقمية؟";
+    return "Greetings. I am the AI.VIENNE Studio+ digital assistant. From haute couture campaigns to persistent digital brand ambassadors, how may I assist your inquiry today?";
+  };
+
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "assistant",
-      content:
-        "Greetings. I am at your service to assist with our visual production capabilities—from haute couture and horlogerie campaigns to the creation of persistent digital brand ambassadors. How may I guide your creative inquiry or assist with your project scope today?",
+      content: getWelcomeMessage(LANGUAGES[0].code),
     },
   ]);
-  const [input, setInput] = useState("");
-  const [loading, setLoading] = useState(false);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const checkLang = () => {
       const savedLangCode = localStorage.getItem("aivienne_lang");
       if (savedLangCode) {
         const found = LANGUAGES.find(l => l.code === savedLangCode);
-        if (found) {
+        if (found && found.code !== selectedLang.code) {
           setSelectedLang(found);
+          // Dil değiştiğinde karşılama mesajını da o dile göre sıfırla
+          setMessages([
+            {
+              role: "assistant",
+              content: getWelcomeMessage(found.code),
+            }
+          ]);
         }
       }
     };
@@ -36,9 +51,10 @@ export default function AIChatConcierge() {
     checkLang();
     const interval = setInterval(checkLang, 200);
     return () => clearInterval(interval);
-  }, []);
+  }, [selectedLang.code]);
 
   const t = TRANSLATIONS[selectedLang.code] || TRANSLATIONS.EN;
+  const isRTL = selectedLang.dir === "rtl";
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -72,14 +88,14 @@ export default function AIChatConcierge() {
 
       setMessages((prev) => [
         ...prev,
-        { role: "assistant", content: data.reply || data.error || "AI.VIENNE Concierge is currently unavailable." },
+        { role: "assistant", content: data.reply || data.error || (isRTL ? "مساعد AI.VIENNE غير متوفر حالياً." : selectedLang.code === "TR" ? "AI.VIENNE Asistanı şu an kullanılamıyor." : "AI.VIENNE Concierge is currently unavailable.") },
       ]);
     } catch (err) {
       setMessages((prev) => [
         ...prev,
         {
           role: "assistant",
-          content: "An error occurred. Please reach us directly at info@aivienne.com.",
+          content: isRTL ? "حدث خطأ. يرجى مراسلتنا على info@aivienne.com." : selectedLang.code === "TR" ? "Bir hata oluştu. Lütfen info@aivienne.com üzerinden iletişime geçin." : "An error occurred. Please reach us directly at info@aivienne.com.",
         },
       ]);
     } finally {
@@ -88,7 +104,7 @@ export default function AIChatConcierge() {
   };
 
   return (
-    <div className="fixed bottom-6 left-6 z-50">
+    <div dir={selectedLang.dir} className={`fixed bottom-6 start-6 z-50 ${isRTL ? "font-serif" : ""}`}>
       {!isOpen ? (
         <button
           onClick={() => setIsOpen(true)}
@@ -98,12 +114,12 @@ export default function AIChatConcierge() {
           <span className="text-xs uppercase tracking-widest font-medium text-amber-200/90">
             {t.ui?.aiConcierge || "AI CONCIERGE"}
           </span>
-          <svg className="w-4 h-4 text-amber-400 group-hover:rotate-12 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg className={`w-4 h-4 text-amber-400 transition-transform ${isRTL ? 'group-hover:-rotate-12' : 'group-hover:rotate-12'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
           </svg>
         </button>
       ) : (
-        <div className="w-[380px] sm:w-[420px] h-[550px] bg-neutral-950/95 border border-amber-500/30 rounded-2xl shadow-2xl backdrop-blur-xl flex flex-col overflow-hidden text-neutral-100">
+        <div className="w-[calc(100vw-3rem)] sm:w-[420px] h-[550px] bg-neutral-950/95 border border-amber-500/30 rounded-2xl shadow-2xl backdrop-blur-xl flex flex-col overflow-hidden text-neutral-100">
           {/* Header */}
           <div className="flex items-center justify-between px-5 py-4 border-b border-neutral-800/80 bg-neutral-900/50">
             <div className="flex items-center gap-3">
@@ -112,12 +128,12 @@ export default function AIChatConcierge() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
                 </svg>
               </div>
-              <div>
+              <div className="text-start">
                 <h3 className="text-xs font-semibold tracking-widest text-amber-200 uppercase">
                   {t.ui?.aiConcierge || "AI.VIENNE Concierge"}
                 </h3>
                 <p className="text-[10px] text-neutral-400 tracking-wider">
-                  CONFIDENTIAL STUDIO ASSISTANT
+                  {isRTL ? "مساعد استوديو سري" : selectedLang.code === "TR" ? "GİZLİ STÜDYO ASİSTANI" : "CONFIDENTIAL STUDIO ASSISTANT"}
                 </p>
               </div>
             </div>
@@ -132,19 +148,19 @@ export default function AIChatConcierge() {
           </div>
 
           {/* Messages Container */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-4 text-sm">
+          <div className="flex-1 overflow-y-auto p-4 space-y-4 text-sm flex flex-col">
             {messages.map((msg, index) => (
               <div
                 key={index}
-                className={`flex ${
+                className={`flex w-full ${
                   msg.role === "user" ? "justify-end" : "justify-start"
                 }`}
               >
                 <div
-                  className={`max-w-[85%] px-4 py-3 rounded-xl text-xs leading-relaxed ${
+                  className={`max-w-[85%] px-4 py-3 text-xs leading-relaxed text-start ${
                     msg.role === "user"
-                      ? "bg-amber-500 text-neutral-950 font-medium rounded-br-none"
-                      : "bg-neutral-900/90 text-neutral-200 border border-neutral-800/80 rounded-bl-none"
+                      ? `bg-amber-500 text-neutral-950 font-medium ${isRTL ? "rounded-t-xl rounded-l-xl rounded-br-none" : "rounded-t-xl rounded-r-xl rounded-bl-none"}`
+                      : `bg-neutral-900/90 text-neutral-200 border border-neutral-800/80 ${isRTL ? "rounded-t-xl rounded-r-xl rounded-bl-none" : "rounded-t-xl rounded-l-xl rounded-br-none"}`
                   }`}
                 >
                   {msg.content}
@@ -152,10 +168,10 @@ export default function AIChatConcierge() {
               </div>
             ))}
             {loading && (
-              <div className="flex justify-start">
-                <div className="bg-neutral-900/90 border border-neutral-800/80 px-4 py-3 rounded-xl text-xs text-amber-400/80 flex items-center gap-2">
+              <div className="flex justify-start w-full">
+                <div className={`bg-neutral-900/90 border border-neutral-800/80 px-4 py-3 text-xs text-amber-400/80 flex items-center gap-2 ${isRTL ? "rounded-t-xl rounded-r-xl rounded-bl-none" : "rounded-t-xl rounded-l-xl rounded-br-none"}`}>
                   <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping"></span>
-                  Crafting response...
+                  {isRTL ? "صياغة الرد..." : selectedLang.code === "TR" ? "Yanıt oluşturuluyor..." : "Crafting response..."}
                 </div>
               </div>
             )}
@@ -171,13 +187,13 @@ export default function AIChatConcierge() {
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Inquire about campaigns, digital twins..."
-              className="flex-1 bg-neutral-900/80 border border-neutral-800 text-neutral-200 placeholder-neutral-500 text-xs px-4 py-3 rounded-xl focus:outline-none focus:border-amber-500/50 transition-colors"
+              placeholder={isRTL ? "استفسر عن الحملات، التوائم الرقمية..." : selectedLang.code === "TR" ? "Kampanyalar, dijital ikizler hakkında bilgi al..." : "Inquire about campaigns, digital twins..."}
+              className="flex-1 bg-neutral-900/80 border border-neutral-800 text-neutral-200 placeholder-neutral-500 text-xs px-4 py-3 rounded-xl focus:outline-none focus:border-amber-500/50 transition-colors text-start"
             />
             <button
               type="submit"
               disabled={loading || !input.trim()}
-              className="bg-amber-500 hover:bg-amber-400 disabled:opacity-40 text-neutral-950 p-3 rounded-xl transition-all flex items-center justify-center cursor-pointer"
+              className={`bg-amber-500 hover:bg-amber-400 disabled:opacity-40 text-neutral-950 p-3 rounded-xl transition-all flex items-center justify-center cursor-pointer ${isRTL ? "rotate-180" : ""}`}
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />

@@ -660,12 +660,12 @@ export default function Home() {
                 type="button" 
                 onClick={() => setActiveCaseStudy(null)} 
                 aria-label={t.portfolio?.closeModal || "Close Master Player"} 
-                className="absolute top-4 right-4 z-40 p-2.5 rounded-full bg-neutral-900/90 border border-amber-400/60 text-amber-300 hover:text-neutral-950 hover:bg-amber-400 transition-all cursor-pointer shadow-2xl"
+                className="absolute top-4 end-4 z-40 p-2.5 rounded-full bg-neutral-900/90 border border-amber-400/60 text-amber-300 hover:text-neutral-950 hover:bg-amber-400 transition-all cursor-pointer shadow-2xl"
               >
                 <X className="w-5 h-5 stroke-[2.5]" />
               </button>
 
-              <div className="relative w-full lg:w-[52%] bg-black flex items-center justify-center overflow-hidden shrink-0 min-h-[300px] lg:min-h-[600px] border-b lg:border-b-0 lg:border-r border-neutral-800">
+              <div className="relative w-full lg:w-[52%] bg-black flex items-center justify-center overflow-hidden shrink-0 min-h-[300px] lg:min-h-[600px] border-b lg:border-b-0 lg:border-e border-neutral-800">
                 {activeCaseStudy.type === "video" ? (
                   <video 
                     autoPlay 
@@ -692,7 +692,7 @@ export default function Home() {
                 )}
               </div>
 
-              <div className="w-full lg:w-[48%] p-6 sm:p-8 bg-neutral-950 overflow-y-auto space-y-6 text-left flex flex-col justify-between">
+              <div className="w-full lg:w-[48%] p-6 sm:p-8 bg-neutral-950 overflow-y-auto space-y-6 text-start flex flex-col justify-between">
                 <div>
                   <div className="flex flex-wrap items-center gap-2 mb-2">
                     <span className="text-[9px] font-extrabold tracking-widest text-amber-300 bg-amber-400/10 border border-amber-400/30 px-2.5 py-0.5 rounded-full uppercase">
@@ -781,9 +781,9 @@ export default function Home() {
               animate={{ scale: 1 }} 
               exit={{ scale: 0.95 }} 
               onClick={(e) => e.stopPropagation()} 
-              className="relative w-full max-w-3xl bg-neutral-900 border border-amber-500/30 rounded-3xl p-6 md:p-10 shadow-2xl text-left max-h-[85vh] overflow-y-auto"
+              className="relative w-full max-w-3xl bg-neutral-900 border border-amber-500/30 rounded-3xl p-6 md:p-10 shadow-2xl text-start max-h-[85vh] overflow-y-auto"
             >
-              <button type="button" onClick={() => setActiveArticle(null)} aria-label={t.ui?.closeArticle || "Close Article"} className="absolute top-6 right-6 text-neutral-400 hover:text-white cursor-pointer"><X className="w-6 h-6" /></button>
+              <button type="button" onClick={() => setActiveArticle(null)} aria-label={t.ui?.closeArticle || "Close Article"} className="absolute top-6 end-6 text-neutral-400 hover:text-white cursor-pointer"><X className="w-6 h-6" /></button>
               
               <div className="flex flex-wrap items-center gap-3 mb-4">
                 <span className="text-[10px] font-extrabold tracking-widest text-amber-300 bg-amber-400/10 border border-amber-400/30 px-3.5 py-1 rounded-full uppercase">
@@ -833,14 +833,14 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      <div className="fixed bottom-6 left-6 md:bottom-8 md:left-8 z-50 flex items-center gap-3 bg-neutral-900/90 border border-amber-500/40 px-4 py-2.5 rounded-full backdrop-blur-xl shadow-2xl">
+      <div className="fixed bottom-6 start-6 md:bottom-8 md:start-8 z-50 flex items-center gap-3 bg-neutral-900/90 border border-amber-500/40 px-4 py-2.5 rounded-full backdrop-blur-xl shadow-2xl">
         <div className="w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping" />
         <span className="text-xs font-bold tracking-wider text-amber-300">
           {t.ui?.aiConcierge || "AI CONCIERGE"}
         </span>
       </div>
 
-      <div className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50">
+      <div className="fixed bottom-6 end-6 md:bottom-8 md:end-8 z-50">
         <button 
           type="button" 
           onClick={() => setIsDeskOpen(!isDeskOpen)} 
@@ -854,7 +854,7 @@ export default function Home() {
 
       <AnimatePresence>
         {isDeskOpen && (
-          <motion.div initial={{ opacity: 0, scale: 0.9, y: 20 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: 0.9, y: 20 }} className="fixed bottom-20 right-4 sm:bottom-24 sm:right-8 z-50 w-[calc(100vw-2rem)] sm:w-96 bg-neutral-900/95 border border-amber-500/40 rounded-3xl p-6 shadow-2xl backdrop-blur-xl">
+          <motion.div initial={{ opacity: 0, scale: 0.9, y: 20 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: 0.9, y: 20 }} className="fixed bottom-20 end-4 sm:bottom-24 sm:end-8 z-50 w-[calc(100vw-2rem)] sm:w-96 bg-neutral-900/95 border border-amber-500/40 rounded-3xl p-6 shadow-2xl backdrop-blur-xl">
             <div className="flex items-center justify-between pb-4 border-b border-neutral-800">
               <div className="flex items-center gap-3">
                 <div className="w-3 h-3 rounded-full bg-amber-400 animate-ping" />
@@ -880,9 +880,9 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      <header className="fixed top-0 left-0 right-0 z-50 w-full border-b border-neutral-800/80 bg-neutral-950/90 backdrop-blur-md">
+      <header className="fixed top-0 start-0 end-0 z-50 w-full border-b border-neutral-800/80 bg-neutral-950/90 backdrop-blur-md">
         <div className="w-full px-4 sm:px-8 md:px-12 h-16 sm:h-24 flex items-center justify-between">
-          <button type="button" onClick={scrollToTop} className="flex items-center gap-3 cursor-pointer text-left group shrink-0">
+          <button type="button" onClick={scrollToTop} className="flex items-center gap-3 cursor-pointer text-start group shrink-0">
             <div className="relative w-9 h-9 sm:w-12 sm:h-12 rounded-full overflow-hidden transition-transform duration-300 group-hover:scale-105">
               <Image
                 src="/logo.png"
@@ -901,15 +901,15 @@ export default function Home() {
           <nav className="hidden xl:flex items-center gap-8 text-sm font-semibold tracking-wider text-neutral-300">
             <a href="#services" className="hover:text-amber-400 transition-colors py-2 relative group whitespace-nowrap">
               {t.nav?.services}
-              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-amber-400 transition-all duration-300 group-hover:w-full" />
+              <span className="absolute bottom-0 start-0 w-0 h-[2px] bg-amber-400 transition-all duration-300 group-hover:w-full" />
             </a>
             <a href="#portfolio" className="hover:text-amber-400 transition-colors py-2 relative group whitespace-nowrap">
               {t.nav?.portfolio}
-              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-amber-400 transition-all duration-300 group-hover:w-full" />
+              <span className="absolute bottom-0 start-0 w-0 h-[2px] bg-amber-400 transition-all duration-300 group-hover:w-full" />
             </a>
             <a href="#capabilities" className="hover:text-amber-400 transition-colors py-2 relative group whitespace-nowrap">
               {t.nav?.capabilities}
-              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-amber-400 transition-all duration-300 group-hover:w-full" />
+              <span className="absolute bottom-0 start-0 w-0 h-[2px] bg-amber-400 transition-all duration-300 group-hover:w-full" />
             </a>
 
             <div 
@@ -928,40 +928,40 @@ export default function Home() {
               </button>
               
               {isStudioOpen && (
-                <div className="absolute top-full left-0 pt-2 w-56 z-50">
+                <div className="absolute top-full start-0 pt-2 w-56 z-50">
                   <div className="bg-neutral-900/95 border border-amber-500/40 rounded-2xl p-2 shadow-2xl backdrop-blur-xl space-y-1">
                     <a 
                       href="#studio" 
                       onClick={() => setIsStudioOpen(false)} 
-                      className="block px-4 py-2.5 hover:bg-neutral-800 rounded-xl text-xs font-semibold text-neutral-300 hover:text-amber-300 transition-colors"
+                      className="block px-4 py-2.5 hover:bg-neutral-800 rounded-xl text-xs font-semibold text-neutral-300 hover:text-amber-300 transition-colors text-start"
                     >
                       {t.nav?.theStudio}
                     </a>
                     <a 
                       href="#system" 
                       onClick={() => setIsStudioOpen(false)} 
-                      className="block px-4 py-2.5 hover:bg-neutral-800 rounded-xl text-xs font-semibold text-neutral-300 hover:text-amber-300 transition-colors"
+                      className="block px-4 py-2.5 hover:bg-neutral-800 rounded-xl text-xs font-semibold text-neutral-300 hover:text-amber-300 transition-colors text-start"
                     >
                       {t.nav?.system}
                     </a>
                     <a 
                       href="#transformation" 
                       onClick={() => setIsStudioOpen(false)} 
-                      className="block px-4 py-2.5 hover:bg-neutral-800 rounded-xl text-xs font-semibold text-neutral-300 hover:text-amber-300 transition-colors"
+                      className="block px-4 py-2.5 hover:bg-neutral-800 rounded-xl text-xs font-semibold text-neutral-300 hover:text-amber-300 transition-colors text-start"
                     >
                       {t.nav?.transformation}
                     </a>
                     <a 
                       href="#twins" 
                       onClick={() => setIsStudioOpen(false)} 
-                      className="block px-4 py-2.5 hover:bg-neutral-800 rounded-xl text-xs font-semibold text-neutral-300 hover:text-amber-300 transition-colors"
+                      className="block px-4 py-2.5 hover:bg-neutral-800 rounded-xl text-xs font-semibold text-neutral-300 hover:text-amber-300 transition-colors text-start"
                     >
                       {t.nav?.avatar}
                     </a>
                     <a 
                       href="#estimator" 
                       onClick={() => setIsStudioOpen(false)} 
-                      className="block px-4 py-2.5 hover:bg-neutral-800 rounded-xl text-xs font-semibold text-neutral-300 hover:text-amber-300 transition-colors"
+                      className="block px-4 py-2.5 hover:bg-neutral-800 rounded-xl text-xs font-semibold text-neutral-300 hover:text-amber-300 transition-colors text-start"
                     >
                       {t.nav?.roi}
                     </a>
@@ -972,15 +972,15 @@ export default function Home() {
 
             <a href="#insights" className="hover:text-amber-400 transition-colors py-2 relative group whitespace-nowrap">
               {t.nav?.journal}
-              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-amber-400 transition-all duration-300 group-hover:w-full" />
+              <span className="absolute bottom-0 start-0 w-0 h-[2px] bg-amber-400 transition-all duration-300 group-hover:w-full" />
             </a>
             <a href="#faq" className="hover:text-amber-400 transition-colors py-2 relative group whitespace-nowrap">
               {t.nav?.faq}
-              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-amber-400 transition-all duration-300 group-hover:w-full" />
+              <span className="absolute bottom-0 start-0 w-0 h-[2px] bg-amber-400 transition-all duration-300 group-hover:w-full" />
             </a>
             <a href="#contact" className="hover:text-amber-400 transition-colors py-2 relative group whitespace-nowrap">
               {t.nav?.contact}
-              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-amber-400 transition-all duration-300 group-hover:w-full" />
+              <span className="absolute bottom-0 start-0 w-0 h-[2px] bg-amber-400 transition-all duration-300 group-hover:w-full" />
             </a>
           </nav>
 
@@ -994,7 +994,7 @@ export default function Home() {
                 <ChevronDown className={`w-3 h-3 text-neutral-400 transition-transform ${isLangOpen ? "rotate-180" : ""}`} />
               </button>
               {isLangOpen && (
-                <div className="absolute right-0 mt-3 w-36 max-h-72 overflow-y-auto rounded-2xl border border-neutral-800 bg-neutral-900/95 backdrop-blur-lg shadow-2xl p-2 z-50">
+                <div className="absolute end-0 mt-3 w-36 max-h-72 overflow-y-auto rounded-2xl border border-neutral-800 bg-neutral-900/95 backdrop-blur-lg shadow-2xl p-2 z-50">
                   {LANGUAGES.map((lang) => (
                     <button 
                       key={lang.code} 
@@ -1004,7 +1004,7 @@ export default function Home() {
                         localStorage.setItem("aivienne_lang", lang.code);
                         setIsLangOpen(false); 
                       }} 
-                      className={`w-full text-left px-3.5 py-2.5 rounded-xl text-xs font-semibold flex items-center justify-between cursor-pointer ${selectedLang.code === lang.code ? "bg-amber-400/10 text-amber-400" : "text-neutral-300 hover:bg-neutral-800/60"}`}
+                      className={`w-full text-start px-3.5 py-2.5 rounded-xl text-xs font-semibold flex items-center justify-between cursor-pointer ${selectedLang.code === lang.code ? "bg-amber-400/10 text-amber-400" : "text-neutral-300 hover:bg-neutral-800/60"}`}
                     >
                       <div className="flex items-center gap-2.5">
                         <div className="relative w-4 h-3">
@@ -1068,7 +1068,7 @@ export default function Home() {
                         }, 120);
                       }
                     }}
-                    className="text-left hover:text-amber-400 py-1 border-b border-neutral-900 cursor-pointer"
+                    className="text-start hover:text-amber-400 py-1 border-b border-neutral-900 cursor-pointer"
                   >
                     {item.label}
                   </button>
@@ -1135,11 +1135,11 @@ export default function Home() {
               <span className="text-xs font-bold tracking-[0.3em] text-amber-400 uppercase block mb-3">{t.whyVienne?.tag}</span>
               <h2 className="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight bg-gradient-to-r from-amber-200 via-amber-400 to-amber-500 bg-clip-text text-transparent">{t.whyVienne?.title}</h2>
             </div>
-            <p className="text-neutral-300 text-xs sm:text-sm max-w-lg mt-4 sm:mt-6 md:mt-0 leading-relaxed font-light">{t.whyVienne?.desc}</p>
+            <p className="text-neutral-300 text-xs sm:text-sm max-w-lg mt-4 sm:mt-6 md:mt-0 leading-relaxed font-light text-start md:text-end">{t.whyVienne?.desc}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-            <div className="p-6 sm:p-8 rounded-3xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group cursor-pointer">
+            <div className="p-6 sm:p-8 rounded-3xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group cursor-pointer text-start">
               <div>
                 <div className="w-12 h-12 rounded-2xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 transition-transform">
                   <Sliders className="w-6 h-6" />
@@ -1153,7 +1153,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="p-6 sm:p-8 rounded-3xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group cursor-pointer">
+            <div className="p-6 sm:p-8 rounded-3xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group cursor-pointer text-start">
               <div>
                 <div className="w-12 h-12 rounded-2xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 transition-transform">
                   <Zap className="w-6 h-6" />
@@ -1167,7 +1167,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="p-6 sm:p-8 rounded-3xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group cursor-pointer">
+            <div className="p-6 sm:p-8 rounded-3xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group cursor-pointer text-start">
               <div>
                 <div className="w-12 h-12 rounded-2xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 transition-transform">
                   <Activity className="w-6 h-6" />
@@ -1181,7 +1181,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="p-6 sm:p-8 rounded-3xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group cursor-pointer">
+            <div className="p-6 sm:p-8 rounded-3xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group cursor-pointer text-start">
               <div>
                 <div className="w-12 h-12 rounded-2xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 transition-transform">
                   <ShieldCheck className="w-6 h-6" />
@@ -1202,15 +1202,15 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12 sm:mb-16">
             <div>
-              <span className="text-xs font-bold tracking-[0.3em] text-amber-400 uppercase block mb-3">{t.servicesPillars?.tag}</span>
-              <h2 className="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight text-neutral-100">{t.servicesPillars?.title}</h2>
+              <span className="text-xs font-bold tracking-[0.3em] text-amber-400 uppercase block mb-3 text-start">{t.servicesPillars?.tag}</span>
+              <h2 className="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight text-neutral-100 text-start">{t.servicesPillars?.title}</h2>
             </div>
-            <p className="text-neutral-300 text-xs sm:text-sm max-w-lg mt-4 sm:mt-6 md:mt-0 leading-relaxed font-light">{t.servicesPillars?.desc}</p>
+            <p className="text-neutral-300 text-xs sm:text-sm max-w-lg mt-4 sm:mt-6 md:mt-0 leading-relaxed font-light text-start md:text-end">{t.servicesPillars?.desc}</p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10">
-            <div className="p-8 sm:p-10 rounded-3xl border border-neutral-800 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 flex flex-col justify-between group shadow-xl relative overflow-hidden">
-              <div className="absolute top-0 right-0 p-8 opacity-5 text-amber-400 pointer-events-none"><Sparkles className="w-32 h-32" /></div>
+            <div className="p-8 sm:p-10 rounded-3xl border border-neutral-800 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 flex flex-col justify-between group shadow-xl relative overflow-hidden text-start">
+              <div className="absolute top-0 end-0 p-8 opacity-5 text-amber-400 pointer-events-none"><Sparkles className="w-32 h-32" /></div>
               <div>
                 <div className="flex items-center justify-between gap-4 mb-6">
                   <span className="text-[10px] font-extrabold tracking-widest text-amber-300 bg-amber-400/10 border border-amber-400/30 px-3 py-1 rounded-full uppercase">
@@ -1247,13 +1247,13 @@ export default function Home() {
                   className="px-6 py-2.5 rounded-full bg-neutral-900 border border-amber-500/40 text-amber-300 group-hover:bg-amber-400 group-hover:text-neutral-950 font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer shrink-0"
                 >
                   <span>{t.ui?.requestScope || "Request Scope"}</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <ArrowRight className="w-3.5 h-3.5 rtl:-scale-x-100" />
                 </button>
               </div>
             </div>
 
-            <div className="p-8 sm:p-10 rounded-3xl border border-neutral-800 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 flex flex-col justify-between group shadow-xl relative overflow-hidden">
-              <div className="absolute top-0 right-0 p-8 opacity-5 text-amber-400 pointer-events-none"><Gem className="w-32 h-32" /></div>
+            <div className="p-8 sm:p-10 rounded-3xl border border-neutral-800 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 flex flex-col justify-between group shadow-xl relative overflow-hidden text-start">
+              <div className="absolute top-0 end-0 p-8 opacity-5 text-amber-400 pointer-events-none"><Gem className="w-32 h-32" /></div>
               <div>
                 <div className="flex items-center justify-between gap-4 mb-6">
                   <span className="text-[10px] font-extrabold tracking-widest text-amber-300 bg-amber-400/10 border border-amber-400/30 px-3 py-1 rounded-full uppercase">
@@ -1290,13 +1290,13 @@ export default function Home() {
                   className="px-6 py-2.5 rounded-full bg-neutral-900 border border-amber-500/40 text-amber-300 group-hover:bg-amber-400 group-hover:text-neutral-950 font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer shrink-0"
                 >
                   <span>{t.ui?.requestScope || "Request Scope"}</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <ArrowRight className="w-3.5 h-3.5 rtl:-scale-x-100" />
                 </button>
               </div>
             </div>
 
-            <div className="p-8 sm:p-10 rounded-3xl border border-neutral-800 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 flex flex-col justify-between group shadow-xl relative overflow-hidden">
-              <div className="absolute top-0 right-0 p-8 opacity-5 text-amber-400 pointer-events-none"><UserCheck className="w-32 h-32" /></div>
+            <div className="p-8 sm:p-10 rounded-3xl border border-neutral-800 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 flex flex-col justify-between group shadow-xl relative overflow-hidden text-start">
+              <div className="absolute top-0 end-0 p-8 opacity-5 text-amber-400 pointer-events-none"><UserCheck className="w-32 h-32" /></div>
               <div>
                 <div className="flex items-center justify-between gap-4 mb-6">
                   <span className="text-[10px] font-extrabold tracking-widest text-amber-300 bg-amber-400/10 border border-amber-400/30 px-3 py-1 rounded-full uppercase">
@@ -1333,13 +1333,13 @@ export default function Home() {
                   className="px-6 py-2.5 rounded-full bg-neutral-900 border border-amber-500/40 text-amber-300 group-hover:bg-amber-400 group-hover:text-neutral-950 font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer shrink-0"
                 >
                   <span>{t.ui?.requestScope || "Request Scope"}</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <ArrowRight className="w-3.5 h-3.5 rtl:-scale-x-100" />
                 </button>
               </div>
             </div>
 
-            <div className="p-8 sm:p-10 rounded-3xl border border-neutral-800 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 flex flex-col justify-between group shadow-xl relative overflow-hidden">
-              <div className="absolute top-0 right-0 p-8 opacity-5 text-amber-400 pointer-events-none"><Film className="w-32 h-32" /></div>
+            <div className="p-8 sm:p-10 rounded-3xl border border-neutral-800 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 flex flex-col justify-between group shadow-xl relative overflow-hidden text-start">
+              <div className="absolute top-0 end-0 p-8 opacity-5 text-amber-400 pointer-events-none"><Film className="w-32 h-32" /></div>
               <div>
                 <div className="flex items-center justify-between gap-4 mb-6">
                   <span className="text-[10px] font-extrabold tracking-widest text-amber-300 bg-amber-400/10 border border-amber-400/30 px-3 py-1 rounded-full uppercase">
@@ -1376,7 +1376,7 @@ export default function Home() {
                   className="px-6 py-2.5 rounded-full bg-neutral-900 border border-amber-500/40 text-amber-300 group-hover:bg-amber-400 group-hover:text-neutral-950 font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer shrink-0"
                 >
                   <span>{t.ui?.requestScope || "Request Scope"}</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <ArrowRight className="w-3.5 h-3.5 rtl:-scale-x-100" />
                 </button>
               </div>
             </div>
@@ -1392,10 +1392,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-12 w-full">
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-8 sm:mb-12 gap-6">
             <div>
-              <span className="text-xs font-bold tracking-widest text-amber-400 uppercase block mb-2">{t.portfolio?.tag}</span>
-              <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight text-neutral-100">{t.portfolio?.title}</h2>
+              <span className="text-xs font-bold tracking-widest text-amber-400 uppercase block mb-2 text-start">{t.portfolio?.tag}</span>
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight text-neutral-100 text-start">{t.portfolio?.title}</h2>
             </div>
-            <p className="text-neutral-300 text-xs sm:text-sm max-w-md leading-relaxed font-light">{t.portfolio?.desc}</p>
+            <p className="text-neutral-300 text-xs sm:text-sm max-w-md leading-relaxed font-light text-start md:text-end">{t.portfolio?.desc}</p>
           </div>
 
           <div className="flex flex-wrap gap-2.5 mb-10 sm:mb-14">
@@ -1448,14 +1448,14 @@ export default function Home() {
                         )}
                         <div className="absolute inset-0 bg-neutral-950/20 group-hover:bg-neutral-950/60 backdrop-blur-[1px] transition-all duration-300 flex flex-col items-center justify-center p-3 text-center opacity-0 group-hover:opacity-100">
                           <div className="w-10 h-10 rounded-full bg-amber-400 text-neutral-950 flex items-center justify-center shadow-[0_0_15px_rgba(251,191,36,0.5)] scale-90 group-hover:scale-100 transition-all z-10">
-                            <Play className="w-4 h-4 ml-0.5 fill-neutral-950" />
+                            <Play className="w-4 h-4 ms-0.5 fill-neutral-950 rtl:rotate-180 rtl:ms-0 rtl:me-0.5" />
                           </div>
                         </div>
-                        <span className="absolute top-2 left-2 text-[8px] font-mono font-bold uppercase text-amber-300 bg-neutral-950/90 border border-amber-500/40 px-2 py-0.5 rounded-full z-30 shadow-sm">
+                        <span className="absolute top-2 start-2 text-[8px] font-mono font-bold uppercase text-amber-300 bg-neutral-950/90 border border-amber-500/40 px-2 py-0.5 rounded-full z-30 shadow-sm">
                           {item.conceptNum}
                         </span>
                       </div>
-                      <div className="mb-3 px-1 flex-1 flex flex-col justify-between">
+                      <div className="mb-3 px-1 flex-1 flex flex-col justify-between text-start">
                         <div>
                           <span className="text-[9px] font-mono text-amber-400 uppercase tracking-widest block mb-0.5">{resolvedDisc}</span>
                           <h3 className="text-xs sm:text-sm font-bold text-neutral-100 mb-1 group-hover:text-amber-300 transition-colors line-clamp-1">{resolvedTitle}</h3>
@@ -1513,14 +1513,14 @@ export default function Home() {
                         )}
                         <div className="absolute inset-0 bg-neutral-950/20 group-hover:bg-neutral-950/60 backdrop-blur-[1px] transition-all duration-300 flex flex-col items-center justify-center p-3 text-center opacity-0 group-hover:opacity-100">
                           <div className="w-10 h-10 rounded-full bg-amber-400 text-neutral-950 flex items-center justify-center shadow-[0_0_15px_rgba(251,191,36,0.5)] scale-90 group-hover:scale-100 transition-all z-10">
-                            <Play className="w-4 h-4 ml-0.5 fill-neutral-950" />
+                            <Play className="w-4 h-4 ms-0.5 fill-neutral-950 rtl:rotate-180 rtl:ms-0 rtl:me-0.5" />
                           </div>
                         </div>
-                        <span className="absolute top-2 left-2 text-[8px] font-mono font-bold uppercase text-amber-300 bg-neutral-950/90 border border-amber-500/40 px-2 py-0.5 rounded-full z-30 shadow-sm">
+                        <span className="absolute top-2 start-2 text-[8px] font-mono font-bold uppercase text-amber-300 bg-neutral-950/90 border border-amber-500/40 px-2 py-0.5 rounded-full z-30 shadow-sm">
                           {item.conceptNum}
                         </span>
                       </div>
-                      <div className="mb-3 px-1 flex-1 flex flex-col justify-between">
+                      <div className="mb-3 px-1 flex-1 flex flex-col justify-between text-start">
                         <div>
                           <span className="text-[9px] font-mono text-amber-400 uppercase tracking-widest block mb-0.5">{resolvedDisc}</span>
                           <h3 className="text-xs sm:text-sm font-bold text-neutral-100 mb-1 group-hover:text-amber-300 transition-colors line-clamp-1">{resolvedTitle}</h3>
@@ -1542,7 +1542,7 @@ export default function Home() {
 
       <section id="capabilities" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50">
         <div className="max-w-7xl mx-auto">
-          <div className="mb-12 sm:mb-16">
+          <div className="mb-12 sm:mb-16 text-start">
             <span className="text-xs font-bold tracking-[0.3em] text-amber-400 uppercase block mb-3">{t.capabilitiesSection?.tag}</span>
             <h2 className="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight text-neutral-100">{t.capabilitiesSection?.title}</h2>
           </div>
@@ -1557,9 +1557,9 @@ export default function Home() {
             ].map((cap, idx) => (
               <div 
                 key={idx} 
-                className="p-6 sm:p-8 rounded-3xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group relative cursor-pointer"
+                className="p-6 sm:p-8 rounded-3xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group relative cursor-pointer text-start"
               >
-                <div className="absolute top-6 right-6 text-neutral-700 group-hover:text-amber-400 transition-colors">
+                <div className="absolute top-6 end-6 text-neutral-700 group-hover:text-amber-400 transition-colors">
                   <cap.icon className="w-6 h-6" />
                 </div>
                 <div>
@@ -1581,14 +1581,14 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12 sm:mb-16">
             <div>
-              <span className="text-sm font-bold tracking-widest text-amber-400 uppercase">{t.capabilitiesTech?.tag}</span>
-              <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight text-neutral-100 mt-3">{t.capabilitiesTech?.title}</h2>
+              <span className="text-sm font-bold tracking-widest text-amber-400 uppercase text-start block">{t.capabilitiesTech?.tag}</span>
+              <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight text-neutral-100 mt-3 text-start">{t.capabilitiesTech?.title}</h2>
             </div>
-            <p className="text-neutral-300 text-sm sm:text-base max-w-xl mt-4 sm:mt-6 md:mt-0 leading-relaxed font-light">{t.capabilitiesTech?.desc}</p>
+            <p className="text-neutral-300 text-sm sm:text-base max-w-xl mt-4 sm:mt-6 md:mt-0 leading-relaxed font-light text-start md:text-end">{t.capabilitiesTech?.desc}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-            <div className="p-6 sm:p-8 rounded-3xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group cursor-pointer">
+            <div className="p-6 sm:p-8 rounded-3xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group cursor-pointer text-start">
               <div>
                 <div className="w-12 h-12 rounded-2xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 transition-transform">
                   <Zap className="w-6 h-6" />
@@ -1602,7 +1602,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="p-6 sm:p-8 rounded-3xl border border-neutral-800 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group cursor-pointer">
+            <div className="p-6 sm:p-8 rounded-3xl border border-neutral-800 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group cursor-pointer text-start">
               <div>
                 <div className="w-12 h-12 rounded-2xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 transition-transform">
                   <Activity className="w-6 h-6" />
@@ -1616,7 +1616,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="p-6 sm:p-8 rounded-3xl border border-neutral-800 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group cursor-pointer">
+            <div className="p-6 sm:p-8 rounded-3xl border border-neutral-800 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group cursor-pointer text-start">
               <div>
                 <div className="w-12 h-12 rounded-2xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 transition-transform">
                   <Gem className="w-6 h-6" />
@@ -1630,7 +1630,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="p-6 sm:p-8 rounded-3xl border border-neutral-800 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group cursor-pointer">
+            <div className="p-6 sm:p-8 rounded-3xl border border-neutral-800 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group cursor-pointer text-start">
               <div>
                 <div className="w-12 h-12 rounded-2xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 transition-transform">
                   <ShieldCheck className="w-6 h-6" />
@@ -1651,16 +1651,16 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12 sm:mb-16">
             <div>
-              <span className="text-sm font-bold tracking-widest text-amber-400 uppercase">{t.twinsSection?.tag}</span>
-              <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight text-neutral-100 mt-3">{t.twinsSection?.title}</h2>
+              <span className="text-sm font-bold tracking-widest text-amber-400 uppercase text-start block">{t.twinsSection?.tag}</span>
+              <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight text-neutral-100 mt-3 text-start">{t.twinsSection?.title}</h2>
             </div>
-            <p className="text-neutral-300 text-sm sm:text-base max-w-xl mt-4 sm:mt-6 md:mt-0 leading-relaxed font-light">{t.twinsSection?.desc}</p>
+            <p className="text-neutral-300 text-sm sm:text-base max-w-xl mt-4 sm:mt-6 md:mt-0 leading-relaxed font-light text-start md:text-end">{t.twinsSection?.desc}</p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 mb-14">
             <div 
               onMouseMove={handleLeftCardMouseMove}
-              className={`p-6 sm:p-8 rounded-3xl border border-amber-500/30 bg-gradient-to-br ${selectedTwin.bg} flex flex-col justify-between relative overflow-hidden transition-all duration-700 shadow-2xl group`}
+              className={`p-6 sm:p-8 rounded-3xl border border-amber-500/30 bg-gradient-to-br ${selectedTwin.bg} flex flex-col justify-between relative overflow-hidden transition-all duration-700 shadow-2xl group text-start`}
             >
               <div 
                 className="absolute inset-0 pointer-events-none transition-opacity duration-300 opacity-0 group-hover:opacity-100 z-10"
@@ -1669,7 +1669,7 @@ export default function Home() {
                 }}
               />
 
-              <div className="absolute top-6 right-6 px-4 py-1.5 rounded-full bg-neutral-950/80 border border-amber-400/40 text-[9px] sm:text-[10px] font-extrabold text-amber-300 uppercase tracking-widest backdrop-blur-md z-20">
+              <div className="absolute top-6 end-6 px-4 py-1.5 rounded-full bg-neutral-950/80 border border-amber-400/40 text-[9px] sm:text-[10px] font-extrabold text-amber-300 uppercase tracking-widest backdrop-blur-md z-20">
                 {t.ui?.characterStudy || "Character Study"}
               </div>
 
@@ -1694,7 +1694,7 @@ export default function Home() {
                   
                   <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/20 to-transparent z-10 pointer-events-none" />
                   
-                  <div className="absolute top-4 left-4 z-20 px-3.5 py-1.5 rounded-full bg-neutral-950/80 border border-amber-400/40 backdrop-blur-md flex items-center gap-2">
+                  <div className="absolute top-4 start-4 z-20 px-3.5 py-1.5 rounded-full bg-neutral-950/80 border border-amber-400/40 backdrop-blur-md flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
                     <span className="text-[9px] sm:text-[10px] font-extrabold text-amber-300 uppercase tracking-widest">
                       {((t.twinsSection?.[selectedTwin.nameKey] || "Character").split(" ")[0]).toUpperCase()} · {t.ui?.referenceIdentity || "Reference-Guided Identity Retention"}
@@ -1705,7 +1705,7 @@ export default function Home() {
                     type="button"
                     onClick={toggleTwinVideoMute}
                     aria-label="Toggle Video Audio"
-                    className="absolute bottom-4 right-4 z-20 p-2.5 rounded-full bg-neutral-950/80 border border-amber-400/50 text-amber-300 hover:bg-amber-400 hover:text-neutral-950 transition-all backdrop-blur-md shadow-lg cursor-pointer"
+                    className="absolute bottom-4 end-4 z-20 p-2.5 rounded-full bg-neutral-950/80 border border-amber-400/50 text-amber-300 hover:bg-amber-400 hover:text-neutral-950 transition-all backdrop-blur-md shadow-lg cursor-pointer"
                   >
                     {isVideoMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4 animate-pulse" />}
                   </button>
@@ -1749,7 +1749,7 @@ export default function Home() {
 
             <div 
               onMouseMove={handleRightCardMouseMove}
-              className="rounded-3xl border border-neutral-800 bg-neutral-900/40 p-6 sm:p-8 flex flex-col justify-between text-center relative overflow-hidden group hover:border-amber-500/30 transition-all duration-500 shadow-2xl"
+              className="rounded-3xl border border-neutral-800 bg-neutral-900/40 p-6 sm:p-8 flex flex-col justify-between text-center relative overflow-hidden group hover:border-amber-500/30 transition-all duration-500 shadow-2xl text-start"
             >
               <div 
                 className="absolute inset-0 pointer-events-none transition-opacity duration-300 opacity-0 group-hover:opacity-100 z-10"
@@ -1775,7 +1775,7 @@ export default function Home() {
                   
                   <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/20 to-transparent z-10 pointer-events-none" />
                   
-                  <div className="absolute top-4 left-4 z-20 px-3.5 py-1.5 rounded-full bg-neutral-950/80 border border-amber-400/40 backdrop-blur-md flex items-center gap-2">
+                  <div className="absolute top-4 start-4 z-20 px-3.5 py-1.5 rounded-full bg-neutral-950/80 border border-amber-400/40 backdrop-blur-md flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
                     <span className="text-[9px] sm:text-[10px] font-extrabold text-amber-300 uppercase tracking-widest flex items-center gap-1.5">
                       <Activity className="w-3 h-3 text-amber-400" /> {t.ui?.protocol || "PROTOCOL"}
@@ -1792,17 +1792,17 @@ export default function Home() {
                       }
                     }}
                     aria-label="Toggle Video Audio"
-                    className="absolute bottom-4 right-4 z-20 p-2.5 rounded-full bg-neutral-950/80 border border-amber-400/50 text-amber-300 hover:bg-amber-400 hover:text-neutral-950 transition-all backdrop-blur-md shadow-lg cursor-pointer"
+                    className="absolute bottom-4 end-4 z-20 p-2.5 rounded-full bg-neutral-950/80 border border-amber-400/50 text-amber-300 hover:bg-amber-400 hover:text-neutral-950 transition-all backdrop-blur-md shadow-lg cursor-pointer"
                   >
                     {isRightVideoMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4 animate-pulse" />}
                   </button>
                 </div>
 
                 <h3 className="text-xl sm:text-2xl font-bold text-neutral-100 mb-3">{t.twinsSection?.identityTitle}</h3>
-                <p className="text-neutral-300 text-xs sm:text-sm leading-relaxed max-w-md mx-auto mb-8 font-light">{t.twinsSection?.identityDesc}</p>
+                <p className="text-neutral-300 text-xs sm:text-sm leading-relaxed max-w-md mb-8 font-light mx-0">{t.twinsSection?.identityDesc}</p>
               </div>
 
-              <div className="pt-6 border-t border-neutral-800/80 grid grid-cols-2 gap-4 text-left">
+              <div className="pt-6 border-t border-neutral-800/80 grid grid-cols-2 gap-4 text-start">
                 <div className="p-3 sm:p-3.5 rounded-xl bg-neutral-950/90 border border-neutral-800">
                   <p className="text-[10px] font-bold text-amber-300 uppercase flex items-center gap-1.5">
                     <CheckCircle2 className="w-3 h-3 text-emerald-400" /> {t.ui?.referenceGuidance || "Reference Guidance"}
@@ -1820,10 +1820,10 @@ export default function Home() {
           </div>
 
           <div className="p-8 sm:p-10 rounded-3xl bg-neutral-900/30 border border-neutral-800">
-            <span className="text-xs font-bold tracking-[0.2em] text-amber-400 uppercase block mb-6 text-center sm:text-left">
+            <span className="text-xs font-bold tracking-[0.2em] text-amber-400 uppercase block mb-6 text-start">
               {t.twinsSection?.useCasesTitle}
             </span>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-start">
               <div className="p-4 rounded-2xl bg-neutral-950/60 border border-neutral-800/80">
                 <h4 className="text-sm font-bold text-neutral-100 mb-1">{t.twinsSection?.uc1}</h4>
                 <p className="text-xs text-neutral-400 leading-relaxed font-light">{t.twinsSection?.uc1Desc}</p>
@@ -1853,7 +1853,7 @@ export default function Home() {
             <p className="mt-4 text-xs font-mono text-amber-300/90 tracking-widest uppercase">{t.system?.sub}</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 text-start">
             {[
               { num: t.system?.s1Num, title: t.system?.s1Title, desc: t.system?.s1Detail, icon: Compass },
               { num: t.system?.s2Num, title: t.system?.s2Title, desc: t.system?.s2Detail, icon: Sliders },
@@ -1865,7 +1865,7 @@ export default function Home() {
                 key={idx} 
                 className="p-6 rounded-2xl bg-neutral-900/40 border border-neutral-800/80 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group relative shadow-lg cursor-pointer"
               >
-                <div className="absolute top-4 right-4 text-neutral-700 group-hover:text-amber-400 transition-colors">
+                <div className="absolute top-4 end-4 text-neutral-700 group-hover:text-amber-400 transition-colors">
                   <step.icon className="w-5 h-5" />
                 </div>
                 <div>
@@ -1884,12 +1884,12 @@ export default function Home() {
       </section>
 
       <section id="studio" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50 bg-neutral-900/10">
-        <div className="max-w-5xl mx-auto bg-neutral-900/50 border border-amber-500/30 p-6 sm:p-10 md:p-16 rounded-3xl backdrop-blur-md shadow-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-8 md:gap-12">
-          <div className="space-y-6 max-w-2xl text-left">
+        <div className="max-w-5xl mx-auto bg-neutral-900/50 border border-amber-500/30 p-6 sm:p-10 md:p-16 rounded-3xl backdrop-blur-md shadow-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-8 md:gap-12 text-start">
+          <div className="space-y-6 max-w-2xl">
             <span className="text-xs font-bold tracking-[0.3em] text-amber-400 uppercase block">{t.studioSection?.tag}</span>
             <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-neutral-100 tracking-tight">{t.studioSection?.title}</h2>
             <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed font-light">{t.studioSection?.desc}</p>
-            <p className="text-xs sm:text-sm text-neutral-300/90 leading-relaxed font-light italic border-l-2 border-amber-400/60 pl-4">
+            <p className="text-xs sm:text-sm text-neutral-300/90 leading-relaxed font-light italic border-s-2 border-amber-400/60 ps-4">
               &quot;{t.studioSection?.founderBio}&quot;
             </p>
             
@@ -1924,7 +1924,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="w-full md:w-auto p-6 rounded-2xl bg-neutral-950 border border-neutral-800 space-y-4 shrink-0 text-left md:text-right">
+          <div className="w-full md:w-auto p-6 rounded-2xl bg-neutral-950 border border-neutral-800 space-y-4 shrink-0 md:text-end">
             <span className="text-[10px] font-mono font-bold text-neutral-400 uppercase block tracking-widest">{t.studioSection?.opsTitle}</span>
             <div className="space-y-2">
               <p className="text-xs sm:text-sm font-bold text-neutral-200 flex items-center md:justify-end gap-2">
@@ -1956,12 +1956,12 @@ export default function Home() {
                   className="object-cover object-center" 
                 />
               </div>
-              <div className="absolute bottom-4 sm:bottom-6 right-4 sm:right-6 px-3 sm:px-4 py-1.5 sm:py-2 rounded-2xl bg-amber-500/10 border border-amber-400/40 text-[9px] sm:text-[10px] font-extrabold text-amber-300 uppercase tracking-widest backdrop-blur-md z-10 shadow-lg">
+              <div className="absolute bottom-4 sm:bottom-6 end-4 sm:end-6 px-3 sm:px-4 py-1.5 sm:py-2 rounded-2xl bg-amber-500/10 border border-amber-400/40 text-[9px] sm:text-[10px] font-extrabold text-amber-300 uppercase tracking-widest backdrop-blur-md z-10 shadow-lg">
                 ✨ {t.transformation?.afterLabel}
               </div>
             </div>
 
-            <div className="absolute inset-0 bg-neutral-900 overflow-hidden border-r-2 border-amber-400 z-10" style={{ width: `${sliderPos}%` }}>
+            <div className={`absolute inset-0 bg-neutral-900 overflow-hidden z-10 ${isRTL ? "border-s-2 border-amber-400" : "border-e-2 border-amber-400"}`} style={{ width: `${sliderPos}%` }}>
               <div className="absolute inset-0 h-full w-full" style={{ width: '100vw', maxWidth: '1200px' }}>
                 <div className="relative w-full h-full">
                   <Image 
@@ -1973,7 +1973,7 @@ export default function Home() {
                   />
                 </div>
               </div>
-              <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 px-3 sm:px-4 py-1.5 sm:py-2 rounded-2xl bg-neutral-950/90 border border-neutral-800 text-[9px] sm:text-[10px] font-bold text-neutral-300 uppercase tracking-widest backdrop-blur-md z-20 shadow-lg">
+              <div className="absolute bottom-4 sm:bottom-6 start-4 sm:start-6 px-3 sm:px-4 py-1.5 sm:py-2 rounded-2xl bg-neutral-950/90 border border-neutral-800 text-[9px] sm:text-[10px] font-bold text-neutral-300 uppercase tracking-widest backdrop-blur-md z-20 shadow-lg">
                 📁 {t.transformation?.beforeLabel}
               </div>
             </div>
@@ -1988,14 +1988,14 @@ export default function Home() {
               className="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-40" 
             />
 
-            <div className="absolute top-0 bottom-0 w-[3px] bg-gradient-to-b from-amber-200 via-amber-400 to-amber-600 pointer-events-none z-30 shadow-[0_0_15px_#fbbf24]" style={{ left: `${sliderPos}%` }}>
-              <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-amber-400 text-neutral-950 flex items-center justify-center shadow-[0_0_25px_rgba(251,191,36,0.8)] font-black text-xs sm:text-sm">
+            <div className="absolute top-0 bottom-0 w-[3px] bg-gradient-to-b from-amber-200 via-amber-400 to-amber-600 pointer-events-none z-30 shadow-[0_0_15px_#fbbf24]" style={{ [isRTL ? 'right' : 'left']: `${sliderPos}%` }}>
+              <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 rtl:translate-x-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-amber-400 text-neutral-950 flex items-center justify-center shadow-[0_0_25px_rgba(251,191,36,0.8)] font-black text-xs sm:text-sm">
                 ↔
               </div>
             </div>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6 text-left">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6 text-start">
             <div className="p-3 rounded-xl bg-neutral-900/40 border border-neutral-800 text-[11px] font-mono text-neutral-300">
               <span className="text-amber-400 block font-bold">{t.transformation?.s1}</span>
             </div>
@@ -2013,7 +2013,7 @@ export default function Home() {
       </section>
 
       <section id="estimator" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50 bg-neutral-900/20">
-        <div className="max-w-6xl mx-auto bg-neutral-900/60 border border-amber-500/30 p-6 sm:p-10 md:p-16 rounded-3xl backdrop-blur-md shadow-2xl">
+        <div className="max-w-6xl mx-auto bg-neutral-900/60 border border-amber-500/30 p-6 sm:p-10 md:p-16 rounded-3xl backdrop-blur-md shadow-2xl text-start">
           <div className="flex items-center gap-4 mb-6">
             <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400"><Calculator className="w-5 h-5 sm:w-6 sm:h-6" /></div>
             <div><span className="text-xs font-bold tracking-widest text-amber-400 uppercase">{t.estimator?.tag}</span><h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-neutral-100 mt-1">{t.estimator?.title}</h2></div>
@@ -2021,7 +2021,7 @@ export default function Home() {
           <p className="text-neutral-300 text-sm sm:text-base mb-8 sm:mb-10 font-light">{t.estimator?.desc}</p>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10">
-            <div className="space-y-5 text-left">
+            <div className="space-y-5 text-start">
               <div>
                 <label className="block text-xs font-bold text-neutral-300 uppercase mb-2.5">{t.estimator?.deliverableType}</label>
                 <div className="grid grid-cols-2 gap-2">
@@ -2031,7 +2031,7 @@ export default function Home() {
                     { id: "char", label: t.estimator?.optChar },
                     { id: "full", label: t.estimator?.optFull }
                   ].map((item) => (
-                    <button key={item.id} type="button" onClick={() => setEstType(item.id as "still" | "motion" | "char" | "full")} className={`p-3 rounded-2xl border text-xs font-semibold text-left transition-all cursor-pointer ${estType === item.id ? "bg-amber-400/10 border-amber-400 text-amber-300" : "bg-neutral-950/60 border-neutral-800 text-neutral-300"}`}>
+                    <button key={item.id} type="button" onClick={() => setEstType(item.id as "still" | "motion" | "char" | "full")} className={`p-3 rounded-2xl border text-xs font-semibold text-start transition-all cursor-pointer ${estType === item.id ? "bg-amber-400/10 border-amber-400 text-amber-300" : "bg-neutral-950/60 border-neutral-800 text-neutral-300"}`}>
                       {item.label}
                     </button>
                   ))}
@@ -2076,7 +2076,7 @@ export default function Home() {
                     { id: "std", label: t.estimator?.timeStd },
                     { id: "exp", label: t.estimator?.timeExp }
                   ].map((item) => (
-                    <button key={item.id} type="button" onClick={() => setEstTimeline(item.id as "std" | "exp")} className={`p-3 rounded-2xl border text-xs font-semibold text-left transition-all cursor-pointer ${estTimeline === item.id ? "bg-amber-400/10 border-amber-400 text-amber-300" : "bg-neutral-950/60 border-neutral-800 text-neutral-300"}`}>
+                    <button key={item.id} type="button" onClick={() => setEstTimeline(item.id as "std" | "exp")} className={`p-3 rounded-2xl border text-xs font-semibold text-start transition-all cursor-pointer ${estTimeline === item.id ? "bg-amber-400/10 border-amber-400 text-amber-300" : "bg-neutral-950/60 border-neutral-800 text-neutral-300"}`}>
                       {item.label}
                     </button>
                   ))}
@@ -2084,7 +2084,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="p-6 sm:p-8 rounded-3xl bg-neutral-950 border border-amber-500/40 flex flex-col justify-between shadow-2xl relative overflow-hidden text-left">
+            <div className="p-6 sm:p-8 rounded-3xl bg-neutral-950 border border-amber-500/40 flex flex-col justify-between shadow-2xl relative overflow-hidden text-start">
               <div>
                 <div className="flex items-center gap-3 mb-6">
                   <SlidersHorizontal className="w-5 h-5 text-amber-400" />
@@ -2120,7 +2120,7 @@ export default function Home() {
                 onClick={applyEstimateToForm} 
                 className="mt-8 w-full py-4 rounded-2xl bg-amber-400 text-neutral-950 font-bold text-xs uppercase tracking-wider hover:bg-amber-300 transition-all flex items-center justify-center gap-2 cursor-pointer"
               >
-                {t.estimator?.btnLock} <ArrowRight className="w-4 h-4" />
+                {t.estimator?.btnLock} <ArrowRight className="w-4 h-4 rtl:-scale-x-100" />
               </button>
             </div>
           </div>
@@ -2131,14 +2131,14 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12 sm:mb-16">
             <div>
-              <span className="text-sm font-bold tracking-widest text-amber-400 uppercase">{t.insights?.tag}</span>
-              <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight text-neutral-100 mt-3">{t.insights?.title}</h2>
+              <span className="text-sm font-bold tracking-widest text-amber-400 uppercase text-start block">{t.insights?.tag}</span>
+              <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight text-neutral-100 mt-3 text-start">{t.insights?.title}</h2>
             </div>
-            <p className="text-neutral-300 text-sm sm:text-base max-w-xl mt-4 sm:mt-6 md:mt-0 leading-relaxed font-light">{t.insights?.desc}</p>
+            <p className="text-neutral-300 text-sm sm:text-base max-w-xl mt-4 sm:mt-6 md:mt-0 leading-relaxed font-light text-start md:text-end">{t.insights?.desc}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-10">
-            <article className="p-6 sm:p-8 rounded-3xl border border-neutral-800 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group cursor-pointer text-left">
+            <article className="p-6 sm:p-8 rounded-3xl border border-neutral-800 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group cursor-pointer text-start">
               <div>
                 <span className="text-[10px] font-extrabold tracking-widest text-amber-300 bg-amber-400/10 border border-amber-400/30 px-3 py-1 rounded-full uppercase inline-block mb-6">{t.insights?.article1Tag}</span>
                 <h3 className="text-xl sm:text-2xl font-bold text-neutral-100 mb-4 group-hover:text-amber-300 transition-colors">{t.insights?.article1Title}</h3>
@@ -2147,24 +2147,24 @@ export default function Home() {
               <button 
                 type="button" 
                 onClick={() => setActiveArticle({
-                  tag: t.insights?.article1Tag,
-                  title: t.insights?.article1Title,
+                  tag: t.insights?.article1Tag || "Editorial",
+                  title: t.insights?.article1Title || "Article Title",
                   author: "E. Aktaş",
                   date: "August 2026",
                   readTime: "6 Min Read",
-                  body1: t.insights?.article1Body1,
-                  body2: t.insights?.article1Body2,
+                  body1: t.insights?.article1Body1 || "",
+                  body2: t.insights?.article1Body2 || "",
                   faqQ1: "How does AI sampling compare to physical fabric prototypes?",
                   faqA1: "AI sampling allows rapid iteration of lighting, draping, and styling angles, compressing approval timelines before final high-resolution masters are locked."
                 })}
-                className="inline-flex items-center gap-2 text-xs font-bold text-amber-400 hover:text-amber-300 uppercase tracking-wider cursor-pointer text-left"
+                className="inline-flex items-center gap-2 text-xs font-bold text-amber-400 hover:text-amber-300 uppercase tracking-wider cursor-pointer text-start"
               >
                 <span>{t.insights?.readMore}</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 rtl:-scale-x-100" />
               </button>
             </article>
 
-            <article className="p-6 sm:p-8 rounded-3xl border border-neutral-800 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group cursor-pointer text-left">
+            <article className="p-6 sm:p-8 rounded-3xl border border-neutral-800 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group cursor-pointer text-start">
               <div>
                 <span className="text-[10px] font-extrabold tracking-widest text-amber-300 bg-amber-400/10 border border-amber-400/30 px-3 py-1 rounded-full uppercase inline-block mb-6">{t.insights?.article2Tag}</span>
                 <h3 className="text-xl sm:text-2xl font-bold text-neutral-100 mb-4 group-hover:text-amber-300 transition-colors">{t.insights?.article2Title}</h3>
@@ -2173,24 +2173,24 @@ export default function Home() {
               <button 
                 type="button" 
                 onClick={() => setActiveArticle({
-                  tag: t.insights?.article2Tag,
-                  title: t.insights?.article2Title,
+                  tag: t.insights?.article2Tag || "Editorial",
+                  title: t.insights?.article2Title || "Article Title",
                   author: "AI.VIENNE Editorial",
                   date: "August 2026",
                   readTime: "8 Min Read",
-                  body1: t.insights?.article2Body1,
-                  body2: t.insights?.article2Body2,
+                  body1: t.insights?.article2Body1 || "",
+                  body2: t.insights?.article2Body2 || "",
                   faqQ1: "Can a digital brand face be deployed across future seasonal campaigns?",
                   faqA1: "Yes. By archiving model landmark configurations and skin shaders, character identity remains consistent across lookbooks, social, and global retail media."
                 })}
-                className="inline-flex items-center gap-2 text-xs font-bold text-amber-400 hover:text-amber-300 uppercase tracking-wider cursor-pointer text-left"
+                className="inline-flex items-center gap-2 text-xs font-bold text-amber-400 hover:text-amber-300 uppercase tracking-wider cursor-pointer text-start"
               >
                 <span>{t.insights?.readMore}</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 rtl:-scale-x-100" />
               </button>
             </article>
 
-            <article className="p-6 sm:p-8 rounded-3xl border border-neutral-800 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group cursor-pointer text-left">
+            <article className="p-6 sm:p-8 rounded-3xl border border-neutral-800 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group cursor-pointer text-start">
               <div>
                 <span className="text-[10px] font-extrabold tracking-widest text-amber-300 bg-amber-400/10 border border-amber-400/30 px-3 py-1 rounded-full uppercase inline-block mb-6">{t.insights?.article3Tag}</span>
                 <h3 className="text-xl sm:text-2xl font-bold text-neutral-100 mb-4 group-hover:text-amber-300 transition-colors">{t.insights?.article3Title}</h3>
@@ -2199,20 +2199,20 @@ export default function Home() {
               <button 
                 type="button" 
                 onClick={() => setActiveArticle({
-                  tag: t.insights?.article3Tag,
-                  title: t.insights?.article3Title,
+                  tag: t.insights?.article3Tag || "Editorial",
+                  title: t.insights?.article3Title || "Article Title",
                   author: "AI.VIENNE Optics Lab",
                   date: "August 2026",
                   readTime: "5 Min Read",
-                  body1: t.insights?.article3Body1,
-                  body2: t.insights?.article3Body2,
+                  body1: t.insights?.article3Body1 || "",
+                  body2: t.insights?.article3Body2 || "",
                   faqQ1: "How are internal reflections controlled on Swiss watch sapphire crystals?",
                   faqA1: "We apply multi-layered anti-reflective optical passes combined with high-contrast chiaroscuro lighting to reveal dial mechanics clearly."
                 })}
-                className="inline-flex items-center gap-2 text-xs font-bold text-amber-400 hover:text-amber-300 uppercase tracking-wider cursor-pointer text-left"
+                className="inline-flex items-center gap-2 text-xs font-bold text-amber-400 hover:text-amber-300 uppercase tracking-wider cursor-pointer text-start"
               >
                 <span>{t.insights?.readMore}</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 rtl:-scale-x-100" />
               </button>
             </article>
           </div>
@@ -2220,7 +2220,7 @@ export default function Home() {
       </section>
 
       <section id="architect" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50 bg-neutral-900/20">
-        <div className="max-w-5xl mx-auto bg-neutral-900/80 border border-amber-500/30 p-6 sm:p-10 md:p-16 rounded-3xl backdrop-blur-md shadow-2xl text-left">
+        <div className="max-w-5xl mx-auto bg-neutral-900/80 border border-amber-500/30 p-6 sm:p-10 md:p-16 rounded-3xl backdrop-blur-md shadow-2xl text-start">
           <div className="flex items-center gap-4 mb-6">
             <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400"><SlidersHorizontal className="w-5 h-5 sm:w-6 sm:h-6" /></div>
             <div><span className="text-xs font-bold tracking-widest text-amber-400 uppercase">{t.briefSection?.tag}</span><h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-neutral-100 mt-1">{t.briefSection?.title}</h2></div>
@@ -2231,7 +2231,7 @@ export default function Home() {
               <label className="block text-xs font-bold text-amber-400 uppercase mb-3">{t.briefSection?.s1}</label>
               <div className="space-y-2">
                 {[t.briefOptions?.lighting1 || "Dramatic Studio Gold", t.briefOptions?.lighting2 || "Natural Parisian Sunlight", t.briefOptions?.lighting3 || "Surreal Cyber Neon Caustics"].map((opt) => (
-                  <button key={opt} type="button" onClick={() => setBriefLighting(opt)} className={`w-full text-left p-3 sm:p-3.5 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${briefLighting === opt ? "bg-amber-400 text-neutral-950 border-amber-400" : "bg-neutral-950 border-neutral-800 text-neutral-300"}`}>{opt}</button>
+                  <button key={opt} type="button" onClick={() => setBriefLighting(opt)} className={`w-full text-start p-3 sm:p-3.5 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${briefLighting === opt ? "bg-amber-400 text-neutral-950 border-amber-400" : "bg-neutral-950 border-neutral-800 text-neutral-300"}`}>{opt}</button>
                 ))}
               </div>
             </div>
@@ -2239,7 +2239,7 @@ export default function Home() {
               <label className="block text-xs font-bold text-amber-400 uppercase mb-3">{t.briefSection?.s2}</label>
               <div className="space-y-2">
                 {[t.briefOptions?.segment1 || "High Jewelry & Gems", t.briefOptions?.segment2 || "Haute Couture Runway", t.briefOptions?.segment3 || "Swiss Horlogerie Timepiece"].map((opt) => (
-                  <button key={opt} type="button" onClick={() => setBriefSegment(opt)} className={`w-full text-left p-3 sm:p-3.5 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${briefSegment === opt ? "bg-amber-400 text-neutral-950 border-amber-400" : "bg-neutral-950 border-neutral-800 text-neutral-300"}`}>{opt}</button>
+                  <button key={opt} type="button" onClick={() => setBriefSegment(opt)} className={`w-full text-start p-3 sm:p-3.5 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${briefSegment === opt ? "bg-amber-400 text-neutral-950 border-amber-400" : "bg-neutral-950 border-neutral-800 text-neutral-300"}`}>{opt}</button>
                 ))}
               </div>
             </div>
@@ -2247,7 +2247,7 @@ export default function Home() {
               <label className="block text-xs font-bold text-amber-400 uppercase mb-3">{t.briefSection?.s3}</label>
               <div className="space-y-2">
                 {[t.briefOptions?.atmosphere1 || "Parisian Palace Runway", t.briefOptions?.atmosphere2 || "Futuristic Architectural Stage", t.briefOptions?.atmosphere3 || "Exotic Desert Dunes"].map((opt) => (
-                  <button key={opt} type="button" onClick={() => setBriefAtmosphere(opt)} className={`w-full text-left p-3 sm:p-3.5 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${briefAtmosphere === opt ? "bg-amber-400 text-neutral-950 border-amber-400" : "bg-neutral-950 border-neutral-800 text-neutral-300"}`}>{opt}</button>
+                  <button key={opt} type="button" onClick={() => setBriefAtmosphere(opt)} className={`w-full text-start p-3 sm:p-3.5 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${briefAtmosphere === opt ? "bg-amber-400 text-neutral-950 border-amber-400" : "bg-neutral-950 border-neutral-800 text-neutral-300"}`}>{opt}</button>
                 ))}
               </div>
             </div>
@@ -2272,7 +2272,7 @@ export default function Home() {
           </div>
 
           {/* PRIVATE CLIENT CONCIERGE FAST-TRACK RESERVATION CARD */}
-          <div className="mb-10 sm:mb-12 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-amber-500/10 via-neutral-900/60 to-amber-500/10 border border-amber-500/40 shadow-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6 text-left">
+          <div className="mb-10 sm:mb-12 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-amber-500/10 via-neutral-900/60 to-amber-500/10 border border-amber-500/40 shadow-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6 text-start">
             <div className="space-y-1.5 max-w-xl">
               <span className="text-[10px] font-mono font-extrabold uppercase tracking-widest text-amber-400 block">{t.reservation?.tag || "Fast-Track Production Slot"}</span>
               <h3 className="text-xl sm:text-2xl font-extrabold text-neutral-100">{t.reservation?.title || "Lock Your Campaign Production Dates"}</h3>
@@ -2290,7 +2290,7 @@ export default function Home() {
             </button>
           </div>
 
-          <form onSubmit={handleFormSubmit} className="space-y-6 sm:space-y-8 bg-neutral-900/30 border border-neutral-800 p-6 sm:p-10 md:p-14 rounded-3xl backdrop-blur-sm shadow-2xl text-left">
+          <form onSubmit={handleFormSubmit} className="space-y-6 sm:space-y-8 bg-neutral-900/30 border border-neutral-800 p-6 sm:p-10 md:p-14 rounded-3xl backdrop-blur-sm shadow-2xl text-start">
             {formStatus?.success && (
               <div className="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs sm:text-sm font-medium">
                 {formStatus.success}
@@ -2348,6 +2348,7 @@ export default function Home() {
                   <option value="sOpt5">{t.contact?.sOpt5}</option> 
                   <option value="sOpt6">{t.contact?.sOpt6}</option> 
                   <option value="sOpt7">{t.contact?.sOpt7}</option>
+                  {t.contact?.sOpt8 && <option value="sOpt8">{t.contact?.sOpt8}</option>}
                 </select>
               </div>
               <div>
@@ -2404,7 +2405,7 @@ export default function Home() {
               {attachedFiles.length > 0 && (
                 <div className="mt-4 flex flex-wrap gap-2">
                   {attachedFiles.map((file, idx) => (
-                    <div key={idx} className="flex items-center gap-2 bg-neutral-900 border border-amber-500/30 px-3 py-1.5 rounded-full text-xs font-medium text-neutral-200"><Paperclip className="w-3.5 h-3.5 text-amber-400" /><span className="max-w-[120px] sm:max-w-[150px] truncate">{file.name}</span><button type="button" onClick={() => removeFile(idx)} className="text-neutral-400 hover:text-red-400 ml-1 cursor-pointer"><X className="w-3.5 h-3.5" /></button></div>
+                    <div key={idx} className="flex items-center gap-2 bg-neutral-900 border border-amber-500/30 px-3 py-1.5 rounded-full text-xs font-medium text-neutral-200"><Paperclip className="w-3.5 h-3.5 text-amber-400" /><span className="max-w-[120px] sm:max-w-[150px] truncate">{file.name}</span><button type="button" onClick={() => removeFile(idx)} className="text-neutral-400 hover:text-red-400 ms-1 cursor-pointer"><X className="w-3.5 h-3.5" /></button></div>
                   ))}
                 </div>
               )}
@@ -2417,7 +2418,7 @@ export default function Home() {
 
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6 pt-4">
               <button type="submit" disabled={isSubmitting} className="w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 rounded-full text-sm sm:text-base font-bold text-neutral-950 bg-amber-400 hover:bg-amber-300 transition-all flex items-center justify-center gap-3 shadow-[0_0_30px_rgba(251,191,36,0.25)] cursor-pointer disabled:opacity-50">
-                <Send className="w-4 h-4 sm:w-5 sm:h-5" /> {isSubmitting ? (t.ui?.sending || "Sending...") : t.contact?.submitBtn}
+                <Send className="w-4 h-4 sm:w-5 sm:h-5 rtl:-scale-x-100" /> {isSubmitting ? (t.ui?.sending || "Sending...") : t.contact?.submitBtn}
               </button>
               <div className="text-xs sm:text-sm font-semibold text-neutral-300 flex items-center gap-2">
                 <Mail className="w-4 h-4 text-amber-400" /> 
@@ -2426,8 +2427,8 @@ export default function Home() {
             </div>
           </form>
 
-          <div className="mt-14 p-8 sm:p-10 rounded-3xl bg-neutral-900/20 border border-neutral-800 text-left">
-            <span className="text-xs font-bold tracking-[0.2em] text-amber-400 uppercase block mb-6 text-center sm:text-left">
+          <div className="mt-14 p-8 sm:p-10 rounded-3xl bg-neutral-900/20 border border-neutral-800 text-start">
+            <span className="text-xs font-bold tracking-[0.2em] text-amber-400 uppercase block mb-6 text-center sm:text-start">
               {t.contact?.nextStepsTitle}
             </span>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -2454,7 +2455,7 @@ export default function Home() {
 
       <footer className="relative z-10 pt-16 sm:pt-20 pb-12 px-4 sm:px-12 md:px-16">
         <div className="w-full bg-amber-400 text-neutral-950 rounded-[30px] sm:rounded-[40px] p-6 sm:p-10 md:p-20 shadow-[0_0_60px_rgba(251,191,36,0.18)]/20 overflow-hidden">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 pb-12 sm:pb-20 border-b border-neutral-950/20 text-left">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 pb-12 sm:pb-20 border-b border-neutral-950/20 text-start">
             <div>
               <span className="inline-block bg-neutral-950 text-amber-400 text-xs font-extrabold tracking-widest px-4 py-1.5 rounded-full uppercase mb-6 sm:mb-8">{t.footerSection?.navTitle}</span>
               <ul className="space-y-3 sm:space-y-4 text-sm sm:text-base font-semibold">
@@ -2496,7 +2497,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="py-8 sm:py-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 overflow-hidden text-left">
+          <div className="py-8 sm:py-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 overflow-hidden text-start">
             <div className="flex items-center gap-6 sm:gap-8">
               <div className="relative w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36 rounded-full overflow-hidden shadow-2xl shrink-0 bg-neutral-950 border-2 border-neutral-950">
                 <Image
@@ -2517,7 +2518,7 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-xs md:text-sm font-bold pt-6 sm:pt-8 border-t border-neutral-950/20">
-            <p className="text-center sm:text-left">{t.footer}</p>
+            <p className="text-center sm:text-start">{t.footer}</p>
             <div className="flex items-center gap-6 sm:gap-8">
               <Link href="/terms" className="hover:opacity-75 underline underline-offset-4 cursor-pointer">{t.footerSection?.terms}</Link>
               <Link href="/privacy" className="hover:opacity-75 underline underline-offset-4 cursor-pointer">{t.footerSection?.privacy}</Link>

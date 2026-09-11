@@ -3,11 +3,13 @@ import Script from "next/script";
 import AIChatConcierge from "./components/AIChatConcierge";
 import "./globals.css";
 
+const SITE_URL = "https://aivienne.com";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://aivienne.com"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "AI.VIENNE Studio+ | AI-Native Luxury Visual Production House",
-    template: "%s | AI.VIENNE Studio+"
+    template: "%s | AI.VIENNE Studio+",
   },
   description:
     "AI.VIENNE Studio+ is an AI-native luxury visual production house creating campaign imagery, cinematic motion, luxury product visualization and consistent digital characters for fashion, jewelry, horology and beauty brands.",
@@ -20,13 +22,13 @@ export const metadata: Metadata = {
     "Persistent Digital Characters",
     "Haute Horlogerie Visualization",
     "Cinematic AI Films",
-    "AI.VIENNE Studio"
+    "AI.VIENNE Studio",
   ],
   authors: [{ name: "AI.VIENNE Studio+" }],
   creator: "AI.VIENNE Studio+",
   publisher: "AI.VIENNE Studio+",
   alternates: {
-    canonical: "https://aivienne.com",
+    canonical: SITE_URL,
   },
   robots: {
     index: true,
@@ -36,8 +38,8 @@ export const metadata: Metadata = {
       follow: true,
       "max-video-preview": -1,
       "max-image-preview": "large",
-      "max-snippet": -1
-    }
+      "max-snippet": -1,
+    },
   },
   icons: {
     icon: "/icon.png",
@@ -47,7 +49,7 @@ export const metadata: Metadata = {
     title: "AI.VIENNE Studio+ | AI-Native Luxury Visual Production House",
     description:
       "AI-assisted campaign imagery, cinematic motion, luxury product visualization and consistent digital characters — directed for brands that demand precision.",
-    url: "https://aivienne.com",
+    url: SITE_URL,
     siteName: "AI.VIENNE Studio+",
     locale: "en_US",
     type: "website",
@@ -56,9 +58,9 @@ export const metadata: Metadata = {
         url: "/logo.png",
         width: 800,
         height: 800,
-        alt: "AI.VIENNE Studio+ Luxury Visual Production"
-      }
-    ]
+        alt: "AI.VIENNE Studio+ Luxury Visual Production",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -69,15 +71,20 @@ export const metadata: Metadata = {
   },
 };
 
+// JSON-LD Sanitizer
+const sanitizeJsonLd = (data: unknown) =>
+  JSON.stringify(data).replace(/</g, "\\u003c");
+
 // 1. Organization & ProfessionalService Hibrit Schema
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": ["Organization", "ProfessionalService"],
+  "@id": `${SITE_URL}/#organization`,
   name: "AI.VIENNE Studio+",
   alternateName: ["AI.VIENNE", "AI Vienne Studio"],
-  url: "https://aivienne.com",
-  logo: "https://aivienne.com/logo.png",
-  image: "https://aivienne.com/logo.png",
+  url: SITE_URL,
+  logo: `${SITE_URL}/logo.png`,
+  image: `${SITE_URL}/logo.png`,
   description:
     "AI-native luxury visual production studio specializing in high fashion, fine jewelry, horology, and digital character campaigns.",
   priceRange: "$$$$",
@@ -85,16 +92,16 @@ const organizationSchema = {
     "@type": "Person",
     name: "E. Aktaş",
     jobTitle: "Founder & Creative Director",
-    sameAs: "https://linkedin.com/in/e-aktas-aivienne"
+    sameAs: "https://www.linkedin.com/in/e-aktas-aivienne",
   },
   sameAs: [
-    "https://instagram.com/ai.vienne",
-    "https://linkedin.com/in/e-aktas-aivienne"
+    "https://www.instagram.com/ai.vienne",
+    "https://www.linkedin.com/in/e-aktas-aivienne",
   ],
   email: "info@aivienne.com",
   areaServed: {
     "@type": "AdministrativeArea",
-    name: "Worldwide"
+    name: "Worldwide",
   },
   knowsAbout: [
     "AI-Assisted Visual Production",
@@ -102,7 +109,7 @@ const organizationSchema = {
     "Fine Jewelry Visualization",
     "Haute Horlogerie Rendering",
     "Digital Brand Ambassador Design",
-    "Cinematic Brand Films"
+    "Cinematic Brand Films",
   ],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
@@ -113,47 +120,55 @@ const organizationSchema = {
         itemOffered: {
           "@type": "Service",
           name: "Haute Couture & Seasonal Campaigns",
-          description: "Seasonal fashion campaigns and editorial imagery directed without physical location shoots."
-        }
+          description:
+            "Seasonal fashion campaigns and editorial imagery directed without physical location shoots.",
+        },
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
           name: "Haute Horlogerie & Fine Jewelry",
-          description: "High-magnification luxury watch and jewelry visualization with specular reflection and caustics control."
-        }
+          description:
+            "High-magnification luxury watch and jewelry visualization with specular reflection and caustics control.",
+        },
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
           name: "Persistent Brand Ambassadors",
-          description: "Bespoke digital brand faces engineered with reference-guided identity retention across campaigns."
-        }
+          description:
+            "Bespoke digital brand faces engineered with reference-guided identity retention across campaigns.",
+        },
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
           name: "Brand Heritage & Flagship Films",
-          description: "High-fidelity cinematic motion narratives for digital flagships and large-format displays."
-        }
-      }
-    ]
-  }
+          description:
+            "High-fidelity cinematic motion narratives for digital flagships and large-format displays.",
+        },
+      },
+    ],
+  },
 };
 
-// 2. WebSite Schema
+// 2. WebSite Schema (Organization ile ilişkilendirilmiş)
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
+  "@id": `${SITE_URL}/#website`,
   name: "AI.VIENNE Studio+",
-  url: "https://aivienne.com",
-  description: "AI-Native Luxury Visual Production House"
+  url: SITE_URL,
+  publisher: {
+    "@id": `${SITE_URL}/#organization`,
+  },
+  description: "AI-Native Luxury Visual Production House",
 };
 
-// 3. FAQPage Schema (Google Arama Zengin Snippet'ları İçin)
+// 3. FAQPage Schema
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -163,27 +178,42 @@ const faqSchema = {
       name: "How does AI.VIENNE ensure character consistency across campaigns?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "AI.VIENNE utilizes a reference-guided identity retention pipeline combined with layered skin calibration. This prevents facial drift and preserves facial structure across diverse lighting setups, wardrobe changes, and camera angles."
-      }
+        text: "AI.VIENNE utilizes a reference-guided identity retention pipeline combined with layered skin calibration. This prevents facial drift and preserves facial structure across diverse lighting setups, wardrobe changes, and camera angles.",
+      },
     },
     {
       "@type": "Question",
       name: "What are the master resolution standards for delivered visual assets?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Deliverables are produced at genuine master resolutions up to 8K for print and digital flagship displays, alongside high-frame-rate uncompressed cinematic motion masters calibrated for luxury broadcast."
-      }
+        text: "Deliverables are produced at genuine master resolutions up to 8K for print and digital flagship displays, alongside high-frame-rate uncompressed cinematic motion masters calibrated for luxury broadcast.",
+      },
     },
     {
       "@type": "Question",
       name: "Are client references and assets protected under NDA?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. All client briefs, collection sketches, and proprietary references are protected under Mutual Non-Disclosure Agreements (NDA) and processed in isolated environments with zero training on public AI models."
-      }
-    }
-  ]
+        text: "Yes. All client briefs, collection sketches, and proprietary references are protected under Mutual Non-Disclosure Agreements (NDA) and processed in isolated environments with zero training on public AI models.",
+      },
+    },
+  ],
 };
+
+const themeLangInitScript = `
+  (function() {
+    try {
+      var savedLang = localStorage.getItem("aivienne_lang");
+      if (savedLang === "AR") {
+        document.documentElement.setAttribute("dir", "rtl");
+        document.documentElement.setAttribute("lang", "ar");
+      } else if (savedLang === "TR") {
+        document.documentElement.setAttribute("dir", "ltr");
+        document.documentElement.setAttribute("lang", "tr");
+      }
+    } catch (e) {}
+  })();
+`;
 
 export default function RootLayout({
   children,
@@ -195,43 +225,23 @@ export default function RootLayout({
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+          dangerouslySetInnerHTML={{ __html: sanitizeJsonLd(organizationSchema) }}
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+          dangerouslySetInnerHTML={{ __html: sanitizeJsonLd(websiteSchema) }}
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+          dangerouslySetInnerHTML={{ __html: sanitizeJsonLd(faqSchema) }}
         />
-        {/* Tarayıcı yüklendiğinde localStorage'dan dil ve yön tercihini anında uygulayan script (Hydration hatasını sıfırlar) */}
         <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  var savedLang = localStorage.getItem("aivienne_lang");
-                  if (savedLang === "AR") {
-                    document.documentElement.setAttribute("dir", "rtl");
-                    document.documentElement.setAttribute("lang", "ar");
-                  } else if (savedLang === "TR") {
-                    document.documentElement.setAttribute("dir", "ltr");
-                    document.documentElement.setAttribute("lang", "tr");
-                  }
-                } catch (e) {}
-              })();
-            `,
-          }}
+          dangerouslySetInnerHTML={{ __html: themeLangInitScript }}
         />
       </head>
       <body className="bg-neutral-950 text-neutral-100 antialiased selection:bg-amber-500/20 selection:text-amber-200">
         {children}
         <AIChatConcierge />
-        <Script
-          src="https://assets.lemonsqueezy.com/lemon.js"
-          strategy="lazyOnload"
-        />
       </body>
     </html>
   );
