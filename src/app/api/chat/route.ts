@@ -53,9 +53,10 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "API anahtarı eksik." }, { status: 500 });
     }
 
-    // 3. Gemini API Çağrısı
+    // 3. Gemini API Çağrısı (Çalışan Orijinal Model ve Yapı)
     const geminiRes = await fetch(
-`https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${apiKey}`,      {
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=${apiKey}`,
+      {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
