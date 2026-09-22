@@ -396,7 +396,6 @@ export default function Home() {
   const [isStudioOpen, setIsStudioOpen] = useState(false);
   const studioMenuRef = useRef<HTMLDivElement | null>(null);
 
-  // ADIM 4: "pilot" seçeneği eklendi
   const [estType, setEstType] = useState<"pilot" | "still" | "motion" | "char" | "full">("pilot");
   const [estVolume, setEstVolume] = useState<"vol1" | "vol2" | "vol3" | "vol4">("vol1");
   const [estComplexity, setEstComplexity] = useState<"std" | "prem" | "camp">("std");
@@ -433,7 +432,7 @@ export default function Home() {
     website: "",
     launchDate: "",
     service: "sOpt1",
-    budget: "bOpt0", // Pilot için varsayılan
+    budget: "bOpt0",
     requireNDA: true,
     priorityTrack: false,
     message: "",
@@ -640,7 +639,6 @@ export default function Home() {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
-  // ADIM 4: Pilot sprint bütçe haritalaması güncellendi
   const applyEstimateToForm = () => {
     const rangeStr = calculateEstimate();
     
@@ -692,7 +690,6 @@ export default function Home() {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
-  // ADIM 4: $2,500 – $3,500 Pilot Sprint hesaplama mantığı
   const calculateEstimate = () => {
     if (estType === "pilot") {
       let pilotBase = 2500;
@@ -1081,14 +1078,14 @@ export default function Home() {
             </a>
           </nav>
 
-          <div className="flex items-center gap-2.5 sm:gap-4 shrink-0">
-            {/* ADIM 2: Header Mavi Tikli Doğrulanmış Instagram Köprüsü */}
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+            {/* Instagram Köprüsü */}
             <a
               href="https://instagram.com/ai.vienne"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Official Verified Instagram @ai.vienne"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full border border-neutral-800 bg-neutral-900/80 hover:border-amber-400/60 hover:bg-neutral-900 transition-all group cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1.5 sm:px-3.5 sm:py-2 rounded-full border border-neutral-800 bg-neutral-900/80 hover:border-amber-400/60 hover:bg-neutral-900 transition-all group cursor-pointer"
               title="Official Verified Instagram"
             >
               <InstagramIcon className="w-3.5 h-3.5 text-neutral-300 group-hover:text-amber-400 transition-colors" />
@@ -1098,9 +1095,10 @@ export default function Home() {
               <VerifiedBadge className="w-3.5 h-3.5" />
             </a>
 
+            {/* Dil Seçici */}
             <div className="relative" ref={langMenuRef}>
-              <button type="button" onClick={() => setIsLangOpen(!isLangOpen)} className="flex items-center gap-2 text-xs font-semibold text-neutral-200 border border-neutral-800 bg-neutral-900/80 rounded-full h-9 sm:h-11 px-2.5 sm:px-4 transition-all cursor-pointer hover:border-neutral-700">
-                <div className="relative w-4 h-3">
+              <button type="button" onClick={() => setIsLangOpen(!isLangOpen)} className="flex items-center gap-1.5 sm:gap-2 text-xs font-semibold text-neutral-200 border border-neutral-800 bg-neutral-900/80 rounded-full h-9 sm:h-11 px-2.5 sm:px-4 transition-all cursor-pointer hover:border-neutral-700">
+                <div className="relative w-4 h-3 shrink-0">
                   <Image src={selectedLang.flag} alt={selectedLang.name} fill sizes="16px" className="object-cover rounded-sm" />
                 </div>
                 <span>{selectedLang.code}</span>
@@ -1120,7 +1118,7 @@ export default function Home() {
                       className={`w-full text-start px-3.5 py-2.5 rounded-xl text-xs font-semibold flex items-center justify-between cursor-pointer ${selectedLang.code === lang.code ? "bg-amber-400/10 text-amber-400" : "text-neutral-300 hover:bg-neutral-800/60"}`}
                     >
                       <div className="flex items-center gap-2.5">
-                        <div className="relative w-4 h-3">
+                        <div className="relative w-4 h-3 shrink-0">
                           <Image src={lang.flag} alt={lang.name} fill sizes="16px" className="object-cover rounded-sm" />
                         </div>
                         <span>{lang.name}</span>
@@ -1132,11 +1130,12 @@ export default function Home() {
               )}
             </div>
 
+            {/* HAMBURGER MENÜ BUTONU - HER EKRANDA AKTİF */}
             <button
               type="button"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label={t.ui?.toggleMobileMenu || "Toggle Mobile Menu"}
-              className="xl:hidden flex items-center justify-center w-9 h-9 rounded-full border border-neutral-800 bg-neutral-900/80 text-neutral-300 hover:text-amber-400 transition-colors cursor-pointer"
+              aria-label="Toggle Mobile Menu"
+              className="xl:hidden flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-neutral-800 bg-neutral-900/80 text-neutral-300 hover:text-amber-400 transition-colors cursor-pointer shrink-0"
             >
               {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -1147,13 +1146,14 @@ export default function Home() {
           </div>
         </div>
 
+        {/* MOBİL MENÜ ÇEKMECESİ */}
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="xl:hidden bg-neutral-950/98 border-b border-neutral-800/80 backdrop-blur-2xl px-6 py-6 overflow-hidden"
+              className="xl:hidden bg-neutral-950/98 border-b border-neutral-800/80 backdrop-blur-2xl px-6 py-6 overflow-hidden shadow-2xl"
             >
               <div className="flex flex-col space-y-4 text-sm font-semibold tracking-wider text-neutral-300">
                 {[
@@ -1163,7 +1163,7 @@ export default function Home() {
                   { href: "#twins", label: t.nav?.avatar },
                   { href: "#system", label: t.nav?.system },
                   { href: "#studio", label: t.nav?.theStudio },
-                  { href: "#transformation", label: t.nav?.transformation },
+                  { href: "__transformation", label: t.nav?.transformation },
                   { href: "#estimator", label: t.nav?.roi },
                   { href: "#insights", label: t.nav?.journal },
                   { href: "#faq", label: t.nav?.faq },
@@ -1181,18 +1181,17 @@ export default function Home() {
                         }, 120);
                       }
                     }}
-                    className="text-start hover:text-amber-400 py-1 border-b border-neutral-900 cursor-pointer"
+                    className="text-start hover:text-amber-400 py-2 border-b border-neutral-900 cursor-pointer transition-colors"
                   >
                     {item.label}
                   </button>
                 ))}
 
-                {/* Mobil Menü Instagram Köprüsü */}
                 <a
                   href="https://instagram.com/ai.vienne"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 py-2 border-b border-neutral-900 text-amber-300"
+                  className="flex items-center gap-2 py-2.5 border-b border-neutral-900 text-amber-300"
                 >
                   <InstagramIcon className="w-4 h-4" />
                   <span>Official Instagram (@ai.vienne)</span>
@@ -1210,7 +1209,7 @@ export default function Home() {
                       }, 120);
                     }
                   }}
-                  className="w-full py-3.5 rounded-full text-xs font-bold text-center tracking-widest text-neutral-950 bg-amber-400 hover:bg-amber-300 transition-all uppercase mt-2 cursor-pointer"
+                  className="w-full py-3.5 rounded-full text-xs font-bold text-center tracking-widest text-neutral-950 bg-amber-400 hover:bg-amber-300 transition-all uppercase mt-2 cursor-pointer shadow-lg"
                 >
                   {t.nav?.cta}
                 </button>
@@ -1241,7 +1240,7 @@ export default function Home() {
             <HeroDirectEmailAction label={t.ui?.directAccess || "Direct Access:"} />
           </div>
 
-          {/* ADIM 2 & 3: Hero Altı Doğrulanmış Instagram Hızlı İletişim Köprüsü (Çok Dilli Dinamik) */}
+          {/* ADIM 2 & 3: Hero Altı Doğrulanmış Instagram Hızlı İletişim Köprüsü */}
           <div className="mt-5 flex items-center justify-center">
             <a
               href="https://ig.me/m/ai.vienne"
@@ -2021,6 +2020,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ADIM 5: Kurucu & Stüdyo Güvenilirlik Entegrasyonu (LinkedIn Şirket Sayfası) */}
       <section id="studio" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50 bg-neutral-900/10">
         <div className="max-w-5xl mx-auto bg-neutral-900/50 border border-amber-500/30 p-6 sm:p-10 md:p-16 rounded-3xl backdrop-blur-md shadow-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-8 md:gap-12 text-start">
           <div className="space-y-6 max-w-2xl">
@@ -2042,15 +2042,17 @@ export default function Home() {
                 </div>
               </div>
 
+              {/* ADIM 5: Resmi LinkedIn Şirket Sayfası Entegrasyonu */}
               <div className="flex items-center gap-2">
                 <a 
-                  href="https://www.linkedin.com/company/aivienne" 
+                  href="https://www.linkedin.com/company/aivienne/" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="px-4 py-1.5 rounded-full bg-neutral-950 border border-neutral-800 text-xs text-neutral-300 hover:text-amber-300 hover:border-amber-400/40 transition-colors flex items-center gap-1.5"
+                  aria-label="AI.VIENNE Official LinkedIn Company Page"
+                  className="px-4 py-2 rounded-full bg-neutral-950 border border-neutral-800 text-xs text-neutral-300 hover:text-amber-300 hover:border-amber-400/60 transition-colors flex items-center gap-2 group cursor-pointer shadow-md"
                 >
-                  <svg className="w-3.5 h-3.5 shrink-0 fill-current text-amber-400" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                  <span>{t.ui?.linkedin || "LinkedIn Company Page"}</span>
+                  <svg className="w-3.5 h-3.5 shrink-0 fill-current text-amber-400 group-hover:scale-110 transition-transform" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                  <span>{t.ui?.linkedinCompany || "Official LinkedIn Company Page"}</span>
                 </a>
               </div>
             </div>
@@ -2150,7 +2152,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ADIM 4: PILOT KATMANI ENTEGRE EDİLMİŞ ESTIMATOR */}
       <section id="estimator" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50 bg-neutral-900/20">
         <div className="max-w-6xl mx-auto bg-neutral-900/60 border border-amber-500/30 p-6 sm:p-10 md:p-16 rounded-3xl backdrop-blur-md shadow-2xl text-start">
           <div className="flex items-center gap-4 mb-6">
@@ -2454,7 +2455,7 @@ export default function Home() {
             </button>
           </div>
 
-          {/* ADIM 2 & 3: B2B İletişim Öncesi Doğrulanmış Instagram DM Alternatifi (Çok Dilli Dinamik) */}
+          {/* ADIM 2 & 3: B2B İletişim Öncesi Doğrulanmış Instagram DM Alternatifi */}
           <div className="mb-8 p-4 rounded-2xl bg-neutral-900/40 border border-neutral-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-start">
             <div className="flex items-center gap-3">
               <div className="w-9 h-9 rounded-full bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 shrink-0">
@@ -2545,7 +2546,6 @@ export default function Home() {
               <div>
                 <label htmlFor="budget-select" className="block text-xs font-bold text-neutral-300 uppercase mb-3">{t.contact?.budgetLabel}</label>
                 <select id="budget-select" name="budgetSelect" value={formData.budget} onChange={(e) => setFormData({ ...formData, budget: e.target.value })} className="w-full bg-neutral-950/80 border border-neutral-800 focus:border-amber-400 rounded-2xl px-5 sm:px-6 py-3.5 sm:py-4 text-sm sm:text-base text-neutral-100 outline-none cursor-pointer">
-                  {/* ADIM 4: $2,500 Pilot bütçe seçeneği eklendi */}
                   <option value="bOpt0">{t.contact?.bOpt0 || "Pilot Concept Sprint: $2,500 – $3,500"}</option>
                   <option value="bOpt1">{t.contact?.bOpt1}</option> 
                   <option value="bOpt2">{t.contact?.bOpt2}</option> 
@@ -2682,7 +2682,7 @@ export default function Home() {
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.linkedin.com/company/aivienne" target="_blank" rel="noopener noreferrer" className="hover:opacity-75 flex items-center gap-2.5">
+                  <a href="https://www.linkedin.com/company/aivienne/" target="_blank" rel="noopener noreferrer" className="hover:opacity-75 flex items-center gap-2.5">
                     <svg className="w-4 h-4 shrink-0 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                     <span>{t.ui?.linkedin || "LinkedIn Company Page"}</span>
                   </a>
