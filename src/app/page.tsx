@@ -52,8 +52,32 @@ import {
   Menu,
   Copy,
   Check,
+  MessageCircle,
   type LucideIcon
 } from "lucide-react";
+
+// Resmi Doğrulanmış Rozet (Meta Verified Badge) Vektörel Bileşeni
+function VerifiedBadge({ className = "w-3.5 h-3.5" }: { className?: string }) {
+  return (
+    <svg
+      className={`${className} shrink-0 text-[#0095F6] inline-block`}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-label="Verified Official Account"
+    >
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.1 14.6l-3.8-3.8 1.4-1.4 2.4 2.4 5.9-5.9 1.4 1.4-7.3 7.3z" />
+    </svg>
+  );
+}
+
+// Instagram Vektörel İkonu (Lüks Monokrom)
+function InstagramIcon({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <svg className={`${className} shrink-0 fill-current`} viewBox="0 0 24 24">
+      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+    </svg>
+  );
+}
 
 // ADIM 1: Spam botlarına karşı parçalı yapılandırılmış, panoya kopyalama ve tek tıkla mailto protokolü sunan lüks e-posta bileşeni
 function HeroDirectEmailAction({ label = "Direct Access:" }: { label?: string }) {
@@ -1040,7 +1064,23 @@ export default function Home() {
             </a>
           </nav>
 
-          <div className="flex items-center gap-2.5 sm:gap-5 shrink-0">
+          <div className="flex items-center gap-2.5 sm:gap-4 shrink-0">
+            {/* ADIM 2: Header Mavi Tikli Doğrulanmış Instagram Köprüsü */}
+            <a
+              href="https://instagram.com/ai.vienne"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Official Verified Instagram @ai.vienne"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full border border-neutral-800 bg-neutral-900/80 hover:border-amber-400/60 hover:bg-neutral-900 transition-all group cursor-pointer"
+              title="Official Verified Instagram"
+            >
+              <InstagramIcon className="w-3.5 h-3.5 text-neutral-300 group-hover:text-amber-400 transition-colors" />
+              <span className="text-[11px] sm:text-xs font-mono font-medium text-neutral-200 group-hover:text-amber-300 transition-colors hidden md:inline">
+                @ai.vienne
+              </span>
+              <VerifiedBadge className="w-3.5 h-3.5" />
+            </a>
+
             <div className="relative" ref={langMenuRef}>
               <button type="button" onClick={() => setIsLangOpen(!isLangOpen)} className="flex items-center gap-2 text-xs font-semibold text-neutral-200 border border-neutral-800 bg-neutral-900/80 rounded-full h-9 sm:h-11 px-2.5 sm:px-4 transition-all cursor-pointer hover:border-neutral-700">
                 <div className="relative w-4 h-3">
@@ -1129,6 +1169,19 @@ export default function Home() {
                     {item.label}
                   </button>
                 ))}
+
+                {/* Mobil Menü Instagram Köprüsü */}
+                <a
+                  href="https://instagram.com/ai.vienne"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 py-2 border-b border-neutral-900 text-amber-300"
+                >
+                  <InstagramIcon className="w-4 h-4" />
+                  <span>Official Instagram (@ai.vienne)</span>
+                  <VerifiedBadge className="w-4 h-4" />
+                </a>
+
                 <button
                   type="button"
                   onClick={() => {
@@ -1169,6 +1222,20 @@ export default function Home() {
 
             {/* ADIM 1: Gelişmiş Hero E-posta ve Mikro Etkileşim Butonu */}
             <HeroDirectEmailAction label={t.ui?.directAccess || "Direct Access:"} />
+          </div>
+
+          {/* ADIM 2: Hero Altı Doğrulanmış Instagram Hızlı İletişim Köprüsü (GCC & VIP Brand Directors İçin) */}
+          <div className="mt-5 flex items-center justify-center">
+            <a
+              href="https://ig.me/m/ai.vienne"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-xs font-mono text-neutral-400 hover:text-amber-300 transition-colors py-1.5 px-3 rounded-full border border-neutral-800/80 bg-neutral-950/60 backdrop-blur-sm group"
+            >
+              <InstagramIcon className="w-3.5 h-3.5 text-neutral-400 group-hover:text-amber-400 transition-colors" />
+              <span>Direct Studio Inquiry via Verified Instagram (@ai.vienne)</span>
+              <VerifiedBadge className="w-3.5 h-3.5" />
+            </a>
           </div>
         </motion.div>
       </section>
@@ -1553,7 +1620,7 @@ export default function Home() {
                         deliverables: t.portfolioItems?.[item.deliverablesKey] || item.deliverablesKey,
                         productionNotes: t.portfolioItems?.[item.productionNotesKey] || item.productionNotesKey,
                       })}
-                      className="group relative rounded-2xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 p-3 sm:p-4 transition-all duration-300 ease-out hover:scale-[1.02] hover:z-20 hover:shadow-[0_10px_30px_rgba(251,191,36,0.12)] flex flex-col justify-between overflow-hidden cursor-pointer"
+                      className="group relative rounded-2xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 p-3 sm:p-4 transition-all duration-300 ease-out hover:scale-[1.02] hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.12)] flex flex-col justify-between overflow-hidden cursor-pointer"
                     >
                       <div className="relative aspect-[9/16] w-full rounded-xl bg-neutral-950 border border-neutral-800 flex items-center justify-center overflow-hidden mb-3.5 shadow-md mx-auto">
                         {item.type === "video" ? (
@@ -1912,7 +1979,7 @@ export default function Home() {
               { num: t.system?.s1Num, title: t.system?.s1Title, desc: t.system?.s1Detail, icon: Compass },
               { num: t.system?.s2Num, title: t.system?.s2Title, desc: t.system?.s2Detail, icon: Sliders },
               { num: t.system?.s3Num, title: t.system?.s3Title, desc: t.system?.s3Detail, icon: Cpu },
-              { num: t.system?.s4Num, title: t.system?.s4Title, desc: t.system?.s4Detail, icon: Sparkles },
+              { num: t.system?.s4Num, title: t.system?.s4Detail, icon: Sparkles },
               { num: t.system?.s5Num, title: t.system?.s5Title, desc: t.system?.s5Detail, icon: CheckSquare }
             ].map((step, idx) => (
               <div 
@@ -2344,6 +2411,33 @@ export default function Home() {
             </button>
           </div>
 
+          {/* ADIM 2: B2B İletişim Öncesi Doğrulanmış Instagram DM Alternatifi */}
+          <div className="mb-8 p-4 rounded-2xl bg-neutral-900/40 border border-neutral-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-start">
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 rounded-full bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 shrink-0">
+                <MessageCircle className="w-4 h-4" />
+              </div>
+              <div>
+                <p className="text-xs sm:text-sm font-semibold text-neutral-200 flex items-center gap-1.5">
+                  <span>Fast-Track Direct Inquiry via Verified Instagram</span>
+                  <VerifiedBadge className="w-3.5 h-3.5" />
+                </p>
+                <p className="text-[11px] text-neutral-400 font-light">
+                  Direct message channel prioritized for executive brand teams & creative directors.
+                </p>
+              </div>
+            </div>
+            <a
+              href="https://ig.me/m/ai.vienne"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-5 py-2 rounded-full bg-neutral-950 border border-amber-500/40 text-amber-300 hover:bg-amber-400 hover:text-neutral-950 text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 shrink-0 cursor-pointer"
+            >
+              <InstagramIcon className="w-3.5 h-3.5" />
+              <span>Open DM (@ai.vienne)</span>
+            </a>
+          </div>
+
           <form onSubmit={handleFormSubmit} className="space-y-6 sm:space-y-8 bg-neutral-900/30 border border-neutral-800 p-6 sm:p-10 md:p-14 rounded-3xl backdrop-blur-sm shadow-2xl text-start">
             {formStatus?.success && (
               <div className="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs sm:text-sm font-medium">
@@ -2537,8 +2631,9 @@ export default function Home() {
               <ul className="space-y-3 sm:space-y-4 text-sm sm:text-base font-semibold">
                 <li>
                   <a href="https://instagram.com/ai.vienne" target="_blank" rel="noopener noreferrer" className="hover:opacity-75 flex items-center gap-2.5">
-                    <svg className="w-4 h-4 shrink-0 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    <InstagramIcon className="w-4 h-4 shrink-0" />
                     <span>{t.ui?.instagram || "Instagram"}</span>
+                    <VerifiedBadge className="w-3.5 h-3.5" />
                   </a>
                 </li>
                 <li>
