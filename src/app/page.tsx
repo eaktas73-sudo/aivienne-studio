@@ -79,7 +79,7 @@ function InstagramIcon({ className = "w-4 h-4" }: { className?: string }) {
   );
 }
 
-// ADIM 1: Spam botlarına karşı parçalı yapılandırılmış, panoya kopyalama ve tek tıkla mailto protokolü sunan lüks e-posta bileşeni
+// ADIM 1: Hero E-posta ve Mikro Etkileşim Bileşeni
 function HeroDirectEmailAction({ label = "Direct Access:" }: { label?: string }) {
   const [copied, setCopied] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -206,7 +206,7 @@ const PORTFOLIO_ITEMS: CaseStudyItem[] = [
     category: "jewelry", 
     aspect: "16:9",
     type: "video", 
-    badge: "16:9 CINEMATIC STUDY", 
+    badge: "16:9 COMMISSION DIRECTIVE", 
     icon: Gem, 
     poster: "/vienne-portrait.jpg",
     videoUrl: "/obsidian-necklace.mp4", 
@@ -226,7 +226,7 @@ const PORTFOLIO_ITEMS: CaseStudyItem[] = [
     category: "fashion", 
     aspect: "9:16",
     type: "video", 
-    badge: "9:16 VERTICAL MOTION", 
+    badge: "9:16 RUNWAY DIRECTIVE", 
     icon: Sparkle, 
     poster: "/traditional-raw.jpg",
     videoUrl: "/2.mp4", 
@@ -246,7 +246,7 @@ const PORTFOLIO_ITEMS: CaseStudyItem[] = [
     category: "watch", 
     aspect: "16:9",
     type: "video", 
-    badge: "16:9 HOROLOGY STUDY", 
+    badge: "16:9 PRECISION DIRECTIVE", 
     icon: Watch, 
     poster: "/vienne-portrait.jpg",
     videoUrl: "/aurelia-campaign-loop.mp4", 
@@ -266,7 +266,7 @@ const PORTFOLIO_ITEMS: CaseStudyItem[] = [
     category: "eyewear", 
     aspect: "9:16",
     type: "video", 
-    badge: "9:16 EDITORIAL POSTER", 
+    badge: "9:16 CAMPAIGN DIRECTIVE", 
     icon: Glasses, 
     poster: "/traditional-raw.jpg",
     videoUrl: "/titanium-eyewear.mp4", 
@@ -286,7 +286,7 @@ const PORTFOLIO_ITEMS: CaseStudyItem[] = [
     category: "perfume", 
     aspect: "16:9",
     type: "video", 
-    badge: "16:9 MACRO STUDY", 
+    badge: "16:9 PRODUCT DIRECTIVE", 
     icon: Sparkles, 
     poster: "/vienne-portrait.jpg",
     videoUrl: "/crystal-perfume.mp4", 
@@ -306,7 +306,7 @@ const PORTFOLIO_ITEMS: CaseStudyItem[] = [
     category: "jewelry", 
     aspect: "9:16",
     type: "video", 
-    badge: "9:16 HIGH JEWELRY", 
+    badge: "9:16 SOLITAIRE DIRECTIVE", 
     icon: Gem, 
     poster: "/traditional-raw.jpg",
     videoUrl: "/emerald-ring.mp4", 
@@ -326,7 +326,7 @@ const PORTFOLIO_ITEMS: CaseStudyItem[] = [
     category: "watch", 
     aspect: "16:9",
     type: "video", 
-    badge: "9:16 TIMEPIECE MASTER", 
+    badge: "16:9 COMPLICATION DIRECTIVE", 
     icon: Watch, 
     poster: "/vienne-portrait.jpg",
     videoUrl: "/watch-promo.mp4", 
@@ -346,7 +346,7 @@ const PORTFOLIO_ITEMS: CaseStudyItem[] = [
     category: "jewelry", 
     aspect: "9:16",
     type: "video", 
-    badge: "9:16 HIGH JEWELRY", 
+    badge: "9:16 HIGH JEWELRY DIRECTIVE", 
     icon: Gem, 
     poster: "/traditional-raw.jpg",
     videoUrl: "/jewelry-reel.mp4", 
@@ -396,7 +396,8 @@ export default function Home() {
   const [isStudioOpen, setIsStudioOpen] = useState(false);
   const studioMenuRef = useRef<HTMLDivElement | null>(null);
 
-  const [estType, setEstType] = useState<"still" | "motion" | "char" | "full">("still");
+  // ADIM 4: "pilot" seçeneği eklendi
+  const [estType, setEstType] = useState<"pilot" | "still" | "motion" | "char" | "full">("pilot");
   const [estVolume, setEstVolume] = useState<"vol1" | "vol2" | "vol3" | "vol4">("vol1");
   const [estComplexity, setEstComplexity] = useState<"std" | "prem" | "camp">("std");
   const [estTimeline, setEstTimeline] = useState<"std" | "exp">("std");
@@ -432,7 +433,7 @@ export default function Home() {
     website: "",
     launchDate: "",
     service: "sOpt1",
-    budget: "bOpt1",
+    budget: "bOpt0", // Pilot için varsayılan
     requireNDA: true,
     priorityTrack: false,
     message: "",
@@ -639,38 +640,45 @@ export default function Home() {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
+  // ADIM 4: Pilot sprint bütçe haritalaması güncellendi
   const applyEstimateToForm = () => {
     const rangeStr = calculateEstimate();
     
-    let mappedService = "sOpt7"; 
+    let mappedService = "sOpt1"; 
     if (estType === "still") mappedService = "sOpt1"; 
     if (estType === "motion") mappedService = "sOpt4"; 
     if (estType === "char") mappedService = "sOpt3"; 
+    if (estType === "full") mappedService = "sOpt7";
     
-    let base = 5000;
-    if (estType === "motion") base = 7500;
-    if (estType === "char") base = 9000;
-    if (estType === "full") base = 15000;
-    let multiplier = 1;
-    if (estVolume === "vol2") multiplier = 2.0;
-    if (estVolume === "vol3") multiplier = 3.5;
-    if (estVolume === "vol4") multiplier = 7.0;
-    let compMultiplier = 1;
-    if (estComplexity === "prem") compMultiplier = 1.35;
-    if (estComplexity === "camp") compMultiplier = 1.8;
-    let timelineMultiplier = 1;
-    if (estTimeline === "exp") timelineMultiplier = 1.25;
-    const lowEstimate = Math.round(base * multiplier * compMultiplier * timelineMultiplier);
-
     let mappedBudget = "bOpt1";
-    if (lowEstimate >= 15000) mappedBudget = "bOpt3"; 
-    else if (lowEstimate > 5000) mappedBudget = "bOpt2"; 
+    if (estType === "pilot") {
+      mappedBudget = "bOpt0";
+    } else {
+      let base = 5000;
+      if (estType === "motion") base = 7500;
+      if (estType === "char") base = 9000;
+      if (estType === "full") base = 15000;
+      let multiplier = 1;
+      if (estVolume === "vol2") multiplier = 2.0;
+      if (estVolume === "vol3") multiplier = 3.5;
+      if (estVolume === "vol4") multiplier = 7.0;
+      let compMultiplier = 1;
+      if (estComplexity === "prem") compMultiplier = 1.35;
+      if (estComplexity === "camp") compMultiplier = 1.8;
+      let timelineMultiplier = 1;
+      if (estTimeline === "exp") timelineMultiplier = 1.25;
+      const lowEstimate = Math.round(base * multiplier * compMultiplier * timelineMultiplier);
+
+      if (lowEstimate >= 15000) mappedBudget = "bOpt3"; 
+      else if (lowEstimate > 5000) mappedBudget = "bOpt2"; 
+      else mappedBudget = "bOpt1";
+    }
 
     setFormData(prev => ({
       ...prev,
       service: mappedService,
       budget: mappedBudget,
-      message: `[PROJECT ESTIMATE REQUEST]\n----------------------------------------\n• Calculated Range: ${rangeStr}\n• Deliverable Type: ${estType}\n• Asset Volume: ${estVolume}\n• Complexity Grade: ${estComplexity}\n• Schedule Priority: ${estTimeline}\n----------------------------------------\nPlease review these estimated parameters and provide an official proposal.`
+      message: `[PROJECT ESTIMATE REQUEST]\n----------------------------------------\n• Calculated Range: ${rangeStr}\n• Deliverable Type: ${estType === "pilot" ? "Pilot Concept Sprint (1 Hero Master)" : estType}\n• Asset Volume: ${estType === "pilot" ? "1 Hero Asset" : estVolume}\n• Complexity Grade: ${estComplexity}\n• Schedule Priority: ${estTimeline}\n----------------------------------------\nPlease review these estimated parameters and provide an official proposal.`
     }));
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -684,7 +692,16 @@ export default function Home() {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
+  // ADIM 4: $2,500 – $3,500 Pilot Sprint hesaplama mantığı
   const calculateEstimate = () => {
+    if (estType === "pilot") {
+      let pilotBase = 2500;
+      let timelineMultiplier = estTimeline === "exp" ? 1.2 : 1;
+      let low = Math.round(pilotBase * timelineMultiplier);
+      let high = Math.round(3500 * timelineMultiplier);
+      return `$${low.toLocaleString()} – $${high.toLocaleString()}`;
+    }
+
     let base = 5000;
     if (estType === "motion") base = 7500;
     if (estType === "char") base = 9000;
@@ -1224,16 +1241,16 @@ export default function Home() {
             <HeroDirectEmailAction label={t.ui?.directAccess || "Direct Access:"} />
           </div>
 
-          {/* ADIM 2: Hero Altı Doğrulanmış Instagram Hızlı İletişim Köprüsü (GCC & VIP Brand Directors İçin) */}
+          {/* ADIM 2 & 3: Hero Altı Doğrulanmış Instagram Hızlı İletişim Köprüsü (Çok Dilli Dinamik) */}
           <div className="mt-5 flex items-center justify-center">
             <a
               href="https://ig.me/m/ai.vienne"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-xs font-mono text-neutral-400 hover:text-amber-300 transition-colors py-1.5 px-3 rounded-full border border-neutral-800/80 bg-neutral-950/60 backdrop-blur-sm group"
+              className="inline-flex items-center gap-2 text-xs font-mono text-neutral-400 hover:text-amber-300 transition-colors py-1.5 px-3.5 rounded-full border border-neutral-800/80 bg-neutral-950/60 backdrop-blur-sm group"
             >
               <InstagramIcon className="w-3.5 h-3.5 text-neutral-400 group-hover:text-amber-400 transition-colors" />
-              <span>Direct Studio Inquiry via Verified Instagram (@ai.vienne)</span>
+              <span>{t.ui?.directInstagramInquiry || "Direct Studio Inquiry via Verified Instagram (@ai.vienne)"}</span>
               <VerifiedBadge className="w-3.5 h-3.5" />
             </a>
           </div>
@@ -2133,6 +2150,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ADIM 4: PILOT KATMANI ENTEGRE EDİLMİŞ ESTIMATOR */}
       <section id="estimator" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50 bg-neutral-900/20">
         <div className="max-w-6xl mx-auto bg-neutral-900/60 border border-amber-500/30 p-6 sm:p-10 md:p-16 rounded-3xl backdrop-blur-md shadow-2xl text-start">
           <div className="flex items-center gap-4 mb-6">
@@ -2145,14 +2163,29 @@ export default function Home() {
             <div className="space-y-5 text-start">
               <div>
                 <label className="block text-xs font-bold text-neutral-300 uppercase mb-2.5">{t.estimator?.deliverableType}</label>
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {[
+                    { id: "pilot", label: t.estimator?.optPilot || "Pilot Concept Sprint (1 Hero Master)" },
                     { id: "still", label: t.estimator?.optStill },
                     { id: "motion", label: t.estimator?.optMotion },
                     { id: "char", label: t.estimator?.optChar },
                     { id: "full", label: t.estimator?.optFull }
                   ].map((item) => (
-                    <button key={item.id} type="button" onClick={() => setEstType(item.id as "still" | "motion" | "char" | "full")} className={`p-3 rounded-2xl border text-xs font-semibold text-start transition-all cursor-pointer ${estType === item.id ? "bg-amber-400/10 border-amber-400 text-amber-300" : "bg-neutral-950/60 border-neutral-800 text-neutral-300"}`}>
+                    <button 
+                      key={item.id} 
+                      type="button" 
+                      onClick={() => {
+                        setEstType(item.id as "pilot" | "still" | "motion" | "char" | "full");
+                        if (item.id === "pilot") {
+                          setEstVolume("vol1");
+                        }
+                      }} 
+                      className={`p-3 rounded-2xl border text-xs font-semibold text-start transition-all cursor-pointer ${
+                        estType === item.id 
+                          ? "bg-amber-400/15 border-amber-400 text-amber-300 shadow-[0_0_15px_rgba(251,191,36,0.15)]" 
+                          : "bg-neutral-950/60 border-neutral-800 text-neutral-300 hover:border-neutral-700"
+                      }`}
+                    >
                       {item.label}
                     </button>
                   ))}
@@ -2168,7 +2201,17 @@ export default function Home() {
                     { id: "vol3", label: t.estimator?.vol3 },
                     { id: "vol4", label: t.estimator?.vol4 }
                   ].map((item) => (
-                    <button key={item.id} type="button" onClick={() => setEstVolume(item.id as "vol1" | "vol2" | "vol3" | "vol4")} className={`p-2.5 rounded-xl border text-xs font-semibold text-center transition-all cursor-pointer ${estVolume === item.id ? "bg-amber-400/10 border-amber-400 text-amber-300" : "bg-neutral-950/60 border-neutral-800 text-neutral-300"}`}>
+                    <button 
+                      key={item.id} 
+                      type="button" 
+                      disabled={estType === "pilot" && item.id !== "vol1"}
+                      onClick={() => setEstVolume(item.id as "vol1" | "vol2" | "vol3" | "vol4")} 
+                      className={`p-2.5 rounded-xl border text-xs font-semibold text-center transition-all cursor-pointer ${
+                        estVolume === item.id 
+                          ? "bg-amber-400/10 border-amber-400 text-amber-300" 
+                          : "bg-neutral-950/60 border-neutral-800 text-neutral-300"
+                      } ${estType === "pilot" && item.id !== "vol1" ? "opacity-30 cursor-not-allowed" : ""}`}
+                    >
                       {item.label}
                     </button>
                   ))}
@@ -2351,7 +2394,7 @@ export default function Home() {
             <div>
               <label className="block text-xs font-bold text-amber-400 uppercase mb-3">{t.briefSection?.s1}</label>
               <div className="space-y-2">
-                {[t.briefOptions?.lighting1 || "Dramatic Studio Gold", t.briefOptions?.lighting2 || "Natural Parisian Sunlight", t.briefOptions?.lighting3 || "Surreal Cyber Neon Caustics"].map((opt) => (
+                {[t.briefOptions?.lighting1 || "Dramatic Studio Gold", t.briefOptions?.lighting2 || "Natural Parisian Sunlight", t.briefOptions?.lighting3 || "Surreal Cyber Neon Lighting"].map((opt) => (
                   <button key={opt} type="button" onClick={() => setBriefLighting(opt)} className={`w-full text-start p-3 sm:p-3.5 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${briefLighting === opt ? "bg-amber-400 text-neutral-950 border-amber-400" : "bg-neutral-950 border-neutral-800 text-neutral-300"}`}>{opt}</button>
                 ))}
               </div>
@@ -2411,7 +2454,7 @@ export default function Home() {
             </button>
           </div>
 
-          {/* ADIM 2: B2B İletişim Öncesi Doğrulanmış Instagram DM Alternatifi */}
+          {/* ADIM 2 & 3: B2B İletişim Öncesi Doğrulanmış Instagram DM Alternatifi (Çok Dilli Dinamik) */}
           <div className="mb-8 p-4 rounded-2xl bg-neutral-900/40 border border-neutral-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-start">
             <div className="flex items-center gap-3">
               <div className="w-9 h-9 rounded-full bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 shrink-0">
@@ -2419,11 +2462,11 @@ export default function Home() {
               </div>
               <div>
                 <p className="text-xs sm:text-sm font-semibold text-neutral-200 flex items-center gap-1.5">
-                  <span>Fast-Track Direct Inquiry via Verified Instagram</span>
+                  <span>{t.ui?.fastTrackInstagramTitle || "Fast-Track Direct Inquiry via Verified Instagram"}</span>
                   <VerifiedBadge className="w-3.5 h-3.5" />
                 </p>
                 <p className="text-[11px] text-neutral-400 font-light">
-                  Direct message channel prioritized for executive brand teams & creative directors.
+                  {t.ui?.fastTrackInstagramDesc || "Direct message channel prioritized for executive brand teams & creative directors."}
                 </p>
               </div>
             </div>
@@ -2434,7 +2477,7 @@ export default function Home() {
               className="px-5 py-2 rounded-full bg-neutral-950 border border-amber-500/40 text-amber-300 hover:bg-amber-400 hover:text-neutral-950 text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 shrink-0 cursor-pointer"
             >
               <InstagramIcon className="w-3.5 h-3.5" />
-              <span>Open DM (@ai.vienne)</span>
+              <span>{t.ui?.openDm || "Open DM (@ai.vienne)"}</span>
             </a>
           </div>
 
@@ -2502,6 +2545,8 @@ export default function Home() {
               <div>
                 <label htmlFor="budget-select" className="block text-xs font-bold text-neutral-300 uppercase mb-3">{t.contact?.budgetLabel}</label>
                 <select id="budget-select" name="budgetSelect" value={formData.budget} onChange={(e) => setFormData({ ...formData, budget: e.target.value })} className="w-full bg-neutral-950/80 border border-neutral-800 focus:border-amber-400 rounded-2xl px-5 sm:px-6 py-3.5 sm:py-4 text-sm sm:text-base text-neutral-100 outline-none cursor-pointer">
+                  {/* ADIM 4: $2,500 Pilot bütçe seçeneği eklendi */}
+                  <option value="bOpt0">{t.contact?.bOpt0 || "Pilot Concept Sprint: $2,500 – $3,500"}</option>
                   <option value="bOpt1">{t.contact?.bOpt1}</option> 
                   <option value="bOpt2">{t.contact?.bOpt2}</option> 
                   <option value="bOpt3">{t.contact?.bOpt3}</option> 
