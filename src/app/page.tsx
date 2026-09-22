@@ -50,46 +50,92 @@ import {
   Volume2,
   VolumeX,
   Menu,
+  Copy,
+  Check,
   type LucideIcon
 } from "lucide-react";
 
-// Gelişmiş Base64 ve Etkileşimli Şifreli E-Posta Bileşeni (Botlara ve Scraping'e Karşı Tam Güvenli)
-function SafeEmailLink({ className = "" }: { className?: string }) {
-  const encodedEmail = "aW5mb0BhaXZpZW5uZS5jb20="; // "info@aivienne.com" Base64
-  const [revealed, setRevealed] = useState(false);
-  const [decodedEmail, setDecodedEmail] = useState("info [at] aivienne.com");
+// ADIM 1: Spam botlarına karşı parçalı yapılandırılmış, panoya kopyalama ve tek tıkla mailto protokolü sunan lüks e-posta bileşeni
+function HeroDirectEmailAction({ label = "Direct Access:" }: { label?: string }) {
+  const [copied, setCopied] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
-  const handleReveal = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (!revealed) {
-      e.preventDefault();
-      try {
-        const actualEmail = atob(encodedEmail);
-        setDecodedEmail(actualEmail);
-        setRevealed(true);
-        window.location.href = `mailto:${actualEmail}`;
-      } catch {
-        window.location.href = "mailto:info@aivienne.com";
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const user = "info";
+  const domain = "aivienne.com";
+  const emailAddress = `${user}@${domain}`;
+
+  const handleCopy = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    try {
+      if (typeof navigator !== "undefined" && navigator.clipboard) {
+        await navigator.clipboard.writeText(emailAddress);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2400);
       }
+    } catch {
+      setCopied(false);
     }
   };
 
   return (
+    <div className="w-full sm:w-auto inline-flex items-center justify-between sm:justify-start gap-2.5 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full text-xs sm:text-base font-bold tracking-wide text-neutral-200 border border-neutral-800 bg-neutral-900/50 backdrop-blur-md shadow-lg transition-all duration-300 hover:border-amber-400/50 hover:bg-neutral-900/80 group">
+      <a
+        href={mounted ? `mailto:${emailAddress}` : "#"}
+        aria-label={`Send inquiry to ${emailAddress}`}
+        className="inline-flex items-center gap-2.5 text-neutral-200 hover:text-amber-300 transition-colors focus:outline-none"
+      >
+        <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 shrink-0 group-hover:scale-110 transition-transform duration-300" />
+        <span className="text-neutral-300 font-medium">{label}</span>
+        <span className="font-mono text-amber-400 underline underline-offset-4 tracking-normal">
+          {user}
+          <span className="inline">@</span>
+          {domain}
+        </span>
+      </a>
+
+      <div className="h-4 w-[1px] bg-neutral-800 mx-1 hidden sm:block" />
+
+      <button
+        type="button"
+        onClick={handleCopy}
+        aria-label={copied ? "Email copied to clipboard" : "Copy email address"}
+        className="p-1.5 rounded-full text-neutral-400 hover:text-amber-300 hover:bg-neutral-800/80 transition-all cursor-pointer focus:outline-none"
+        title="Copy email address"
+      >
+        {copied ? (
+          <Check className="w-3.5 h-3.5 text-emerald-400 stroke-[2.5]" />
+        ) : (
+          <Copy className="w-3.5 h-3.5 group-hover:text-amber-400" />
+        )}
+      </button>
+    </div>
+  );
+}
+
+// Genel SafeEmailLink bileşeni
+function SafeEmailLink({ className = "" }: { className?: string }) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const user = "info";
+  const domain = "aivienne.com";
+  const emailAddress = `${user}@${domain}`;
+
+  return (
     <a 
-      href="mailto:info@aivienne.com" 
-      onClick={handleReveal}
-      onMouseEnter={() => {
-        if (!revealed) {
-          try {
-            setDecodedEmail(atob(encodedEmail));
-            setRevealed(true);
-          } catch {
-            // Hata yutulur
-          }
-        }
-      }}
+      href={mounted ? `mailto:${emailAddress}` : "#"}
       className={className}
+      aria-label={`Send email to ${emailAddress}`}
     >
-      {decodedEmail}
+      {user}@{domain}
     </a>
   );
 }
@@ -335,7 +381,17 @@ export default function Home() {
   const [mousePos, setMousePos] = useState({ x: -100, y: -100 });
   
   const [activeArticle, setActiveArticle] = useState<ArticleItem | null>(null);
-  const [activeCaseStudy, setActiveCaseStudy] = useState<any | null>(null);
+  const [activeCaseStudy, setActiveCaseStudy] = useState<(CaseStudyItem & {
+    title: string;
+    discipline: string;
+    desc: string;
+    brief: string;
+    direction: string;
+    production: string;
+    materialStudy: string;
+    deliverables: string;
+    productionNotes: string;
+  }) | null>(null);
 
   const [isVideoMuted, setIsVideoMuted] = useState<boolean>(true);
   const twinVideoRef = useRef<HTMLVideoElement | null>(null);
@@ -1111,10 +1167,8 @@ export default function Home() {
               {t.hero?.btnPrimary} <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </a>
 
-            <div className="w-full sm:w-auto px-6 sm:px-10 py-3.5 sm:py-4 rounded-full text-xs sm:text-base font-bold tracking-wide text-neutral-200 border border-neutral-800 bg-neutral-900/50 flex items-center justify-center gap-2.5">
-              <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400" /> 
-              <span>{t.ui?.directAccess || "Direct Access:"}</span> <SafeEmailLink className="text-amber-400 underline underline-offset-4" />
-            </div>
+            {/* ADIM 1: Gelişmiş Hero E-posta ve Mikro Etkileşim Butonu */}
+            <HeroDirectEmailAction label={t.ui?.directAccess || "Direct Access:"} />
           </div>
         </motion.div>
       </section>

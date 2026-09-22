@@ -15,7 +15,6 @@ import {
   X,
   Send,
   ArrowUp,
-  FileText,
   ShieldCheck,
   Glasses,
   Sparkle,
@@ -48,14 +47,91 @@ import {
   BookOpen,
   Volume2,
   VolumeX,
+  Copy,
+  Check,
   LucideIcon
 } from "lucide-react";
 
-// Güvenli e-posta bileşeni
-function SafeEmailLink({ className = "" }: { className?: string }) {
+// Adım 1: Spam botlarına karşı parçalı yapılandırılmış, panoya kopyalama ve tek tıkla mailto protokolü sunan lüks e-posta bileşeni
+function HeroDirectEmailAction({ label = "Direct Access:" }: { label?: string }) {
+  const [copied, setCopied] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const user = "info";
+  const domain = "aivienne.com";
+  const emailAddress = `${user}@${domain}`;
+
+  const handleCopy = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    try {
+      if (typeof navigator !== "undefined" && navigator.clipboard) {
+        await navigator.clipboard.writeText(emailAddress);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2400);
+      }
+    } catch {
+      setCopied(false);
+    }
+  };
+
   return (
-    <a href="mailto:info@aivienne.com" className={className}>
-      info@aivienne.com
+    <div className="w-full sm:w-auto inline-flex items-center justify-between sm:justify-start gap-2.5 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-semibold tracking-wide text-neutral-200 border border-neutral-800 bg-neutral-900/60 backdrop-blur-md shadow-lg transition-all duration-300 hover:border-amber-400/50 hover:bg-neutral-900/90 group">
+      <a
+        href={mounted ? `mailto:${emailAddress}` : "#"}
+        aria-label={`Send inquiry to ${emailAddress}`}
+        className="inline-flex items-center gap-2.5 text-neutral-200 hover:text-amber-300 transition-colors focus:outline-none"
+      >
+        <Mail className="w-4 h-4 text-amber-400 shrink-0 group-hover:scale-110 transition-transform duration-300" />
+        <span className="text-neutral-400 font-light">{label}</span>
+        <span className="font-mono text-amber-300 underline underline-offset-4 tracking-normal">
+          {user}
+          <span className="inline">@</span>
+          {domain}
+        </span>
+      </a>
+
+      <div className="h-4 w-[1px] bg-neutral-800 mx-1 hidden sm:block" />
+
+      <button
+        type="button"
+        onClick={handleCopy}
+        aria-label={copied ? "Email copied to clipboard" : "Copy email address"}
+        className="p-1.5 rounded-full text-neutral-400 hover:text-amber-300 hover:bg-neutral-800/80 transition-all cursor-pointer focus:outline-none"
+        title="Copy email address"
+      >
+        {copied ? (
+          <Check className="w-3.5 h-3.5 text-emerald-400 stroke-[2.5]" />
+        ) : (
+          <Copy className="w-3.5 h-3.5 group-hover:text-amber-400" />
+        )}
+      </button>
+    </div>
+  );
+}
+
+function SafeEmailLink({ className = "" }: { className?: string }) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const user = "info";
+  const domain = "aivienne.com";
+  const fullAddress = `${user}@${domain}`;
+
+  return (
+    <a
+      href={mounted ? `mailto:${fullAddress}` : "#"}
+      className={className}
+      aria-label={`Send email to ${fullAddress}`}
+    >
+      {user}@{domain}
     </a>
   );
 }
@@ -87,7 +163,7 @@ interface TranslationContent {
 const TRANSLATIONS: Record<string, TranslationContent> = {
   EN: {
     nav: { portfolio: "Concept Archive", capabilities: "Capabilities", services: "Services", avatar: "Digital Characters", studio: "Studio", system: "Process", theStudio: "The Studio", transformation: "Refinement", roi: "Production Economics", journal: "Insights", contact: "Inquire", cta: "START A PROJECT" },
-    hero: { badge: "AI-Native Luxury Visual Production House", titleStart: "Elevating High Fashion, Fine Jewelry & Horlogerie Through", titleGradient: "Neural Craftsmanship", desc: "AI-assisted campaign imagery, cinematic motion, luxury product visualization and consistent digital characters — directed for brands that demand precision.", btnPrimary: "Explore Concept Archive", btnSecondary: "Direct Access: info@aivienne.com" },
+    hero: { badge: "AI-Native Luxury Visual Production House", titleStart: "Elevating High Fashion, Fine Jewelry & Horlogerie Through", titleGradient: "Neural Craftsmanship", desc: "AI-assisted campaign imagery, cinematic motion, luxury product visualization and consistent digital characters — directed for brands that demand precision.", btnPrimary: "Explore Concept Archive", directAccessLabel: "Direct Access:" },
     manifesto: { sub: "OUR CREATIVE CODEX", line1: "We do not adapt to fleeting digital trends.", line2: "WE ARCHITECT TIMELESS LUXURY UNIVERSES." },
     servicesPillars: {
       tag: "CORE PRODUCTION DISCIPLINES",
@@ -302,7 +378,7 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
   },
   TR: {
     nav: { portfolio: "Konsept Arşivi", capabilities: "Yetkinlikler", services: "Hizmetler", avatar: "Dijital Karakterler", studio: "Stüdyo", system: "Süreç", theStudio: "Stüdyomuz", transformation: "Dönüşüm", roi: "Üretim Ekonomisi", journal: "İçgörüler", contact: "Talep", cta: "PROJE BAŞLAT" },
-    hero: { badge: "Yapay Zeka Destekli Lüks Görsel Prodüksiyon Evi", titleStart: "Yüksek Moda, Mücevher ve Saatçilikte", titleGradient: "Neural Zanaatkarlık", desc: "Hassasiyet ve mükemmellik talep eden markalar için yapay zeka destekli kampanya görselleri, sinematik videolar, lüks ürün görselleştirmeleri ve tutarlı dijital karakterler.", btnPrimary: "Konsept Arşivini İncele", btnSecondary: "Doğrudan İletişim: info@aivienne.com" },
+    hero: { badge: "Yapay Zeka Destekli Lüks Görsel Prodüksiyon Evi", titleStart: "Yüksek Moda, Mücevher ve Saatçilikte", titleGradient: "Neural Zanaatkarlık", desc: "Hassasiyet ve mükemmellik talep eden markalar için yapay zeka destekli kampanya görselleri, sinematik videolar, lüks ürün görselleştirmeleri ve tutarlı dijital karakterler.", btnPrimary: "Konsept Arşivini İncele", directAccessLabel: "Doğrudan İletişim:" },
     manifesto: { sub: "KREATİF KODUMUZ", line1: "Geçici dijital trendlere uyum sağlamıyoruz.", line2: "ZAMANSIZ LÜKS EVRENLER İNŞA EDİYORUZ." },
     servicesPillars: {
       tag: "TEMEL PRODÜKSİYON DİSİPLİNLERİ",
@@ -1346,10 +1422,9 @@ export default function ClientHome() {
             <a href="#portfolio" className="w-full sm:w-auto px-8 sm:px-10 py-4 rounded-full text-sm sm:text-base font-bold tracking-wide text-neutral-950 bg-amber-400 hover:bg-amber-300 transition-all flex items-center justify-center gap-3 shadow-[0_0_40px_rgba(251,191,36,0.3)]">
               {t.hero?.btnPrimary} <ArrowRight className="w-5 h-5" />
             </a>
-            <div className="w-full sm:w-auto px-8 sm:px-10 py-4 rounded-full text-sm sm:text-base font-bold tracking-wide text-neutral-200 border border-neutral-800 bg-neutral-900/50 flex items-center justify-center gap-3">
-              <Mail className="w-5 h-5 text-amber-400" /> 
-              <span>Direct Access:</span> <SafeEmailLink className="text-amber-400 underline underline-offset-4" />
-            </div>
+            
+            {/* ADIM 1: Yenilenmiş E-posta ve Mikro Etkileşim Aksiyonu */}
+            <HeroDirectEmailAction label={t.hero?.directAccessLabel || "Direct Access:"} />
           </div>
         </motion.div>
       </section>
