@@ -409,7 +409,8 @@ export const trTranslation: TranslationContent = {
     "directInstagramInquiry": "Doğrulanmış Instagram Üzerinden Hızlı İletişim (@ai.vienne)",
     "fastTrackInstagramTitle": "Doğrulanmış Instagram ile Hızlı Brief İletişimi",
     "fastTrackInstagramDesc": "Yönetici marka ekipleri ve kreatif direktörler için öncelikli doğrudan mesaj kanalı.",
-    "openDm": "DM Gönder (@ai.vienne)"
+    "openDm": "DM Gönder (@ai.vienne)",
+    "bookDiscovery": "10 Dk. Keşif Randevusu"
   },
   "briefOptions": {
     "lighting1": "Dramatik Stüdyo Altını",

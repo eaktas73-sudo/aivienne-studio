@@ -409,7 +409,8 @@ export const arTranslation: TranslationContent = {
     "directInstagramInquiry": "استفسار مباشر عبر إنستغرام الموثق (@ai.vienne)",
     "fastTrackInstagramTitle": "استفسار سريع ومباشر عبر إنستغرام الموثق",
     "fastTrackInstagramDesc": "قناة مراسلة مباشرة مخصصة لفرق إدارة العلامات التجارية والمديرين الإبداعيين.",
-    "openDm": "إرسال رسالة مباشرة (@ai.vienne)"
+    "openDm": "إرسال رسالة مباشرة (@ai.vienne)",
+    "bookDiscovery": "حجز استكشاف 10 دقائق"
   },
   "briefOptions": {
     "lighting1": "ذهب الاستوديو الدرامي",
