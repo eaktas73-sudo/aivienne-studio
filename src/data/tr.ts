@@ -410,7 +410,8 @@ export const trTranslation: TranslationContent = {
     "fastTrackInstagramTitle": "Doğrulanmış Instagram ile Hızlı Brief İletişimi",
     "fastTrackInstagramDesc": "Yönetici marka ekipleri ve kreatif direktörler için öncelikli doğrudan mesaj kanalı.",
     "openDm": "DM Gönder (@ai.vienne)",
-    "bookDiscovery": "10 Dk. Keşif Randevusu"
+    "bookDiscovery": "10 Dk. Keşif Randevusu",
+    "payoneerGuarantee": "Payoneer Kurumsal Hesabı ile Güvenli USD Havale ve Kurumsal Faturalandırma"
   },
   "briefOptions": {
     "lighting1": "Dramatik Stüdyo Altını",

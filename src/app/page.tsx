@@ -2425,7 +2425,7 @@ export default function Home() {
       <Testimonials lang={selectedLang.code} />
       <FAQ lang={selectedLang.code} />
 
-      {/* CONTACT / BOOKING SECTION & CAL.COM INTEGRATION */}
+      {/* CONTACT / BOOKING SECTION & PAYONEER / CAL.COM INTEGRATION */}
       <section id="contact" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
@@ -2434,41 +2434,51 @@ export default function Home() {
             <p className="mt-4 text-neutral-300 text-sm sm:text-base max-w-2xl mx-auto font-light">{t.contact?.desc}</p>
           </div>
 
-          {/* PRIVATE CLIENT CONCIERGE FAST-TRACK RESERVATION & CAL.COM INTEGRATION */}
-          <div className="mb-10 sm:mb-12 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-amber-500/10 via-neutral-900/60 to-amber-500/10 border border-amber-500/40 shadow-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6 text-start">
-            <div className="space-y-1.5 max-w-xl">
-              <span className="text-[10px] font-mono font-extrabold uppercase tracking-widest text-amber-400 block">
-                {t.reservation?.tag || "Fast-Track Production Slot & Discovery"}
-              </span>
-              <h3 className="text-xl sm:text-2xl font-extrabold text-neutral-100">
-                {t.reservation?.title || "Lock Campaign Dates or Schedule Discovery"}
-              </h3>
-              <p className="text-xs sm:text-sm text-neutral-300 font-light leading-relaxed">
-                {t.reservation?.desc || "Secure priority creative direction via proforma invoicing or book an instant 10-minute executive discovery session."}
-              </p>
-            </div>
-            
-            <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto shrink-0">
-              {/* Cal.com Keşif Randevu Butonu (Çeviri Destekli) */}
-              <a
-                href="https://cal.com/aivienne" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-6 py-4 rounded-full bg-neutral-900 border border-amber-400/50 text-amber-300 hover:bg-amber-400 hover:text-neutral-950 font-extrabold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg"
-              >
-                <Calendar className="w-4 h-4" />
-                <span>{t.ui?.bookDiscovery || "Book 10-Min Discovery"}</span>
-              </a>
+          {/* PRIVATE CLIENT CONCIERGE FAST-TRACK RESERVATION & PAYONEER / CAL.COM INTEGRATION */}
+          <div className="mb-10 sm:mb-12 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-amber-500/10 via-neutral-900/60 to-amber-500/10 border border-amber-500/40 shadow-2xl flex flex-col gap-6 text-start">
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+              <div className="space-y-2 max-w-xl">
+                <span className="text-[10px] font-mono font-extrabold uppercase tracking-widest text-amber-400 block">
+                  {t.reservation?.tag || "Fast-Track Production Slot & Discovery"}
+                </span>
+                <h3 className="text-xl sm:text-2xl font-extrabold text-neutral-100">
+                  {t.reservation?.title || "Lock Campaign Dates or Schedule Discovery"}
+                </h3>
+                <p className="text-xs sm:text-sm text-neutral-300 font-light leading-relaxed">
+                  {t.reservation?.desc || "Secure priority creative direction via proforma invoicing or book an instant 10-minute executive discovery session."}
+                </p>
+              </div>
+              
+              <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto shrink-0">
+                {/* Cal.com Keşif Randevu Butonu */}
+                <a
+                  href="https://cal.com/aivienne" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-4 rounded-full bg-neutral-900 border border-amber-400/50 text-amber-300 hover:bg-amber-400 hover:text-neutral-950 font-extrabold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg"
+                >
+                  <Calendar className="w-4 h-4" />
+                  <span>{t.ui?.bookDiscovery || "Book 10-Min Discovery"}</span>
+                </a>
 
-              {/* Rezervasyon / Depozito Butonu */}
-              <button
-                type="button"
-                onClick={handleReserveSlotClick}
-                className="px-8 py-4 rounded-full bg-amber-400 text-neutral-950 font-extrabold text-xs uppercase tracking-wider hover:bg-amber-300 transition-all flex items-center justify-center gap-2.5 shadow-[0_0_25px_rgba(251,191,36,0.35)] cursor-pointer"
-              >
-                <ShieldCheck className="w-4 h-4 text-neutral-950" />
-                <span>{t.ui?.reserveProduction || "Invoiced Deposit ($1,500)"}</span>
-              </button>
+                {/* Rezervasyon / Depozito Butonu */}
+                <button
+                  type="button"
+                  onClick={handleReserveSlotClick}
+                  className="px-8 py-4 rounded-full bg-amber-400 text-neutral-950 font-extrabold text-xs uppercase tracking-wider hover:bg-amber-300 transition-all flex items-center justify-center gap-2.5 shadow-[0_0_25px_rgba(251,191,36,0.35)] cursor-pointer"
+                >
+                  <ShieldCheck className="w-4 h-4 text-neutral-950" />
+                  <span>{t.ui?.reserveProduction || "Invoiced Deposit ($1,500)"}</span>
+                </button>
+              </div>
+            </div>
+
+            {/* Payoneer Kurumsal Güvence Şeridi (Çeviri Destekli) */}
+            <div className="pt-4 border-t border-amber-500/20 flex items-center gap-3 text-xs font-mono text-amber-300">
+              <div className="p-1.5 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-400 shrink-0">
+                <ShieldCheck className="w-4 h-4" />
+              </div>
+              <span>{t.ui?.payoneerGuarantee || "Secure USD Wire Transfer & Corporate Invoicing via Payoneer Enterprise Account"}</span>
             </div>
           </div>
 
