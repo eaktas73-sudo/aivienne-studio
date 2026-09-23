@@ -975,9 +975,9 @@ export default function Home() {
       </AnimatePresence>
 
       <header className="fixed top-0 start-0 end-0 z-50 w-full border-b border-neutral-800/80 bg-neutral-950/90 backdrop-blur-md">
-        <div className="w-full px-4 sm:px-8 md:px-12 h-16 sm:h-24 flex items-center justify-between">
-          <button type="button" onClick={scrollToTop} className="flex items-center gap-3 cursor-pointer text-start group shrink-0">
-            <div className="relative w-9 h-9 sm:w-12 sm:h-12 rounded-full overflow-hidden transition-transform duration-300 group-hover:scale-105">
+        <div className="w-full px-3 sm:px-8 md:px-12 h-16 sm:h-24 flex items-center justify-between gap-2">
+          <button type="button" onClick={scrollToTop} className="flex items-center gap-2 sm:gap-3 cursor-pointer text-start group shrink-0 min-w-0">
+            <div className="relative w-8 h-8 sm:w-12 sm:h-12 rounded-full overflow-hidden transition-transform duration-300 group-hover:scale-105 shrink-0">
               <Image
                 src="/logo.png"
                 alt="AI.VIENNE Studio+"
@@ -987,7 +987,7 @@ export default function Home() {
                 priority
               />
             </div>
-            <span className="font-extrabold text-base sm:text-xl tracking-widest text-neutral-100 group-hover:text-amber-400 transition-colors">
+            <span className="font-extrabold text-xs sm:text-xl tracking-wider sm:tracking-widest text-neutral-100 group-hover:text-amber-400 transition-colors truncate">
               AI.VIENNE <span className="text-amber-400 font-light">STUDIO+</span>
             </span>
           </button>
@@ -1078,14 +1078,14 @@ export default function Home() {
             </a>
           </nav>
 
-          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+          <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
             {/* Instagram Köprüsü */}
             <a
               href="https://instagram.com/ai.vienne"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Official Verified Instagram @ai.vienne"
-              className="inline-flex items-center gap-1.5 px-2.5 py-1.5 sm:px-3.5 sm:py-2 rounded-full border border-neutral-800 bg-neutral-900/80 hover:border-amber-400/60 hover:bg-neutral-900 transition-all group cursor-pointer"
+              className="inline-flex items-center gap-1 px-2 py-1 sm:px-3.5 sm:py-2 rounded-full border border-neutral-800 bg-neutral-900/80 hover:border-amber-400/60 hover:bg-neutral-900 transition-all group shrink-0"
               title="Official Verified Instagram"
             >
               <InstagramIcon className="w-3.5 h-3.5 text-neutral-300 group-hover:text-amber-400 transition-colors" />
@@ -1096,8 +1096,8 @@ export default function Home() {
             </a>
 
             {/* Dil Seçici */}
-            <div className="relative" ref={langMenuRef}>
-              <button type="button" onClick={() => setIsLangOpen(!isLangOpen)} className="flex items-center gap-1.5 sm:gap-2 text-xs font-semibold text-neutral-200 border border-neutral-800 bg-neutral-900/80 rounded-full h-9 sm:h-11 px-2.5 sm:px-4 transition-all cursor-pointer hover:border-neutral-700">
+            <div className="relative shrink-0" ref={langMenuRef}>
+              <button type="button" onClick={() => setIsLangOpen(!isLangOpen)} className="flex items-center gap-1 sm:gap-2 text-xs font-semibold text-neutral-200 border border-neutral-800 bg-neutral-900/80 rounded-full h-8 sm:h-11 px-2 sm:px-4 transition-all cursor-pointer hover:border-neutral-700">
                 <div className="relative w-4 h-3 shrink-0">
                   <Image src={selectedLang.flag} alt={selectedLang.name} fill sizes="16px" className="object-cover rounded-sm" />
                 </div>
@@ -1130,17 +1130,17 @@ export default function Home() {
               )}
             </div>
 
-            {/* HAMBURGER MENÜ BUTONU - HER EKRANDA AKTİF */}
+            {/* HAMBURGER MENÜ BUTONU (KESİNLİKLE GÖRÜNÜR) */}
             <button
               type="button"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle Mobile Menu"
-              className="xl:hidden flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-neutral-800 bg-neutral-900/80 text-neutral-300 hover:text-amber-400 transition-colors cursor-pointer shrink-0"
+              className="xl:hidden flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-neutral-800 bg-neutral-900/80 text-neutral-300 hover:text-amber-400 transition-colors cursor-pointer shrink-0"
             >
               {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
 
-            <a href="#contact" className="hidden sm:inline-flex items-center justify-center h-11 px-7 rounded-full text-xs font-bold tracking-widest text-neutral-950 bg-amber-400 hover:bg-amber-300 transition-all uppercase shadow-[0_0_25px_rgba(251,191,36,0.35)] hover:shadow-[0_0_35px_rgba(251,191,36,0.6)] whitespace-nowrap cursor-pointer">
+            <a href="#contact" className="hidden sm:inline-flex items-center justify-center h-11 px-7 rounded-full text-xs font-bold tracking-widest text-neutral-950 bg-amber-400 hover:bg-amber-300 transition-all uppercase shadow-[0_0_25px_rgba(251,191,36,0.35)] hover:shadow-[0_0_35px_rgba(251,191,36,0.6)] whitespace-nowrap cursor-pointer shrink-0">
               {t.nav?.cta}
             </a>
           </div>
@@ -1163,7 +1163,7 @@ export default function Home() {
                   { href: "#twins", label: t.nav?.avatar },
                   { href: "#system", label: t.nav?.system },
                   { href: "#studio", label: t.nav?.theStudio },
-                  { href: "__transformation", label: t.nav?.transformation },
+                  { href: "#transformation", label: t.nav?.transformation },
                   { href: "#estimator", label: t.nav?.roi },
                   { href: "#insights", label: t.nav?.journal },
                   { href: "#faq", label: t.nav?.faq },
@@ -1995,7 +1995,7 @@ export default function Home() {
               { num: t.system?.s1Num, title: t.system?.s1Title, desc: t.system?.s1Detail, icon: Compass },
               { num: t.system?.s2Num, title: t.system?.s2Title, desc: t.system?.s2Detail, icon: Sliders },
               { num: t.system?.s3Num, title: t.system?.s3Title, desc: t.system?.s3Detail, icon: Cpu },
-              { num: t.system?.s4Num, title: t.system?.s4Detail, icon: Sparkles },
+              { num: t.system?.s4Num, title: t.system?.s4Title, desc: t.system?.s4Detail, icon: Sparkles },
               { num: t.system?.s5Num, title: t.system?.s5Title, desc: t.system?.s5Detail, icon: CheckSquare }
             ].map((step, idx) => (
               <div 
