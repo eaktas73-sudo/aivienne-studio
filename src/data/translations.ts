@@ -14,7 +14,14 @@ export interface TranslationContent {
   capabilitiesTech: TranslationRecord;
   system: TranslationRecord;
   studioSection: TranslationRecord;
-  insights: TranslationRecord;
+  insights: TranslationRecord & {
+    article1FaqQ?: string;
+    article1FaqA?: string;
+    article2FaqQ?: string;
+    article2FaqA?: string;
+    article3FaqQ?: string;
+    article3FaqA?: string;
+  };
   portfolio: TranslationRecord;
   transformation: TranslationRecord;
   estimator: TranslationRecord;
@@ -24,7 +31,7 @@ export interface TranslationContent {
   contact: TranslationRecord;
   footerSection: TranslationRecord;
   modals: TranslationRecord;
-  ui: TranslationRecord & { aiConcierge?: string }; // <-- aiConcierge buraya özel olarak eklendi
+  ui: TranslationRecord & { aiConcierge?: string };
   briefOptions: TranslationRecord;
   reservation: TranslationRecord;
   showroomSection: TranslationRecord;
