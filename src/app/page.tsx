@@ -79,7 +79,7 @@ function InstagramIcon({ className = "w-4 h-4" }: { className?: string }) {
   );
 }
 
-// ADIM 1: Hero E-posta ve Mikro Etkileşim Bileşeni
+// Hero E-posta ve Mikro Etkileşim Bileşeni
 function HeroDirectEmailAction({ label = "Direct Access:" }: { label?: string }) {
   const [copied, setCopied] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -155,7 +155,7 @@ function SafeEmailLink({ className = "" }: { className?: string }) {
 
   return (
     <a 
-      href={mounted ? `mailto:${emailAddress}` : "#"}
+      href={mounted ? `mailto:${emailAddress}` : "#"} 
       className={className}
       aria-label={`Send email to ${emailAddress}`}
     >
@@ -861,6 +861,7 @@ export default function Home() {
         )}
       </AnimatePresence>
 
+      {/* Makale Detay Modalı (Dinamik ve Çok Dilli) */}
       <AnimatePresence>
         {activeArticle && (
           <motion.div 
@@ -905,21 +906,23 @@ export default function Home() {
 
               {activeArticle.faqQ1 && (
                 <div className="mt-8 p-5 rounded-2xl bg-neutral-950 border border-neutral-800 text-xs">
-                  <span className="text-[10px] font-bold text-amber-400 uppercase tracking-widest block mb-1">{t.ui?.frequentlyAsked || "Frequently Asked Inquiry"}</span>
+                  <span className="text-[10px] font-bold text-amber-400 uppercase tracking-widest block mb-1">
+                    {t.insights?.faqHeader || t.ui?.frequentlyAsked || "Frequently Asked Inquiry"}
+                  </span>
                   <p className="font-bold text-neutral-200 mb-1">{activeArticle.faqQ1}</p>
                   <p className="text-neutral-400 font-light leading-relaxed">{activeArticle.faqA1}</p>
                 </div>
               )}
 
               <div className="mt-8 pt-6 border-t border-neutral-800/80 flex items-center justify-between">
-                <span className="text-xs font-mono text-neutral-400">{t.ui?.researchMonograph || "AI.VIENNE Research & Monograph"}</span>
+                <span className="text-xs font-mono text-neutral-400">{t.insights?.monograph || t.ui?.researchMonograph || "AI.VIENNE Research & Monograph"}</span>
                 <button 
                   type="button" 
                   onClick={() => { setActiveArticle(null); document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }); }} 
                   className="px-6 py-2.5 rounded-full bg-amber-400 text-neutral-950 font-bold text-xs uppercase tracking-wider hover:bg-amber-300 transition-all flex items-center gap-2 cursor-pointer"
                 >
-                  <span>{t.ui?.requestPerspective || "Request Full Perspective"}</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <span>{t.insights?.requestPerspective || t.ui?.requestPerspective || "Request Full Perspective"}</span>
+                  <ArrowRight className="w-3.5 h-3.5 rtl:-scale-x-100" />
                 </button>
               </div>
             </motion.div>
@@ -1573,11 +1576,11 @@ export default function Home() {
                     >
                       <div className="relative aspect-[16/9] w-full rounded-xl bg-neutral-950 border border-neutral-800 flex items-center justify-center overflow-hidden mb-3.5 shadow-md">
                         {item.type === "video" ? (
-                          <video autoPlay loop muted playsInline preload="none" poster={item.poster} className="w-full h-full object-contain bg-black group-hover:scale-105 transition-transform duration-500 ease-out">
+                          <video autoPlay loop muted playsInline preload="metadata" poster={item.poster} className="w-full h-full object-contain bg-black group-hover:scale-105 transition-transform duration-500 ease-out">
                             <source src={item.videoUrl} type="video/mp4" />
                           </video>
                         ) : (
-                          <div className="relative w-full h-full">
+                          <div className="relative w-full h-full min-h-[160px]">
                             <Image src={item.poster} alt={resolvedTitle} fill loading="lazy" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw" className="object-contain bg-black group-hover:scale-105 transition-transform duration-500 ease-out" />
                           </div>
                         )}
@@ -1634,15 +1637,15 @@ export default function Home() {
                         deliverables: t.portfolioItems?.[item.deliverablesKey] || item.deliverablesKey,
                         productionNotes: t.portfolioItems?.[item.productionNotesKey] || item.productionNotesKey,
                       })}
-                      className="group relative rounded-2xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 p-3 sm:p-4 transition-all duration-300 ease-out hover:scale-[1.02] hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.12)] flex flex-col justify-between overflow-hidden cursor-pointer"
+                      className="group relative rounded-2xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 p-3 sm:p-4 transition-all duration-300 ease-out hover:scale-[1.02] hover:z-20 hover:shadow-[0_10px_30px_rgba(251,191,36,0.12)] flex flex-col justify-between overflow-hidden cursor-pointer"
                     >
                       <div className="relative aspect-[9/16] w-full rounded-xl bg-neutral-950 border border-neutral-800 flex items-center justify-center overflow-hidden mb-3.5 shadow-md mx-auto">
                         {item.type === "video" ? (
-                          <video autoPlay loop muted playsInline preload="none" poster={item.poster} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out">
+                          <video autoPlay loop muted playsInline preload="metadata" poster={item.poster} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out">
                             <source src={item.videoUrl} type="video/mp4" />
                           </video>
                         ) : (
-                          <div className="relative w-full h-full">
+                          <div className="relative w-full h-full min-h-[240px]">
                             <Image src={item.poster} alt={resolvedTitle} fill loading="lazy" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw" className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out" />
                           </div>
                         )}
@@ -1817,12 +1820,12 @@ export default function Home() {
                     loop
                     muted={isVideoMuted}
                     playsInline
-                    preload="none"
+                    preload="metadata"
                     poster={selectedTwin.poster}
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-1000 ease-out opacity-90"
                   >
                     <source src={selectedTwin.video} type="video/mp4" />
-                    <div className="relative w-full h-full">
+                    <div className="relative w-full h-full min-h-[256px]">
                       <Image src={selectedTwin.poster} alt={t.twinsSection?.[selectedTwin.nameKey] || "Character"} fill priority sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
                     </div>
                   </video>
@@ -1901,7 +1904,7 @@ export default function Home() {
                     loop
                     muted={isRightVideoMuted}
                     playsInline
-                    preload="none"
+                    preload="metadata"
                     poster="/vienne-portrait.jpg"
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-1000 ease-out opacity-85"
                   >
@@ -2018,7 +2021,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ADIM 5: Kurucu & Stüdyo Güvenilirlik Entegrasyonu (LinkedIn Şirket Sayfası) */}
+      {/* Kurucu & Stüdyo Güvenilirlik Entegrasyonu (LinkedIn Şirket Sayfası) */}
       <section id="studio" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50 bg-neutral-900/10">
         <div className="max-w-5xl mx-auto bg-neutral-900/50 border border-amber-500/30 p-6 sm:p-10 md:p-16 rounded-3xl backdrop-blur-md shadow-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-8 md:gap-12 text-start">
           <div className="space-y-6 max-w-2xl">
@@ -2040,7 +2043,7 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* ADIM 5: Resmi LinkedIn Şirket Sayfası Entegrasyonu */}
+              {/* Resmi LinkedIn Şirket Sayfası Entegrasyonu */}
               <div className="flex items-center gap-2">
                 <a 
                   href="https://www.linkedin.com/company/aivienne/" 
@@ -2290,6 +2293,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* INSIGHTS BÖLÜMÜ (Tamamen tr.ts, ar.ts ve en.ts üzerinden beslenir) */}
       <section id="insights" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50 bg-neutral-900/10">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12 sm:mb-16">
@@ -2312,13 +2316,13 @@ export default function Home() {
                 onClick={() => setActiveArticle({
                   tag: t.insights?.article1Tag || "Editorial",
                   title: t.insights?.article1Title || "Article Title",
-                  author: "E. Aktaş",
-                  date: "August 2026",
-                  readTime: "6 Min Read",
+                  author: t.insights?.article1Author || "E. Aktaş",
+                  date: t.insights?.article1Date || "August 2026",
+                  readTime: t.insights?.article1ReadTime || "6 Min Read",
                   body1: t.insights?.article1Body1 || "",
                   body2: t.insights?.article1Body2 || "",
-                  faqQ1: "How does AI sampling compare to physical fabric prototypes?",
-                  faqA1: "AI sampling allows rapid iteration of lighting, draping, and styling angles, compressing approval timelines before final high-resolution masters are locked."
+                  faqQ1: t.insights?.article1FaqQ || "",
+                  faqA1: t.insights?.article1FaqA || ""
                 })}
                 className="inline-flex items-center gap-2 text-xs font-bold text-amber-400 hover:text-amber-300 uppercase tracking-wider cursor-pointer text-start"
               >
@@ -2338,13 +2342,13 @@ export default function Home() {
                 onClick={() => setActiveArticle({
                   tag: t.insights?.article2Tag || "Editorial",
                   title: t.insights?.article2Title || "Article Title",
-                  author: "AI.VIENNE Editorial",
-                  date: "August 2026",
-                  readTime: "8 Min Read",
+                  author: t.insights?.article2Author || "AI.VIENNE Editorial",
+                  date: t.insights?.article2Date || "August 2026",
+                  readTime: t.insights?.article2ReadTime || "8 Min Read",
                   body1: t.insights?.article2Body1 || "",
                   body2: t.insights?.article2Body2 || "",
-                  faqQ1: "Can a digital brand face be deployed across future seasonal campaigns?",
-                  faqA1: "Yes. By archiving model landmark configurations and skin shaders, character identity remains consistent across lookbooks, social, and global retail media."
+                  faqQ1: t.insights?.article2FaqQ || "",
+                  faqA1: t.insights?.article2FaqA || ""
                 })}
                 className="inline-flex items-center gap-2 text-xs font-bold text-amber-400 hover:text-amber-300 uppercase tracking-wider cursor-pointer text-start"
               >
@@ -2364,13 +2368,13 @@ export default function Home() {
                 onClick={() => setActiveArticle({
                   tag: t.insights?.article3Tag || "Editorial",
                   title: t.insights?.article3Title || "Article Title",
-                  author: "AI.VIENNE Optics Lab",
-                  date: "August 2026",
-                  readTime: "5 Min Read",
+                  author: t.insights?.article3Author || "AI.VIENNE Optics Lab",
+                  date: t.insights?.article3Date || "August 2026",
+                  readTime: t.insights?.article3ReadTime || "5 Min Read",
                   body1: t.insights?.article3Body1 || "",
                   body2: t.insights?.article3Body2 || "",
-                  faqQ1: "How are internal reflections controlled on Swiss watch sapphire crystals?",
-                  faqA1: "We apply multi-layered anti-reflective optical passes combined with high-contrast chiaroscuro lighting to reveal dial mechanics clearly."
+                  faqQ1: t.insights?.article3FaqQ || "",
+                  faqA1: t.insights?.article3FaqA || ""
                 })}
                 className="inline-flex items-center gap-2 text-xs font-bold text-amber-400 hover:text-amber-300 uppercase tracking-wider cursor-pointer text-start"
               >
@@ -2453,8 +2457,8 @@ export default function Home() {
                 {/* Cal.com Keşif Randevu Butonu */}
                 <a
                   href="https://cal.com/aivienne" 
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  target="_blank" 
+                  rel="noopener noreferrer" 
                   className="px-6 py-4 rounded-full bg-neutral-900 border border-amber-400/50 text-amber-300 hover:bg-amber-400 hover:text-neutral-950 font-extrabold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg"
                 >
                   <Calendar className="w-4 h-4" />
@@ -2482,7 +2486,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* ADIM 2 & 3: B2B İletişim Öncesi Doğrulanmış Instagram DM Alternatifi */}
+          {/* B2B İletişim Öncesi Doğrulanmış Instagram DM Alternatifi */}
           <div className="mb-8 p-4 rounded-2xl bg-neutral-900/40 border border-neutral-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-start">
             <div className="flex items-center gap-3">
               <div className="w-9 h-9 rounded-full bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 shrink-0">
@@ -2509,7 +2513,7 @@ export default function Home() {
             </a>
           </div>
 
-          <form onSubmit={handleFormSubmit} className="space-y-6 sm:space-y-8 bg-neutral-900/30 border border-neutral-800 p-6 sm:p-10 md:p-14 rounded-3xl backdrop-blur-sm shadow-2xl text-start">
+          <form onSubmit={handleFormSubmit} className="space-y-6 sm:space-y-8 bg-neutral-900/30 border border-neutral-800 p-6 sm:p-10 md:p-14 rounded-3xl backdrop-blur-sm shadow-2xl text-left">
             {formStatus?.success && (
               <div className="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs sm:text-sm font-medium">
                 {formStatus.success}
@@ -2687,33 +2691,22 @@ export default function Home() {
                 <li><a href="#transformation" className="hover:opacity-75 block">{t.nav?.transformation}</a></li>
                 <li><a href="#estimator" className="hover:opacity-75 block">{t.nav?.roi}</a></li>
                 <li><a href="#insights" className="hover:opacity-75 block">{t.nav?.journal}</a></li>
-                <li><a href="#faq" className="hover:opacity-75 block">{t.nav?.faq}</a></li>
+                <li><a href="#faq" className="hover:opacity-75 block">FAQ</a></li>
                 <li><a href="#contact" className="hover:opacity-75 block">{t.footerSection?.initiate}</a></li>
               </ul>
             </div>
             <div>
               <span className="inline-block bg-neutral-950 text-amber-400 text-xs font-extrabold tracking-widest px-4 py-1.5 rounded-full uppercase mb-6 sm:mb-8">{t.footerSection?.dirTitle}</span>
               <div className="space-y-4 sm:space-y-5 text-sm sm:text-base font-semibold">
-                <span ref={emailContainerRef} className="block"></span>
+                <SafeEmailLink className="text-base sm:text-lg font-bold underline underline-offset-4 hover:opacity-75 block text-neutral-950" />
                 <p className="text-xs sm:text-sm font-medium leading-relaxed opacity-90">{t.footerSection?.location}</p>
               </div>
             </div>
             <div>
               <span className="inline-block bg-neutral-950 text-amber-400 text-xs font-extrabold tracking-widest px-4 py-1.5 rounded-full uppercase mb-6 sm:mb-8">{t.footerSection?.netTitle}</span>
               <ul className="space-y-3 sm:space-y-4 text-sm sm:text-base font-semibold">
-                <li>
-                  <a href="https://instagram.com/ai.vienne" target="_blank" rel="noopener noreferrer" className="hover:opacity-75 flex items-center gap-2.5">
-                    <InstagramIcon className="w-4 h-4 shrink-0" />
-                    <span>{t.ui?.instagram || "Instagram"}</span>
-                    <VerifiedBadge className="w-3.5 h-3.5" />
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.linkedin.com/company/aivienne/" target="_blank" rel="noopener noreferrer" className="hover:opacity-75 flex items-center gap-2.5">
-                    <svg className="w-4 h-4 shrink-0 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                    <span>{t.ui?.linkedin || "LinkedIn Company Page"}</span>
-                  </a>
-                </li>
+                <li><a href="https://instagram.com/ai.vienne" target="_blank" rel="noopener noreferrer" className="hover:opacity-75 block">Instagram</a></li>
+                <li><a href="https://linkedin.com/in/e-aktas-aivienne" target="_blank" rel="noopener noreferrer" className="hover:opacity-75 flex items-center gap-2"><span>LinkedIn Profile</span></a></li>
               </ul>
             </div>
           </div>
@@ -2730,7 +2723,7 @@ export default function Home() {
                 />
               </div>
               <div>
-                <span className="text-xs sm:text-sm font-mono font-extrabold tracking-[0.3em] uppercase text-neutral-950/70 block">{t.ui?.hauteVisualProduction || "Haute Visual Production"}</span>
+                <span className="text-xs sm:text-sm font-mono font-extrabold tracking-[0.3em] uppercase text-neutral-950/70 block">Haute Visual Production</span>
                 <span className="text-4xl sm:text-7xl md:text-8xl font-black tracking-tighter text-neutral-950 select-none leading-none block">
                   AI.VIENNE<br /><span className="font-light">STUDIO+</span>
                 </span>
@@ -2739,14 +2732,14 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-xs md:text-sm font-bold pt-6 sm:pt-8 border-t border-neutral-950/20">
-            <p className="text-center sm:text-start">{t.footer}</p>
+            <p className="text-center sm:text-left">{t.footer}</p>
             <div className="flex items-center gap-6 sm:gap-8">
               <Link href="/terms" className="hover:opacity-75 underline underline-offset-4 cursor-pointer">{t.footerSection?.terms}</Link>
               <Link href="/privacy" className="hover:opacity-75 underline underline-offset-4 cursor-pointer">{t.footerSection?.privacy}</Link>
             </div>
             <div className="flex items-center gap-4">
               <span className="tracking-widest">AI.VIENNE STUDIO+</span>
-              <button type="button" onClick={scrollToTop} aria-label={t.ui?.scrollToTop || "Scroll to top"} className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-neutral-950 text-amber-400 flex items-center justify-center hover:scale-110 transition-transform cursor-pointer"><ArrowUp className="w-4 h-4 sm:w-5 sm:h-5" /></button>
+              <button type="button" onClick={scrollToTop} aria-label="Scroll to top" className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-neutral-950 text-amber-400 flex items-center justify-center hover:scale-110 transition-transform cursor-pointer"><ArrowUp className="w-4 h-4 sm:w-5 sm:h-5" /></button>
             </div>
           </div>
         </div>
