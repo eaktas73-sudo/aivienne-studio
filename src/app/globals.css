@@ -14,7 +14,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Özel Lüks Parıltı ve Akışkan Arka Plan Efektleri */
+/* Akışkan Lüks Arka Plan Efekti */
 @keyframes luxuryGlow {
   0%, 100% {
     transform: translateY(0) scale(1);
@@ -45,9 +45,43 @@ body {
   transform: translateX(-50%);
   width: 70vw;
   height: 45vh;
-  background: radial-gradient(ellipse at center, rgba(217, 119, 6, 0.18) 0%, rgba(251, 191, 36, 0.05) 45%, transparent 70%);
+  background: radial-gradient(ellipse at center, rgba(217, 119, 6, 0.22) 0%, rgba(251, 191, 36, 0.06) 45%, transparent 70%);
   border-radius: 50%;
   animation: luxuryGlow 9s ease-in-out infinite;
+}
+
+/* Altın Tozu (Gold Dust) Parıltı Animasyonları */
+@keyframes floatParticle {
+  0% {
+    transform: translateY(0px) translateX(0px) scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-120px) translateX(30px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+.gold-particle {
+  position: absolute;
+  background: radial-gradient(circle, #fde047 0%, #d97706 70%, transparent 100%);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: floatParticle 6s ease-in-out infinite;
+}
+
+/* Kartlar İçin Nefes Alan Altın Çerçeve ve Işıma */
+.luxury-card-glow {
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.luxury-card-glow:hover {
+  border-color: rgba(251, 191, 36, 0.6);
+  box-shadow: 0 10px 40px -10px rgba(251, 191, 36, 0.2), inset 0 0 15px rgba(251, 191, 36, 0.05);
+  transform: translateY(-4px);
 }
 
 /* Bölüm Geçişleri İçin Altın Parlama Çizgisi */
@@ -57,20 +91,17 @@ body {
   background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.3), transparent);
 }
 
-/* Özel Scrollbar Tasarımı (Lüks Koyu) */
+/* Özel Scrollbar Tasarımı */
 ::-webkit-scrollbar {
   width: 6px;
 }
-
 ::-webkit-scrollbar-track {
   background: #030303;
 }
-
 ::-webkit-scrollbar-thumb {
   background: #262626;
   border-radius: 3px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
   background: #d97706;
 }

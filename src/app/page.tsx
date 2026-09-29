@@ -403,6 +403,7 @@ export default function Home() {
 
   const [sliderPos, setSliderPos] = useState<number>(50);
   const [mousePos, setMousePos] = useState({ x: -100, y: -100 });
+  const [cursorHovered, setCursorHovered] = useState(false);
   
   const [activeArticle, setActiveArticle] = useState<ArticleItem | null>(null);
   const [activeCaseStudy, setActiveCaseStudy] = useState<(CaseStudyItem & {
@@ -731,10 +732,13 @@ export default function Home() {
       {/* Akışkan Lüks Arka Plan Işık Efekti */}
       <div className="luxury-ambient-bg" />
 
-      <div className="fixed pointer-events-none z-50 w-8 h-8 rounded-full border border-amber-400/80 -translate-x-1/2 -translate-y-1/2 transition-transform duration-75 hidden md:block" style={{ left: `${mousePos.x}px`, top: `${mousePos.y}px` }} />
-      <div className="fixed pointer-events-none z-50 w-1.5 h-1.5 rounded-full bg-amber-400 -translate-x-1/2 -translate-y-1/2 hidden md:block" style={{ left: `${mousePos.x}px`, top: `${mousePos.y}px` }} />
+      {/* Akıllı Lüks İmleç (Custom Cursor) */}
+      <div 
+        className={`fixed pointer-events-none z-50 rounded-full border border-amber-400/90 -translate-x-1/2 -translate-y-1/2 transition-all duration-150 hidden md:block ${cursorHovered ? "w-14 h-14 bg-amber-400/10 backdrop-blur-xs" : "w-8 h-8"}`} 
+        style={{ left: `${mousePos.x}px`, top: `${mousePos.y}px` }} 
+      />
+      <div className="fixed pointer-events-none z-50 w-1.5 h-1.5 rounded-full bg-amber-400 -translate-x-1/2 -translate-y-1/2 hidden md:block shadow-[0_0_10px_#fbbf24]" style={{ left: `${mousePos.x}px`, top: `${mousePos.y}px` }} />
 
-      <div className="fixed inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(217,119,6,0.12),rgba(255,255,255,0))]" />
       <div className="fixed inset-0 pointer-events-none opacity-20 bg-[radial-gradient(#d97706_1px,transparent_1px)] [background-size:32px_32px]" />
 
       <AnimatePresence>
@@ -1225,32 +1229,45 @@ export default function Home() {
         </AnimatePresence>
       </header>
 
-      {/* HERO SECTION */}
-      <section className="relative z-10 w-full px-4 sm:px-8 md:px-16 pt-8 sm:pt-20 pb-12 sm:pb-18 text-center">
+      {/* HERO SECTION - Altın Tozu Parıltıları Eklendi */}
+      <section 
+        onMouseEnter={() => setCursorHovered(true)} 
+        onMouseLeave={() => setCursorHovered(false)}
+        className="relative z-10 w-full px-4 sm:px-8 md:px-16 pt-12 sm:pt-24 pb-16 sm:pb-24 text-center overflow-hidden"
+      >
+        {/* Dekoratif Altın Tozu Parıltıları */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="gold-particle w-1.5 h-1.5 top-[20%] left-[15%] [animation-delay:0s]" />
+          <div className="gold-particle w-2 h-2 top-[40%] left-[80%] [animation-delay:1.5s]" />
+          <div className="gold-particle w-1.5 h-1.5 top-[70%] left-[25%] [animation-delay:3s]" />
+          <div className="gold-particle w-2.5 h-2.5 top-[30%] left-[70%] [animation-delay:2.2s]" />
+          <div className="gold-particle w-1.5 h-1.5 top-[60%] left-[85%] [animation-delay:4.1s]" />
+        </div>
+
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-          <span className="inline-flex items-center gap-2 px-3.5 sm:px-6 py-1.5 sm:py-2 rounded-full border border-amber-500/30 bg-amber-500/10 text-[11px] sm:text-sm font-semibold text-amber-300 mb-4 sm:mb-8">
-            <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> {t.hero?.badge}
+          <span className="inline-flex items-center gap-2 px-4 sm:px-7 py-2 rounded-full border border-amber-500/40 bg-amber-500/10 text-xs sm:text-sm font-semibold text-amber-300 mb-6 sm:mb-8 backdrop-blur-md shadow-[0_0_20px_rgba(251,191,36,0.15)]">
+            <Sparkles className="w-4 h-4 text-amber-400 animate-spin" /> {t.hero?.badge}
           </span>
           <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-[88px] font-extrabold tracking-tight text-neutral-100 max-w-7xl mx-auto leading-[1.15] sm:leading-[1.06]">
             {t.hero?.titleStart} <span className="bg-gradient-to-r from-amber-200 via-amber-400 to-amber-600 bg-clip-text text-transparent">{t.hero?.titleGradient}</span>
           </h1>
-          <p className="mt-4 sm:mt-8 text-sm sm:text-lg md:text-xl text-neutral-300 max-w-3xl mx-auto font-light leading-relaxed">
+          <p className="mt-4 sm:mt-8 text-sm sm:text-lg md:text-xl text-neutral-300 max-w-3xl mx-auto font-light leading-relaxed tracking-wide">
             {t.hero?.desc}
           </p>
           <div className="mt-6 sm:mt-12 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 sm:gap-6">
-            <a href="#portfolio" className="w-full sm:w-auto px-7 sm:px-10 py-3.5 sm:py-4 rounded-full text-sm sm:text-base font-bold tracking-wide text-neutral-950 bg-amber-400 hover:bg-amber-300 transition-all flex items-center justify-center gap-2.5 shadow-[0_0_40px_rgba(251,191,36,0.3)]">
+            <a href="#portfolio" className="w-full sm:w-auto px-8 sm:px-11 py-4 rounded-full text-sm sm:text-base font-bold tracking-wide text-neutral-950 bg-amber-400 hover:bg-amber-300 transition-all flex items-center justify-center gap-2.5 shadow-[0_0_40px_rgba(251,191,36,0.35)] hover:scale-105">
               {t.hero?.btnPrimary} <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </a>
 
             <HeroDirectEmailAction label={t.ui?.directAccess || "Direct Access:"} />
           </div>
 
-          <div className="mt-5 flex items-center justify-center">
+          <div className="mt-6 flex items-center justify-center">
             <a
               href="https://ig.me/m/ai.vienne"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-xs font-mono text-neutral-400 hover:text-amber-300 transition-colors py-1.5 px-3.5 rounded-full border border-neutral-800/80 bg-neutral-950/60 backdrop-blur-sm group"
+              className="inline-flex items-center gap-2 text-xs font-mono text-neutral-400 hover:text-amber-300 transition-colors py-2 px-4 rounded-full border border-neutral-800/80 bg-neutral-950/60 backdrop-blur-sm group"
             >
               <InstagramIcon className="w-3.5 h-3.5 text-neutral-400 group-hover:text-amber-400 transition-colors" />
               <span>{t.ui?.directInstagramInquiry || "Direct Studio Inquiry via Verified Instagram (@ai.vienne)"}</span>
@@ -1260,16 +1277,20 @@ export default function Home() {
         </motion.div>
       </section>
 
-      <section className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-12 sm:py-18 border-y border-neutral-800/80 bg-gradient-to-b from-neutral-950 via-neutral-900/40 to-neutral-950 text-center">
+      <div className="luxury-divider" />
+
+      <section className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-12 sm:py-18 bg-gradient-to-b from-neutral-950 via-neutral-900/40 to-neutral-950 text-center">
         <div className="max-w-6xl mx-auto">
-          <span className="text-xs font-bold tracking-[0.3em] text-amber-400 uppercase mb-3 block">{t.manifesto?.sub}</span>
+          <span className="text-xs font-bold tracking-[0.4em] text-amber-400 uppercase mb-3 block">{t.manifesto?.sub}</span>
           <h2 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-light text-neutral-300 tracking-wide mb-2">{t.manifesto?.line1}</h2>
           <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-neutral-100 bg-gradient-to-r from-amber-200 via-amber-400 to-amber-500 bg-clip-text text-transparent">{t.manifesto?.line2}</h2>
         </div>
       </section>
 
-      {/* WHY AI.VIENNE? SECTION */}
-      <section className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50 bg-neutral-900/20">
+      <div className="luxury-divider" />
+
+      {/* WHY AI.VIENNE? SECTION - Gelişmiş Lüks Kart Işıması */}
+      <section className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 bg-neutral-900/10">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12 sm:mb-16">
             <div>
@@ -1280,9 +1301,9 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-            <div className="p-6 sm:p-8 rounded-3xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group cursor-pointer text-start">
+            <div className="p-6 sm:p-8 rounded-3xl border border-neutral-800/80 bg-neutral-900/40 luxury-card-glow flex flex-col justify-between group cursor-pointer text-start">
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 transition-transform">
+                <div className="w-12 h-12 rounded-2xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(251,191,36,0.1)]">
                   <Sliders className="w-6 h-6" />
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold text-neutral-100 mb-3 group-hover:text-amber-300 transition-colors">{t.whyVienne?.c1Title}</h3>
@@ -1294,9 +1315,9 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="p-6 sm:p-8 rounded-3xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group cursor-pointer text-start">
+            <div className="p-6 sm:p-8 rounded-3xl border border-neutral-800/80 bg-neutral-900/40 luxury-card-glow flex flex-col justify-between group cursor-pointer text-start">
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 transition-transform">
+                <div className="w-12 h-12 rounded-2xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(251,191,36,0.1)]">
                   <Zap className="w-6 h-6" />
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold text-neutral-100 mb-3 group-hover:text-amber-300 transition-colors">{t.whyVienne?.c2Title}</h3>
@@ -1308,9 +1329,9 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="p-6 sm:p-8 rounded-3xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group cursor-pointer text-start">
+            <div className="p-6 sm:p-8 rounded-3xl border border-neutral-800/80 bg-neutral-900/40 luxury-card-glow flex flex-col justify-between group cursor-pointer text-start">
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 transition-transform">
+                <div className="w-12 h-12 rounded-2xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(251,191,36,0.1)]">
                   <Activity className="w-6 h-6" />
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold text-neutral-100 mb-3 group-hover:text-amber-300 transition-colors">{t.whyVienne?.c3Title}</h3>
@@ -1322,9 +1343,9 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="p-6 sm:p-8 rounded-3xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group cursor-pointer text-start">
+            <div className="p-6 sm:p-8 rounded-3xl border border-neutral-800/80 bg-neutral-900/40 luxury-card-glow flex flex-col justify-between group cursor-pointer text-start">
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 transition-transform">
+                <div className="w-12 h-12 rounded-2xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(251,191,36,0.1)]">
                   <ShieldCheck className="w-6 h-6" />
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold text-neutral-100 mb-3 group-hover:text-amber-300 transition-colors">{t.whyVienne?.c4Title}</h3>
@@ -1339,7 +1360,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="services" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50">
+      <div className="luxury-divider" />
+
+      <section id="services" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12 sm:mb-16">
             <div>
@@ -1350,7 +1373,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10">
-            <div className="p-8 sm:p-10 rounded-3xl border border-neutral-800 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 flex flex-col justify-between group shadow-xl relative overflow-hidden text-start">
+            <div className="p-8 sm:p-10 rounded-3xl border border-neutral-800 bg-neutral-900/40 luxury-card-glow flex flex-col justify-between group shadow-xl relative overflow-hidden text-start">
               <div className="absolute top-0 end-0 p-8 opacity-5 text-amber-400 pointer-events-none"><Sparkles className="w-32 h-32" /></div>
               <div>
                 <div className="flex items-center justify-between gap-4 mb-6">
@@ -1393,7 +1416,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="p-8 sm:p-10 rounded-3xl border border-neutral-800 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 flex flex-col justify-between group shadow-xl relative overflow-hidden text-start">
+            <div className="p-8 sm:p-10 rounded-3xl border border-neutral-800 bg-neutral-900/40 luxury-card-glow flex flex-col justify-between group shadow-xl relative overflow-hidden text-start">
               <div className="absolute top-0 end-0 p-8 opacity-5 text-amber-400 pointer-events-none"><Gem className="w-32 h-32" /></div>
               <div>
                 <div className="flex items-center justify-between gap-4 mb-6">
@@ -1436,7 +1459,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="p-8 sm:p-10 rounded-3xl border border-neutral-800 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 flex flex-col justify-between group shadow-xl relative overflow-hidden text-start">
+            <div className="p-8 sm:p-10 rounded-3xl border border-neutral-800 bg-neutral-900/40 luxury-card-glow flex flex-col justify-between group shadow-xl relative overflow-hidden text-start">
               <div className="absolute top-0 end-0 p-8 opacity-5 text-amber-400 pointer-events-none"><UserCheck className="w-32 h-32" /></div>
               <div>
                 <div className="flex items-center justify-between gap-4 mb-6">
@@ -1479,7 +1502,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="p-8 sm:p-10 rounded-3xl border border-neutral-800 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 flex flex-col justify-between group shadow-xl relative overflow-hidden text-start">
+            <div className="p-8 sm:p-10 rounded-3xl border border-neutral-800 bg-neutral-900/40 luxury-card-glow flex flex-col justify-between group shadow-xl relative overflow-hidden text-start">
               <div className="absolute top-0 end-0 p-8 opacity-5 text-amber-400 pointer-events-none"><Film className="w-32 h-32" /></div>
               <div>
                 <div className="flex items-center justify-between gap-4 mb-6">
@@ -1529,7 +1552,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="portfolio" className="relative z-10 w-full py-16 sm:py-24 border-t border-neutral-800/50">
+      <div className="luxury-divider" />
+
+      <section id="portfolio" className="relative z-10 w-full py-16 sm:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-12 w-full">
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-8 sm:mb-12 gap-6">
             <div>
@@ -1575,7 +1600,7 @@ export default function Home() {
                         deliverables: t.portfolioItems?.[item.deliverablesKey] || item.deliverablesKey,
                         productionNotes: t.portfolioItems?.[item.productionNotesKey] || item.productionNotesKey,
                       })}
-                      className="group relative rounded-2xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 p-3 sm:p-4 transition-all duration-300 ease-out hover:scale-[1.02] hover:z-20 hover:shadow-[0_10px_30px_rgba(251,191,36,0.12)] flex flex-col justify-between overflow-hidden cursor-pointer"
+                      className="group relative rounded-2xl border border-neutral-800/80 bg-neutral-900/40 luxury-card-glow p-3 sm:p-4 flex flex-col justify-between overflow-hidden cursor-pointer"
                     >
                       <div className="relative aspect-[16/9] w-full rounded-xl bg-neutral-950 border border-neutral-800 flex items-center justify-center overflow-hidden mb-3.5 shadow-md">
                         {item.type === "video" ? (
@@ -1640,7 +1665,7 @@ export default function Home() {
                         deliverables: t.portfolioItems?.[item.deliverablesKey] || item.deliverablesKey,
                         productionNotes: t.portfolioItems?.[item.productionNotesKey] || item.productionNotesKey,
                       })}
-                      className="group relative rounded-2xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 p-3 sm:p-4 transition-all duration-300 ease-out hover:scale-[1.02] hover:z-20 hover:shadow-[0_10px_30px_rgba(251,191,36,0.12)] flex flex-col justify-between overflow-hidden cursor-pointer"
+                      className="group relative rounded-2xl border border-neutral-800/80 bg-neutral-900/40 luxury-card-glow p-3 sm:p-4 flex flex-col justify-between overflow-hidden cursor-pointer"
                     >
                       <div className="relative aspect-[9/16] w-full rounded-xl bg-neutral-950 border border-neutral-800 flex items-center justify-center overflow-hidden mb-3.5 shadow-md mx-auto">
                         {item.type === "video" ? (
@@ -1681,7 +1706,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="capabilities" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50">
+      <div className="luxury-divider" />
+
+      <section id="capabilities" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28">
         <div className="max-w-7xl mx-auto">
           <div className="mb-12 sm:mb-16 text-start">
             <span className="text-xs font-bold tracking-[0.3em] text-amber-400 uppercase block mb-3">{t.capabilitiesSection?.tag}</span>
@@ -1698,7 +1725,7 @@ export default function Home() {
             ].map((cap, idx) => (
               <div 
                 key={idx} 
-                className="p-6 sm:p-8 rounded-3xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group relative cursor-pointer text-start"
+                className="p-6 sm:p-8 rounded-3xl border border-neutral-800/80 bg-neutral-900/40 luxury-card-glow flex flex-col justify-between group relative cursor-pointer text-start"
               >
                 <div className="absolute top-6 end-6 text-neutral-700 group-hover:text-amber-400 transition-colors">
                   <cap.icon className="w-6 h-6" />
@@ -1729,7 +1756,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-            <div className="p-6 sm:p-8 rounded-3xl border border-neutral-800/80 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group cursor-pointer text-start">
+            <div className="p-6 sm:p-8 rounded-3xl border border-neutral-800/80 bg-neutral-900/40 luxury-card-glow flex flex-col justify-between group cursor-pointer text-start">
               <div>
                 <div className="w-12 h-12 rounded-2xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 transition-transform">
                   <Zap className="w-6 h-6" />
@@ -1743,7 +1770,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="p-6 sm:p-8 rounded-3xl border border-neutral-800 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group cursor-pointer text-start">
+            <div className="p-6 sm:p-8 rounded-3xl border border-neutral-800 bg-neutral-900/40 luxury-card-glow flex flex-col justify-between group cursor-pointer text-start">
               <div>
                 <div className="w-12 h-12 rounded-2xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 transition-transform">
                   <Activity className="w-6 h-6" />
@@ -1757,7 +1784,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="p-6 sm:p-8 rounded-3xl border border-neutral-800 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group cursor-pointer text-start">
+            <div className="p-6 sm:p-8 rounded-3xl border border-neutral-800 bg-neutral-900/40 luxury-card-glow flex flex-col justify-between group cursor-pointer text-start">
               <div>
                 <div className="w-12 h-12 rounded-2xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 transition-transform">
                   <Gem className="w-6 h-6" />
@@ -1771,7 +1798,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="p-6 sm:p-8 rounded-3xl border border-neutral-800 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group cursor-pointer text-start">
+            <div className="p-6 sm:p-8 rounded-3xl border border-neutral-800 bg-neutral-900/40 luxury-card-glow flex flex-col justify-between group cursor-pointer text-start">
               <div>
                 <div className="w-12 h-12 rounded-2xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 transition-transform">
                   <ShieldCheck className="w-6 h-6" />
@@ -2297,7 +2324,7 @@ export default function Home() {
       </section>
 
       {/* INSIGHTS BÖLÜMÜ (Tamamen tr.ts, ar.ts ve en.ts üzerinden beslenir) */}
-      <section id="insights" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50 bg-neutral-900/10">
+      <section id="insights" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 bg-neutral-900/10">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12 sm:mb-16">
             <div>
@@ -2308,7 +2335,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-10">
-            <article className="p-6 sm:p-8 rounded-3xl border border-neutral-800 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group cursor-pointer text-start">
+            <article className="p-6 sm:p-8 rounded-3xl border border-neutral-800 bg-neutral-900/40 luxury-card-glow flex flex-col justify-between group cursor-pointer text-start">
               <div>
                 <span className="text-[10px] font-extrabold tracking-widest text-amber-300 bg-amber-400/10 border border-amber-400/30 px-3 py-1 rounded-full uppercase inline-block mb-6">{t.insights?.article1Tag}</span>
                 <h3 className="text-xl sm:text-2xl font-bold text-neutral-100 mb-4 group-hover:text-amber-300 transition-colors">{t.insights?.article1Title}</h3>
@@ -2334,7 +2361,7 @@ export default function Home() {
               </button>
             </article>
 
-            <article className="p-6 sm:p-8 rounded-3xl border border-neutral-800 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group cursor-pointer text-start">
+            <article className="p-6 sm:p-8 rounded-3xl border border-neutral-800 bg-neutral-900/40 luxury-card-glow flex flex-col justify-between group cursor-pointer text-start">
               <div>
                 <span className="text-[10px] font-extrabold tracking-widest text-amber-300 bg-amber-400/10 border border-amber-400/30 px-3 py-1 rounded-full uppercase inline-block mb-6">{t.insights?.article2Tag}</span>
                 <h3 className="text-xl sm:text-2xl font-bold text-neutral-100 mb-4 group-hover:text-amber-300 transition-colors">{t.insights?.article2Title}</h3>
@@ -2360,7 +2387,7 @@ export default function Home() {
               </button>
             </article>
 
-            <article className="p-6 sm:p-8 rounded-3xl border border-neutral-800 bg-neutral-900/40 hover:border-amber-400/80 hover:bg-neutral-900/80 transition-all duration-500 ease-out hover:scale-[1.02] sm:hover:scale-105 hover:z-20 hover:shadow-[0_10px_40px_rgba(251,191,36,0.15)] flex flex-col justify-between group cursor-pointer text-start">
+            <article className="p-6 sm:p-8 rounded-3xl border border-neutral-800 bg-neutral-900/40 luxury-card-glow flex flex-col justify-between group cursor-pointer text-start">
               <div>
                 <span className="text-[10px] font-extrabold tracking-widest text-amber-300 bg-amber-400/10 border border-amber-400/30 px-3 py-1 rounded-full uppercase inline-block mb-6">{t.insights?.article3Tag}</span>
                 <h3 className="text-xl sm:text-2xl font-bold text-neutral-100 mb-4 group-hover:text-amber-300 transition-colors">{t.insights?.article3Title}</h3>
@@ -2389,7 +2416,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="architect" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50 bg-neutral-900/20">
+      <div className="luxury-divider" />
+
+      <section id="architect" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 bg-neutral-900/20">
         <div className="max-w-5xl mx-auto bg-neutral-900/80 border border-amber-500/30 p-6 sm:p-10 md:p-16 rounded-3xl backdrop-blur-md shadow-2xl text-start">
           <div className="flex items-center gap-4 mb-6">
             <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400"><SlidersHorizontal className="w-5 h-5 sm:w-6 sm:h-6" /></div>
@@ -2433,7 +2462,7 @@ export default function Home() {
       <FAQ lang={selectedLang.code} />
 
       {/* CONTACT / BOOKING SECTION & PAYONEER / CAL.COM INTEGRATION */}
-      <section id="contact" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28 border-t border-neutral-800/50">
+      <section id="contact" className="relative z-10 w-full px-4 sm:px-8 md:px-16 py-20 sm:py-28">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
             <span className="text-sm font-bold tracking-widest text-amber-400 uppercase">{t.contact?.tag}</span>
@@ -2516,7 +2545,7 @@ export default function Home() {
             </a>
           </div>
 
-          <form onSubmit={handleFormSubmit} className="space-y-6 sm:space-y-8 bg-neutral-900/30 border border-neutral-800 p-6 sm:p-10 md:p-14 rounded-3xl backdrop-blur-sm shadow-2xl text-left">
+          <form onSubmit={handleFormSubmit} className="space-y-6 sm:space-y-8 bg-neutral-900/30 border border-neutral-800 p-6 sm:p-10 md:p-14 rounded-3xl backdrop-blur-sm shadow-2xl text-start">
             {formStatus?.success && (
               <div className="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs sm:text-sm font-medium">
                 {formStatus.success}
@@ -2701,15 +2730,26 @@ export default function Home() {
             <div>
               <span className="inline-block bg-neutral-950 text-amber-400 text-xs font-extrabold tracking-widest px-4 py-1.5 rounded-full uppercase mb-6 sm:mb-8">{t.footerSection?.dirTitle}</span>
               <div className="space-y-4 sm:space-y-5 text-sm sm:text-base font-semibold">
-                <SafeEmailLink className="text-base sm:text-lg font-bold underline underline-offset-4 hover:opacity-75 block text-neutral-950" />
+                <span ref={emailContainerRef} className="block"></span>
                 <p className="text-xs sm:text-sm font-medium leading-relaxed opacity-90">{t.footerSection?.location}</p>
               </div>
             </div>
             <div>
               <span className="inline-block bg-neutral-950 text-amber-400 text-xs font-extrabold tracking-widest px-4 py-1.5 rounded-full uppercase mb-6 sm:mb-8">{t.footerSection?.netTitle}</span>
               <ul className="space-y-3 sm:space-y-4 text-sm sm:text-base font-semibold">
-                <li><a href="https://instagram.com/ai.vienne" target="_blank" rel="noopener noreferrer" className="hover:opacity-75 block">Instagram</a></li>
-                <li><a href="https://linkedin.com/in/e-aktas-aivienne" target="_blank" rel="noopener noreferrer" className="hover:opacity-75 flex items-center gap-2"><span>LinkedIn Profile</span></a></li>
+                <li>
+                  <a href="https://instagram.com/ai.vienne" target="_blank" rel="noopener noreferrer" className="hover:opacity-75 flex items-center gap-2.5">
+                    <InstagramIcon className="w-4 h-4 shrink-0" />
+                    <span>{t.ui?.instagram || "Instagram"}</span>
+                    <VerifiedBadge className="w-3.5 h-3.5" />
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/company/aivienne/" target="_blank" rel="noopener noreferrer" className="hover:opacity-75 flex items-center gap-2.5">
+                    <svg className="w-4 h-4 shrink-0 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    <span>{t.ui?.linkedin || "LinkedIn Company Page"}</span>
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
@@ -2726,7 +2766,7 @@ export default function Home() {
                 />
               </div>
               <div>
-                <span className="text-xs sm:text-sm font-mono font-extrabold tracking-[0.3em] uppercase text-neutral-950/70 block">Haute Visual Production</span>
+                <span className="text-xs sm:text-sm font-mono font-extrabold tracking-[0.3em] uppercase text-neutral-950/70 block">{t.ui?.hauteVisualProduction || "Haute Visual Production"}</span>
                 <span className="text-4xl sm:text-7xl md:text-8xl font-black tracking-tighter text-neutral-950 select-none leading-none block">
                   AI.VIENNE<br /><span className="font-light">STUDIO+</span>
                 </span>
@@ -2735,14 +2775,14 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-xs md:text-sm font-bold pt-6 sm:pt-8 border-t border-neutral-950/20">
-            <p className="text-center sm:text-left">{t.footer}</p>
+            <p className="text-center sm:text-start">{t.footer}</p>
             <div className="flex items-center gap-6 sm:gap-8">
               <Link href="/terms" className="hover:opacity-75 underline underline-offset-4 cursor-pointer">{t.footerSection?.terms}</Link>
               <Link href="/privacy" className="hover:opacity-75 underline underline-offset-4 cursor-pointer">{t.footerSection?.privacy}</Link>
             </div>
             <div className="flex items-center gap-4">
               <span className="tracking-widest">AI.VIENNE STUDIO+</span>
-              <button type="button" onClick={scrollToTop} aria-label="Scroll to top" className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-neutral-950 text-amber-400 flex items-center justify-center hover:scale-110 transition-transform cursor-pointer"><ArrowUp className="w-4 h-4 sm:w-5 sm:h-5" /></button>
+              <button type="button" onClick={scrollToTop} aria-label={t.ui?.scrollToTop || "Scroll to top"} className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-neutral-950 text-amber-400 flex items-center justify-center hover:scale-110 transition-transform cursor-pointer"><ArrowUp className="w-4 h-4 sm:w-5 sm:h-5" /></button>
             </div>
           </div>
         </div>
