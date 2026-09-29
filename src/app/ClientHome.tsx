@@ -167,21 +167,42 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       title: "AI.VIENNE Insights",
       desc: "Ideas on AI, luxury, visual production, and modern digital craftsmanship.",
       readMore: "Read Insight →",
-      article1Tag: "FASHION ECONOMICS",
+      modalFooterNote: "AI.VIENNE Research & Monograph",
+      modalCta: "REQUEST FULL PERSPECTIVE",
+      modalFaqBadge: "FREQUENTLY ASKED INQUIRY",
+
+      article1Tag: "HAUTE COUTURE AI",
       article1Title: "The Economics of Digital Couture: Compressing Campaign Cycles",
       article1Desc: "How modern fashion ateliers deploy AI-assisted visual pipelines to accelerate seasonal campaigns without diminishing brand prestige.",
-      article1Body1: "Traditional luxury fashion production has historically been bound to extensive physical sampling, complex multi-country shoots, and long turnaround cycles. AI.VIENNE's structured workflow allows creative directors to test fabric draping, textures, and atmospheres before committing to physical assets.",
-      article1Body2: "By blending AI synthesis with meticulous studio post-production, campaign timelines can be compressed from months into days, while ensuring color-accurate representation of haute couture creations.",
+      article1Author: "E. Aktaş",
+      article1Date: "August 2026",
+      article1ReadTime: "6 Min Read",
+      article1Body1: "Traditional luxury fashion production has historically been bound to physical material sourcing, sample prototyping, and international campaign shoots. Leading brands navigating modern neural rendering pipelines bypass physical bottlenecks entirely.",
+      article1Body2: "Neural Couture allows art directors to visually simulate fluid silk dynamics, heavy velvet weight, and intricate embellishments. This structural transition reduces production turnarounds, eliminates sample wastage, and enhances global campaign agility.",
+      article1FaqQ: "How does AI sampling compare to physical fabric prototypes?",
+      article1FaqA: "AI sampling allows rapid iteration of lighting, draping, and styling angles, compressing approval timelines before final high-resolution masters are locked.",
+
       article2Tag: "DIGITAL IDENTITY",
       article2Title: "Character Consistency in Luxury AI Campaigns",
       article2Desc: "A technical examination of identity retention systems preventing facial morphing in recurring brand ambassadors.",
+      article2Author: "AI.VIENNE Editorial",
+      article2Date: "August 2026",
+      article2ReadTime: "8 Min Read",
       article2Body1: "In luxury storytelling, model identity must remain immutable across scenes. Generic generative tools often suffer from drift between frames, which breaks brand cohesion.",
       article2Body2: "AI.VIENNE utilizes landmark retention and layered skin shading to ensure that facial structure, proportions, and expression remain consistent across diverse lighting conditions and camera lenses.",
+      article2FaqQ: "Can a digital brand face be deployed across future seasonal campaigns?",
+      article2FaqA: "Yes. By archiving model landmark configurations and skin shaders, character identity remains consistent across lookbooks, social, and global retail media.",
+
       article3Tag: "PRECISION RENDERING",
       article3Title: "Material Simulation: Gemstone & Watch Refraction",
       article3Desc: "Achieving controlled optical brilliance in macro jewelry and timepiece visualization.",
+      article3Author: "AI.VIENNE Optics Lab",
+      article3Date: "August 2026",
+      article3ReadTime: "5 Min Read",
       article3Body1: "Macro photography of high jewelry presents extreme studio lighting challenges. Unwanted reflections and flare can obscure the natural fire of precious stones and the finishing of Swiss movements.",
-      article3Body2: "Our pipeline allows precise control over reflection, dispersion, and surface textures, producing high-resolution macro visual assets ready for editorial print and digital flagships."
+      article3Body2: "Our pipeline allows precise control over reflection, dispersion, and surface textures, producing high-resolution macro visual assets ready for editorial print and digital flagships.",
+      article3FaqQ: "How are internal reflections controlled on Swiss watch sapphire crystals?",
+      article3FaqA: "We apply multi-layered anti-reflective optical passes combined with high-contrast chiaroscuro lighting to reveal dial mechanics clearly."
     },
     portfolio: { 
       tag: "AI.VIENNE CONCEPT ARCHIVE", 
@@ -382,21 +403,42 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       title: "AI.VIENNE İçgörüler",
       desc: "Yapay zeka, lüks marka ekonomisi ve modern dijital zanaatkarlığa dair editoryal yazılar.",
       readMore: "İçgörüyü Oku →",
-      article1Tag: "MODA EKONOMİSİ",
-      article1Title: "Dijital Couture Ekonomisi: Kampanya Sürelerini Kısaltmak",
+      modalFooterNote: "AI.VIENNE Araştırma & Monografi",
+      modalCta: "TAM PERSPEKTİF TALEP ET",
+      modalFaqBadge: "SIKÇA SORULAN SORULAR",
+
+      article1Tag: "HAUTE COUTURE YAPAY ZEKA",
+      article1Title: "Dijital Couture Ekonomisi: Kampanya Döngülerini Sıkıştırmak",
       article1Desc: "Lüks moda evlerinin marka prestijinden ödün vermeden sezonluk çekim sürelerini nasıl hızlandırdığına dair analiz.",
-      article1Body1: "Geleneksel lüks moda takvimi kapsamlı fiziksel numune tedariki, çok lokasyonlu çekimler ve aylar süren lojistikle sınırlıydı. AI.VIENNE'in yapılandırılmış üretim hattı, tasarımcıların kumaş döküm fiziğini ve editoryal atmosferi anında test etmelerine olanak tanır.",
-      article1Body2: "Yapay zeka sentezi ile titiz stüdyo post-prodüksiyonunun birleşimi, teslim sürelerini haftalardan günlere indirirken haute couture standartlarında görsel çıktılar sunar.",
+      article1Author: "E. Aktaş",
+      article1Date: "Ağustos 2026",
+      article1ReadTime: "6 Dk Okuma",
+      article1Body1: "Lüks moda takvimi, geleneksel olarak tekstil tedariki, numune üretimi ve uluslararası kampanya çekimlerinin fiziksel hızıyla sınırlanmıştır. Gelişmiş nöral render süreçlerini kullanan önde gelen markalar, fiziksel darboğazları tamamen aşmaktadır.",
+      article1Body2: "Nöral Couture, sanat yönetmenlerinin akıcı ipek dinamiklerini, ağır kadife dokusunu ve karmaşık işçilikleri görsel olarak simüle etmesine olanak tanır. Bu yapısal geçiş prodüksiyon teslim sürelerini kısaltır, numune israfını ortadan kaldırır ve küresel kampanya çevikliğini artırır.",
+      article1FaqQ: "Yapay zeka örneklemesi fiziksel kumaş prototipleriyle nasıl karşılaştırılır?",
+      article1FaqA: "Yapay zeka destekli örnekleme; nihai yüksek çözünürlüklü masterlar kilitlenmeden önce onay süreçlerini sıkıştırarak aydınlatma, döküm ve stil açılarının hızla yinelenmesini sağlar.",
+
       article2Tag: "DİJİTAL KİMLİK",
       article2Title: "Lüks AI Kampanyalarında Karakter Tutarlılığı",
       article2Desc: "Kalıcı marka modellerinde yüz deformasyonunu engelleyen kimlik sabitleme sistemlerinin teknik incelemesi.",
+      article2Author: "AI.VIENNE Editoryal",
+      article2Date: "Ağustos 2026",
+      article2ReadTime: "8 Dk Okuma",
       article2Body1: "Lüks marka anlatımında model kimliği kareler arasında değişmez olmalıdır. Standart yapay zeka araçları kareler arasında sapmalar üreterek marka algısını zedeler.",
       article2Body2: "AI.VIENNE, anatomik koordinat sabitleme ve katmanlı cilt gölgelendirmesi ile karakter yüz yapısının ve ifadesinin farklı ışık ve açılarda kusursuz süreklilikte kalmasını sağlar.",
+      article2FaqQ: "Dijital bir marka yüzü gelecek sezonluk kampanyalarda kullanılabilir mi?",
+      article2FaqA: "Evet. Model anatomik koordinatları ve cilt gölgelendiricileri arşivlenerek karakter kimliği lookbook'lar, sosyal medya ve global perakende ekranlarında tamamen tutarlı kalır.",
+
       article3Tag: "HASSAS MODELLEME",
       article3Title: "Materyal Simülasyonu: Değerli Taş ve Saat Yansımaları",
       article3Desc: "Makro mücevher ve saat görselleştirmesinde kontrollü optik mükemmelliğe ulaşmak.",
+      article3Author: "AI.VIENNE Optik Laboratuvarı",
+      article3Date: "Ağustos 2026",
+      article3ReadTime: "5 Dk Okuma",
       article3Body1: "Lüks mücevherlerin makro fotoğrafçılığı ciddi optik zorluklar barındırır. İstenmeyen ışık parlamaları değerli taşların doğal rengini ve İsviçre mekanizma detaylarını gölgeleyebilir.",
-      article3Body2: "Üretim hattımız yansıma, kırılma ve yüzey dokuları üzerinde tam kontrol sağlayarak basılı dergilere ve dijital amiral gemilerine hazır yüksek çözünürlüklü makro görsel varlıklar üretir."
+      article3Body2: "Üretim hattımız yansıma, kırılma ve yüzey dokuları üzerinde tam kontrol sağlayarak basılı dergilere ve dijital amiral gemilerine hazır yüksek çözünürlüklü makro görsel varlıklar üretir.",
+      article3FaqQ: "İsviçre saat safir camlarındaki iç yansımalar nasıl kontrol edilir?",
+      article3FaqA: "Kadran mekaniğini net biçimde ortaya çıkarmak için yüksek kontrastlı chiaroscuro aydınlatmayla birleştirilmiş çok katmanlı yansıma önleyici optik geçişler uyguluyoruz."
     },
     portfolio: { 
       tag: "AI.VIENNE KONSEPT ARŞİVİ", 
@@ -487,10 +529,10 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       submitBtn: "Gizli Brief'i Gönder", 
       directEmail: "Project Desk:",
       nextStepsTitle: "SONRAKİ ADIMLAR",
-      ns1Title: "01 · İNCELEME", ns1Desc: "We review your brief, aesthetic direction, and reference materials.",
-      ns2Title: "02 · SCOPE", ns2Desc: "We define exact deliverables, schedule milestones, and production requirements.",
-      ns3Title: "03 · PROPOSAL", ns3Desc: "You receive a tailored project scope and investment proposal under NDA.",
-      ns4Title: "04 · PRODUCTION", ns4Desc: "Creative direction and visual production begin following mutual sign-off."
+      ns1Title: "01 · İNCELEME", ns1Desc: "Briefinizi, estetik yöneliminizi ve referans materyallerinizi detaylıca inceliyoruz.",
+      ns2Title: "02 · KAPSAM", ns2Desc: "Net teslimat formatlarını, takvim kilometre taşlarını ve prodüksiyon gereksinimlerini belirliyoruz.",
+      ns3Title: "03 · TEKLİF", ns3Desc: "Karşılıklı NDA kapsamında size özel proje kapsamı ve yatırım teklifini iletiyoruz.",
+      ns4Title: "04 · PRODÜKSİYON", ns4Desc: "Karşılıklı onay sonrasında kreatif direktörlük ve görsel üretim aşaması başlar."
     },
     footerSection: { navTitle: "01 / NAVİGASYON", dirTitle: "02 / DİREKTÖRİK", netTitle: "03 / AĞLARIMIZ", studio: "Stüdyomuz", works: "Konsept Arşivi", initiate: "Proje Başlat", location: "Bağımsız Stüdyo · Global / Uzaktan Erişim", terms: "HİZMET VE KULLANIM ŞARTLARI", privacy: "GİZLİLİK VE VERİ KORUMA PROTOKOLÜ" },
     modals: {
@@ -514,12 +556,249 @@ const TRANSLATIONS: Record<string, TranslationContent> = {
       privacyP4Body: "Yüklenen tüm referans medya şifrelenmiş izole disklerde barındırılır ve üçüncü taraf modellerle kesinlikle paylaşılmaz."
     },
     footer: `© ${new Date().getFullYear()} AI.VIENNE Studio+. Tüm hakları saklıdır.`
+  },
+  AR: {
+    nav: { portfolio: "الأعمال", capabilities: "القدرات", services: "الخدمات", avatar: "الشخصيات الرقمية", studio: "الاستوديو", system: "العملية", theStudio: "استوديونا", transformation: "التحول", roi: "اقتصاديات الإنتاج", journal: "المجلة", contact: "اتصل بنا", cta: "بدء مشروع" },
+    hero: { badge: "دار إنتاج بصري فاخر بالذكاء الاصطناعي", titleStart: "الارتقاء بالأزياء الراقية والمجوهرات والساعات عبر", titleGradient: "الحرفية العصبية", desc: "صور حملات سينمائية بحوث ذكاء اصطناعي، ومحاكاة دقيقة لمنتجات الرفاهية وشخصيات رقمية متسقة — مصممة للعلامات التجارية التي تتطلب الدقة المطلقة.", btnPrimary: "استكشف أرشيف الأعمال", btnSecondary: "تواصل مباشر: info@aivienne.com" },
+    manifesto: { sub: "ميثاقنا الإبداعي", line1: "نحن لا نتبع الصيحات الرقمية العابرة.", line2: "نحن نصمم عوالم فاخرة خالدة." },
+    servicesPillars: {
+      tag: "تخصصات الإنتاج الأساسية",
+      title: "خدمات الإنتاج الاستراتيجي",
+      desc: "مشاريع بصرية تهدف إلى تبسيط الإنتاج وتعزيز هوية العلامة التجارية عبر المتاجر الرقمية والواقعية.",
+      leadTimeLabel: "المدة الزمنية المعتادة",
+      leadTimeNote: "تختلف المواعيد حسب النطاق الإبداعي وحجم الأصول وجولات المراجعة ومتطلبات التسليم.",
+      s1Tag: "الحملات الإعلانية",
+      s1Title: "الأزياء الراقية والحملات الموسمية",
+      s1Desc: "حملات أزياء موسمية دون القيود اللوجستية لمواقع التصوير التقليدية.",
+      s1Capabilities: "التوجيه الإبداعي · صور تحريرية · حركة الأقمشة الديناميكية · أنظمة الحملات",
+      s1Deliverables: "صور رئيسية عالية الدقة · كتيبات إطلالات · مقاطع طولية · حلقات فيديو متكررة",
+      s1Time: "7 – 10 أيام عمل",
+      s2Tag: "الساعات والمجوهرات",
+      s2Title: "صناعة الساعات الراقية والمجوهرات الفاخرة",
+      s2Desc: "حملات تصوير دقيقة للساعات الفاخرة والمجوهرات مع تحكم كامل بانكسار ضوء الأحجار الكريمة.",
+      s2Capabilities: "مطابقة المراجع · إضاءة فائقة الدقة · انكسار الأحجار الكريمة · تفاصيل ميكانيكية دقيقة",
+      s2Deliverables: "صور منتجات رئيسية · سلاسل ماكرو تفصيلية · حلقات متحركة · أصول التجارة الإلكترونية",
+      s2Time: "5 – 8 أيام عمل",
+      s3Tag: "الشخصيات الرقمية",
+      s3Title: "سفراء العلامات التجارية الدائمون",
+      s3Desc: "وجوه رقمية مخصصة للعلامات التجارية بهندسة ملامح ثابتة ومظهر متسق عبر حملات متعددة.",
+      s3Capabilities: "اتساق الهوية · معايرة تفاصيل البشرة · تكييف الأزياء · استمرارية الحركة والوضعيات",
+      s3Deliverables: "مكتبة عارضي العلامة · حزمة أصول متعددة البيئات · حلقات حركة بدقة 4K",
+      s3Time: "10 – 14 يوم عمل",
+      s4Tag: "حركة سينمائية",
+      s4Title: "أفلام الهوية والمتاجر الرئيسية",
+      s4Desc: "روايات بصرية عالية الدقة مصممة للمتاجر الرقمية والشاشات الإعلانية الضخمة والقنوات العالمية.",
+      s4Capabilities: "لوحات قصص سينمائية · مؤثرات جوية حجمية · تنسيقات متعددة (16:9, 9:16, 32:9)",
+      s4Deliverables: "ملفات رئيسية 24/30/60 إطار · مقاطع مخصصة للمنصات · تدرج ألوان سينمائي فاخر",
+      s4Time: "8 – 12 يوم عمل"
+    },
+    capabilitiesSection: {
+      tag: "قدرات الإنتاج الفني",
+      title: "معايير الإنتاج البصري المتقدم",
+      c1Num: "01", c1Title: "تحرير الأزياء الراقية", c1Desc: "صور حملات موسمية كاملة مع فيزياء انسياب النسيج الطبيعي وأجواء تحريرية راقية.",
+      c2Num: "02", c2Title: "المجوهرات والساعات الفاخرة", c2Desc: "تحكم متقن في تشتت الضوء، ونقاء بلورات الياقوت، وبريق الألماس، وتفاصيل الميكانيكا المجهرية.",
+      c3Num: "03", c3Title: "أفلام العلامات التجارية السينمائية", c3Desc: "مرئيات متحركة عاطفية بمعدل إطارات سينمائي مخصص للبث الفاخر وشاشات المتاجر.",
+      c4Num: "04", c4Title: "شخصيات رقمية متسقة الملامح", c4Desc: "استمرارية تامة للعارضين تحافظ على بنية الوجه والتعابير الطبيعية والأناقة عبر بيئات متنوعة.",
+      c5Num: "05", c5Title: "أنظمة حملات قابلة للتوسع", c5Desc: "منظومة بصرية متكاملة توفر تدرجاً لونياً متطابقاً وهوية بصرية موحدة عبر جميع المنصات."
+    },
+    capabilitiesTech: {
+      tag: "الدقة التقنية",
+      title: "مسار الإنتاج المدعوم بالذكاء الاصطناعي",
+      desc: "الجمع بين أدوات التوليد الحديثة والمعالجة المتقدمة وما بعد الإنتاج الاحترافي لتحقيق فخامة مطلقة.",
+      cap1Title: "مخرجات رئيسية فائقة الدقة", cap1Desc: "صور رئيسية فائقة الدقة مهيأة للشاشات الضخمة والمطبوعات الفاخرة والمتاجر الرقمية العالمية.", cap1Tag1: "مواصفات الإخراج", cap1Tag2: "تصل إلى 8K عند الطلب",
+      cap2Title: "تظليل متقدم للبشرة والخامات", cap2Desc: "تظليل بشرة متعدد الطبقات ونقاء دقيق في الملمس ونفاذية طبيعية لصور شخصيات رقمية واقعية.", cap2Tag1: "واقعية المظهر", cap2Tag2: "تظليل طبيعي عضوي",
+      cap3Title: "تحكم دقيق في الإضاءة والمواد", cap3Desc: "معالجة دقيقة للمعادن العاكسة والأحجار الكريمة والمواد الشفافة مع توجيه الإضاءة والانكسارات البصرية بدقة.", cap3Tag1: "دقة المواد", cap3Tag2: "انكسار ضوئي محكوم",
+      cap4Title: "نظام تثبيت هوية الشخصيات", cap4Desc: "اتساق تام لهندسة الملامح ونسب الوجه بالاعتماد على إحداثيات مرجعية عبر مشاهد متعددة دون تشوه.", cap4Tag1: "استمرارية الهوية", cap4Tag2: "اتساق مرجعي دقيق"
+    },
+    system: {
+      tag: "منهجية AI.VIENNE",
+      title: "بروتوكول الإنتاج المكون من خمس مراحل",
+      sub: "استكشاف · توجيه · إنتاج · تدقيق · تسليم",
+      s1Num: "01", s1Title: "استكشاف (DISCOVER)", s1Detail: "تحليل هوية العلامة التجارية، أهداف الحملة، عينات الأقمشة، والمتطلبات الإبداعية.",
+      s2Num: "02", s2Title: "توجيه (DIRECT)", s2Detail: "الإشراف الفني، هندسة الإضاءة، التأطير السينمائي، واللغة البصرية الموحدة.",
+      s3Num: "03", s3Title: "إنتاج (PRODUCE)", s3Detail: "توليد بصري بالذكاء الاصطناعي، محاكاة المواد، توجيه الضوء والترقية الدقيقة.",
+      s4Num: "04", s4Title: "تدقيق (REFINE)", s4Detail: "رتوش متقدمة، تحسين الخامات، ضبط الألوان، وبريق الأحجار مع مراقبة الجودة.",
+      s5Num: "05", s5Title: "تسليم (DELIVER)", s5Sub: "نشر النسخ الأصلية", s5Detail: "تسليم ملفات رئيسية جاهزة للمطبوعات والمتاجر الرقمية ومنصات الفيديو المختلفة."
+    },
+    studioSection: {
+      tag: "الدار الإبداعية",
+      title: "دار إنتاج بصري فاخر بالذكاء الاصطناعي",
+      desc: "AI.VIENNE Studio+ هي ممارسة إبداعية مستقلة تركز على تلاقي الإشراف الفني الفاخر والإنتاج بالذكاء الاصطناعي والحرفية الرقمية الحديثة.",
+      founderName: "E. AKTAŞ",
+      founderTitle: "المؤسس والمدير الإبداعي",
+      founderBio: "تأسست AI.VIENNE لاستكشاف كيف يمكن لتقنيات الإنتاج الناشئة بالذكاء الاصطناعي توسيع آفاق السرد البصري الفاخر دون التنازل عن الانضباط الجمالي والدقة المطلوبة من العلامات الراقية.",
+      spec1: "الإدارة الإبداعية",
+      spec2: "الأنظمة البصرية الفاخرة",
+      spec3: "الإنتاج بالذكاء الاصطناعي",
+      opsTitle: "البروتوكولات التشغيلية",
+      opsVal1: "استوديو مستقل · عمل عن بُعد عالمياً",
+      opsVal2: "بروتوكولات السرية (اتفاقية سرية متبادلة NDA)"
+    },
+    insights: {
+      tag: "أبحاث ورؤى استراتيجية",
+      title: "رؤى AI.VIENNE",
+      desc: "مقالات حول الذكاء الاصطناعي، واقتصاد الرفاهية، والإنتاج البصري، والحرفية الرقمية الحديثة.",
+      readMore: "قراءة المقال ←",
+      modalFooterNote: "أبحاث ودراسات AI.VIENNE",
+      modalCta: "طلب منظور كامل",
+      modalFaqBadge: "الاستفسارات المتداولة",
+
+      article1Tag: "الذكاء الاصطناعي في الأزياء الراقية",
+      article1Title: "اقتصاديات الأزياء الرقمية: ضغط دورات الحملة",
+      article1Desc: "كيف توظف دور الأزياء الفاخرة مسارات الإنتاج بالذكاء الاصطناعي لتسريع الحملات الموسمية دون المساس بهيبة العلامة.",
+      article1Author: "E. Aktaş",
+      article1Date: "أغسطس 2026",
+      article1ReadTime: "قراءة 6 دقائق",
+      article1Body1: "لطالما تم تقييد تقويم الأزياء الفاخرة تقليدياً بالسرعة المادية لتوريد المنسوجات، والنماذج الأولية للعينات، وجلسات التصوير الدولية للحملات. من خلال نشر مسارات التقديم العصبي المتقدمة، تتجاوز المنازل الرائدة الاختناقات المادية تماماً.",
+      article1Body2: "تسمح الأزياء العصبية للمديرين الفنيين بمحاكاة ديناميكيات الحرير السائل، ووزن المخمل الثقيل، وأعمال الخرز المعقدة بصرياً. يقلل هذا التحول الهيكلي من أوقات الإنتاج، ويزيل هدر العينات مع تعزيز مرونة الحملة العالمية.",
+      article1FaqQ: "كيف تقارن عينات الذكاء الاصطناعي بنماذج الأقمشة المادية؟",
+      article1FaqA: "تتيح عينات الذكاء الاصطناعي تكراراً سريعاً لزوايا الإضاءة، والثنيات، والتنسيق، مما يقلل الجداول الزمنية للاعتماد قبل إقفال النسخ الرئيسية عالية الدقة نهائياً.",
+
+      article2Tag: "الهوية الرقمية",
+      article2Title: "اتساق الشخصيات في حملات الذكاء الاصطناعي الفاخرة",
+      article2Desc: "فحص تقني لأنظمة الاحتفاظ بالهوية التي تمنع تشوه الملامح لسفراء العلامات التجارية الدائمين.",
+      article2Author: "هيئة تحرير AI.VIENNE",
+      article2Date: "أغسطس 2026",
+      article2ReadTime: "قراءة 8 دقائق",
+      article2Body1: "في السرد الفاخر، يجب أن تظل هوية العارض غير قابلة للتغيير بين المشاهد. غالباً ما تعاني الأدوات التوليدية العامة من الانحراف بين الإطارات مما يضر باتساق العلامة.",
+      article2Body2: "تستخدم AI.VIENNE تثبيت المعالم المكانية وتظليل البشرة متعدد الطبقات لضمان بقاء بنية الوجه والنسب والتعبيرات متطابقة عبر مختلف الإضاءات والعدسات.",
+      article2FaqQ: "هل يمكن استخدام الوجه الرقمي للعلامة عبر الحملات الموسمية المستقبلية؟",
+      article2FaqA: "نعم. من خلال أرشفة المعالم وتظليل البشرة، تظل هوية الشخصية ثابتة تماماً عبر كتيبات الإطلالات ومواقع التواصل وشاشات المتاجر العالمية.",
+
+      article3Tag: "الرندرة فائقة الدقة",
+      article3Title: "محاكاة المواد: انكسار الأحجار الكريمة والساعات",
+      article3Desc: "تحقيق بريق بصري فائق ومحكوم في التصوير الدقيق للمجوهرات والساعات الفاخرة.",
+      article3Author: "مختبر بصريات AI.VIENNE",
+      article3Date: "أغسطس 2026",
+      article3ReadTime: "قراءة 5 دقائق",
+      article3Body1: "ينطوي التصوير المقرب للمجوهرات على تحديات إضاءة بالغة. يمكن للانعكاسات غير المرغوبة أن تحجب النقاء الطبيعي للأحجار الكريمة وتشطيبات الحركات السويسرية.",
+      article3Body2: "يتيح مسارنا تحكماً كاملاً بالانعكاس والتشتت ونسيج الأسطح، مما يوفر أصولاً بصرية فائقة الدقة جاهزة للطباعة والمتاجر الرقمية.",
+      article3FaqQ: "كيف يتم التحكم في الانعكاسات الداخلية على بلورات الياقوت للساعات السويسرية؟",
+      article3FaqA: "نطبق مسارات بصرية متعددة الطبقات مانعة للانعكاس ممزوجة بإضاءة تباين دراماتيكي للكشف عن ميكانيكا الميناء بدقة متناهية."
+    },
+    portfolio: { 
+      tag: "أرشيف مفاهيم AI.VIENNE", 
+      title: "دراسات الحملات النظرية", 
+      desc: "استكشف دراسات الحملات المنسقة والمقاطع الرأسية التي توضح قدراتنا في الأزياء الراقية والمجوهرات والساعات الفاخرة.", 
+      filterAll: "جميع الأعمال", 
+      filter169: "دراسات عريضة 16:9", 
+      filter916: "دراسات طولية 9:16", 
+      playVideo: "معاينة الدراسة الفنية", 
+      requestScope: "طلب نطاق العمل", 
+      closePreview: "إغلاق المعاينة", 
+      disclaimer: "دراسة مفهوم فني مستقلة تم إنشاؤها بواسطة AI.VIENNE Studio+. ليست مفوضة من أو تابعة لأي علامة تجارية معروضة." 
+    },
+    transformation: { 
+      tag: "من المفهوم إلى النسخة الأصلية", 
+      title: "التطوير البصري والتحسين", 
+      desc: "شاهد كيف يتحول المفهوم الأولي إلى نسخة حملة نهائية متقنة عبر التوجيه والتوليد والمعالجة الدقيقة.", 
+      beforeLabel: "المفهوم البصري الأولي", 
+      afterLabel: "النسخة المتقنة النهائية", 
+      s1: "01 · التوجيه", s2: "02 · التوليد", s3: "03 · التحسين", s4: "04 · النسخة النهائية" 
+    },
+    estimator: { 
+      tag: "اقتصاديات الإنتاج", 
+      title: "معاينة نطاق الإنتاج", 
+      desc: "حدد معايير مشروعك لتقدير استثمار الإنتاج بناءً على المخرجات والكمية وأولويات الجدول الزمني.", 
+      deliverableType: "01 · نوع المخرجات", 
+      volumeLabel: "02 · حجم الأصول", 
+      complexityLabel: "03 · درجة التعقيد", 
+      timelineLabel: "04 · أولوية الجدول الزمني", 
+      optStill: "صور ثابتة (أصول فائقة الدقة)", 
+      optMotion: "فيديو متحرك (مقاطع سينمائية)", 
+      optChar: "شخصية رقمية (حزمة عارضين)", 
+      optFull: "حملة شاملة (صور + فيديو + عارض)", 
+      vol1: "أصل واحد", 
+      vol2: "5 أصول", 
+      vol3: "10 أصول", 
+      vol4: "25+ أصل", 
+      compStd: "تحسين قياسي", 
+      compPrem: "تفاصيل فائقة", 
+      compCamp: "معيار الحملات الكبرى", 
+      timeStd: "قياسي (7 – 10 أيام عمل)", 
+      timeExp: "تسليم سريع (3 – 5 أيام عمل)", 
+      rangeTitle: "نطاق الاستثمار التقديري", 
+      startingTier: "النطاق التقديري للاستثمار", 
+      disclaimer: "يتم تأكيد الاستثمار النهائي بعد مراجعة النطاق الإبداعي. تتوفر باقات مخصصة للحملات الموسمية الكبرى.", 
+      breakdownFactors: "عوامل النطاق: عدد الأصول · تعقيد الحركة · معالجة الخامات · جولات المراجعة", 
+      btnLock: "طلب عرض تقدير رسمي للمشروع" 
+    },
+    twinsSection: { 
+      tag: "الشخصيات الرقمية", 
+      title: "معرض الشخصيات الرقمية", 
+      desc: "وجوه رقمية مخصصة للعلامات التجارية تتميز بثبات الملامح، وبشرة طبيعية، وأسلوب فاخر خالد.", 
+      identityTitle: "نظام اتساق الشخصية", 
+      identityDesc: "مصمم للحفاظ على هندسة الوجه، والنسب الطبيعية، والحضور الجمالي المميز عبر مختلف البيئات.", 
+      useCasesTitle: "أين تحقق الشخصيات الرقمية أعلى قيمة؟", 
+      uc1: "استمرارية الحملات", uc1Desc: "الحفاظ على هوية بصرية مألوفة ومتسقة عبر كتيبات الإطلالات الموسمية.", 
+      uc2: "التجارة الإلكترونية", uc2Desc: "إنتاج صور عارضين متجانسة وعالية الجودة بشكل مستمر للمجموعات.", 
+      uc3: "محتوى التواصل", uc3Desc: "إنتاج أصول تحريرية دورية دون الحاجة لإعادة بناء هوية العارض في كل مرة.", 
+      uc4: "تنوعات عالمية", uc4Desc: "تكييف البيئات والأزياء وسياق الحملات الإقليمية مع الحفاظ على هندسة الوجه." 
+    },
+    briefSection: { tag: "المهندس الإبداعي", title: "مخطط موجز المشروع التفاعلي", desc: "حدد المعايير الجمالية لصياغة موجز بصري مخصص لمشروعك القادم.", s1: "1. هندسة الإضاءة", s2: "2. التخصص والقطاع", s3: "3. البيئة والأجواء", applyBtn: "إضافة إلى موجز المشروع", configLabel: "المعايير المحددة:" },
+    chatConsole: { title: "مكتب المشاريع", sub: "استشارات خاصة، تحديد النطاق، وطلبات اتفاقية عدم الإفصاح NDA", placeholder: "صف علامتك التجارية أو موعد الإطلاق أو أهدافك البصرية...", send: "إرسال الموجز", welcome: "مرحباً بك في مكتب مشاريع AI.VIENNE Studio+. يرجى توضيح نطاق مشروعك. يتم التعامل مع جميع الطلبات بسرية تجارية تامة." },
+    contact: { 
+      tag: "طلب مشروع", 
+      title: "ابدأ موجز مشروعك", 
+      desc: "شارك مع AI.VIENNE Studio+ لهندسة حملات فاخرة رقمية فائقة الدقة ومصممة وفق معايير علامتك التجارية.", 
+      namePlaceholder: "اسم المسؤول واسم العلامة التجارية *", 
+      emailPlaceholder: "البريد الإلكتروني للشركة *", 
+      websitePlaceholder: "الموقع الإلكتروني للشركة (مثال: brand.com)", 
+      datePlaceholder: "موعد الإطلاق المستهدف / الجدول الزمني", 
+      serviceLabel: "اختر تخصص الإنتاج", 
+      sOpt1: "الأزياء الراقية والحملات الموسمية", 
+      sOpt2: "الساعات الفاخرة وتجسيد المجوهرات الراقية", 
+      sOpt3: "سفراء العلامات التجارية الرقميون الدائمون", 
+      sOpt4: "أفلام الهوية والمتاجر الرئيسية", 
+      sOpt5: "حملات العطور الفاخرة ومستحضرات التجميل", 
+      sOpt6: "إنتاج النظارات والبصريات الفاخرة", 
+      sOpt7: "نطاق حملة مخصص متعدد القنوات", 
+      budgetLabel: "الميزانية التقديرية للإنتاج (بالدولار الأمريكي)", 
+      bOpt1: "نطاق البدء: يبدأ من 5,000 دولار", 
+      bOpt2: "باقة الحملة الموسمية: 5,000 – 15,000 دولار", 
+      bOpt3: "منظومة الفيديو والشخصيات الكاملة: 15,000 – 35,000+ دولار", 
+      bOpt4: "إنتاج مخصص / يُحدد حسب المتطلبات", 
+      ndaLabel: "طلب اتفاقية سرية متبادلة (NDA) قبل مشاركة أي ملفات أو مواد", 
+      uploadTitle: "رفع الملفات المرجعية (الحد الأقصى 25 ميجابايت)", 
+      uploadHint: "اسحب وأفلت الملفات المرجعية (PNG, JPG, PDF, ZIP). لملفات الفيديو الأكبر حجماً، يرجى إدراج رابط Frame.io أو Google Drive أو WeTransfer في رسالتك أدناه.", 
+      messagePlaceholder: "وضح أهداف حملتك، ومخرجاتك، والجدول الزمني، وتوقعاتك الجمالية (أرفق روابط الفيديو السحابية هنا إذا لزم الأمر)...", 
+      submitBtn: "إرسال الموجز السري", 
+      directEmail: "مكتب المشاريع:", 
+      nextStepsTitle: "الخطوات التالية", 
+      ns1Title: "01 · المراجعة", ns1Desc: "ندرس موجزك وتوجهك الجمالي والمواد المرجعية بعناية فائقة.", 
+      ns2Title: "02 · تحديد النطاق", ns2Desc: "نحدد بدقة المخرجات ومواعيد التسليم ومتطلبات الإنتاج.", 
+      ns3Title: "03 · المقترح", ns3Desc: "تتلقى عرض نطاق عمل مخصصاً ومقترح استثمار بموجب اتفاقية سرية.", 
+      ns4Title: "04 · الإنتاج", ns4Desc: "يبدأ الإشراف الفني والإنتاج البصري بمجرد التوقيع والموافقة المشتركة." 
+    },
+    footerSection: { navTitle: "01 / التنقل", dirTitle: "02 / الدليل", netTitle: "03 / الشبكات", studio: "استوديونا", works: "الأعمال", initiate: "بدء مشروع", location: "استوديو مستقل · عمل عن بُعد عالمياً", terms: "شروط التعاقد والإنتاج", privacy: "بروتوكول السرية وحماية البيانات" },
+    modals: {
+      termsTitle: "شروط التعاقد ومعايير الإنتاج",
+      termsP1Title: "1. الملكية الفكرية وحقوق الاستخدام",
+      termsP1Body: "عند سداد كامل مستحقات الإنتاج، تنتقل ملكية جميع الأصول البصرية وملفات الحركة والأصول الرقمية حصرياً إلى العميل دون أي مطالبات برسوم إضافية.",
+      termsP2Title: "2. السرية قبل الإصدار واتفاقية NDA",
+      termsP2Body: "تتم حماية كافة الموجزات ولوحات المزاج والرسومات غير المنشورة بموجب اتفاقية عدم إفصاح متبادلة NDA، ويتم الإنتاج في بيئات حوسبة معزولة وآمنة تماماً.",
+      termsP3Title: "3. معايرة الألوان والمراجعات",
+      termsP3Body: "تتضمن التكليفات جولات مراجعة منظمة لضبط توازن الألوان ومحاكاة المواد لضمان التطابق التام مع الموجز المعتمد.",
+      termsP4Title: "4. معايير الدقة الرئيسية",
+      termsP4Body: "يتم تسليم المواد بدقة أصلية فائقة (تصل إلى 8K للصور الثابتة) وملفات فيديو عالية الإطارات غير مضغوطة وفق أعلى المعايير العالمية.",
+      privacyTitle: "بروتوكول السرية وحماية البيانات",
+      privacyP1Title: "1. نزاهة البيانات المؤسسية",
+      privacyP1Body: "تجمع AI.VIENNE وتطرد الحد الأدنى من المعلومات المؤسسية اللازمة حصراً للمراسلات وصياغة عروض المشاريع وفق المعايير الدولية.",
+      privacyP2Title: "2. عدم تدريب نماذج الذكاء الاصطناعي العامة",
+      privacyP2Body: "لا يتم مطلقاً إرسال أصول العميل أو مسوداته أو هويات علامته التجارية لتدريب نماذج الذكاء الاصطناعي التوليدية العامة.",
+      privacyP3Title: "3. التشفير والحق في إتلاف البيانات",
+      privacyP3Body: "تُحفظ كافة ملفات المشروع في وحدات تخزين مشفرة مع إمكانية طلب الإتلاف النهائي لجميع الملفات بعد اكتمال المشروع.",
+      privacyP4Title: "4. حفظ الملفات الآمن وتقييد الوصول",
+      privacyP4Body: "جميع الملفات المرفوعة معزولة تماماً في أقراص مشفرة ولا تتم مشاركتها نهائياً مع أي شبكات أو أطراف ثالثة."
+    },
+    footer: `© ${new Date().getFullYear()} AI.VIENNE Studio+. جميع الحقوق محفوظة.`
   }
 };
 
 const LANGUAGES = [
   { code: "EN", name: "English", dir: "ltr", flag: "https://flagcdn.com/w40/gb.png" },
-  { code: "TR", name: "Türkçe", dir: "ltr", flag: "https://flagcdn.com/w40/tr.png" }
+  { code: "TR", name: "Türkçe", dir: "ltr", flag: "https://flagcdn.com/w40/tr.png" },
+  { code: "AR", name: "العربية", dir: "rtl", flag: "https://flagcdn.com/w40/ae.png" }
 ];
 
 interface CaseStudyItem {
@@ -541,18 +820,6 @@ interface CaseStudyItem {
   materialStudy: string;
   deliverables: string;
   productionNotes: string;
-}
-
-interface ArticleItem {
-  tag: string;
-  title: string;
-  author: string;
-  date: string;
-  readTime: string;
-  body1: string;
-  body2: string;
-  faqQ1?: string;
-  faqA1?: string;
 }
 
 const PORTFOLIO_ITEMS: CaseStudyItem[] = [
@@ -757,7 +1024,8 @@ export default function ClientHome() {
   const [sliderPos, setSliderPos] = useState<number>(50);
   const [mousePos, setMousePos] = useState({ x: -100, y: -100 });
   
-  const [activeArticle, setActiveArticle] = useState<ArticleItem | null>(null);
+  // Dilediğinde dinamik çevrilmesi için article key tutuluyor
+  const [activeArticleKey, setActiveArticleKey] = useState<"article1" | "article2" | "article3" | null>(null);
   const [activeCaseStudy, setActiveCaseStudy] = useState<CaseStudyItem | null>(null);
 
   const [isVideoMuted, setIsVideoMuted] = useState<boolean>(true);
@@ -823,7 +1091,7 @@ export default function ClientHome() {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setActiveCaseStudy(null);
-        setActiveArticle(null);
+        setActiveArticleKey(null);
         setIsDeskOpen(false);
       }
     };
@@ -1097,13 +1365,14 @@ export default function ClientHome() {
         )}
       </AnimatePresence>
 
+      {/* Makale Detay Modalı (Dinamik ve Çok Dilli) */}
       <AnimatePresence>
-        {activeArticle && (
+        {activeArticleKey && (
           <motion.div 
             initial={{ opacity: 0 }} 
             animate={{ opacity: 1 }} 
             exit={{ opacity: 0 }} 
-            onClick={() => setActiveArticle(null)} 
+            onClick={() => setActiveArticleKey(null)} 
             className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex items-center justify-center p-4"
           >
             <motion.div 
@@ -1111,51 +1380,53 @@ export default function ClientHome() {
               animate={{ scale: 1 }} 
               exit={{ scale: 0.95 }} 
               onClick={(e) => e.stopPropagation()} 
-              className="relative w-full max-w-3xl bg-neutral-900 border border-amber-500/30 rounded-3xl p-6 md:p-10 shadow-2xl text-left max-h-[85vh] overflow-y-auto"
+              className="relative w-full max-w-3xl bg-neutral-900 border border-amber-500/30 rounded-3xl p-6 md:p-10 shadow-2xl text-start max-h-[85vh] overflow-y-auto"
             >
-              <button type="button" onClick={() => setActiveArticle(null)} aria-label="Close Article" className="absolute top-6 right-6 text-neutral-400 hover:text-white cursor-pointer"><X className="w-6 h-6" /></button>
+              <button type="button" onClick={() => setActiveArticleKey(null)} aria-label="Close Article" className="absolute top-6 end-6 text-neutral-400 hover:text-white cursor-pointer"><X className="w-6 h-6" /></button>
               
               <div className="flex flex-wrap items-center gap-3 mb-4">
                 <span className="text-[10px] font-extrabold tracking-widest text-amber-300 bg-amber-400/10 border border-amber-400/30 px-3.5 py-1 rounded-full uppercase">
-                  {activeArticle.tag}
+                  {t.insights?.[`${activeArticleKey}Tag`]}
                 </span>
                 <span className="text-xs font-mono text-neutral-400 flex items-center gap-1.5">
-                  <User className="w-3.5 h-3.5 text-amber-400" /> {activeArticle.author}
+                  <User className="w-3.5 h-3.5 text-amber-400" /> {t.insights?.[`${activeArticleKey}Author`]}
                 </span>
                 <span className="text-xs font-mono text-neutral-400 flex items-center gap-1.5">
-                  <Calendar className="w-3.5 h-3.5 text-amber-400" /> {activeArticle.date}
+                  <Calendar className="w-3.5 h-3.5 text-amber-400" /> {t.insights?.[`${activeArticleKey}Date`]}
                 </span>
                 <span className="text-xs font-mono text-neutral-400 flex items-center gap-1.5">
-                  <BookOpen className="w-3.5 h-3.5 text-amber-400" /> {activeArticle.readTime}
+                  <BookOpen className="w-3.5 h-3.5 text-amber-400" /> {t.insights?.[`${activeArticleKey}ReadTime`]}
                 </span>
               </div>
               
               <h3 className="text-2xl md:text-3xl font-extrabold text-neutral-100 mb-6 leading-snug">
-                {activeArticle.title}
+                {t.insights?.[`${activeArticleKey}Title`]}
               </h3>
               
               <div className="space-y-4 text-xs md:text-sm text-neutral-300 leading-relaxed border-t border-neutral-800 pt-6 font-light">
-                <p>{activeArticle.body1}</p>
-                <p>{activeArticle.body2}</p>
+                <p>{t.insights?.[`${activeArticleKey}Body1`]}</p>
+                <p>{t.insights?.[`${activeArticleKey}Body2`]}</p>
               </div>
 
-              {activeArticle.faqQ1 && (
+              {t.insights?.[`${activeArticleKey}FaqQ`] && (
                 <div className="mt-8 p-5 rounded-2xl bg-neutral-950 border border-neutral-800 text-xs">
-                  <span className="text-[10px] font-bold text-amber-400 uppercase tracking-widest block mb-1">Frequently Asked Inquiry</span>
-                  <p className="font-bold text-neutral-200 mb-1">{activeArticle.faqQ1}</p>
-                  <p className="text-neutral-400 font-light leading-relaxed">{activeArticle.faqA1}</p>
+                  <span className="text-[10px] font-bold text-amber-400 uppercase tracking-widest block mb-1">
+                    {t.insights?.modalFaqBadge}
+                  </span>
+                  <p className="font-bold text-neutral-200 mb-1">{t.insights?.[`${activeArticleKey}FaqQ`]}</p>
+                  <p className="text-neutral-400 font-light leading-relaxed">{t.insights?.[`${activeArticleKey}FaqA`]}</p>
                 </div>
               )}
 
               <div className="mt-8 pt-6 border-t border-neutral-800/80 flex items-center justify-between">
-                <span className="text-xs font-mono text-neutral-400">AI.VIENNE Research & Monograph</span>
+                <span className="text-xs font-mono text-neutral-400">{t.insights?.modalFooterNote}</span>
                 <button 
                   type="button" 
-                  onClick={() => { setActiveArticle(null); document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }); }} 
+                  onClick={() => { setActiveArticleKey(null); document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }); }} 
                   className="px-6 py-2.5 rounded-full bg-amber-400 text-neutral-950 font-bold text-xs uppercase tracking-wider hover:bg-amber-300 transition-all flex items-center gap-2 cursor-pointer"
                 >
-                  <span>Request Full Perspective</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <span>{t.insights?.modalCta}</span>
+                  <ArrowRight className="w-3.5 h-3.5 rtl:-scale-x-100" />
                 </button>
               </div>
             </motion.div>
@@ -1591,7 +1862,7 @@ export default function ClientHome() {
                           <source src={item.videoUrl} type="video/mp4" />
                         </video>
                       ) : (
-                        <div className="relative w-full h-full">
+                        <div className="relative w-full h-full min-h-[160px]">
                           <Image src={item.poster} alt={item.title} fill loading="lazy" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw" className="object-contain bg-black group-hover:scale-105 transition-transform duration-500 ease-out" />
                         </div>
                       )}
@@ -1640,7 +1911,7 @@ export default function ClientHome() {
                           <source src={item.videoUrl} type="video/mp4" />
                         </video>
                       ) : (
-                        <div className="relative w-full h-full">
+                        <div className="relative w-full h-full min-h-[240px]">
                           <Image src={item.poster} alt={item.title} fill loading="lazy" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw" className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out" />
                         </div>
                       )}
@@ -1819,7 +2090,7 @@ export default function ClientHome() {
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-1000 ease-out opacity-90"
                   >
                     <source src={selectedTwin.video} type="video/mp4" />
-                    <div className="relative w-full h-full">
+                    <div className="relative w-full h-full min-h-[256px]">
                       <Image src={selectedTwin.poster} alt={selectedTwin.name} fill priority sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
                     </div>
                   </video>
@@ -2281,17 +2552,7 @@ export default function ClientHome() {
               </div>
               <button 
                 type="button" 
-                onClick={() => setActiveArticle({
-                  tag: t.insights?.article1Tag,
-                  title: t.insights?.article1Title,
-                  author: "E. Aktaş",
-                  date: "August 2026",
-                  readTime: "6 Min Read",
-                  body1: t.insights?.article1Body1,
-                  body2: t.insights?.article1Body2,
-                  faqQ1: "How does AI sampling compare to physical fabric prototypes?",
-                  faqA1: "AI sampling allows rapid iteration of lighting, draping, and styling angles, compressing approval timelines before final high-resolution masters are locked."
-                })}
+                onClick={() => setActiveArticleKey("article1")}
                 className="inline-flex items-center gap-2 text-xs font-bold text-amber-400 hover:text-amber-300 uppercase tracking-wider cursor-pointer text-left"
               >
                 <span>{t.insights?.readMore}</span>
@@ -2307,17 +2568,7 @@ export default function ClientHome() {
               </div>
               <button 
                 type="button" 
-                onClick={() => setActiveArticle({
-                  tag: t.insights?.article2Tag,
-                  title: t.insights?.article2Title,
-                  author: "AI.VIENNE Editorial",
-                  date: "August 2026",
-                  readTime: "8 Min Read",
-                  body1: t.insights?.article2Body1,
-                  body2: t.insights?.article2Body2,
-                  faqQ1: "Can a digital brand face be deployed across future seasonal campaigns?",
-                  faqA1: "Yes. By archiving model landmark configurations and skin shaders, character identity remains consistent across lookbooks, social, and global retail media."
-                })}
+                onClick={() => setActiveArticleKey("article2")}
                 className="inline-flex items-center gap-2 text-xs font-bold text-amber-400 hover:text-amber-300 uppercase tracking-wider cursor-pointer text-left"
               >
                 <span>{t.insights?.readMore}</span>
@@ -2333,17 +2584,7 @@ export default function ClientHome() {
               </div>
               <button 
                 type="button" 
-                onClick={() => setActiveArticle({
-                  tag: t.insights?.article3Tag,
-                  title: t.insights?.article3Title,
-                  author: "AI.VIENNE Optics Lab",
-                  date: "August 2026",
-                  readTime: "5 Min Read",
-                  body1: t.insights?.article3Body1,
-                  body2: t.insights?.article3Body2,
-                  faqQ1: "How are internal reflections controlled on Swiss watch sapphire crystals?",
-                  faqA1: "We apply multi-layered anti-reflective optical passes combined with high-contrast chiaroscuro lighting to reveal dial mechanics clearly."
-                })}
+                onClick={() => setActiveArticleKey("article3")}
                 className="inline-flex items-center gap-2 text-xs font-bold text-amber-400 hover:text-amber-300 uppercase tracking-wider cursor-pointer text-left"
               >
                 <span>{t.insights?.readMore}</span>
