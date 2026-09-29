@@ -728,6 +728,9 @@ export default function Home() {
 
   return (
     <main dir={selectedLang.dir} className={`min-h-screen w-full max-w-full overflow-x-hidden bg-neutral-950 text-neutral-100 selection:bg-amber-500/20 selection:text-amber-200 relative pt-16 sm:pt-24 ${isRTL ? "font-serif" : ""}`}>
+      {/* Akışkan Lüks Arka Plan Işık Efekti */}
+      <div className="luxury-ambient-bg" />
+
       <div className="fixed pointer-events-none z-50 w-8 h-8 rounded-full border border-amber-400/80 -translate-x-1/2 -translate-y-1/2 transition-transform duration-75 hidden md:block" style={{ left: `${mousePos.x}px`, top: `${mousePos.y}px` }} />
       <div className="fixed pointer-events-none z-50 w-1.5 h-1.5 rounded-full bg-amber-400 -translate-x-1/2 -translate-y-1/2 hidden md:block" style={{ left: `${mousePos.x}px`, top: `${mousePos.y}px` }} />
 
@@ -2691,7 +2694,7 @@ export default function Home() {
                 <li><a href="#transformation" className="hover:opacity-75 block">{t.nav?.transformation}</a></li>
                 <li><a href="#estimator" className="hover:opacity-75 block">{t.nav?.roi}</a></li>
                 <li><a href="#insights" className="hover:opacity-75 block">{t.nav?.journal}</a></li>
-                <li><a href="#faq" className="hover:opacity-75 block">FAQ</a></li>
+                <li><a href="#faq" className="hover:opacity-75 block">{t.nav?.faq}</a></li>
                 <li><a href="#contact" className="hover:opacity-75 block">{t.footerSection?.initiate}</a></li>
               </ul>
             </div>
